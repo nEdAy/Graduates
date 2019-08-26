@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingRight="15dp"
+    android:background="@color/kt_theme_listitem_background">
+
+    <ImageView
+        android:layout_width="@dimen/kt_avatar_width"
+        android:layout_height="@dimen/kt_avatar_width"
+        android:src="@drawable/kt_customer_support"
+        android:layout_gravity="center_vertical|start" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|start"
+        android:text="@string/kt_support"
+        android:layout_marginStart="60dp"
+        style="@style/kryptanium_primary_text"
+        android:textStyle="bold"
+        android:layout_marginLeft="60dp" />
+
+    <ViewStub
+        android:id="@id/kt_newmsg"
+        android:layout_width="@dimen/kryptanium_new_msg_size"
+        android:layout_height="@dimen/kryptanium_new_msg_size"
+        android:layout_gravity="center_vertical|end" />
+
+</FrameLayout>

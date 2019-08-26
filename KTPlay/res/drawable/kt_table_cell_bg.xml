@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!--<inset xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:insetTop="-1dp"-->
+<!--android:insetLeft="-1dp"-->
+<!--&gt;-->
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:width="@dimen/kt_table_border_width"
+        android:color="@color/kt_theme_listitem_dividercolor" />
+    <solid android:color="#00000000" />
+</shape><!--</inset>-->

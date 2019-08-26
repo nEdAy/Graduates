@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_footerview_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="center"
+    android:background="@color/kt_theme_section_background"
+    android:minHeight="40dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/kt_common_text"
+        style="@style/kryptanium_primary_text_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/kt_see_all"
+        android:textColor="@color/kt_theme_color" />
+
+</LinearLayout>

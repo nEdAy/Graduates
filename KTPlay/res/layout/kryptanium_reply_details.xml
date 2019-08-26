@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/kt_sub_reply_listview"
+            android:id="@+id/kt_common_listview"
             style="@style/kryptanium_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,8 +19,8 @@
             android:dividerHeight="0dp" />
     </com.ktplay.widget.PullRefreshView>
 
-    <ViewFlipper
-        android:id="@+id/kt_input_container"
+    <com.ktplay.widget.KTViewFlipper
+        android:id="@+id/kt_common_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

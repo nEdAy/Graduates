@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 我发布的文本消息 -->
+<com.ktplay.widget.KTEmojiText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="30dp"
+    android:textColor="@color/kt_theme_primary_textcolor_dark"
+    android:textSize="@dimen/kryptanium_text_size_standard"
+    android:paddingBottom="5dp"
+    android:paddingEnd="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingTop="5dp"
+    android:background="@drawable/kryptanium_chat_sentmessage_bg" />

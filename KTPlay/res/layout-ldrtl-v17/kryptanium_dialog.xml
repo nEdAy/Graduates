@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/kryptanium_popup_bg"
+            android:orientation="vertical"
+            android:paddingBottom="48dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="24dp">
+
+            <!-- title -->
+            <TextView
+                android:id="@id/kt_common_iv_1"
+                style="@style/kryptanium_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp" />
+
+            <!-- message -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp">
+
+                <com.ktplay.widget.KTLinkableTextView
+                    android:id="@id/kt_common_iv_2"
+                    style="@style/kryptanium_secondary_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    android:scrollbars="none" />
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@id/kryptanium_dialog_contentview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="bottom|end"
+            android:gravity="center|end|right"
+            android:minHeight="48dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <!-- negative button -->
+
+            <TextView
+                android:id="@id/kt_common_iv_3"
+                style="@style/kryptanium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|right"
+                android:minWidth="64dp"
+                android:paddingLeft="@dimen/kt_content_padding"
+                android:paddingRight="@dimen/kt_content_padding"
+                android:textColor="@color/kt_theme_color"
+                android:visibility="gone" />
+
+            <!-- positive button -->
+
+            <TextView
+                android:id="@id/kt_common_click_button"
+                style="@style/kryptanium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|right"
+                android:minWidth="64dp"
+                android:paddingLeft="@dimen/kt_content_padding"
+                android:paddingRight="@dimen/kt_content_padding"
+                android:textColor="@color/kt_theme_color"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

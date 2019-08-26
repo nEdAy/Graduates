@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_newmsg"
+    android:layout_width="@dimen/kt_newmsg_number_size"
+    android:layout_height="@dimen/kt_newmsg_number_size"
+    android:background="@drawable/kryptanium_new_msg"
+    android:textSize="10sp"
+    android:textColor="@color/kryptanium_text_white"
+    android:gravity="center" />

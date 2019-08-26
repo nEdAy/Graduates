@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_item"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/kryptanium_section_bg_with_padding"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/kt_common_vg_1"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/kt_card_hpadding"
+        android:paddingRight="@dimen/kt_card_hpadding"
+        android:paddingTop="@dimen/kt_card_vpadding">
+
+        <!--<include layout="@layout/kt_content_header" />-->
+        <!--摘要标题 图标、精华、标题-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <ViewStub
+                android:id="@id/kt_stub"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="@dimen/kt_content_padding"
+                android:layout="@layout/kt_topic_brief_icon" />
+
+            <com.ktplay.widget.KTEmojiText
+                android:id="@+id/kt_item_title"
+                style="@style/kryptanium_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:lines="1"
+                android:textColor="@color/kt_theme_title_textcolor" />
+        </LinearLayout>
+
+        <!-- 话题内容 -->
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@+id/kt_item_content"
+            style="@style/kryptanium_secondary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lines="1" />
+
+        <!--摘要第二列-->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:paddingBottom="4dp">
+            <!-- 内容创建时间 -->
+            <TextView
+                android:id="@+id/kt_item_time"
+                style="@style/kryptanium_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:textSize="12sp" />
+            <!-- 内容作者名称 -->
+            <TextView
+                android:id="@+id/kt_common_iv_1"
+                style="@style/kryptanium_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_toEndOf="@id/kt_item_time"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/kt_common_vg_1"
+        style="@style/kt_align_parent_end"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/kt_item_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+
+        <!-- 中间的播放按钮 -->
+        <ImageView
+            android:id="@+id/kt_view_in_top"
+            android:layout_width="@dimen/kt_avatar_width_small"
+            android:layout_height="@dimen/kt_avatar_height_small"
+            android:layout_gravity="center"
+            android:background="@drawable/kryptanium_video_play_button"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/kt_common_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#64000000"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="2dp"
+            android:textColor="@color/kt_theme_primary_textcolor_dark"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Nickname -->
+    <com.ktplay.widget.KTEmojiText
+        android:id="@id/kt_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        style="@style/kryptanium_hint_text" />
+    <!-- 回复内容 -->
+    <com.ktplay.widget.KTEmojiText
+        android:id="@id/kt_item_content"
+        style="@style/kryptanium_primary_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</merge>

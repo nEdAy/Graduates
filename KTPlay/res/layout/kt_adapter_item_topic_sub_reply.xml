@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><!-- 列表项 - 话题二级回复 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/kryptanium_list_item"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_item"
+    style="@style/kryptanium_list_item_with_verticalpadding"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingLeft="@dimen/kt_reply_padding">
+    android:paddingLeft="@dimen/kt_card_hpadding"
+    android:paddingStart="@dimen/kt_card_hpadding">
 
     <!-- 用户头像 -->
 
@@ -13,21 +15,53 @@
         layout="@layout/kt_item_avatar"
         android:layout_width="@dimen/kryptanium_user_head_image_width_height"
         android:layout_height="@dimen/kryptanium_user_head_image_width_height"
-        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="false"
+        android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp" />
+
+    <!-- 菜单按钮(More) -->
+    <ImageView
+        android:id="@id/kt_item_menu"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        style="@style/kt_align_parent_end"
+        android:background="@drawable/kt_touch_feedback_bg"
+        android:padding="9dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/kryptanium_more" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/kt_item_avatar"
+        android:layout_toEndOf="@+id/kt_item_avatar"
+        android:layout_toLeftOf="@id/kt_item_menu"
+        android:layout_toStartOf="@id/kt_item_menu"
+        android:layout_gravity="center_vertical"
         android:orientation="vertical">
 
-        <!-- 回复内容 -->
+        <include layout="@layout/kt_sub_reply_content" />
 
-        <com.ktplay.widget.KTEmojiText
-            android:id="@id/kt_item_content"
-            style="@style/kryptanium_primary_text"
+        <!--&lt;!&ndash; Nickname &ndash;&gt;-->
+        <!--<com.ktplay.widget.KTEmojiText android:id="@id/kt_item_title"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="14sp"-->
+        <!--style="@style/kryptanium_hint_text"-->
+        <!--/>-->
+        <!--&lt;!&ndash; 回复内容 &ndash;&gt;-->
+        <!--<com.ktplay.widget.KTEmojiText-->
+        <!--android:id="@id/kt_item_content"-->
+        <!--style="@style/kryptanium_primary_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <ViewStub
+            android:id="@id/kt_translation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout="@layout/kt_translation" />
+
         <!-- 时间 -->
 
         <TextView
@@ -36,4 +70,4 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

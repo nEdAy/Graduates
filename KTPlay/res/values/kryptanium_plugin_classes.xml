@@ -20,6 +20,6 @@
         <item>com.kryptanium.plugin.sns.googleplus.KTPluginGooglePlus</item>
         <item>com.kryptanium.plugin.video.qiniu.KTPluginQiniu</item>
         <item>com.kryptanium.plugin.promotion.admob.KTPluginAdMob</item>
-        <!--<item>com.kryptanium.plugin.promotion.adview.KTPluginAdView</item>-->
+        <!--<item>com.ktplay.plugin.promotion.adview.KTPluginAdView</item>-->
     </string-array>
 </resources>

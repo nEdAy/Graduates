@@ -96,7 +96,6 @@ public class CustomApplication extends Application {
             initMusic(id);
             if (!mMediaPlayer.isPlaying()) {
                 mMediaPlayer.start();
-                mMediaPlayer.
             }
         }
     }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 手机号注册界面 -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 内容区 -->
+
+    <LinearLayout
+        android:layout_width="@dimen/kryptanium_login_content_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/kt_common_iv_2"
+            style="@style/kryptanium_primary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kt_common_iv_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="@string/kt_realname_verify_phone" />
+
+        <!-- 国家代码 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/kt_common_iv_3"
+                style="@style/kryptanium_edittext"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:textColor="@color/kt_theme_color" />
+
+            <!-- 手机号 -->
+
+            <com.ktplay.widget.KTClearableEditText
+                android:id="@+id/kt_common_view_4"
+                style="@style/kryptanium_edittext"
+                android:layout_width="fill_parent"
+                android:layout_alignTop="@+id/kt_common_iv_3"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/kt_common_iv_3"
+                android:layout_toEndOf="@+id/kt_common_iv_3"
+                android:hint="@string/kt_phone_number"
+                android:inputType="phone" />
+        </LinearLayout>
+
+        <!-- 获取验证码 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/kt_common_view_6"
+                style="@style/kryptanium_button_style_main"
+                android:layout_width="100dp"
+                android:layout_below="@+id/kt_common_view_5"
+                android:layout_gravity="center_vertical"
+                android:text="@string/kt_get_verification_code" />
+
+            <!-- 验证码 -->
+
+            <com.ktplay.widget.KTClearableEditText
+                android:id="@+id/kt_edit"
+                style="@style/kryptanium_edittext"
+                android:layout_width="fill_parent"
+                android:layout_alignTop="@+id/kt_common_view_6"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/kt_common_view_6"
+                android:layout_toEndOf="@+id/kt_common_view_6"
+                android:hint="@string/kt_verification_code"
+                android:inputType="number" />
+        </LinearLayout>
+
+
+        <!-- 注册按钮 -->
+
+        <TextView
+            android:id="@+id/kt_action"
+            style="@style/kryptanium_button_style_main"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/kt_common_view_6"
+            android:layout_marginTop="8dp"
+            android:text="@string/kt_confirm" />
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/kryptanium_hint_text"
+            android:text="@string/kt_realname_verify_legal" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,204 @@
+{
+  "collection": [
+    {
+      "rule": "required",
+      "key": "collection_id"
+    }
+  ],
+  "topic/creation": [
+    {
+      "rule": "optional",
+      "key": "category_id"
+    },
+    {
+      "rule": "optional",
+      "key": "title"
+    },
+    {
+      "rule": "optional",
+      "key": "text"
+    },
+    {
+      "rule": "optional",
+      "key": "image_path"
+    },
+    {
+      "rule": "optional",
+      "key": "video_path"
+    },
+    {
+      "rule": "optional",
+      "key": "action"
+    }
+  ],
+  "reply/creation": [
+    {
+      "rule": "required",
+      "key": "topic_id"
+    },
+    {
+      "rule": "optional",
+      "key": "content"
+    },
+    {
+      "rule": "optional",
+      "key": "image_path"
+    }
+  ],
+  "reply/report": [
+    {
+      "rule": "required",
+      "key": "reply_id"
+    }
+  ],
+  "topics/search/result": [
+    {
+      "rule": "required",
+      "key": "keyword"
+    }
+  ],
+  "user/search/result": [
+    {
+      "rule": "required",
+      "key": "keyword"
+    }
+  ],
+  "topic": [
+    {
+      "rule": "required",
+      "key": "topic_id"
+    }
+  ],
+  "chat/message": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/profile": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "topics/category": [
+    {
+      "rule": "optional",
+      "key": "category_id"
+    }
+  ],
+  "user/likes/received": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/topics": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/replies": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/following": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/followers": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/favorite": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "user/report": [
+    {
+      "rule": "or",
+      "key": "game_user_id,user_id"
+    }
+  ],
+  "topic/report": [
+    {
+      "rule": "required",
+      "key": "topic_id"
+    }
+  ],
+  "topic/video/play": [
+    {
+      "rule": "required",
+      "key": "topic_id"
+    }
+  ],
+  "leaderboard": [
+    {
+      "rule": "required",
+      "key": "leaderboard_id"
+    }
+  ],
+  "promotion": [
+    {
+      "rule": "required",
+      "key": "placement_id"
+    }
+  ],
+  "net/proxy": [
+    {
+      "rule": "required",
+      "key": "replace_url"
+    },
+    {
+      "rule": "optional",
+      "key": "host"
+    },
+    {
+      "rule": "required",
+      "key": "path"
+    },
+    {
+      "rule": "optional",
+      "key": "params"
+    }
+  ],
+  "faq/search/result": [
+    {
+      "rule": "required",
+      "key": "keyword"
+    }
+  ],
+  "faq": [
+    {
+      "rule": "required",
+      "key": "content_id"
+    }
+  ],
+  "faq/section": [
+    {
+      "rule": "required",
+      "key": "content_id"
+    }
+  ],
+  "reply": [
+    {
+      "rule": "required",
+      "key": "reply_id"
+    }
+  ],
+  "secondary_reply": [
+    {
+      "rule": "required",
+      "key": "secondary_reply_id"
+    }
+  ]
+}

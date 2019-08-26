@@ -3,21 +3,18 @@
 <!-- 首页 -->
 <com.ktplay.widget.PullRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/kryptanium_pull_refresh_viewgroup"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <com.ktplay.widget.KTScrollView
-        android:id="@+id/kryptanium_hot_page_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:scrollbars="none">
 
         <LinearLayout
-            android:id="@+id/kryptanium_hot_page_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/kryptanium_home_top_layout_marginBottom"
-            android:layout_marginTop="0dp"
+            android:id="@+id/kt_common_inner_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
 
             <!-- line1 -->
@@ -29,5 +26,5 @@
             <!-- line3 -->
 
         </LinearLayout>
-    </com.ktplay.widget.KTScrollView>
+    </ScrollView>
 </com.ktplay.widget.PullRefreshView>

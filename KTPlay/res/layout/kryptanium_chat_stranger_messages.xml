@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@drawable/kryptanium_listview_item_bg">
+
+    <View style="@style/kryptanium_seperate_line" />
+
+    <ImageView
+        android:id="@id/kt_item_avatar"
+        android:layout_width="@dimen/kt_avatar_width"
+        android:layout_height="@dimen/kt_avatar_height"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/kt_chat_stranger_icon" />
+
+
+    <RelativeLayout
+        android:id="@+id/kt_common_viewgroup_right"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        style="@style/kt_align_parent_end"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/kt_common_count"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/kryptanium_text_white"
+            android:layout_gravity="center_vertical|end"
+            android:textSize="10sp"
+            android:padding="1dp"
+            android:textStyle="bold" />
+        <!--<ImageView-->
+        <!--android:id="@+id/kryptanium_chat_list_stranger_count_more"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="16dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@drawable/kryptanium_new_msg_img"-->
+        <!--android:contentDescription="@null"-->
+        <!--android:gravity="center" />-->
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/kt_item_avatar"
+        android:layout_toEndOf="@id/kt_item_avatar"
+        android:layout_toLeftOf="@+id/kt_common_viewgroup_right"
+        android:layout_toStartOf="@+id/kt_common_viewgroup_right">
+
+        <TextView
+            android:id="@+id/kt_item_sub_title"
+            style="@style/kryptanium_primary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:text="@string/kt_say_hello" />
+
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@+id/kt_item_content"
+            style="@style/kryptanium_secondary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kt_item_sub_title"
+            android:lines="1" />
+    </RelativeLayout>
+
+</RelativeLayout>

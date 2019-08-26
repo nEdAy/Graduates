@@ -1,4 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="kryptanium_textview_2_button">
         <item name="android:gravity">center</item>
@@ -33,6 +33,20 @@
         <item name="android:textSize">@dimen/kryptanium_fontsize_large</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/kryptanium_button_bg</item>
+        <item name="android:paddingLeft">@dimen/kt_content_padding</item>
+        <item name="android:paddingRight">@dimen/kt_content_padding</item>
+        <item name="android:textAllCaps" tools:targetApi="ICE_CREAM_SANDWICH">true</item>
+    </style>
+
+    <style name="kryptanium_button_style_main_align_parent_end" parent="kt_align_parent_end"> <!-- 主按钮 -->
+        <item name="android:layout_width">236dp</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:textColor">@color/kryptanium_text_white</item>
+        <item name="android:textSize">@dimen/kryptanium_fontsize_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/kryptanium_button_bg</item>
+        <item name="android:paddingLeft">@dimen/kt_content_padding</item>
+        <item name="android:paddingRight">@dimen/kt_content_padding</item>
 
     </style>
 
@@ -43,6 +57,7 @@
         <item name="android:background">@drawable/kryptanium_button_frame</item>
         <item name="android:textSize">@dimen/kryptanium_fontsize_large</item>
         <item name="android:gravity">center</item>
+        <item name="android:textAllCaps" tools:targetApi="ICE_CREAM_SANDWICH">true</item>
     </style>
 
     <!--<style name="kryptanium_button_signup_style"> &lt;!&ndash; 注册按钮 &ndash;&gt;-->
@@ -57,11 +72,13 @@
 
     <style name="ktplay_style_subtitle_line" parent="kryptanium_hint_text">
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">
-            @dimen/kryptanium_user_profile_set_text_Information_height
-        </item>
-        <item name="android:background">@color/kt_theme_subtitle_background</item>
+        <item name="android:layout_height">24dp</item>
+        <!--<item name="android:background">@color/kt_theme_subtitle_background</item>-->
         <item name="android:paddingLeft">@dimen/kryptanium_listitem_hpadding</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">
+            @dimen/kryptanium_listitem_hpadding
+        </item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
@@ -79,6 +96,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/kt_theme_color</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps" tools:targetApi="ICE_CREAM_SANDWICH">true</item>
     </style>
 
     <style name="kryptanium_link_text_large" parent="kryptanium_link_text">
@@ -89,8 +107,15 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="kryptanium_link_text_small_align_parent_end" parent="kt_align_parent_end">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/kt_theme_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <!-- 输入框 -->
-    <style name="kryptanium_edittext" parent="android:Theme.Light">
+    <style name="kryptanium_edittext">
         <item name="android:layout_height">30dp</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:paddingRight">5dp</item>
@@ -99,10 +124,18 @@
         <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
         <item name="android:textColorHint">@color/kt_theme_hint_textcolor</item>
         <item name="android:cursorVisible">true</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">viewStart</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
     </style>
 
     <!-- 聊天输入框，特例 -->
-    <style name="kryptanium_edittext_chat" parent="android:Theme.Light">
+    <style name="kryptanium_edittext_chat">
         <item name="android:layout_height">30dp</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:paddingRight">5dp</item>
@@ -121,8 +154,14 @@
         <item name="android:divider">@color/kt_theme_listitem_dividercolor</item>
         <item name="android:dividerHeight">@dimen/kryptanium_titlebar_line_height</item>
         <item name="android:fadingEdge">none</item>
-        <item name="android:footerDividersEnabled">false</item>
-        <item name="android:fadeEnabled">false</item>
+        <item name="android:requiresFadingEdge" tools:targetApi="ice_cream_sandwich">none</item>
+        <item name="android:fadingEdgeLength">0dp</item>
+        <item name="android:fadeScrollbars" tools:targetApi="eclair">false</item>
+        <item name="android:overScrollMode" tools:targetApi="gingerbread">never</item>
+        <item name="android:footerDividersEnabled" tools:targetApi="cupcake">false</item>
+        <item name="android:fadeEnabled" tools:targetApi="donut">false</item>
+        <item name="android:scrollingCache">false</item>
+        <item name="android:animationCache">false</item>
         <!--<item name="android:overScrollMode" tools:targetApi="gingerbread">never</item>-->
         <!--  <item name="android:listSelector">#1e000000</item> -->
     </style>
@@ -162,6 +201,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
     </style>
 
     <!-- 大文字 -->
@@ -180,13 +220,27 @@
     </style>
 
     <style name="kryptanium_primary_text">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
+    </style>
+
+    <style name="kryptanium_primary_text_link">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
+        <item name="android:textAllCaps" tools:targetApi="ICE_CREAM_SANDWICH">true</item>
+    </style>
+
+    <style name="kryptanium_primary_text_align_parent_right" parent="kt_align_parent_end">
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
     </style>
 
     <!-- 主要文字-亮背景 -->
     <style name="kryptanium_primary_text_light" parent="kryptanium_primary_text">
         <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
     </style>
 
     <style name="kryptanium_primary_text_light_bold" parent="kryptanium_primary_text_light">
@@ -196,6 +250,7 @@
     <!-- 主要文字-暗背景 -->
     <style name="kryptanium_primary_text_dark" parent="kryptanium_primary_text">
         <item name="android:textColor">@color/kt_theme_primary_textcolor_dark</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
     </style>
 
     <!-- 主要文字 -->
@@ -206,18 +261,31 @@
 
     <!-- 次要文字 -->
     <style name="kryptanium_secondary_text">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/kt_theme_secondary_textcolor</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">viewStart</item>
+    </style>
+
+    <style name="kryptanium_secondary_text_align_parent_end" parent="kt_align_parent_end">
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/kt_theme_secondary_textcolor</item>
     </style>
 
     <!-- 次要文字-亮背景 -->
     <style name="kryptanium_secondary_text_light" parent="kryptanium_secondary_text">
         <item name="android:textColor">@color/kt_theme_secondary_textcolor</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
     </style>
 
     <!-- 次要文字-暗背景 -->
     <style name="kryptanium_secondary_text_dark" parent="kryptanium_secondary_text">
         <item name="android:textColor">@color/kt_theme_secondary_textcolor_dark</item>
+        <item name="android:textDirection" tools:targetApi="jelly_bean_mr1">locale</item>
+    </style>
+
+    <style name="kryptanium_secondary_text_dark_align_parent_end" parent="kt_align_parent_end">
+        <item name="android:textColor">@color/kt_theme_secondary_textcolor_dark</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <!-- Action文字(如展开/收起/更多等) -->
@@ -231,17 +299,36 @@
         <item name="android:textColor">@color/kt_theme_hint_textcolor</item>
     </style>
 
-    <style name="kryptanium_tag">
+    <style name="kryptanium_hint_text_align_parent_end" parent="kt_align_parent_end">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textColor">@color/kt_theme_hint_textcolor</item>
+    </style>
+
+    <style name="kryptanium_tag_base">
+        <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingLeft">4dp</item>
         <item name="android:paddingRight">4dp</item>
+    </style>
+
+    <style name="kryptanium_tag_disabled" parent="kryptanium_tag_base">
+        <item name="android:textColor">@color/kt_theme_primary_textcolor</item>
+        <item name="android:background">@drawable/kryptanium_tag_white_bg</item>
+    </style>
+
+    <style name="kryptanium_tag_warning" parent="kryptanium_tag_base">
+        <item name="android:textColor">@color/kt_theme_primary_textcolor_dark</item>
+        <item name="android:background">@drawable/kryptanium_tag_warning_bg</item>
+    </style>
+
+
+    <style name="kryptanium_tag" parent="kryptanium_tag_base">
+        <item name="android:textColor">#ffffffff</item>
         <item name="android:background">@drawable/kryptanium_tag_bg</item>
     </style>
 
-    <style name="kryptanium_switcher">
-        <item name="android:layout_width">42dp</item>
+    <style name="kryptanium_switcher" parent="kt_align_parent_end">
+        <item name="android:layout_width">@dimen/kt_check_width</item>
         <item name="android:layout_height">24dp</item>
         <item name="android:background">@drawable/kryptanium_check</item>
         <item name="android:button">@null</item>
@@ -283,24 +370,19 @@
         <item name="android:windowExitAnimation">@anim/kryptanium_posttask_outdowntoup</item>
     </style>
     <!-- 全局关闭按钮 -->
-    <style name="kryptanium_global_close">
+    <style name="kryptanium_global_close" parent="kt_align_parent_end">
         <item name="android:id">@id/kt_close</item>
-        <item name="android:layout_width">54dp</item>
+        <item name="android:layout_width">@dimen/kt_global_close_icon_width</item>
         <item name="android:layout_height">@dimen/kt_titlebar_height</item>
         <item name="android:paddingTop">6dp</item>
-        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingBottom">6dp</item>
         <item name="android:paddingRight">6dp</item>
-        <item name="android:layout_gravity">right</item>
-        <item name="android:src">@drawable/kryptanium_close_dialog_img</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">6dp</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:src">@drawable/kryptanium_close</item>
     </style>
 
     <style name="kryptanium_home_widget">
-        <item name="android:background">@color/kt_theme_section_background</item>
-        <item name="android:layout_marginBottom">@dimen/kt_content_padding</item>
-        <item name="android:paddingLeft">@dimen/kt_content_padding</item>
-        <item name="android:paddingRight">@dimen/kt_content_padding</item>
-        <item name="android:paddingTop">@dimen/kt_content_padding</item>
-        <item name="android:paddingBottom">@dimen/kt_content_padding</item>
     </style>
 
     <style name="kryptanium_titlebar_icon">
@@ -315,30 +397,66 @@
     </style>
 
     <style name="kryptanium_subtitle_icon">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">20dp</item>
-        <item name="android:paddingTop">3dp</item>
-        <item name="android:paddingBottom">3dp</item>
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
         <item name="android:scaleType">fitCenter</item>
-        <item name="android:adjustViewBounds">true</item>
     </style>
 
     <style name="kryptanium_subtitle_text" parent="kryptanium_primary_text">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_height">22dp</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
         <item name="android:singleLine">true</item>
     </style>
 
     <style name="kryptanium_title">
         <item name="android:textColor">@color/kt_theme_title_textcolor</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 
     <style name="kryptanium_more" parent="kryptanium_secondary_text">
         <item name="android:textColor">@color/kt_theme_color</item>
+    </style>
+
+    <style name="kryptanium_home_subtitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/kt_content_padding</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">
+            @dimen/kt_content_padding
+        </item>
+        <item name="android:paddingTop">@dimen/kt_content_padding</item>
+    </style>
+
+    <style name="kt_align_parent_end">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentEnd" tools:targetApi="jelly_bean_mr1">true</item>
+    </style>
+
+    <style name="kt_settings_text_end" parent="kryptanium_secondary_text_align_parent_end">
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">120dp</item>
+        <item name="android:paddingLeft">120dp</item>
+    </style>
+
+    <style name="kt_chat_image">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">4dp</item>
+    </style>
+
+    <style name="kt_rating_bar" parent="android:Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/kt_rating</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:maxHeight">36dp</item>
+    </style>
+
+    <style name="kt_rating_bar_samll" parent="android:Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/kt_rating_small</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:maxHeight">24dp</item>
     </style>
 
 </resources>

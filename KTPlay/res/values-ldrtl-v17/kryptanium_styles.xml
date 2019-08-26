@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="kt_align_parent_end">
+        <item name="android:layout_alignParentEnd" tools:targetApi="jelly_bean_mr1">true</item>
+    </style>
+
+    <style name="kt_settings_text_end" parent="kryptanium_secondary_text_align_parent_end">
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">120dp</item>
+    </style>
+
+    <style name="kt_chat_image">
+        <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">4dp</item>
+    </style>
+</resources>

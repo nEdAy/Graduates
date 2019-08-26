@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/kryptanium_tool_input_emoji_gv"
+<com.ktplay.widget.KTGridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_gridview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"

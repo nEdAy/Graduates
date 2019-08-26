@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/kryptanium_frame_game_inform"
+    android:id="@+id/kt_common_view_container"
     android:layout_width="@dimen/kryptanium_frame_wh"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
@@ -10,64 +10,64 @@
     android:orientation="horizontal"
     android:padding="5dp">
 
-    <com.ktplay.widget.StateImageView
-        android:id="@+id/kryptanium_frame_game_inform_icon"
+    <ImageView
+        android:id="@+id/kt_common_iv_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="left"
         android:layout_marginRight="@dimen/kryptanium_default_gap"
+        android:layout_marginEnd="@dimen/kryptanium_default_gap"
         android:contentDescription="@null"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:visibility="gone" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginRight="25dp"
-        android:layout_toRightOf="@+id/kryptanium_frame_game_inform_icon"
+        android:layout_marginEnd="25dp"
+        android:layout_toRightOf="@+id/kt_common_iv_1"
+        android:layout_toEndOf="@+id/kt_common_iv_1"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/kryptanium_frame_game_inform_title"
+            android:id="@+id/kt_common_iv_2"
             style="@style/kryptanium_large_text_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1" />
+            android:singleLine="true" />
 
         <TextView
-            android:id="@+id/kryptanium_frame_game_inform_content"
+            android:id="@+id/kt_common_iv_3"
+            android:layout_below="@+id/kt_common_iv_2"
             style="@style/kryptanium_secondary_text_dark"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/kryptanium_frame_game_inform_title"
             android:ellipsize="end"
             android:maxLines="2" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
             <TextView
-                android:id="@+id/kryptanium_frame_game_inform_action_tag"
-                style="@style/kryptanium_secondary_text_dark"
-                android:layout_width="match_parent"
+                android:id="@+id/kt_common_text"
+                style="@style/kryptanium_secondary_text_dark_align_parent_end"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:text="@string/kt_read_more" />
 
-        </FrameLayout>
+        </RelativeLayout>
 
 
     </RelativeLayout>
 
     <com.ktplay.widget.StateImageView
-        android:id="@+id/kryptanium_frame_game_inform_close"
+        android:id="@+id/kt_common_click_button"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_alignParentRight="true"
+        style="@style/kt_align_parent_end"
         android:layout_alignParentTop="true"
         android:layout_gravity="right"
         android:background="@null"

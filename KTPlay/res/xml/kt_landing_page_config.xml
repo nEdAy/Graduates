@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets>
     <item
-        key="featuredTopic"
+        key="featured_topics"
         visible="1"></item>
     <item
-        key="featuredVideo"
+        key="categories"
         visible="1"></item>
     <item
-        key="featuredCollections"
+        key="faq"
         visible="1"></item>
     <item
-        key="featuredImage"
+        key="leaderboards"
         visible="1"></item>
     <item
-        key="promotedGames"
+        key="recommended_topics"
         visible="1"></item>
     <item
-        key="activeUsers"
+        key="collections"
+        visible="1"></item>
+    <item
+        key="rising_topics"
+        visible="1"></item>
+    <item
+        key="top_influencers"
+        visible="1"></item>
+    <item
+        key="rising_users"
         visible="1"></item>
 </widgets>

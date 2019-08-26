@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/kt_theme_section_background" />
+    <corners
+        android:bottomLeftRadius="@dimen/kt_round_corner_border_size"
+        android:bottomRightRadius="@dimen/kt_round_corner_border_size" />
+</shape>

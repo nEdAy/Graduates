@@ -1,0 +1,33 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/kryptanium_btn_backgroud_inner_selecter_topright">
+        <!--<shape android:shape="rectangle">-->
+        <!--&lt;!&ndash;<solid android:color="@color/kt_theme_navigationitem_selected"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;  <solid android:color="@color/kryptanium_head_tab_bg"/>&ndash;&gt;-->
+        <!--<corners-->
+        <!--android:bottomLeftRadius="0dp"-->
+        <!--android:bottomRightRadius="0dp"-->
+        <!--android:topLeftRadius="0dp"-->
+        <!--android:topRightRadius="@dimen/kt_round_corner_border_size"/>-->
+        <!--</shape>-->
+
+
+    </item>
+    <item android:state_selected="true" android:drawable="@drawable/kryptanium_btn_backgroud_inner_selecter_topright">
+        <!--<shape android:shape="rectangle">-->
+        <!--&lt;!&ndash;<solid android:color="@color/kt_theme_navigationitem_selected"/>&ndash;&gt;-->
+        <!--&lt;!&ndash; <solid android:color="@color/kryptanium_head_tab_bg"/>&ndash;&gt;-->
+        <!--<corners-->
+        <!--android:bottomLeftRadius="0dp"-->
+        <!--android:bottomRightRadius="0dp"-->
+        <!--android:topLeftRadius="0dp"-->
+        <!--android:topRightRadius="@dimen/kt_round_corner_border_size"/>-->
+        <!--</shape>-->
+
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/kt_theme_navigationbar_background" />
+            <corners android:bottomLeftRadius="0dp" android:bottomRightRadius="0dp" android:topLeftRadius="0dp" android:topRightRadius="@dimen/kt_round_corner_border_size" />
+        </shape>
+    </item>
+</selector>

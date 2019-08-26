@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?><!-- 九宫格每一格的布局 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/kryptanium_adapter_item_sourceImageView"
+    <com.ktplay.widget.StateImageView
+        android:id="@+id/kt_item_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/kt_common_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#64000000"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="2dp"
+        android:textColor="@color/kt_theme_primary_textcolor_dark"
+        android:textSize="12sp"
+        android:layout_gravity="right"
+        android:visibility="gone" />
+
+</FrameLayout>

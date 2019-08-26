@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/kryptanium_menuitem_bg"
     android:minHeight="@dimen/kryptanium_menu_item_height"
     android:minWidth="@dimen/kryptanium_menu_width"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:background="@drawable/kryptanium_menuitem_bg">
 
     <!-- Check -->
     <ImageView
@@ -14,27 +14,29 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
+        android:visibility="gone"
         android:layout_marginRight="8dp"
-        android:visibility="gone" />
+        android:layout_marginEnd="8dp" />
 
     <!-- Icon -->
-    <ImageView
+    <com.ktplay.widget.KTRoundRectImageView
         android:id="@+id/kryptanium_menuitem_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
+        android:visibility="gone"
         android:layout_marginRight="8dp"
-        android:scaleType="centerCrop"
-        android:visibility="gone" />
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop" />
 
     <!-- Title -->
 
-    <TextView
+    <TextView 
         android:id="@+id/kryptanium_menuitem_title"
-        style="@style/kryptanium_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:maxLines="1" />
+        android:singleLine="true"
+        style="@style/kryptanium_menu_text" />
 
 </LinearLayout>

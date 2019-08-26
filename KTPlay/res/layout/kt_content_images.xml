@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/kt_singleimage_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <ViewStub
+            android:id="@+id/kt_content_image"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/kt_topic_detail_image_height"
+            android:layout="@layout/kt_topic_item_image_stub" />
+
+        <TextView
+            android:id="@+id/kt_common_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#64000000"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:paddingTop="2dp"
+            android:textColor="@color/kt_theme_primary_textcolor_dark"
+            android:textSize="12sp"
+            android:layout_gravity="right|end"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <ViewStub
+        android:id="@+id/kt_content_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout="@layout/kt_topic_item_images_stub" />
+</merge>

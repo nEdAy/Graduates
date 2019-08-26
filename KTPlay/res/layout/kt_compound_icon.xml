@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="horizontal"
     android:paddingBottom="8dp"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp"
-    android:paddingTop="8dp">
-
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="8dp"
+    android:background="@drawable/kt_touch_feedback_bg">
     <ImageView
         android:id="@id/kt_compoundicon_icon"
         android:layout_width="@dimen/kt_action_icon_size"
@@ -23,8 +23,10 @@
         style="@style/kryptanium_secondary_text_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_toRightOf="@+id/kt_compoundicon_icon"
+        android:layout_toEndOf="@+id/kt_compoundicon_icon"
+        android:layout_centerVertical="true"
         android:ellipsize="end"
         android:includeFontPadding="false"
         android:maxLines="1" />
-</LinearLayout>
+</RelativeLayout>

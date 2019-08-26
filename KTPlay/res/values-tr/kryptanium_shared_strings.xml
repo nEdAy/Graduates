@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_connection_failed">Bağlantınız sabit değil</string>
+    <string name="kt_error_150001">Hata (Kayıp parametre: 150001)</string>
+    <string name="kt_error_150005">Hata (150005)</string>
+    <string name="kt_error_150101">Hata (150101)</string>
+    <string name="kt_error_150102">Hata (150102)</string>
+    <string name="kt_new">YENİ</string>
+    <string name="kt_all">Tümü</string>
+    <string formatted="false" name="kt_community_version">Topluluk · v%@</string>
+    <string name="kt_powered_by">Destekleyen</string>
+    <string name="kt_username">Kullanıcı Adı</string>
+    <string name="kt_nickname">Takma Ad</string>
+    <string name="kt_gender">Cinsiyet</string>
+    <string name="kt_follow">Takip Et</string>
+    <string name="kt_following">Takip Ediliyor</string>
+    <string name="kt_followers">Takipçiler</string>
+    <string name="kt_influence_points">Etki Puanı</string>
+    <string name="kt_development_mode">Geliştirici Modu</string>
+    <string name="kt_in_development">Bu uygulama geliştirici modundadır. Şu anda App Key ve gizli bir Test uygulaması kullanıyorsunuz. Uygulamanızı marketlere yüklemeden önce, KTplay geliştirici sitesinden App Key ve Secret (Dağıtım için) "Integrating Finished" almalısınız. Daha sonra projenizde bunları değiştirmelisiniz.</string>
+    <string name="kt_blocked_account">Özür dileriz. Hesabınız engellendi</string>
+    <string formatted="false" name="kt_limited_account_promption">Hesabınız askıya alındı, %@ tarihinde yeniden açılacaktır</string>
+    <string name="kt_time_format_yesterday">Dün</string>
+    <string name="kt_network_unavailable">Bağlantınız sabit değil</string>
+    <string name="kt_confirm">Tamam</string>
+    <string name="kt_confirm_yes">Evet</string>
+    <string formatted="false" name="kt_login_success">%@. Hoşgeldiniz!</string>
+    <string formatted="false" name="kt_time_format_minutes_ago">%@ dk</string>
+    <string name="kt_time_format_last_year">dd-MM-yyyy</string>
+    <string name="kt_rule_password_character">Sadece rakam, büyük ve küçük harf</string>
+    <string name="kt_delete">Sil</string>
+    <string name="kt_cancel">İptal</string>
+    <string name="kt_invalid_email_format">Hatalı e-posta formatı</string>
+    <string name="kt_search">Ara</string>
+    <string name="kt_female">Kadın</string>
+    <string name="kt_male">Erkek</string>
+    <string name="kt_confidential">Gizli</string>
+    <string name="kt_login_expired">Hesabınızdan çıkış yapıldı, lütfen tekrar giriş yapın</string>
+    <string name="kt_input_nickname">Takma ad oluşturun</string>
+    <string name="kt_update_success">Bitti</string>
+    <string name="kt_update_failed">Başarısız</string>
+    <string name="kt_rule_password">Şifre 6-18 karakterden oluşmalıdır</string>
+    <string name="kt_password_placeholder">6-18 karakterli şifre</string>
+    <string name="kt_not_now">Şimdi değil</string>
+    <string name="kt_app_settings">Uygulama Ayarları</string>
+    <string name="kt_warning_delete_content">İçerik silinsin mi?</string>
+    <string name="kt_password">Şifre</string>
+    <string name="kt_terms_and_privacy">KTplay Şartlar ve Gizlilik</string>
+    <string name="kt_my_friends">Arkadaşlar</string>
+    <string formatted="false" name="kt_time_format_hour">%@ S</string>
+    <string formatted="false" name="kt_remain_format_day_hour">%@g %@s</string>
+    <string formatted="false" name="kt_remain_format_hour">%@ S</string>
+    <string formatted="false" name="kt_remain_format_min">%@dk</string>
+    <string formatted="false" name="kt_remain_format_day">%@g</string>
+    <string formatted="false" name="kt_upload_failed_part">%@ içerik yüklemesi başarısız, taslak olarak kaydedildi.</string>
+    <string name="kt_edit">Düzenle</string>
+    <string name="kt_sending">Gönderiliyor</string>
+    <string name="kt_save_draft">Profilinize taslak olarak kaydedildi</string>
+    <string name="kt_login_first">Üzgünüz. Önce giriş yapmalısınız</string>
+    <string name="kt_system_support">Üzgünüz. Mevcut sistem sürümü video desteklemiyor</string>
+    <string name="kt_app_version_support">Üzgünüz. Uygulama sürümü video desteklemiyor</string>
+    <string name="kt_community">Başlıklar</string>
+    <string name="kt_more">Daha</string>
+    <string name="kt_see_all">Tümü</string>
+    <string name="kt_time_format_month_day_hour_minute">MM-dd HH:mm</string>
+    <string name="kt_agree">Onayla</string>
+    <string name="kt_reward_claimed">Alındı!</string>
+    <string name="kt_no_messages">Henüz mesaj yok...</string>
+    <string name="kt_inbox">Gelen Kutusu</string>
+    <string name="kt_claimed">Alındı</string>
+    <string name="kt_claim">Al</string>
+    <string name="kt_read_more">Ayrıntılar</string>
+    <string formatted="false" name="kt_topic_count">Başlıklar %@</string>
+    <string name="kt_select_topic_category">Bir kategori seç</string>
+    <string name="kt_create_topic">Başlıklar</string>
+    <string name="kt_all_topics">En Yeni</string>
+    <string name="kt_not_following_anyone">Henüz kimseyi takip etmiyorsun! Topluluğun önde gelenlerini takip ederek mükemmel içeriklere hızlıca ulaş!</string>
+    <string name="kt_like">Beğen</string>
+    <string name="kt_profile_reply">Yanıtlar</string>
+    <string name="kt_create_reply">Yanıtla</string>
+    <string name="kt_report_success">Şikayet Edildi</string>
+    <string name="kt_tip_reply_locked">Başlık kitlendi</string>
+    <string name="kt_topic_details">Başlık</string>
+    <string name="kt_report">Şikayet Et</string>
+    <string name="kt_updates_created_topic">Oluşturuldu</string>
+    <string name="kt_content_already_removed">İçerik kaldırıldı....</string>
+    <string name="kt_updates_replied_topic">Yanıtlandı</string>
+    <string name="kt_publish_content_placeholder">Birşeyler söyle...</string>
+    <string name="kt_create_topic_success">İçerik gönderildi</string>
+    <string name="kt_share_to_sns">Paylaş</string>
+    <string name="kt_all_players">Etki Sıralaması</string>
+    <string name="kt_influencers">Önde Gelenler</string>
+    <string name="kt_topics">Başlıklar</string>
+    <string name="kt_user_profile">Profil</string>
+    <string name="kt_field_username">Kullanıcı Adı:</string>
+    <string name="kt_recent_viewed">Son Görüntülenenler</string>
+    <string name="kt_increase_influence">Topluluk etkinin yükselt, muhteşem içerikler paylaş ve takipçi kazan!</string>
+    <string name="kt_logout">Çıkış Yap</string>
+    <string name="kt_warning_complete_email">Bir e-posta adresi girerek güvelik ayarlarını tamamlamak ister misiniz?</string>
+    <string name="kt_bind_email">E-Posta Bağla</string>
+    <string name="kt_setting">Ayarlar</string>
+    <string name="kt_not_binding">Ayarlama</string>
+    <string name="kt_not_setting">N/A</string>
+    <string name="kt_change_password">Değiştir</string>
+    <string name="kt_confirm_to_logout">Hayır. Teşekkürler</string>
+    <string name="kt_input_email">E-posta adresinizi girin</string>
+    <string name="kt_create_nickname">Takma Adını Belirle</string>
+    <string name="kt_create_username_tip">Kullanıcı adı sadece bir kez düzenlenebilir, kullanıcı adınızla KTplay\'e giriş yapabilirsiniz</string>
+    <string name="kt_create_username">Kullanıcı adı oluştur</string>
+    <string name="kt_input_username">Kullanıcı adında sadece harf, numara, alt çizgi ve tire kullanılabilir</string>
+    <string name="kt_set_password">Şifre Değiştir</string>
+    <string name="kt_warning_same_oldpassword_and_newpassword">Eski ve yeni şifre aynı olamaz</string>
+    <string name="kt_input_oldpassword">Mevcut Şifre</string>
+    <string name="kt_input_newpassword">Yeni Şifre</string>
+    <string name="kt_likes">Beğeniler</string>
+    <string name="kt_forget_password">Şifreni Mi Unuttun?</string>
+    <string name="kt_register">Üye Ol</string>
+    <string name="kt_email_or_username">E-posta veya kullanıcı adı girin</string>
+    <string name="kt_retrieve_password">KTplay hesabını bul</string>
+    <string name="kt_warning_retrieve_password_after_login_failure">Giriş başarısız</string>
+    <string name="kt_login">Giriş Yap</string>
+    <string name="kt_quicklaunch_relogin">Aşağıya tıklayarak tekrar bağlan</string>
+    <string name="kt_relogin">Tekrar Giriş Yap</string>
+    <string name="kt_sign_up_ktplay">Üye Ol</string>
+    <string name="kt_enter_number">Telefon numaranızı girin, size onay kodu göndereceğiz</string>
+    <string name="kt_verification_email_send">Size bir onay maili gönderceğiz. KTplay\'in özelliklerini kullanabilmek için 24 saat içerisinde e-posta adresinizi onaylayın. Dikkat: E-posta adresinizi onaylamadan önce değiştirebilirsiniz. Eğer e-posta adresinizi değiştirirseniz, giriş yapmak için yeni adresi kullanmanız gerekir.</string>
+    <string name="kt_verification_email">Onay maili gönderildi. KTplay\'in özelliklerini kullanabilmek için 24 saat içerisinde e-posta adresinizi onaylayın.</string>
+    <string name="kt_reset_enter_username_with_email">E-posta veya kullanıcı adı girin</string>
+    <string name="kt_reset_enterusername">Kullanıcı adı veya e-posta ile şifrenizi sıfırlayın</string>
+    <string formatted="false" name="kt_reset_password_email_failure">Üzgünüz. %@ hesabı herhangi bir e-posta adresiyle bağlantılı değil. Şu an şifrenizi yenileyemezsiniz.</string>
+    <string formatted="false" name="kt_tip_resetpassword_with_email">Şifre yenileme için gereken mail %@ adresine gönderildi. Gelen kutunuzu kontrol edin</string>
+    <string formatted="false" name="kt_reset_password_failure">Üzgünüz. %@ hesabı herhangi bir telefon numarası veya e-posta adresiyle bağlantılı değil. Şu an şifrenizi yenileyemezsiniz.</string>
+    <string name="kt_reset_password">Şifre Yenile</string>
+    <string name="kt_login_failed">Giriş Başarısız</string>
+    <string name="kt_send">Gönder</string>
+    <string name="kt_phone_number">Telefon numarası</string>
+    <string name="kt_get_verification_code">İste</string>
+    <string name="kt_verification_code">Onay kodu</string>
+    <string name="kt_reset">Sıfırla</string>
+    <string name="kt_done">Tamamla</string>
+    <string name="kt_complete_user_profile">Kullanıcı ayarları</string>
+    <string name="kt_ktplay_slogan">İPUCU · SSS · ARKADAŞLAR · ÖDÜLLER</string>
+    <string name="kt_login_with_phonenumber">Giriş Yap</string>
+    <string name="kt_login_with_username">Giriş</string>
+    <string name="kt_whats_hot">Topluluk</string>
+    <string formatted="false" name="kt_replies_count">Yanıt %@</string>
+    <string name="kt_top_collections">Koleksiyonlar</string>
+    <string name="kt_categories">Kategoriler</string>
+    <string name="kt_recommended_topics">Önerilen</string>
+    <string name="kt_highest_growth">Yükselen Kullanıcılar</string>
+    <string name="kt_top_Influencers">Önde Gelenler</string>
+    <string name="kt_rising_topics">Yükselen Başlıklar</string>
+    <string name="kt_register_with_phonenumber">Üye Ol</string>
+    <string name="kt_bind_phonenumber">Telefon numarası</string>
+    <string name="kt_go">Ayrıntılar</string>
+    <string name="kt_i_know">Tamam</string>
+    <string name="kt_link_login_with_phonenumber">Telefon Numarasıyla Giriş Yap</string>
+    <string name="kt_friends_symbol">null</string>
+    <string formatted="false" name="kt_seconds_countdown">%@ Sn</string>
+    <string name="kt_verification_code_sent">Telefonunuza onay kodu kısa mesaj ile gönderildi.</string>
+    <string name="kt_setting_baseinfo">Profilim</string>
+    <string name="kt_setting_avatar">Profil Fotoğrafı</string>
+    <string name="kt_setting_security">Güvenlik Ayarları</string>
+    <string name="kt_reply_to_someone">Yanıtla</string>
+    <string name="kt_tip_change_nickname">Diğer kullanıcılar bu ismi aratarak seni bulabilir</string>
+    <string name="kt_security_verification">Güvenlik Onayı</string>
+    <string name="kt_security_verification_prompt">Aşağıdaki uygulamalardan KTplay\'e daha önceden giriş yaptın, listeden onu seçerek kimlik onayını tamamla</string>
+    <string formatted="false" name="kt_security_verification_failure_times">Onaylama başarısız %@/%@</string>
+    <string name="kt_warning_security_verification_times">Eğer 2 kez onaylama başarısız olursa, ancak 24 saat sonra tekrar deneyebilirsiniz</string>
+    <string name="kt_try_again">Tekrar Dene</string>
+    <string name="kt_skip_security_verification">Onaylamayı Geç</string>
+    <string name="kt_login_with_other_accounts">Başka Hesap Kullan</string>
+    <string name="kt_login_to_ktplay">KTplay\'e Giriş Yap</string>
+    <string name="kt_login_with_selected_account">Hesap Seç</string>
+    <string name="kt_report_content">Tacizi Şikayet Et</string>
+    <string name="kt_warning_complete_phonenumber">Telefon numaranızı bağlayarak güvenlik ayarlarınızı tamamlamak istiyor musunuz?</string>
+    <string formatted="false" name="kt_login_welcome">%@. Hoşgeldiniz!</string>
+    <string name="kt_chat">Mesajlar</string>
+    <string name="kt_block_chat">Sohbette Engelle</string>
+    <string name="kt_copy">Kopyala</string>
+    <string name="kt_unsupported_chat_message_type">Mevcut KTplay sürümü bu içeriği desteklemiyor</string>
+    <string name="kt_tip_chattype_image">Resim</string>
+    <string formatted="false" name="kt_warning_block_chatuser">%@ sohbette engellensin mi?</string>
+    <string name="kt_privacy">Gizlilik</string>
+    <string name="kt_blocked_list">Engelli Listesi</string>
+    <string name="kt_block_private_chat">Takipleşmediklerinden gelen mesajları engelle</string>
+    <string name="kt_unblock">Engeli Kaldır</string>
+    <string formatted="false" name="kt_warning_unblock_chatuser">%@ adlı kullanıcının sohbet engeli kaldırılsın mı?</string>
+    <string name="kt_blocked_list_placeholder">Henüz kimseyi engellemedin</string>
+    <string name="kt_resend">Tekrar Gönder</string>
+    <string formatted="false" name="kt_pattern_blocked_user">(Engelli) %@</string>
+    <string name="kt_tip_message_blocked">Mesaj gönderilemedi</string>
+    <string name="kt_report_submitted_description">Şikayetinizi aldık. Kontrol edip size yanıt vereceğiz. Destekleriniz için teşekkürler!</string>
+    <string name="kt_request_img_failed">Resim indirme başarısız</string>
+    <string name="kt_quicklaunch_netlogged">Giriş yapmadınız, önce giriş yapın</string>
+    <string name="kt_account_adm">ADM</string>
+    <string name="kt_account_mod">MOD</string>
+    <string name="kt_no_topic_yet">Başlık yok</string>
+    <string name="kt_no_reply_yet">Cevap yok</string>
+    <string name="kt_no_like_yet">Beğeni yok</string>
+    <string name="kt_no_more_topic">Başka başlık yok</string>
+    <string name="kt_no_more_reply">Başka cevap yok</string>
+    <string name="kt_no_more_like">Başka beğeni yok</string>
+    <string name="kt_favorite">Favoriler</string>
+    <string name="kt_not_in_group">Bu grubun üyesi değilsin</string>
+    <string name="kt_selecet_a_topic">Başlık Seç</string>
+    <string name="kt_my_topics">Başlıklarım</string>
+    <string name="kt_locked">Kilitli</string>
+    <string name="kt_hot_searches">Çok Arananlar</string>
+    <string name="kt_recent_searches">Son Aramalar</string>
+    <string name="kt_reward">Ödüller</string>
+    <string name="kt_campaign_share_topic">[Kampanya] Paylaş ve ödül kazan!</string>
+    <string name="kt_campaign_rewards">Ödüller:</string>
+    <string name="kt_campaign_remain">Kalan Süre:</string>
+    <string formatted="false" name="kt_topic_share">%@ konumundan paylaşılan son başlıklar</string>
+    <string name="kt_reward_expired">Üzgünüz! Ödülün süresi doldu. Katıldığınız için teşekkürler!</string>
+    <string name="kt_drafts">Taslaklar</string>
+    <string name="kt_no_draft_yet">Taslak yok</string>
+    <string name="kt_no_more_drafts">Başka taslak yok</string>
+    <string formatted="false" name="kt_topic_task_limit">Aynı anda %@ adet gönderi yükleyebilirsin. Son gönderi taslak olarak kaydedildi.</string>
+    <string formatted="false" name="kt_vote_is_ongoing">[Şimdi Oyla!] %@ oyunu kullandı!</string>
+    <string name="kt_vote_now">Şimdi Oy Ver!</string>
+    <string name="kt_vote_thank">Oyun için teşekkürler!</string>
+    <string name="kt_vote_expired">Oylama süresi oldu!</string>
+    <string name="kt_vote">Oyla</string>
+    <string name="kt_select_video">Video Seç</string>
+    <string name="kt_video_and_images">Aynı anda video ve resim yüklenemez</string>
+    <string formatted="false" name="kt_video_size">Video boyutu %@ MB</string>
+    <string name="kt_can_not_video">Şu an içeriğe herhangi bir video yüklenemez</string>
+    <string name="kt_in_review">Onay aşamasında</string>
+    <string name="kt_in_reviewing">Onay aşamasında...</string>
+    <string formatted="false" name="kt_video_exceed">Üzgünüz. Video %@ MB\'dan büyük ve %@ dakikadan uzun olamaz</string>
+    <string name="kt_reply_notify">Bildirimler</string>
+    <string name="kt_no_video">Henüz video yok</string>
+    <string name="kt_complete_profile">Profil ayarlarını tamamlayarak başkalarının seni tanımasını kolaylaştırabilirsin</string>
+    <string name="kt_birthday">Doğum Günü</string>
+    <string name="kt_email">E-Posta</string>
+    <string name="kt_enter_email_reward">Ödülü almak için, e-posta adresini girmelisin. Kaydedilen e-posta adresi değiştirilemez</string>
+    <string name="kt_verify_mobile_password">Ödülü almak için, kısa mesaj yoluyla telefon numaranı onaylamalı ve hesabın için bir şifre oluşturmalısın</string>
+    <string name="kt_verify_mobile">Ödülü almak için, kısa mesaj yoluyla telefon numaranı onaylamalısın</string>
+    <string name="kt_email_already_registered">Bu e-posta adresiyle KTplay\'e kayıt yapılmış, farklı bir e-posta adresi deneyin.</string>
+    <string name="kt_mobile_already_registered">Bu telefon numarasıyla KTplay\'e kayıt yapılmış, farklı bir telefon numarası deneyin.</string>
+    <string name="kt_set_login_password">Hesabın için bir giriş şifresi oluştur</string>
+    <string name="kt_to_enter_email">Kişiselleştirilmiş video imzası oluşturmak için, e-posta adresini girmelisin. Kaydedilen e-posta adresi değiştirilemez</string>
+    <string name="kt_to_verify_number">Kişiselleştirilmiş video imzası oluşturmak için, telefon numaranı onaylamalısın.</string>
+    <string name="kt_binding_email_to">Şifre sıfırlamak, ödül teslim almak, kişiselleştirilmiş özellikleri kullanabilmek için e-posta adresini bağlamalısın. E-posta adresini kaydettikten sonra bir daha değiştiremezsin.</string>
+    <string name="kt_binding_number_password_to">Telefon numaranı bağlayarak şifre oluşturabilir, şifre yenileyebilir ve kişiselleştirilmiş özellikleri kullanabilirsin.</string>
+    <string name="kt_binding_number_to">Şifre oluşturmak, şifre sıfırlamak, ödül kazanmak ve kişiselleştirilmiş özellikleri kullanabilmek için telefon numaranı onaylamalısın</string>
+    <string name="kt_enter_email">E-posta adresini gir ve şifre oluştur</string>
+    <string name="kt_more_collections">Diğer Koleksiyonlar</string>
+    <string name="kt_collection">Koleksiyonlar</string>
+    <string name="kt_views">Görüntülenme</string>
+    <string name="kt_video">Videolar</string>
+    <string name="kt_see_more_replies">Daha fazla yanıt</string>
+    <string name="kt_no_more_collections">Başka koleksiyon yok</string>
+    <string name="kt_manage_title_manage">Düzenle</string>
+    <string name="kt_manage_button_quarantine">Kısıtla</string>
+    <string name="kt_manage_info_quarantine">Kısıtlanan içerikler listede gösterilmez</string>
+    <string name="kt_manage_title_move_topic">Taşı</string>
+    <string name="kt_manage_info_move_topic">Başlığı herhangi bir kataloğa taşıyabilirsin</string>
+    <string name="kt_manage_button_highlight">Önerilenler</string>
+    <string name="kt_manage_button_unhighlight">Öneriyi Kaldır</string>
+    <string name="kt_manage_info_highlight">İçeriği Değerli olarak işaretleyebilir ve onu öne çıkanlar listesinde tutabilirsin</string>
+    <string name="kt_manage_button_lock">Kilitle</string>
+    <string name="kt_manage_button_unlock">Kilidi Kaldır</string>
+    <string name="kt_manage_info_lock">Başlık kilitliyken yanıtlamaz ve yeni içerikler paylaşıldıkça alt sıralara kayar</string>
+    <string name="kt_manage_title_main_page_insert">Anasayfaya Yerleştir</string>
+    <string name="kt_manage_info_main_page_insert">Başlığı Anasayfaya yerleştir</string>
+    <string name="kt_manage_option_hot_topics">Alakalı Başlıklar</string>
+    <string name="kt_manage_option_recommended_photos">Önerilen Fotoğraflar</string>
+    <string name="kt_manage_option_game_video">Popüler Videolar</string>
+    <string name="kt_manage_info">Uyarı: Adminler tarafından oluşturulan içeriklere işlem uygulayamazsın</string>
+    <string name="kt_manage_alert_quarantine_title">İçeriği Kısıtla</string>
+    <string name="kt_manage_alert_quarantine_text">İçerik kısıtlansın mı?</string>
+    <string name="kt_manage_alert_highlight_title">Başlığı Öner</string>
+    <string name="kt_manage_alert_highlight_text">İçerik tavsiye edilsin mi?</string>
+    <string name="kt_manage_alert_unhighlight_title">Önerilerden Kaldır</string>
+    <string name="kt_manage_alert_unhighlight_text">İçerik önerilerden kaldırılsın mı?</string>
+    <string name="kt_manage_alert_lock_title">İçeriği Kitle</string>
+    <string name="kt_manage_alert_lock_text">İçerik kilitlensin mi?</string>
+    <string name="kt_manage_alert_unlock_title">İçerik Kilidini Kaldır</string>
+    <string name="kt_manage_alert_unlock_text">İçerik kilidi kaldırılsın mı?</string>
+    <string name="kt_manage_alert_move_title">İçeriği Taşı</string>
+    <string name="kt_manage_alert_move_text">İçerik taşınsın mı?</string>
+    <string name="kt_manage_alert_insert_mainpage_title">Başlığı Anasayfaya Yerleştir</string>
+    <string name="kt_manage_alert_insert_mainpage_text">Başlık anasayfaya yerleştirilsin mi?</string>
+    <string name="kt_pin_to_top">Başa Tuttur</string>
+    <string name="kt_unpinned">Baştan Kaldır</string>
+    <string name="kt_pin_a_post_to_top">İçeriği listenin başına tuttur</string>
+    <string name="kt_uppin_a_post_from_top">İçeriği listenin başından kaldır</string>
+    <string name="kt_manage_alert_pin_title">İçeriği Başa Tuttur</string>
+    <string name="kt_manage_alert_pin_text">İçerik başa tutturulsun mu?</string>
+    <string name="kt_manage_alert_unpin_title">İçeriği Baştan Kaldır</string>
+    <string name="kt_manage_alert_unpin_text">İçerik baştan kaldırılsın mı?</string>
+    <string name="kt_campaign_share_Collections">[Kampanya] Paylaş ve ödül kazan!</string>
+    <string formatted="false" name="kt_reply_to">Yanıt Ver: %@</string>
+    <string name="kt_original_topic">Orijinal Başlık:</string>
+    <string name="kt_original_reply">Orijinal Yanıt:</string>
+    <string formatted="false" name="kt_send_email_limit">Üzgünüz. %@ dakika bekleyin</string>
+    <string name="kt_email_unverified">Onaylanmadı</string>
+    <string name="kt_resend_email">Onay mailini tekrar gönder</string>
+    <string name="kt_title_optional">İçerik için güzel bir başlık yaz</string>
+    <string name="kt_voted">Oylandı</string>
+    <string name="kt_ad">Reklam Veren</string>
+    <string name="kt_ad_download">İndir</string>
+    <string name="kt_ad_open">Ayrıntılar</string>
+    <string name="kt_suggested_for_you">Senin İçin Önerilen</string>
+    <string name="kt_about_Influence">Etki Puanı Hakkında</string>
+    <string formatted="false" name="kt_you_rank_lower">#%@· Sıralaman son %@ arasında</string>
+    <string formatted="false" name="kt_you_rank_top">#%@· Sıralaman ilk  %@ arasında</string>
+    <string name="kt_rank">Sıralama</string>
+    <string name="kt_players">Kullanıcı</string>
+    <string name="kt_today">Bugün</string>
+    <string name="kt_all_time">Tüm Zaman</string>
+    <string name="kt_write_bio">Kendin için kısa bir tanıtım yaz!</string>
+    <string name="kt_header_background">Başlık Arka Planı</string>
+    <string formatted="false" name="kt_rank_number">#%@</string>
+    <string name="kt_bio">Tanıtım</string>
+    <string name="kt_have_reported">Bu mesajı şikayet ettin</string>
+    <string name="kt_see_rank">Sıralamaya Bak</string>
+    <string name="kt_influence_rank">Etki Sıralaması</string>
+    <string name="kt_no_more_follower">Başka takipçi yok</string>
+    <string name="kt_no_more_following">Başka takip edilen yok</string>
+    <string name="kt_cannot_message_unless">Birbiriniz takip etmiyorsanız mesaj gönderemezsin</string>
+    <string name="kt_unfollow">Takibi Bırak</string>
+    <string name="kt_unfollow_this_player">Bu kullanıcıyı takibi bırakacak mısın?</string>
+    <string name="kt_follow_success">Takip başarılı</string>
+    <string name="kt_no_following">O birilerini takip etmek için çok utangaç...</string>
+    <string name="kt_no_follower">Henüz takipçi yok...</string>
+    <string name="kt_say_hello">Sana selam verdi</string>
+    <string name="kt_require_content">Göndermek için bir başlık veya içerik gir</string>
+    <string name="kt_no_more_messages">Başka mesaj yok</string>
+    <string name="kt_no_record_yet">Kimse etki puanı kazanamadı. Topluluğa katkı yaparak #1. sıradaki kişi sen olabilirsin!</string>
+    <string name="kt_no_chat_yet">Başkalarının profillerini ziyaret ederek kendileriyle sohbete başlayabilirsin.</string>
+    <string name="kt_say_hello_to">Ona selam ver!</string>
+    <string name="kt_delete_conversation">Konuşmayı Sil</string>
+    <string name="kt_sure_delete_conversation">Bu konuşma silinsin mi? Eğer konuşma silinirse, bir daha görüntülenemez.</string>
+    <string name="kt_post_quickly">Çok seri mesaj gönderiyorsun</string>
+    <string name="kt_not_have_review">Herhangi bir incelemen bulunmuyor</string>
+    <string name="kt_login_start_conversation">Giriş yap ve başkalarının profillerini ziyaret ederek kendileriyle sohbete başla.</string>
+    <string name="kt_log_in_web">Web Topluluğuna Giriş Yap</string>
+    <string name="kt_verification_code_web">Onay kodu</string>
+    <string formatted="false" name="kt_verification_code_will_expire">%@ Sn sonra kullanılamaz</string>
+    <string name="kt_visite_web_community">Ziyaret Et</string>
+    <string name="kt_about_web_community">KTplay Web Topluluğu Hakkında</string>
+    <string name="kt_request_new_code">Yeni Kod İste</string>
+    <string name="kt_create_message">Yeni Mesaj Gönder:</string>
+    <string name="kt_have_not_visit_user">Kimsenin profilini ziyaret etmedin...</string>
+    <string name="kt_have_not_view_topic">Herhangi bir başlık görüntülemedin...</string>
+    <string name="kt_leaderboards">Lider Listesi</string>
+    <string formatted="false" name="kt_overallrank">#%@ Genel</string>
+    <string formatted="false" name="kt_will_be_reset">Yenilenme süresi %@</string>
+    <string name="kt_remain">Kalan</string>
+    <string name="kt_get_rank_login">Giriş yaparak sıralamanı gör</string>
+    <string name="kt_overall">Genel</string>
+    <string name="kt_my_rank">Sıralamam</string>
+    <string formatted="false" name="kt_top_rank">En İyi %@</string>
+    <string name="kt_not_ranked">Sıralamada Yok</string>
+    <string name="kt_no_ranking">Üzgünüz. Şu an liderlik listesinde kimse bulunmuyor...</string>
+    <string name="kt_not_ranked_on">Üzgünüz. Liderlik sıralamasına giremediniz...</string>
+    <string name="kt_promotion_viewed">Promosyonu görüntüleyen kişiler</string>
+    <string name="kt_ad_ktplay">Reklam Veren KTplay</string>
+    <string name="kt_quick_login">Ziyaretçi Girişi</string>
+    <string name="kt_not_complete_profile">Henüz hesabını tamamlamadın!</string>
+    <string name="kt_protect_your_account">KTplay hesabını ve gönderilerini koruyabilmek için, bir şifre oluşturmalısın.</string>
+    <string name="kt_agree_to_terms">Topluluğu kullanmaya devam ederek, aşağıda belirtilmiş olan Topluluk Kural ve Politikalarını kabul etmiş sayılırsınız.</string>
+    <string name="kt_related_topics">İlgili Başlıklar</string>
+    <string name="kt_no_replated_topic">İlgili başlık bulunamadı</string>
+    <string formatted="false" name="kt_has_been_bind">%@ başka bir hesaba bağlanmış</string>
+    <string name="kt_warning_account_lost">Eğer bu hesabın sahibiysen onunla giriş yap. Uyarı: Mevcut hesabın ve paylaştıkların giriş yaptıktan sonra silinebilir.</string>
+    <string name="kt_see_translation">Çevirisine Bak</string>
+    <string name="kt_automatically_translated">Otomatik Çevrildi</string>
+    <string formatted="false" name="kt_sort_by">Sıralama Ölçütü %@</string>
+    <string name="kt_last_reply">Son Yanıt</string>
+    <string name="kt_oldest_reply">En Eski Yanıt</string>
+    <string name="kt_most_replies">En Çok Yanıtlanan</string>
+    <string name="kt_most_likes">En Beğenilen</string>
+    <string name="kt_top_replies">En İyi Yanıtlar</string>
+    <string name="kt_current_language">Mevcut Dil</string>
+    <string name="kt_cannot_load_video">Video yüklenemiyor</string>
+    <string name="kt_expand">genişleme</string>
+    <string name="kt_welcome_to_community">Topluluğa hoş geldiniz</string>
+    <string name="kt_support">Destek</string>
+    <string name="kt_recover_account">Hesabı Kurtar</string>
+    <string name="kt_rate_our_services">Lütfen hizmetlerimizi değerlendir.</string>
+    <string name="kt_how_can_we_help">Nasıl yardımcı olabiliriz?</string>
+    <string name="kt_faq">SSS</string>
+    <string name="kt_confirm_to_proceed">Devam etmek istediğinden emin misin?</string>
+    <string name="kt_ban_user">Kullanıcıyı yasaklama (24 Saat)</string>
+    <string name="kt_unban_user">Kullanıcının kölesini kaldır</string>
+    <string name="kt_default">Varsayılan</string>
+    <string name="kt_cancel_quarantine">Karantinayı İptal Et</string>
+    <string name="kt_no_more">Daha fazla yok...</string>
+    <string name="kt_retry">yeniden denemek</string>
+    <string name="kt_realname_verify_phone">Ulusal yasa ve yönetmeliklere göre kimliğinizi doğrulamamız gerekiyor ve bilgilerinizi açıklamayız.</string>
+    <string name="kt_realname_verify_legal">"PRC Siber Güvenlik Yasası" nın 24. maddesi, "Ağ operatörleri, kullanıcılara bilgi yayınlama, anlık mesajlaşma ve diğer hizmetler sağlar. Kullanıcılarla anlaşma imzalarken veya hizmetlerin sunulmasını onaylarken, kullanıcıların gerçek kimlik bilgilerini sağlamaları gerekir. Gerçek kimlik bilgisi sağlayarak, şebeke operatörleri ilgili hizmetleri sağlamamalıdır. ”</string>
+    <string name="kt_input_age">Başlamadan önce lütfen bize yaşınızı bildirin.</string>
+    <string name="kt_age_verify_failed">Üzgünüz, yaşınız topluluk gereksinimlerini karşılamıyor ve topluluk özelliklerini kullanamıyor.</string>
+    <string name="kt_notification_settings">Bildirim ayarları</string>
+    <string name="kt_activity_about_you">Etkinlik Hakkında</string>
+    <string name="kt_see_original">Orijinali Gör</string>
+    <string name="kt_no_permission">Bunu yapmaya yetkili değilsin.</string>
+    <string name="kt_user_profile_muted">tıkaç</string>
+    <string name="kt_enter_youtube_url">Youtube video URL’sini girin</string>
+    <string name="kt_album">Albüm</string>
+</resources>

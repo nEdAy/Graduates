@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/kt_theme_section_background"
+            android:orientation="vertical">
+
+            <com.ktplay.widget.KTCircleImageView
+                android:id="@id/kt_item_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+
+
+            <TextView
+                android:id="@+id/kt_common_view_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/kt_theme_hint_textcolor"
+                android:layout_gravity="center_horizontal" />
+
+
+            <!--登录验证码-->
+            <TextView
+                style="@style/kryptanium_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/kt_verification_code_web" />
+
+            <!--获取验证码-->
+            <TextView
+                android:id="@+id/kt_common_view_4"
+                style="@style/kryptanium_button_style_main"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@string/kt_request_new_code"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/kt_common_view_5"
+                style="@style/kryptanium_primary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/kryptanium_btn_backgroud_in_weblogin" />
+
+            <!--倒计时-->
+            <TextView
+                android:id="@+id/kt_common_view_6"
+                style="@style/kryptanium_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/kt_common_iv_1"
+            style="@style/kryptanium_primary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/kt_about_web_community"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

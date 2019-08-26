@@ -2,14 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/kt_theme_listitem_background"
     android:paddingBottom="@dimen/kt_card_vmargin"
     android:paddingLeft="@dimen/kt_card_hmargin"
     android:paddingRight="@dimen/kt_card_hmargin"
-    android:paddingTop="@dimen/kt_card_vmargin">
+    android:paddingTop="@dimen/kt_card_vmargin"
+    android:background="@color/kt_theme_listitem_background">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="12dp"
         android:paddingLeft="12dp"
@@ -29,19 +29,30 @@
             style="@style/kryptanium_primary_text_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="36dp"
+            android:paddingStart="36dp"
             android:layout_below="@id/kt_sub_replay_header"
             android:layout_marginTop="6dp"
-            android:includeFontPadding="false"
-            android:paddingLeft="36dp" />
+            android:includeFontPadding="false" />
+
+        <ViewStub
+            android:id="@id/kt_translation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/kt_translation"
+            android:layout_below="@id/kt_item_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp" />
 
         <!-- 话题图片 -->
 
         <FrameLayout
             android:id="@id/kt_image"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/kt_item_content"
-            android:paddingLeft="36dp">
+            android:paddingLeft="36dp"
+            android:paddingStart="36dp"
+            android:layout_below="@id/kt_translation">
 
             <com.ktplay.widget.NoClickStateImageView
                 android:id="@id/kt_item_image"
@@ -63,26 +74,43 @@
                 android:visibility="gone" />
         </FrameLayout>
 
-        <!-- 点赞 -->
-
-        <include
-            android:id="@id/kt_like"
-            layout="@layout/kt_compound_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/kt_image" />
-
         <!-- 回复 -->
 
         <include
             android:id="@+id/kt_sub_replay"
-            layout="@layout/kt_compound_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/kt_image"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            layout="@layout/kt_compound_icon" />
+
+        <!-- 点赞 -->
+
+        <include
+            android:id="@id/kt_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/kt_like" />
+            android:layout_marginEnd="5dp"
+            android:layout_toLeftOf="@id/kt_sub_replay"
+            android:layout_toStartOf="@id/kt_sub_replay"
+            android:layout_below="@id/kt_image"
+            layout="@layout/kt_compound_icon" />
+
+        <!-- 置顶或者取消置顶 -->
+
+        <include
+            android:id="@+id/kt_stick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kt_image"
+            android:layout_toLeftOf="@id/kt_like"
+            android:layout_toStartOf="@id/kt_like"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            layout="@layout/kt_compound_icon" />
+
 
         <!--<View-->
         <!--android:id="@+id/kt_sub_reply_list_header_bottom_line"-->

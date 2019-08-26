@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+
+    <com.ktplay.video.ui.KTVideoViewExo
+        android:id="@+id/kt_video_by_ad_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center" />
+
+
+    <View
+        android:id="@+id/kt_video_by_ad_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000" />
+
+    <ProgressBar
+        android:id="@+id/kt_video_by_ad_pb"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/kt_video_circle_shape"
+        android:indeterminateDuration="1200" />
+
+    <LinearLayout
+        android:id="@+id/kt_video_ad_completion_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BB000000"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/kt_video_ad_completion_repeat"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/kt_video_completion_background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:src="@drawable/kt_video_replay" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/kt_video_voice_switch"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|left|start"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:clickable="true"
+        android:src="@drawable/kt_video_by_ad_crtl_selecter"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/kt_video_by_ad_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="top|left|start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:minHeight="30dp"
+        android:minWidth="30dp"
+        android:clickable="true"
+        android:src="@drawable/kryptanium_back_white" />
+
+    <com.ktplay.widget.KTRoundProgressBar
+        android:id="@+id/kt_video_by_ad_progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right|top|end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
+
+
+    <View
+        android:id="@+id/kt_video_onclick_view_in_ad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <ViewStub
+        android:id="@+id/kt_ad_video_link"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout="@layout/kt_ad_video_link_layout" />
+
+
+</FrameLayout>

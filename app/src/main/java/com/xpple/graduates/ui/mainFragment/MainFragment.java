@@ -119,12 +119,12 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(Intent.createChooser(toShare, "分享到"));
                 break;
             case R.id.btn_top:
-                //获取游戏玩家排行榜数据
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_main,
-                                TopFragment.newInstance()).addToBackStack(null)
-                        .commit();
+//                //获取游戏玩家排行榜数据
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.fragment_main,
+//                                TopFragment.newInstance()).addToBackStack(null)
+//                        .commit();
                 break;
             case R.id.btn_start:
 //                if (isNetConnected()) {

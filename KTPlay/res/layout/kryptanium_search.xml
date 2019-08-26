@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.ktplay.widget.KTClearableEditText xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/kryptanium_edittext"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:minHeight="28dp"
+    style="@style/kryptanium_edittext"
     android:layout_centerVertical="true"
-    android:drawableLeft="@drawable/kryptanium_icon_search"
     android:hint="@string/kt_search"
+    android:singleLine="true"
     android:imeOptions="actionSearch"
-    android:maxLines="1" />
+    android:background="@drawable/kt_search_bg"
+    android:textCursorDrawable="@drawable/kt_cursor"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:theme="@style/kryptanium_edittext" />

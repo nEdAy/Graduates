@@ -3,17 +3,17 @@
     <item>
         <shape>
             <padding
+                android:top="@dimen/kt_card_vmargin"
                 android:bottom="@dimen/kt_card_vmargin"
                 android:left="@dimen/kt_card_hmargin"
-                android:right="@dimen/kt_card_hmargin"
-                android:top="@dimen/kt_card_vmargin" />
+                android:right="@dimen/kt_card_hmargin" />
             <solid android:color="@android:color/transparent" />
         </shape>
     </item>
     <item>
         <shape>
             <solid android:color="@color/kt_theme_section_background" />
-            <corners android:radius="3dp" />
+            <corners android:radius="2dp" />
         </shape>
     </item>
 </layer-list>

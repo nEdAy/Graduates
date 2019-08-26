@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <!-- 不支持视频功能时的占位图 -->
 
     <include
         android:id="@+id/kt_video_incompatible_placeholder"
-        layout="@layout/kt_video_placeholder"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="@dimen/kt_video_placeholder_height"
+        layout="@layout/kt_video_placeholder"
         android:visibility="gone" />
 
     <!-- 无视频截图时的占位图 -->
 
     <FrameLayout
         android:id="@+id/kt_video_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:background="#ff242424"
         android:padding="8dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:src="@drawable/kt_logo" />
     </FrameLayout>
 
     <!-- 视频布局 -->
 
     <FrameLayout
         android:id="@+id/kryptanium_video_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
         <!-- 显示视频缩略图 -->
 
         <ImageView
             android:id="@+id/kryptanium_video_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerVertical="true"
             android:scaleType="centerCrop" />
         <!-- 中间的播放按钮 -->
 
         <ImageView
+            android:id="@+id/kt_play_icon"
             android:layout_width="@dimen/kt_avatar_width_large"
             android:layout_height="@dimen/kt_avatar_size_large"
             android:layout_gravity="center"
@@ -53,7 +49,7 @@
 
         <ImageView
             android:id="@+id/kryptanium_video_mask_image"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="38dp"
             android:layout_gravity="bottom|fill_horizontal"
             android:background="@drawable/kryptanium_video_mask" />
@@ -61,9 +57,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_marginBottom="@dimen/kt_card_vpadding"
-            android:layout_marginLeft="@dimen/kt_card_hpadding"
+            android:layout_gravity="bottom|left|start"
+            android:layout_marginBottom="@dimen/kt_content_padding"
+            android:layout_marginLeft="@dimen/kt_content_padding"
+            android:layout_marginStart="@dimen/kt_content_padding"
             android:orientation="horizontal">
 
             <ImageView
@@ -93,9 +90,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="@dimen/kt_card_vpadding"
-            android:layout_marginRight="@dimen/kt_card_hpadding"
+            android:layout_gravity="bottom|right|end"
+            android:layout_marginBottom="@dimen/kt_content_padding"
+            android:layout_marginRight="@dimen/kt_content_padding"
+            android:layout_marginEnd="@dimen/kt_content_padding"
             android:orientation="horizontal">
 
             <!-- 小的播放图标 -->
@@ -123,8 +121,8 @@
 
     <View
         android:id="@+id/kryptanium_video_imageload_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:background="@drawable/kryptanium_default_icon_image_small"
         android:visibility="gone" />
 </FrameLayout>

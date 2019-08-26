@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/kt_theme_section_background">
 
         <ImageView
             android:id="@id/kt_item_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:scaleType="centerCrop" />
 
         <com.ktplay.widget.KTEmojiText
@@ -22,7 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:maxLines="1"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
             android:textSize="16sp" />
@@ -30,7 +30,7 @@
         <TextView
             android:id="@id/kt_item_value"
             style="@style/kryptanium_hint_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:paddingLeft="12dp"
@@ -45,23 +45,29 @@
             android:layout_marginTop="6dp"
             android:paddingLeft="12dp"
             android:paddingRight="12dp" />
+
+        <!-- Translation -->
+        <ViewStub
+            android:id="@id/kt_translation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/kt_translation"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="@dimen/kt_content_padding" />
     </LinearLayout>
 
     <!-- 话题数数 -->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/kryptanium_topic_detail_topic_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="6dp"
-            android:paddingLeft="12dp"
-            android:paddingTop="6dp"
-            android:textColor="@color/kryptanium_text_dark_gray"
-            android:textSize="@dimen/kryptanium_text_size_standard" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/kt_common_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingStart="12dp"
+        android:paddingTop="6dp"
+        android:textColor="@color/kryptanium_text_dark_gray"
+        android:textSize="@dimen/kryptanium_text_size_standard" />
 
 </LinearLayout>

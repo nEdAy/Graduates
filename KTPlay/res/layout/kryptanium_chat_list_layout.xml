@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp">
-
-    <ListView
-        android:id="@+id/kryptanium_chat_list_listview"
-        style="@style/kryptanium_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:listSelector="@android:color/transparent"
-        android:scrollbars="none" />
-</RelativeLayout>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_listview"
+    style="@style/kryptanium_list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:headerDividersEnabled="false"
+    android:listSelector="@android:color/transparent"
+    android:scrollbars="none" />

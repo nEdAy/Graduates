@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_vg_8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:background="@color/kt_theme_section_background">
+
+
+    <ImageView
+        android:id="@id/kt_icon"
+        style="@style/kryptanium_subtitle_icon"
+        android:layout_margin="@dimen/kt_content_padding"
+        android:src="@drawable/kt_home_leaderboard" />
+
+    <TextView
+        style="@style/kryptanium_subtitle_text"
+        android:layout_alignBottom="@+id/kt_icon"
+        android:layout_toEndOf="@+id/kt_icon"
+        android:text="@string/kt_leaderboards"
+        android:textAllCaps="true" />
+
+    <com.ktplay.widget.KTListViewInScrollView
+        android:id="@id/kt_common_listview"
+        style="@style/kryptanium_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/kt_icon"
+        android:cacheColorHint="#00000000"
+        android:dividerHeight="0.5dp"
+        android:fadingEdge="none"
+        android:footerDividersEnabled="true"
+        android:listSelector="@color/kt_theme_listitem_dividercolor" />
+
+</RelativeLayout>

@@ -7,7 +7,7 @@
     <color name="kt_theme_color_disabled">#7f29b6f6</color>
 
     <!-- Main Background Color -->
-    <color name="kt_theme_background">#fff0f0f0</color>
+    <color name="kt_theme_background">#FFF4F4F4</color>
 
     <!-- Navigation Bar Background -->
     <color name="kt_theme_navigationbar_background">@color/kt_theme_color</color>
@@ -38,9 +38,6 @@
     <!-- Primary Text Color -->
     <color name="kt_theme_title_textcolor">#ff333333</color>
 
-    <!-- Title text color for dark background -->
-    <color name="kt_theme_title_textcolor_dark">#ffffffff</color>
-
     <!-- Primary Text Color -->
     <color name="kt_theme_primary_textcolor">#ff555555</color>
 
@@ -59,13 +56,26 @@
     <!-- Sub-Title Background Color -->
     <color name="kt_theme_subtitle_background">#ffe4e4e4</color>
 
-    <!-- Disabled Text Color -->
-    <color name="kt_theme_disabled_textcolor">#7f000000</color>
-
     <!-- Image loading placeholder background color -->
     <color name="kt_theme_imageloading_placeholder_background">#ffeeeeee</color>
 
     <!--Background color for highlighted item-->
     <color name="kt_theme_highlighted_item_background">#fffffdeb</color>
 
+    <!--color for rank 1st-->
+    <color name="kt_theme_rank_1st">#FFF5A623</color>
+
+    <!--color for rank 2nd-->
+    <color name="kt_theme_rank_2nd">#FFC2C2C2</color>
+
+    <!--color for rank 3rd-->
+    <color name="kt_theme_rank_3rd">#FFBC7054</color>
+
+    <!--color for growth rate up-->
+    <color name="kt_theme_growth_rate_up">#FF16AE2B</color>
+
+    <!--color for growth rate down-->
+    <color name="kt_theme_growth_rate_down">#FFEF354F</color>
+
+    <!--<color name="kt_theme_warning">#ffd9001d</color>-->
 </resources>

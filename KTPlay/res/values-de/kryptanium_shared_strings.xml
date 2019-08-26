@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_connection_failed">Ihr Netzwerk ist instabil</string>
+    <string name="kt_error_150001">Fehler (Fehlende Parameter: 150001)</string>
+    <string name="kt_error_150005">Fehler (150005)</string>
+    <string name="kt_error_150101">Fehler (150101)</string>
+    <string name="kt_error_150102">Fehler (150102)</string>
+    <string name="kt_new">NEU</string>
+    <string name="kt_all">Alle</string>
+    <string formatted="false" name="kt_community_version">Community · v%@</string>
+    <string name="kt_powered_by">Unterstützt von</string>
+    <string name="kt_username">Benutzername</string>
+    <string name="kt_nickname">Spitzname</string>
+    <string name="kt_gender">Geschlecht</string>
+    <string name="kt_follow">Folgen</string>
+    <string name="kt_following">Folgt</string>
+    <string name="kt_followers">Follower</string>
+    <string name="kt_influence_points">Einfluss-Wertung</string>
+    <string name="kt_development_mode">Entwicklermodus</string>
+    <string name="kt_in_development">Diese App befindet sich im Entwicklermodus. Sie benutzen App Key und Secret einer TEST-App.</string>
+    <string name="kt_blocked_account">Tut uns leid. Ihr Konto ist blockiert.</string>
+    <string formatted="false" name="kt_limited_account_promption">Konto ausgesetzt, wird zum folgenden Zeitpunkt reaktiviert: %@</string>
+    <string name="kt_time_format_yesterday">Gestern</string>
+    <string name="kt_network_unavailable">Ihr Netzwerk ist instabil</string>
+    <string name="kt_confirm">OK</string>
+    <string name="kt_confirm_yes">Ja</string>
+    <string formatted="false" name="kt_login_success">%@. Willkommen!</string>
+    <string formatted="false" name="kt_time_format_minutes_ago">%@M</string>
+    <string name="kt_time_format_last_year">dd-MM-yyyy</string>
+    <string name="kt_rule_password_character">Nur Zahlen und Groß-/Kleinbuchstaben</string>
+    <string name="kt_delete">Löschen</string>
+    <string name="kt_cancel">Abbrechen</string>
+    <string name="kt_invalid_email_format">Falsches E-Mail-Format</string>
+    <string name="kt_search">Suchen</string>
+    <string name="kt_female">Weiblich</string>
+    <string name="kt_male">Männlich</string>
+    <string name="kt_confidential">Vertraulich</string>
+    <string name="kt_login_expired">Sie wurden von Ihrem Konto abgemeldet, bitte melden Sie sich erneut an.</string>
+    <string name="kt_input_nickname">Spitznamen erstellen</string>
+    <string name="kt_update_success">Fertig</string>
+    <string name="kt_update_failed">Fehlgeschlagen</string>
+    <string name="kt_rule_password">Password muss aus 6-18 Zeichen bestehen.</string>
+    <string name="kt_password_placeholder">Passwort 6-18 Zeichen</string>
+    <string name="kt_not_now">Nicht jetzt</string>
+    <string name="kt_app_settings">App-Einstellungen</string>
+    <string name="kt_warning_delete_content">Inhalt löschen?</string>
+    <string name="kt_password">Passwort</string>
+    <string name="kt_terms_and_privacy">Geschäftsbedingungen und Datenschutzrichtlinien von KTplay</string>
+    <string name="kt_my_friends">Freunde</string>
+    <string formatted="false" name="kt_time_format_hour">%@Std</string>
+    <string formatted="false" name="kt_remain_format_day_hour">%@T %@Std</string>
+    <string formatted="false" name="kt_remain_format_hour">%@Std</string>
+    <string formatted="false" name="kt_remain_format_min">%@M</string>
+    <string formatted="false" name="kt_remain_format_day">%@T</string>
+    <string formatted="false" name="kt_upload_failed_part">Hochladen von %@ Inhalten fehlgeschlagen, Entwürfe wurden in Ihrem Profil gespeichert.</string>
+    <string name="kt_edit">Bearbeiten</string>
+    <string name="kt_sending">Sendet</string>
+    <string name="kt_save_draft">Entwurf in Ihrem Profil gespeichert.</string>
+    <string name="kt_login_first">Tut uns leid. Sie müssen sich zuerst anmelden.</string>
+    <string name="kt_system_support">Tut uns leid. Das aktuelle System unterstützt keine Videos.</string>
+    <string name="kt_app_version_support">Tut uns leid. Die App-Version unterstützt keine Videos.</string>
+    <string name="kt_community">Themen</string>
+    <string name="kt_more">Mehr</string>
+    <string name="kt_see_all">Alle anzeigen</string>
+    <string name="kt_time_format_month_day_hour_minute">MM-dd HH:mm</string>
+    <string name="kt_agree">Zustimmen</string>
+    <string name="kt_reward_claimed">Beansprucht!</string>
+    <string name="kt_no_messages">Noch keine Nachrichten …</string>
+    <string name="kt_inbox">Posteingang</string>
+    <string name="kt_claimed">Beansprucht</string>
+    <string name="kt_claim">Beanspruchen</string>
+    <string name="kt_read_more">Detail</string>
+    <string formatted="false" name="kt_topic_count">Themen %@</string>
+    <string name="kt_select_topic_category">Kategorie wählen</string>
+    <string name="kt_create_topic">Thema</string>
+    <string name="kt_all_topics">Neuestes</string>
+    <string name="kt_not_following_anyone">Ups! Sie folgen noch niemandem. Folgen Sie Beeinflussern der Community, um schnellen Zugang zu deren tollen Inhalten zu bekommen!</string>
+    <string name="kt_like">Liken</string>
+    <string name="kt_profile_reply">Antworten</string>
+    <string name="kt_create_reply">Antworten</string>
+    <string name="kt_report_success">Bericht eingereicht</string>
+    <string name="kt_tip_reply_locked">Thema gesperrt</string>
+    <string name="kt_topic_details">Zurück zum Thema</string>
+    <string name="kt_report">Melden</string>
+    <string name="kt_updates_created_topic">Erstellt</string>
+    <string name="kt_content_already_removed">Ups! Inhalt entfernt …</string>
+    <string name="kt_updates_replied_topic">Beantwortet</string>
+    <string name="kt_publish_content_placeholder">Sagen Sie etwas …</string>
+    <string name="kt_create_topic_success">Inhalt verschickt</string>
+    <string name="kt_share_to_sns">Teilen</string>
+    <string name="kt_all_players">Einfluss-Rang</string>
+    <string name="kt_influencers">Beeinflusser</string>
+    <string name="kt_topics">Themen</string>
+    <string name="kt_user_profile">Profil</string>
+    <string name="kt_field_username">Benutzername:</string>
+    <string name="kt_recent_viewed">Kürzlich angesehen</string>
+    <string name="kt_increase_influence">Erhöhen Sie Ihren Community-Einfluss, posten Sie tolle Inhalte und man wird Ihnen folgen!</string>
+    <string name="kt_logout">Abmelden</string>
+    <string name="kt_warning_complete_email">Möchten Sie eine E-Mail-Adresse angeben, um Ihre Sicherheitseinstellungen abzuschließen?</string>
+    <string name="kt_bind_email">E-Mail verbinden</string>
+    <string name="kt_setting">Einstellungen</string>
+    <string name="kt_not_binding">Nicht eingestellt</string>
+    <string name="kt_not_setting">N/V</string>
+    <string name="kt_change_password">Ändern</string>
+    <string name="kt_confirm_to_logout">Nein Danke</string>
+    <string name="kt_input_email">E-Mail-Adresse eingeben</string>
+    <string name="kt_create_nickname">Spitznamen einstellen</string>
+    <string name="kt_create_username_tip">Der Benutzername kann nur einmal geändert werden. Sie können Ihren neuen Benutzernamen benutzen, um sich bei KTplay anzumelden.</string>
+    <string name="kt_create_username">Benutzernamen erstellen</string>
+    <string name="kt_input_username">Geben Sie Ihren Benutzernamen ein (Englische Zeichen oder Zahlen)</string>
+    <string name="kt_set_password">Passwort ändern</string>
+    <string name="kt_warning_same_oldpassword_and_newpassword">Ihr altes und neues Passwort kann nicht dasselbe sein</string>
+    <string name="kt_input_oldpassword">Aktuelles Passwort</string>
+    <string name="kt_input_newpassword">Neues Passwort</string>
+    <string name="kt_likes">Likes</string>
+    <string name="kt_forget_password">Passwort vergessen?</string>
+    <string name="kt_register">Registrieren</string>
+    <string name="kt_email_or_username">Benutzername</string>
+    <string name="kt_retrieve_password">KTplay-Konto finden</string>
+    <string name="kt_warning_retrieve_password_after_login_failure">Anmeldung fehlgeschlagen</string>
+    <string name="kt_login">Anmelden</string>
+    <string name="kt_quicklaunch_relogin">Klicken Sie unten, um sich nochmal zu verbinden.</string>
+    <string name="kt_relogin">Wieder anmelden</string>
+    <string name="kt_sign_up_ktplay">Registrieren</string>
+    <string name="kt_enter_number">Geben Sie Ihre Mobilnummer ein, wir schicken Ihnen einen Verifizierungscode.</string>
+    <string name="kt_verification_email_send">Wir schicken Ihnen eine Verifizierungs-E-Mail. Bitte verifizieren Sie Ihre E-Mail-Adresse innerhalb der nächsten 24 Stunden, um bestimmte KTplay-Funktionen zu nutzen. Achtung: Sie können Ihre E-Mail-Adresse ändern, bevor Sie sie bestätigen. Sobald sie geändert ist, müssen Sie die neueste E-Mail-Adresse nutzen, um sich bei KTplay anzumelden.</string>
+    <string name="kt_verification_email">Verifizierungs-E-Mail verschickt. Bitte verifizieren Sie Ihre E-Mail-Adresse innerhalb der nächsten 24 Stunden, um bestimmte KTplay-Funktionen zu nutzen.</string>
+    <string name="kt_reset_enter_username_with_email">Geben Sie Ihre E-Mail oder Ihren Benutzernamen ein</string>
+    <string name="kt_reset_enterusername">Setzen Sie Ihr Passwort mit Benutzernamen oder E-Mail zurück</string>
+    <string formatted="false" name="kt_reset_password_email_failure">Tut uns leid. Konto %@ ist nicht mit einer E-Mail-Adresse verbunden. Sie können Ihr Passwort momentan nicht zurücksetzen.</string>
+    <string formatted="false" name="kt_tip_resetpassword_with_email">Eine E-Mail wurde an %@ geschickt, um Ihr Passwort zurückzusetzen. Bitte überprüfen Sie Ihren Posteingang.</string>
+    <string formatted="false" name="kt_reset_password_failure">Tut uns leid. Konto %@ wurde nicht mit einer Mobilnummer oder E-Mail-Adresse verbunden. Sie können Ihr Passwort momentan nicht zurücksetzen.</string>
+    <string name="kt_reset_password">Passwort zurücksetzen</string>
+    <string name="kt_login_failed">Anmeldung fehlgeschlagen</string>
+    <string name="kt_send">Senden</string>
+    <string name="kt_phone_number">Telefonnummer</string>
+    <string name="kt_get_verification_code">Anfrage</string>
+    <string name="kt_verification_code">Verifizierungscode</string>
+    <string name="kt_reset">Zurücksetzen</string>
+    <string name="kt_done">Fertig</string>
+    <string name="kt_complete_user_profile">Nutzereinstellungen</string>
+    <string name="kt_ktplay_slogan">TIPPS · Q&amp;A · FREUNDE · BELOHNUNGEN</string>
+    <string name="kt_login_with_phonenumber">Anmelden</string>
+    <string name="kt_login_with_username">Mit Benutzernamen anmelden</string>
+    <string name="kt_whats_hot">Community</string>
+    <string formatted="false" name="kt_replies_count">Antworten %@</string>
+    <string name="kt_top_collections">Sammlungen</string>
+    <string name="kt_categories">Kategorien</string>
+    <string name="kt_recommended_topics">Empfohlen</string>
+    <string name="kt_highest_growth">Aufsteigende Benutzer</string>
+    <string name="kt_top_Influencers">Top-Beeinflusser</string>
+    <string name="kt_rising_topics">Aufsteigende Themen</string>
+    <string name="kt_register_with_phonenumber">Registrieren</string>
+    <string name="kt_bind_phonenumber">Telefonnummer</string>
+    <string name="kt_go">Detail</string>
+    <string name="kt_i_know">Verstanden</string>
+    <string name="kt_link_login_with_phonenumber">Mit Mobilnummer anmelden</string>
+    <string name="kt_friends_symbol">Freunde</string>
+    <string formatted="false" name="kt_seconds_countdown">%@ S</string>
+    <string name="kt_verification_code_sent">Wir haben Ihnen einen Verifizierungscode per SMS zugeschickt</string>
+    <string name="kt_setting_baseinfo">Mein Profil</string>
+    <string name="kt_setting_avatar">Profilfoto</string>
+    <string name="kt_setting_security">Sicherheitseinstellungen</string>
+    <string name="kt_reply_to_someone">Antworten</string>
+    <string name="kt_tip_change_nickname">Dieser Name wird benutzt, damit andere Benutzer Sie finden können.</string>
+    <string name="kt_security_verification">Sicherheitsverifizierung</string>
+    <string name="kt_security_verification_prompt">Wenn Sie sich jemals in einer der folgenden Apps bei KTplay angemeldet haben, wählen Sie sie bitte aus, um Ihre Identität zu bestätigen.</string>
+    <string formatted="false" name="kt_security_verification_failure_times">Verifizierung fehlgeschlagen %@/%@</string>
+    <string name="kt_warning_security_verification_times">Wenn die Verifizierung zweimal fehlschlägt, müssen Sie 24 Stunden bis zur nächsten Verifizierung warten.</string>
+    <string name="kt_try_again">Nochmal versuchen</string>
+    <string name="kt_skip_security_verification">Verifizierung überspringen</string>
+    <string name="kt_login_with_other_accounts">Ein anderes Konto verwenden</string>
+    <string name="kt_login_to_ktplay">Bei KTplay anmelden.</string>
+    <string name="kt_login_with_selected_account">Konto auswählen.</string>
+    <string name="kt_report_content">Missbrauch melden</string>
+    <string name="kt_warning_complete_phonenumber">Möchten Sie Ihre Mobilnummer verbinden, um Ihre Sicherheitseinstellungen abzuschließen?</string>
+    <string formatted="false" name="kt_login_welcome">%@. Willkommen!</string>
+    <string name="kt_chat">Nachrichten</string>
+    <string name="kt_block_chat">Im Chat blockieren</string>
+    <string name="kt_copy">Kopieren</string>
+    <string name="kt_unsupported_chat_message_type">Die aktuelle Version von KTplay unterstützt die Anzeige dieses Inhalts nicht.</string>
+    <string name="kt_tip_chattype_image">Bild</string>
+    <string formatted="false" name="kt_warning_block_chatuser">Möchten Sie %@ wirklich im Chat blockieren?</string>
+    <string name="kt_privacy">Privatsphäre</string>
+    <string name="kt_blocked_list">Blockierliste</string>
+    <string name="kt_block_private_chat">Chat blockieren, außer für Follower</string>
+    <string name="kt_unblock">Blockierung aufheben</string>
+    <string formatted="false" name="kt_warning_unblock_chatuser">Möchten Sie die Blockierung von %@ im Chat wirklich aufheben?</string>
+    <string name="kt_blocked_list_placeholder">Sie haben niemanden blockiert</string>
+    <string name="kt_resend">Senden</string>
+    <string formatted="false" name="kt_pattern_blocked_user">(Blockiert) %@</string>
+    <string name="kt_tip_message_blocked">Die Nachricht wurde abgewiesen</string>
+    <string name="kt_report_submitted_description">Ihr Bericht wurde eingereicht. Wir werden ihn überprüfen und Ihnen das Ergebnis mitteilen. Vielen Dank für Ihren Bericht!</string>
+    <string name="kt_request_img_failed">Herunterladen des Bildes fehlgeschlagen.</string>
+    <string name="kt_quicklaunch_netlogged">Sie sind nicht angemeldet, bitte melden Sie sich zuerst in der App an.</string>
+    <string name="kt_account_adm">ADM</string>
+    <string name="kt_account_mod">MOD</string>
+    <string name="kt_no_topic_yet">Noch kein Thema</string>
+    <string name="kt_no_reply_yet">Noch keine Antwort</string>
+    <string name="kt_no_like_yet">Noch keine Likes</string>
+    <string name="kt_no_more_topic">Keine Themen mehr</string>
+    <string name="kt_no_more_reply">Keine Antworten mehr</string>
+    <string name="kt_no_more_like">Keine Likes mehr</string>
+    <string name="kt_favorite">Favoriten</string>
+    <string name="kt_not_in_group">Sie sind nicht Teil dieser Gruppe</string>
+    <string name="kt_selecet_a_topic">Thema auswählen</string>
+    <string name="kt_my_topics">Meine Themen</string>
+    <string name="kt_locked">Gesperrt</string>
+    <string name="kt_hot_searches">Beliebte Suchen</string>
+    <string name="kt_recent_searches">Kürzliche Suchen</string>
+    <string name="kt_reward">Belohnungen</string>
+    <string name="kt_campaign_share_topic">[Campaign] Teilen Sie und verdienen Sie Belohnungen!</string>
+    <string name="kt_campaign_rewards">Belohnungen:</string>
+    <string name="kt_campaign_remain">Verbleibende Zeit:</string>
+    <string formatted="false" name="kt_topic_share">Kürzliches Thema von %@ geteilt</string>
+    <string name="kt_reward_expired">Tut uns leid! Die Belohnung ist abgelaufen. Danke für Ihre Teilnahme!</string>
+    <string name="kt_drafts">Entwürfe</string>
+    <string name="kt_no_draft_yet">Kein Entwurf</string>
+    <string name="kt_no_more_drafts">Keine Entwürfe mehr</string>
+    <string formatted="false" name="kt_topic_task_limit">Nur %@ Inhalte können gleichzeitig als Inhalte in Ihrem Profil gespeichert werden.</string>
+    <string formatted="false" name="kt_vote_is_ongoing">[Vote Now!] Bisher %@ Stimmen!</string>
+    <string name="kt_vote_now">Jetzt abstimmen!</string>
+    <string name="kt_vote_thank">Danke für Ihre Stimme!</string>
+    <string name="kt_vote_expired">Die Abstimmung ist abgelaufen!</string>
+    <string name="kt_vote">Abstimmen</string>
+    <string name="kt_select_video">Video auswählen.</string>
+    <string name="kt_video_and_images">Sie können nicht Videos und Bilder gleichzeitig hochladen.</string>
+    <string formatted="false" name="kt_video_size">Videogröße %@ MB.</string>
+    <string name="kt_can_not_video">Sie können momentan keine Videos in Ihre Inhalte hochladen.</string>
+    <string name="kt_in_review">Wird überprüft</string>
+    <string name="kt_in_reviewing">Wird überprüft …</string>
+    <string formatted="false" name="kt_video_exceed">Tut uns leid. Videos dürfen %@ MB oder %@ Min nicht überschreiten.</string>
+    <string name="kt_reply_notify">Benachrichtigungen</string>
+    <string name="kt_no_video">Noch kein Video</string>
+    <string name="kt_complete_profile">Schließen Sie Ihre Profileinstellungen ab, damit andere Sie besser kennenlernen können.</string>
+    <string name="kt_birthday">Geburtstag</string>
+    <string name="kt_email">E-Mail</string>
+    <string name="kt_enter_email_reward">Geben Sie Ihre E-Mail-Adresse ein, um Ihre Belohnung zu erhalten. Sie können die E-Mail-Adresse nicht ändern, wenn Sie sie einmal eingerichtet haben.</string>
+    <string name="kt_verify_mobile_password">Verifizieren Sie Ihre Mobilnummer per SMS und legen Sie ein Passwort für Ihr Konto fest, um Ihre Belohnung zu erhalten.</string>
+    <string name="kt_verify_mobile">Verifizieren Sie Ihre Mobilnummer per SMS, um Ihre Belohnung zu erhalten.</string>
+    <string name="kt_email_already_registered">Diese E-Mail-Adresse ist bereits bei KTplay registriert, bitte verwenden Sie eine andere E-Mail-Adresse.</string>
+    <string name="kt_mobile_already_registered">Diese Mobilnummer ist bereits bei KTplay registriert, bitte verwenden Sie eine andere Mobilnummer.</string>
+    <string name="kt_set_login_password">Legen Sie ein Passwort für Ihr Konto fest.</string>
+    <string name="kt_to_enter_email">Geben Sie Ihre E-Mail-Adresse ein, um eine persönliche Videosignatur zu erstellen. Sie können die E-Mail-Adresse nicht ändern, wenn Sie sie einmal eingerichtet haben.</string>
+    <string name="kt_to_verify_number">Verifizieren Sie Ihre Mobilnummer per SMS, um eine persönliche Videosignatur zu erstellen.</string>
+    <string name="kt_binding_email_to">Verbinden Sie Ihre E-Mail-Adresse, um Ihr Passwort zurückzusetzen, eine Belohnung zu erhalten und persönliche Funktionen zu nutzen. Sie können die E-Mail-Adresse nicht ändern, wenn Sie sie einmal eingerichtet haben.</string>
+    <string name="kt_binding_number_password_to">Verbinden Sie Ihre E-Mail-Adresse, um Ihr Passwort zurückzusetzen, eine Belohnung zu erhalten und persönliche Funktionen zu nutzen.</string>
+    <string name="kt_binding_number_to">Verbinden Sie Ihre Mobilnummer, um Ihr Passwort zurückzusetzen, eine Belohnung zu erhalten und persönliche Funktionen zu nutzen.</string>
+    <string name="kt_enter_email">Geben Sie Ihre E-Mail-Adresse ein und legen Sie ein Passwort fest.</string>
+    <string name="kt_more_collections">Mehr Sammlungen</string>
+    <string name="kt_collection">Sammlungen</string>
+    <string name="kt_views">Gesehen</string>
+    <string name="kt_video">Videos</string>
+    <string name="kt_see_more_replies">Mehr Antworten anzeigen</string>
+    <string name="kt_no_more_collections">Keine Sammlungen mehr</string>
+    <string name="kt_manage_title_manage">Verwalten</string>
+    <string name="kt_manage_button_quarantine">Quarantäne</string>
+    <string name="kt_manage_info_quarantine">Das Thema wird nicht in der Liste angezeigt, wenn Sie es unter Quarantäne stellen.</string>
+    <string name="kt_manage_title_move_topic">Verschieben</string>
+    <string name="kt_manage_info_move_topic">Sie können das Thema in einen beliebigen Katalog verschieben.</string>
+    <string name="kt_manage_button_highlight">Empfohlen</string>
+    <string name="kt_manage_button_unhighlight">Empfehlung abbrechen</string>
+    <string name="kt_manage_info_highlight">Sie können hochwertige Inhalte markieren und Ihrer Highlight-Liste hinzufügen.</string>
+    <string name="kt_manage_button_lock">Sperren</string>
+    <string name="kt_manage_button_unlock">Entsperren</string>
+    <string name="kt_manage_info_lock">Wenn Sie dieses Thema sperren, kann es nicht beantwortet werden und es wird ans untere Ende der Themenliste verschoben, sobald neue Inhalte gepostet werden.</string>
+    <string name="kt_manage_title_main_page_insert">Auf der Startseite hervorheben</string>
+    <string name="kt_manage_info_main_page_insert">Das Thema auf der Startseite hervorheben.</string>
+    <string name="kt_manage_option_hot_topics">Beliebte Themen</string>
+    <string name="kt_manage_option_recommended_photos">Empfohlene Fotos</string>
+    <string name="kt_manage_option_game_video">Beliebte Videos</string>
+    <string name="kt_manage_info">Achtung: Sie können von einem offiziellen Konto erstellte Inhalte nicht verändern.</string>
+    <string name="kt_manage_alert_quarantine_title">Quarantäne-Inhalt</string>
+    <string name="kt_manage_alert_quarantine_text">Möchten Sie diesen Inhalt wirklich unter Quarantäne stellen?</string>
+    <string name="kt_manage_alert_highlight_title">Empfohlener Inhalt</string>
+    <string name="kt_manage_alert_highlight_text">Möchten Sie diesen Inhalt wirklich empfehlen?</string>
+    <string name="kt_manage_alert_unhighlight_title">Aus Empfehlungen entfernen</string>
+    <string name="kt_manage_alert_unhighlight_text">Möchten Sie diesen Inhalt aus den Empfehlungen entfernen?</string>
+    <string name="kt_manage_alert_lock_title">Inhalt sperren</string>
+    <string name="kt_manage_alert_lock_text">Möchten Sie diesen Inhalt wirklich sperren?</string>
+    <string name="kt_manage_alert_unlock_title">Inhalt entsperren</string>
+    <string name="kt_manage_alert_unlock_text">Möchten Sie diesen Inhalt wirklich entsperren?</string>
+    <string name="kt_manage_alert_move_title">Inhalt verschieben</string>
+    <string name="kt_manage_alert_move_text">Möchten Sie diesen Inhalt wirklich verschieben?</string>
+    <string name="kt_manage_alert_insert_mainpage_title">Empfohlener Inhalt</string>
+    <string name="kt_manage_alert_insert_mainpage_text">Möchten Sie diesen Inhalt wirklich zur Hauptseite hinzufügen?</string>
+    <string name="kt_pin_to_top">Oben anheften</string>
+    <string name="kt_unpinned">Loslösen</string>
+    <string name="kt_pin_a_post_to_top">Heften Sie einen Post oben in der Liste an.</string>
+    <string name="kt_uppin_a_post_from_top">Entfernen Sie den angehefteten Post oben in der Liste.</string>
+    <string name="kt_manage_alert_pin_title">Post oben anheften</string>
+    <string name="kt_manage_alert_pin_text">Möchten Sie diesen Post wirklich oben anheften?</string>
+    <string name="kt_manage_alert_unpin_title">Post loslösen</string>
+    <string name="kt_manage_alert_unpin_text">Möchten Sie diesen Post wirklich loslösen?</string>
+    <string name="kt_campaign_share_Collections">[Campaign] Teilen Sie und verdienen Sie Belohnungen!</string>
+    <string formatted="false" name="kt_reply_to">%@ antworten</string>
+    <string name="kt_original_topic">Ursprüngliches Thema:</string>
+    <string name="kt_original_reply">Ursprüngliche Antwort:</string>
+    <string formatted="false" name="kt_send_email_limit">Tut uns leid. Bitte warten Sie %@ Min</string>
+    <string name="kt_email_unverified">Nicht verifiziert</string>
+    <string name="kt_resend_email">Verifizierungs-E-Mail erneut schicken</string>
+    <string name="kt_title_optional">Schreiben Sie einen tollen Titel für Ihr Thema</string>
+    <string name="kt_voted">Abgestimmt</string>
+    <string name="kt_ad">Werbung von</string>
+    <string name="kt_ad_download">Herunterladen</string>
+    <string name="kt_ad_open">Detail</string>
+    <string name="kt_suggested_for_you">Empfohlen für Sie</string>
+    <string name="kt_about_Influence">Über Einfluss-Wertung</string>
+    <string formatted="false" name="kt_you_rank_lower">Rang %@ in den unteren %@</string>
+    <string formatted="false" name="kt_you_rank_top">Rang %@ in den oberen %@</string>
+    <string name="kt_rank">Rang</string>
+    <string name="kt_players">Benutzer</string>
+    <string name="kt_today">Heute</string>
+    <string name="kt_all_time">Gesamte Zeit</string>
+    <string name="kt_write_bio">Schreiben Sie eine kurze Biographie über sich selbst!</string>
+    <string name="kt_header_background">Hintergrund für Überschrift</string>
+    <string formatted="false" name="kt_rank_number">#%@</string>
+    <string name="kt_bio">Biographie</string>
+    <string name="kt_have_reported">Sie haben diese Nachricht bereits gemeldet</string>
+    <string name="kt_see_rank">Wertung ansehen</string>
+    <string name="kt_influence_rank">Einfluss-Rang</string>
+    <string name="kt_no_more_follower">Keine Follower mehr</string>
+    <string name="kt_no_more_following">Keine Benutzer mehr, die folgen</string>
+    <string name="kt_cannot_message_unless">Sie können nur Nachrichten schreiben, wenn Sie einander folgen</string>
+    <string name="kt_unfollow">Nicht mehr folgen</string>
+    <string name="kt_unfollow_this_player">Möchten Sie diesem Benutzer wirklich nicht mehr folgen?</string>
+    <string name="kt_follow_success">Folgen erfolgreich</string>
+    <string name="kt_no_following">Er/Sie ist zu schüchtern, jemandem zu folgen …</string>
+    <string name="kt_no_follower">Noch keine Follower …</string>
+    <string name="kt_say_hello">Hallo sagen</string>
+    <string name="kt_require_content">Post benötigt Titel oder Inhalt</string>
+    <string name="kt_no_more_messages">Keine Nachrichten mehr</string>
+    <string name="kt_no_record_yet">Ups! Keiner hat bisher eine Einfluss-Wertung erreicht. Tragen Sie etwas zur Community bei, um Top-Beeinflusser zu werden!</string>
+    <string name="kt_no_chat_yet">Starten Sie eine Unterhaltung mit jemandem, indem Sie deren Profilseite besuchen.</string>
+    <string name="kt_say_hello_to">Sagen Sie ihm/ihr Hallo!</string>
+    <string name="kt_delete_conversation">Unterhaltung löschen</string>
+    <string name="kt_sure_delete_conversation">Möchten Sie diese Unterhaltung wirklich löschen? Einmal gelöscht, wird der gesamte Chat-Verlauf nicht mehr verfügbar sein.</string>
+    <string name="kt_post_quickly">Sie posten zu schnell Inhalte</string>
+    <string name="kt_not_have_review">Sie haben nichts zum Überprüfen.</string>
+    <string name="kt_login_start_conversation">Melden Sie sich an und starten Sie eine Unterhaltung mit jemandem, indem Sie deren Profilseite besuchen.</string>
+    <string name="kt_log_in_web">Melden Sie sich bei der Webcommunity an</string>
+    <string name="kt_verification_code_web">Verifizierungscode</string>
+    <string formatted="false" name="kt_verification_code_will_expire">Verfällt nach %@ Sek</string>
+    <string name="kt_visite_web_community">Besuchen</string>
+    <string name="kt_about_web_community">Über die KTplay-Webcommunity</string>
+    <string name="kt_request_new_code">Neuen Code anfordern</string>
+    <string name="kt_create_message">Neue Nachricht an</string>
+    <string name="kt_have_not_visit_user">Sie haben noch keine Benutzerprofile besucht …</string>
+    <string name="kt_have_not_view_topic">Sie haben noch keine Themen angesehen …</string>
+    <string name="kt_leaderboards">Bestenlisten</string>
+    <string formatted="false" name="kt_overallrank">Insgesamt #%@</string>
+    <string formatted="false" name="kt_will_be_reset">Wird in %@ zurückgesetzt</string>
+    <string name="kt_remain">Bleiben</string>
+    <string name="kt_get_rank_login">Melden Sie sich an, um eine Wertung zu erhalten</string>
+    <string name="kt_overall">Insgesamt</string>
+    <string name="kt_my_rank">Meine Wertung</string>
+    <string formatted="false" name="kt_top_rank">Top %@</string>
+    <string name="kt_not_ranked">Keine Wertung</string>
+    <string name="kt_no_ranking">Tut uns leid, die Bestenliste enthält derzeit keine Benutzer …</string>
+    <string name="kt_not_ranked_on">Tut uns leid. Sie sind nicht auf der Bestenliste …</string>
+    <string name="kt_promotion_viewed">Aktion gesehen von</string>
+    <string name="kt_ad_ktplay">Werbung von KTplay</string>
+    <string name="kt_quick_login">Gast-Anmeldung</string>
+    <string name="kt_not_complete_profile">Sie haben Ihr Konto noch nicht fertig gestellt!</string>
+    <string name="kt_protect_your_account">Legen Sie bitte ein Passwort für Ihr KTplay-Konto fest, um Ihr Konto und Ihre Posts zu schützen.</string>
+    <string name="kt_agree_to_terms">Indem Sie die Community nutzen, stimmen Sie den allgemeinen Nutzungsbedingungen (siehe unten) zu.</string>
+    <string name="kt_related_topics">Verwandte Themen</string>
+    <string name="kt_no_replated_topic">Keine verwandten Themen gefunden</string>
+    <string formatted="false" name="kt_has_been_bind">%@ wurde an ein anderes Konto gebunden.</string>
+    <string name="kt_warning_account_lost">Melden Sie sich an, wenn Sie der Besitzer dieses Konto sind. Warnung: Ihr aktuelles Konto und Ihre Posts könnten verloren gehen, wenn Sie sich damit anmelden.</string>
+    <string name="kt_see_translation">Übersetzung ansehen</string>
+    <string name="kt_automatically_translated">Automatisch übersetzt</string>
+    <string formatted="false" name="kt_sort_by">Nach %@ sortieren</string>
+    <string name="kt_last_reply">Letzte Antwort</string>
+    <string name="kt_oldest_reply">Älteste Antwort</string>
+    <string name="kt_most_replies">Meiste Antworten</string>
+    <string name="kt_most_likes">Meiste Likes</string>
+    <string name="kt_top_replies">Top-Antworten</string>
+    <string name="kt_current_language">Aktuelle Sprache</string>
+    <string name="kt_cannot_load_video">Video kann nicht geladen werden</string>
+    <string name="kt_expand">Erweitern</string>
+    <string name="kt_welcome_to_community">Willkommen in der Gemeinschaft</string>
+    <string name="kt_support">Unterstützung</string>
+    <string name="kt_recover_account">Account wiederherstellen</string>
+    <string name="kt_rate_our_services">Bitte bewerten Sie unseren Service.</string>
+    <string name="kt_how_can_we_help">Wie können wir helfen?</string>
+    <string name="kt_faq">FAQs</string>
+    <string name="kt_confirm_to_proceed">Sind Sie sicher, dass Sie fortfahren möchten?</string>
+    <string name="kt_ban_user">Banne den Benutzer (24 Stunden)</string>
+    <string name="kt_unban_user">Entsperren Sie den Benutzer</string>
+    <string name="kt_default">Standard</string>
+    <string name="kt_cancel_quarantine">Abbrechen der Quarantäne</string>
+    <string name="kt_no_more">Nicht mehr...</string>
+    <string name="kt_retry">wiederholen</string>
+    <string name="kt_realname_verify_phone">Gemäß den nationalen Gesetzen und Vorschriften müssen wir Ihre Identität bestätigen und werden Ihre Daten nicht weitergeben.</string>
+    <string name="kt_realname_verify_legal">Artikel 24 des "Cyber ​​Security-Gesetzes der VRC" "Die Netzbetreiber stellen den Nutzern Informationen, Instant Messaging und andere Dienste zur Verfügung. Bei der Unterzeichnung von Verträgen mit Nutzern oder der Bestätigung von Dienstleistungen sollten sie von Nutzern echte Identitätsinformationen verlangen. Um echte Identitätsinformationen zu erhalten, dürfen Netzbetreiber keine damit verbundenen Dienstleistungen erbringen. "</string>
+    <string name="kt_input_age">Bevor Sie beginnen, teilen Sie uns bitte Ihr Alter mit.</string>
+    <string name="kt_age_verify_failed">Entschuldigung, Ihr Alter entspricht nicht den Community-Anforderungen und kann Community-Funktionen nicht verwenden.</string>
+    <string name="kt_notification_settings">Benachrichtigungseinstellungen</string>
+    <string name="kt_activity_about_you">Aktivität über dich</string>
+    <string name="kt_see_original">Siehe Original</string>
+    <string name="kt_no_permission">Sie sind dazu nicht berechtigt.</string>
+    <string name="kt_user_profile_muted">Verboten</string>
+    <string name="kt_enter_youtube_url">Geben Sie die YouTube-Video-URL ein</string>
+    <string name="kt_album">Album</string>
+</resources>

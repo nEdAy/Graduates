@@ -14,7 +14,7 @@
     <item android:state_pressed="false">
         <shape>
             <!-- 设置背景填充色为白色 -->
-            <solid android:color="@color/kt_theme_listitem_dividercolor" />
+            <solid android:color="@null" />
         </shape>
     </item>
 

@@ -29,8 +29,8 @@
                 android:id="@+id/kt_interstitial_ad_close"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@drawable/kryptanium_close_icon" />
+                android:src="@drawable/kryptanium_close_icon"
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/kt_interstitial_ad_wait"
@@ -78,5 +78,7 @@
 
         </FrameLayout>
     </RelativeLayout>
+    >
+
 
 </LinearLayout>

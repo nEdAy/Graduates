@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/kt_common_description"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@color/kt_theme_color"
+        android:gravity="center"
+        android:textColor="@color/kt_theme_primary_textcolor_dark"
+        android:textSize="12sp"
+        android:visibility="visible" />
+
+    <com.ktplay.widget.KTGridView
+        android:id="@+id/kt_common_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="@dimen/kt_content_padding"
+        android:listSelector="@null"
+        android:numColumns="3"
+        android:paddingLeft="@dimen/kt_content_padding"
+        android:paddingRight="@dimen/kt_content_padding"
+        android:paddingTop="@dimen/kt_content_padding"
+        android:paddingBottom="@dimen/kt_content_padding"
+        android:scrollbars="none" />
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/kt_influencer_layout"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:visibility="gone">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:gravity="center_vertical">-->
+
+    <!--<TextView-->
+    <!--style="@style/kryptanium_primary_text_light"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="12dp"-->
+    <!--android:text="@string/kt_rank"-->
+    <!--android:textSize="12sp" />-->
+
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;style="@style/kryptanium_primary_text_light"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_marginLeft="80dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="@string/kt_players"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="12sp" />&ndash;&gt;-->
+
+    <!--<TextView-->
+    <!--style="@style/kryptanium_primary_text_light"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginRight="25dp"-->
+    <!--android:text="@string/kt_influence_points"-->
+    <!--android:textSize="12sp" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>

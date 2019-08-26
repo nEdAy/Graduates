@@ -5,19 +5,17 @@
     android:orientation="vertical">
 
     <ListView
-        android:id="@+id/kryptanium_topic_report_select_lv"
-        style="@style/kryptanium_list"
+        android:id="@+id/kt_common_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/kryptanium_list" />
 
     <TextView
-        android:id="@+id/kryptanium_topic_reportbutton"
-        style="@style/kryptanium_button_style_main"
-        android:layout_width="@dimen/kryptanium_button_content_width"
-        android:layout_height="@dimen/kryptanium_button_content_height"
+        android:id="@+id/kt_common_click_button"
         android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/kt_report" />
+        android:text="@string/kt_report"
+        style="@style/kryptanium_button_style_main"
+        android:layout_marginTop="@dimen/kt_content_padding" />
 
 
 </LinearLayout>

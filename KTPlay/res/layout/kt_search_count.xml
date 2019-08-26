@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_count"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/kryptanium_listitem_hpadding"
+    android:paddingStart="@dimen/kryptanium_listitem_hpadding"
+    style="@style/kryptanium_secondary_text" />
+
+

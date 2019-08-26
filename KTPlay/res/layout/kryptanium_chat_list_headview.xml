@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="6dp"
+    android:paddingTop="6dp">
+
+    <com.ktplay.widget.KTGridViewInScrollView
+        android:id="@id/kt_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp" />
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/kt_common_vg_1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="64dp"-->
+    <!--android:background="@color/kt_theme_listitem_background"-->
+    <!--&gt;-->
+
+
+    <!--<ImageView-->
+    <!--android:id="@id/kt_item_avatar"-->
+    <!--android:layout_width="@dimen/kt_avatar_width"-->
+    <!--android:layout_height="@dimen/kt_avatar_height"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="15dp"-->
+    <!--android:layout_marginStart="15dp"-->
+    <!--android:background="@drawable/kt_chat_inbox_icon" />-->
+
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/kt_common_viewgroup_right"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--style="@style/kt_align_parent_end"-->
+    <!--android:layout_marginRight="15dp"-->
+    <!--android:layout_marginEnd="15dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/kt_common_show_time"-->
+    <!--style="@style/kryptanium_hint_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_marginTop="5dp"/>-->
+
+
+    <!--<ViewStub-->
+    <!--android:id="@id/kt_newmsg"-->
+    <!--android:layout_width="@dimen/kryptanium_new_msg_size"-->
+    <!--android:layout_height="@dimen/kryptanium_new_msg_size"-->
+    <!--android:layout_gravity="center_vertical|end"-->
+    <!--android:layout_marginTop="8dp" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:layout_marginStart="20dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:layout_toRightOf="@id/kt_item_avatar"-->
+    <!--android:layout_toEndOf="@+id/kt_item_avatar"-->
+    <!--android:layout_toLeftOf="@id/kt_common_viewgroup_right"-->
+    <!--android:layout_toStartOf="@id/kt_common_viewgroup_right">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/kt_common_iv_1"-->
+    <!--style="@style/kryptanium_primary_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textStyle="bold"-->
+    <!--android:text="@string/kt_inbox"-->
+    <!--android:ellipsize="end"-->
+    <!--android:singleLine="true" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/kt_common_iv_2"-->
+    <!--style="@style/kryptanium_secondary_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:singleLine="true" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/kt_common_iv_3"-->
+    <!--style="@style/kryptanium_secondary_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/kt_common_iv_1"-->
+    <!--android:ellipsize="end"-->
+    <!--android:singleLine="true" />-->
+    <!--</RelativeLayout>-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ViewStub-->
+    <!--android:id="@id/kt_support"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout="@layout/kt_support"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--/>-->
+
+    <!--<ViewStub-->
+    <!--android:id="@+id/kt_common_vs_1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="64dp"-->
+    <!--android:layout="@layout/kryptanium_chat_stranger_messages" />-->
+
+    <ViewStub
+        android:id="@+id/kt_common_vs_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/kryptanium_chat_login_entry" />
+
+    <!--如果没有聊天记录,提示没有任何聊天信息-->
+    <TextView
+        android:id="@+id/kt_common_text"
+        style="@style/kryptanium_secondary_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/kt_no_chat_yet"
+        android:visibility="gone" />
+</LinearLayout>

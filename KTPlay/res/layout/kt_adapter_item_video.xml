@@ -6,7 +6,7 @@
     android:gravity="center">
 
     <ImageView
-        android:id="@+id/kt_imageview_thumbnail"
+        android:id="@+id/kt_common_iv_1"
         android:layout_width="116dp"
         android:layout_height="116dp"
         android:scaleType="centerCrop" />
@@ -14,9 +14,10 @@
     <!-- 选择框 -->
 
     <ImageView
-        android:id="@+id/kt_video_check"
+        android:id="@+id/kt_common_iv_2"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:enabled="true"
@@ -34,31 +35,28 @@
         android:layout_centerInParent="true"
         android:src="@drawable/kryptanium_video_play_button" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/kt_common_iv_3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="5dp">
+        android:layout_alignParentLeft="true"
+        android:padding="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/kt_vodie_info_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/kt_vodie_info_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/kt_common_view_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
 
     <ImageView
-        android:id="@+id/kt_imageview_thumbnail_overlay"
+        android:id="@+id/kt_common_view_5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#DDFFFFFF" />

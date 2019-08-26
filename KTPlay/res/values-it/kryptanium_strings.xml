@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_please_wait">Attendi...</string>
+    <string name="kt_loading">Caricamento...</string>
+    <string name="kt_load_failed_retry">Clicca per ricaricare</string>
+    <string name="kt_pressagain_to_quit">Clicca il pulsante indietro per tornare alla app</string>
+    <string name="kt_sdcard_unavailable">Impossibile utilizzare la memoria del dispositivo</string>
+    <string formatted="false" name="kt_sns_app_unavailable">Devi installare la versione più recente della app %@</string>
+    <string formatted="false" name="kt_login_with_channel_account">Accedi con %@</string>
+    <string name="kt_log_appkey">[KTPlaySDK Info]Codice App:\t\t</string>
+    <string name="kt_log_appsecret">[KTPlaySDK Info]Segreto App:\t\t</string>
+    <string name="kt_log_kryptanium_version">[KTPlaySDK Info]Versione SDK:</string>
+    <string name="kt_log_kryptanium_type">[KTPlaySDK Info]Tipo di versione:</string>
+    <string name="kt_log_kryptanium_type_china">Cina</string>
+    <string name="kt_log_kryptanium_type_international">Internazionale</string>
+    <string name="kt_log_kryptanium_type_universal">Globale</string>
+    <string name="kt_log_kryptanium_channelid">ID Canale</string>
+    <string name="kt_error_failurereason">Ragione errore</string>
+    <string name="kt_error_recoverysuggestion">Soluzione</string>
+    <string name="kt_plugin_not_found">Plug-in non riconosciuto</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed">Hai specificato %@ come unico metodo di accesso, ma non troviamo questo plug-in nel tuo progetto.</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed_suggestion">Aggiungi il plug-in %@ al tuo progetto quando sei sicuro di voler usare il login %@. Se non ti serve questa funzione, si preghiamo di rimuovere i metadati con nome KTPLAY_LOCK-LOGINTYPE in AndroidManifaest.xml</string>
+    <string formatted="false" name="kt_terms_agreement">Accedendo o registrandoti accetti i  &lt;a&gt;termini di servizio e la normativa sulla privacy di KTplay&lt;/a&gt;, e confermi di avere più di %@ anni.</string>
+    <string name="kt_terms_agreement_link">Privacy e Termini di Servizio KTplay</string>
+    <string name="kt_photo_select">Tutte le foto</string>
+    <string formatted="false" name="kt_max_of_photos"> Puoi selezionare fino a %@ foto</string>
+    <string formatted="false" name="kt_saved">Salvato: %@</string>
+    <string name="kt_try_verify_number_signature">Prima volta gratis! Verifica il tuo numero di cellulare per continuare ad utilizzarlo.</string>
+    <string name="kt_try_verify_email_signature">Prima volta gratis! Completa il tuo indirizzo email per continuare ad utilizzarlo.</string>
+    <string name="kt_verify_number_signature">Verifica il tuo numero di cellulare per continuare ad utilizzarlo.</string>
+    <string name="kt_verify_email_signature">Completa il tuo indirizzo email per continuare ad utilizzarlo.</string>
+    <string formatted="false" name="kt_allow_storage">Attiva subito permesso di  archiviazione %@.</string>
+    <string formatted="false" name="kt_activate_storage">La comunità in-app archivia e accede ad informazioni sul tuo telefono, come le foto. Per abilitarlo, vai in impostazioni-applicazioni-%@-permessi e attiva l’archiviazione.</string>
+    <string formatted="false" name="kt_allow_record_audio">Attiva subito permesso di  registrazione audio per %@.</string>
+    <string formatted="false" name="kt_activate_audio">La comunità nella app ha bisogno dell\'accesso al tuo microfono per registrare questo messaggio vocale. Per abilitarlo, vai in impostazioni-applicazioni-%@-permessi e attiva la registrazione audio.</string>
+    <string name="kt_storage_usage">La comunità in-app archivia e accede ad informazioni sul tuo telefono, come le foto.</string>
+</resources>

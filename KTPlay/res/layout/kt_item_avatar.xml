@@ -2,5 +2,6 @@
 <com.ktplay.widget.KTCircleImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/kt_item_avatar"
     android:layout_width="@dimen/kt_avatar_width"
-    android:layout_height="@dimen/kt_avatar_height"
-    android:background="@drawable/kryptanium_complete_userprofile_default_icon" />
+    android:layout_height="@dimen/kt_avatar_height" />
+
+

@@ -2,7 +2,7 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/kt_placeholder"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="@dimen/kt_video_placeholder_height"
     android:layout_alignLeft="@id/kt_item_content"
     android:layout_below="@id/kt_item_content"

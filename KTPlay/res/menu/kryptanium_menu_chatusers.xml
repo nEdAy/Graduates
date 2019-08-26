@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/kryptanium_menuitem_chatuser_profile"
-        android:icon="@drawable/kryptanium_icon_person"
-        android:title="@string/kt_user_profile" />
+        android:title="@string/kt_user_profile"
+        android:icon="@drawable/kryptanium_icon_person" />
+
     <item
         android:id="@+id/kryptanium_menuitem_chatuser_block_chat"
-        android:icon="@drawable/kryptanium_icon_block"
-        android:title="@string/kt_block_chat" />
+        android:title="@string/kt_block_chat"
+        android:icon="@drawable/kryptanium_icon_block" />
+    <item
+        android:id="@+id/kryptanium_menuitem_chatuser_unblock_chat"
+        android:title="@string/kt_unblock"
+        android:icon="@drawable/kryptanium_icon_block" />
+
+
 </menu>

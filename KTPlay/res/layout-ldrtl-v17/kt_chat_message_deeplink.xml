@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--图文消息布局-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_vg_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="4dp"
+    android:layout_marginStart="4dp"
+    android:background="@drawable/kryptanium_chat_sentmessage_deeplink_bg"
+    android:padding="10dp">
+
+
+    <com.ktplay.widget.KTEmojiText
+        android:id="@+id/kt_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:minHeight="30dp"
+        android:maxLines="2"
+        android:textColor="@color/kt_theme_title_textcolor"
+        android:textSize="@dimen/kryptanium_text_size_standard" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kt_item_title">
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@+id/kt_item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            android:layout_toStartOf="@+id/kt_common_inner_vg_2"
+            android:ellipsize="end"
+            android:lines="3"
+            android:textColor="@color/kt_theme_secondary_textcolor"
+            android:textSize="@dimen/kryptanium_text_size_medium" />
+
+        <FrameLayout
+            android:id="@+id/kt_common_inner_vg_2"
+            style="@style/kt_align_parent_end"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true">
+
+            <com.ktplay.widget.KTRoundRectImageView
+                android:id="@+id/kt_common_iv_2"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_gravity="center" />
+
+            <com.ktplay.widget.KTRoundRectImageView
+                android:id="@+id/kt_view_in_top"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@drawable/kryptanium_video_play_button"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

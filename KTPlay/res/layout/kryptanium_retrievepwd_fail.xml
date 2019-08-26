@@ -21,12 +21,12 @@
             android:background="@drawable/kryptanium_retrievepwd_icon" />
 
         <TextView
-            android:id="@+id/kryptanium_retrievepwd_fail_describe"
+            android:id="@+id/kt_common_text"
             style="@style/kryptanium_menu_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
 </FrameLayout>

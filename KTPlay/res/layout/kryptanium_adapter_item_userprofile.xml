@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/kryptanium_list_item_with_verticalpadding"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    style="@style/kryptanium_list_item_with_verticalpadding">
 
     <ImageView
         android:id="@id/kt_item_icon"
@@ -11,18 +11,18 @@
 
     <TextView
         android:id="@+id/kt_item_title"
-        style="@style/kryptanium_primary_text_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/kt_primary_margin" />
+        android:layout_marginLeft="@dimen/kt_primary_margin"
+        android:layout_marginStart="@dimen/kt_primary_margin"
+        style="@style/kryptanium_primary_text_light" />
 
     <!-- 新消息 -->
-    <include
+    <ViewStub
         android:id="@id/kt_newmsg"
-        layout="@layout/kt_newmsg"
         android:layout_width="@dimen/kryptanium_new_msg_size"
         android:layout_height="@dimen/kryptanium_new_msg_size"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/kt_primary_margin"
-        android:visibility="gone" />
+        android:layout_marginStart="@dimen/kt_primary_margin" />
 </LinearLayout>

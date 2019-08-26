@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/kt_hot_text_bg">
+
+    <com.ktplay.widget.KTEmojiText
+        android:id="@id/kt_content"
+        style="@style/kryptanium_secondary_text_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal"
+        android:lines="5"
+        android:paddingLeft="33dp"
+        android:paddingStart="33dp"
+        android:paddingRight="30dp"
+        android:paddingEnd="30dp"
+        android:textSize="14sp" />
+</LinearLayout>

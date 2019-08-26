@@ -5,7 +5,7 @@
     <size android:width="@dimen/kryptanium_head_tab_w" android:height="@dimen/kryptanium_head_tab_h"/>
 </shape> -->
 
-<!-- <shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- <shape xmlns:android="http://schemas.android.com/apk/res/android" >
     <solid android:color="#ff00ff00"/>
 </shape> -->
 

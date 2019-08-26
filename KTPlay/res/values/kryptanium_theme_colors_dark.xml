@@ -7,7 +7,7 @@
     <!--<color name="kt_theme_color_disabled">#3f29b6f6</color>-->
 
     <!--&lt;!&ndash; Main Background Color &ndash;&gt;-->
-    <!--<color name="kt_theme_background">#ff292c30</color>-->
+    <!--<color name="kt_theme_background">#ff212124</color>-->
 
     <!--Title bar background color-->
     <!--<color name="kt_theme_titlebar_background">#ff292c30</color>-->
@@ -22,7 +22,7 @@
     <!--<color name="kt_theme_listitem_background">@android:color/transparent</color>-->
 
     <!--&lt;!&ndash; List Item Divider Color &ndash;&gt;-->
-    <!--<color name="kt_theme_listitem_dividercolor">#ff232529</color>-->
+    <!--<color name="kt_theme_listitem_dividercolor">#ff414141</color>-->
 
     <!--&lt;!&ndash; Popup window background color &ndash;&gt;-->
     <!--<color name="kt_theme_popup_background">#ff1b1d22</color>-->
@@ -31,7 +31,7 @@
     <!--<color name="kt_theme_popup_border">#ff3f3f3f</color>-->
 
     <!--&lt;!&ndash; Section Background Color &ndash;&gt;-->
-    <!--<color name="kt_theme_section_background">#ff26282c</color>-->
+    <!--<color name="kt_theme_section_background">#ff2e3035</color>-->
 
     <!--&lt;!&ndash; Head Section Background Color &ndash;&gt;-->
     <!--<color name="kt_theme_headsection_background">#ff1b1d22</color>-->

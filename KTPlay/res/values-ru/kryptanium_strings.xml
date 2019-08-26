@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_please_wait">Подождите...</string>
+    <string name="kt_loading">Идет загрузка...</string>
+    <string name="kt_load_failed_retry">Нажмите для перезагрузки</string>
+    <string name="kt_pressagain_to_quit">Нажмите на кнопку Назад, чтобы вернуться в приложение</string>
+    <string name="kt_sdcard_unavailable">Невозможно использовать хранилище устройств</string>
+    <string formatted="false" name="kt_sns_app_unavailable">Вам нужно установить новейшую версию приложения %@</string>
+    <string formatted="false" name="kt_login_with_channel_account">Войти через %@</string>
+    <string name="kt_log_appkey">[KTPlaySDK Info]App Key: \t\t</string>
+    <string name="kt_log_appsecret">[KTPlaySDK Info]App Secret: \t\t</string>
+    <string name="kt_log_kryptanium_version">[KTPlaySDK Info]Версия SDK:</string>
+    <string name="kt_log_kryptanium_type">[KTPlaySDK Info]Тип версии:</string>
+    <string name="kt_log_kryptanium_type_china">Китай</string>
+    <string name="kt_log_kryptanium_type_international">Международный</string>
+    <string name="kt_log_kryptanium_type_universal">Глобальный</string>
+    <string name="kt_log_kryptanium_channelid">ID канала</string>
+    <string name="kt_error_failurereason">Причина ошибки</string>
+    <string name="kt_error_recoverysuggestion">Решение</string>
+    <string name="kt_plugin_not_found">Плагин не распознается</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed">Вы обозначили %@ в качестве единственного способа для входа, но мы не можем найти этот плагин в вашем проекте.</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed_suggestion">Добавьте плагин %@ к вашему проекту, если вы хотите использовать %@ для входа. Если вам не нужна данная функция, пожалуйста, удалите мета-данные под названием KTPLAY_LOCK-LOGINTYPE в AndroidManifaest.xml</string>
+    <string formatted="false" name="kt_terms_agreement">Регистрируясь и осуществляя вход, вы соглашаетесь с &lt;a&gt;Условиями и Политикой конфиденциальности KTplay,&lt;/a&gt;а также подтверждаете, что вы старше %@ лет.</string>
+    <string name="kt_terms_agreement_link">Условия и Политика конфиденциальности KTplay</string>
+    <string name="kt_photo_select">Все фото</string>
+    <string formatted="false" name="kt_max_of_photos">Вы можете выбрать максимум %@ фотографий</string>
+    <string formatted="false" name="kt_saved">Сохранено: %@</string>
+    <string name="kt_try_verify_number_signature">Первый раз - бесплатно! Подтвердите свой номер телефона, чтобы продолжить использование.</string>
+    <string name="kt_try_verify_email_signature">Первый раз - бесплатно! Предоставьте свой адрес электронной почты, чтобы продолжить использование.</string>
+    <string name="kt_verify_number_signature">Подтвердите свой номер телефона, чтобы продолжить использование.</string>
+    <string name="kt_verify_email_signature">Предоставьте свой адрес электронной почты, чтобы продолжить использование.</string>
+    <string formatted="false" name="kt_allow_storage">Активировать доступ %@ к внутренней памяти прямо сейчас.</string>
+    <string formatted="false" name="kt_activate_storage">Встроенное сообщество хранит данные и получает доступ к данным, например к твоим фотографиям, на твоем телефоне. Чтобы активировать, пройдите в Настройки-Приложения-%@-Разрешение доступа и активируйте доступ к Внутренней памяти.</string>
+    <string formatted="false" name="kt_allow_record_audio">Активировать доступ %@ к записи аудио прямо сейчас.</string>
+    <string formatted="false" name="kt_activate_audio">Встроенному сообществу необходим доступ к вашему микрофону, чтобы записывать голосовые сообщения. Чтобы активировать, пройдите в Настройки-Приложения-%@-Разрешение доступа и активируйте доступ к Записи аудио.</string>
+    <string name="kt_storage_usage">Встроенное сообщество хранит данные и получает доступ к данным, например к твоим фотографиям, на твоем телефоне.</string>
+</resources>

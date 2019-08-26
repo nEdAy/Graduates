@@ -1,42 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- 列表项 - 用户收到的称赞 -->
+<!-- 列表项 - 好友动态 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/kryptanium_list_item"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
-
-    <include layout="@layout/kt_item_avatar" />
-
+    style="@style/kryptanium_list_item_with_verticalpadding"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+    <!-- android:layout_marginLeft="@dimen/kryptanium_layout_marginLeft" -->
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/kryptanium_praise_layout_paddingLeft"
-        android:paddingRight="@dimen/kryptanium_layout_paddingRight">
+        android:paddingBottom="12dp"
+        android:paddingLeft="1dp"
+        android:paddingStart="1dp"
+        android:paddingTop="1dp">
 
-        <TextView
-            android:id="@id/kt_item_title"
-            style="@style/kryptanium_primary_text_light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:maxWidth="@dimen/kryptanium_praise_nickname_maxWidth" />
-
-        <TextView
-            android:id="@id/kt_item_time"
-            style="@style/kryptanium_hint_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/kt_item_title" />
-        <!-- 新消息 -->
         <include
-            layout="@layout/kt_newmsg"
-            android:layout_width="@dimen/kryptanium_new_msg_size"
-            android:layout_height="@dimen/kryptanium_new_msg_size"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
-    </RelativeLayout>
+            layout="@layout/kt_item_avatar"
+            android:layout_width="@dimen/kt_avatar_width_small"
+            android:layout_height="@dimen/kt_avatar_height_small"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp" />
 
+        <RelativeLayout
+            android:id="@+id/kt_item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/kt_item_avatar"
+            android:layout_marginLeft="@dimen/kt_card_hpadding"
+            android:layout_marginStart="@dimen/kt_card_hpadding"
+            android:layout_toEndOf="@id/kt_item_avatar"
+            android:layout_toRightOf="@id/kt_item_avatar">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.ktplay.widget.KTEmojiText
+                    android:id="@+id/kt_item_title"
+                    style="@style/kryptanium_primary_text_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="90dp"
+                    android:layout_marginRight="90dp"
+                    android:layout_marginTop="1dp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/kt_item_type"
+                    style="@style/kryptanium_secondary_text_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:singleLine="true"
+                    android:text="@string/kt_likes"
+                    android:textColor="@color/kt_theme_color" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/kt_item_time"
+                style="@style/kryptanium_hint_text_align_parent_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="1dp"
+                android:paddingRight="1dp" />
+
+        </RelativeLayout>
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@+id/kt_item_content"
+            style="@style/kryptanium_secondary_text_light"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/kt_item"
+            android:layout_alignStart="@+id/kt_item"
+            android:layout_below="@+id/kt_item"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/kryptanium_topic_reply_item_bg"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="12dp" />
+    </RelativeLayout>
 </LinearLayout>

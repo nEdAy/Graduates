@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.ktplay.widget.PullRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/kryptanium_pull_refresh_viewgroup"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <ListView
-        android:id="@+id/kryptanium_topic_listview"
-        style="@style/kryptanium_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/kt_common_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/kryptanium_list" />
 </com.ktplay.widget.PullRefreshView>
+

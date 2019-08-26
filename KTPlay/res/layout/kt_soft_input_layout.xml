@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/kt_theme_section_background"
     android:gravity="center_vertical"
     android:orientation="vertical"
+    android:background="@color/kt_theme_section_background"
     android:visibility="gone">
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/kt_sub_replay_input_emoji"
+            android:id="@+id/kt_common_iv_1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:maxWidth="50dp"
@@ -30,7 +30,7 @@
         <!--android:layout_marginBottom="10dp"-->
         <!--android:layout_marginTop="10dp"-->
         <!--android:layout_weight="1"-->
-        <!--android:orientation="horizontal">-->
+        <!--android:orientation="horizontal" >-->
 
         <!--<TextView-->
         <!--android:id="@+id/kt_sub_replay_target"-->
@@ -42,30 +42,31 @@
         <!--android:paddingBottom="3dp"-->
         <!--android:ellipsize="end"-->
         <!--android:maxWidth="80dp"-->
-        <!--android:maxLines="1"-->
+        <!--android:singleLine="true"-->
         <!--android:textColor="@android:color/black"-->
-        <!--android:textSize="12sp"/>-->
+        <!--android:textSize="12sp" />-->
 
-        <EditText
-            android:id="@+id/kt_sub_replay_input"
-            style="@style/kryptanium_edittext"
-            android:layout_width="0dp"
+        <com.ktplay.widget.KTEditText
+            android:id="@+id/kt_common_iv_2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
+            android:paddingLeft="3dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColorHint="@color/kryptanium_base_color_gray"
             android:hint="@string/kt_publish_content_placeholder"
             android:maxLines="5"
             android:minHeight="30dp"
-            android:paddingBottom="3dp"
-            android:paddingLeft="3dp"
-            android:paddingTop="3dp"
-            android:textColorHint="@color/kryptanium_base_color_gray" />
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            style="@style/kryptanium_edittext" />
         <!--</LinearLayout>-->
 
         <TextView
-            android:id="@+id/kt_sub_replay_publish"
+            android:id="@+id/kt_common_iv_3"
             style="@style/kryptanium_button_style_main"
-            android:layout_width="40dp"
+            android:layout_width="wrap_content"
+            android:minWidth="40dp"
             android:layout_height="28dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -74,11 +75,11 @@
             android:text="@string/kt_send" />
     </LinearLayout>
 
-    <ViewFlipper
-        android:id="@+id/kt_sub_replay_sub_content"
+    <com.ktplay.widget.KTViewFlipper
+        android:id="@+id/kt_common_view_container"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"></ViewFlipper>
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"></com.ktplay.widget.KTViewFlipper>
 
 </LinearLayout>

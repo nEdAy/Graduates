@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/kt_userprofile_section" />
+
+
+    <!--关注-->
+    <TextView
+        android:id="@id/kt_follow"
+        style="@style/kryptanium_button_style_main"
+        android:layout_width="236dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="@dimen/kt_content_padding"
+        android:layout_marginBottom="@dimen/kt_content_padding"
+        android:text="@string/kt_follow"
+        android:layout_gravity="center_horizontal" />
+
+    <!--广告占位-->
+    <FrameLayout
+        android:id="@id/kt_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View style="@style/kryptanium_seperate_line" />
+    <!--其他功能菜单-->
+    <com.ktplay.widget.KTListViewInScrollView
+        android:id="@id/kt_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/kryptanium_list" />
+
+    <!--话题数-->
+    <TextView
+        android:id="@id/kt_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/kt_content_padding"
+        android:layout_marginLeft="@dimen/kt_content_padding"
+        style="@style/kryptanium_primary_text"
+        android:textStyle="bold" />
+
+</LinearLayout>

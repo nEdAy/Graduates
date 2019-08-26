@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/kt_content_padding">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/kt_input_age"
+        style="@style/kryptanium_primary_text" />
+
+    <com.ktplay.widget.KTClearableEditText
+        android:id="@+id/kt_edit"
+        android:layout_marginTop="@dimen/kt_content_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        style="@style/kryptanium_edittext" />
+</LinearLayout>

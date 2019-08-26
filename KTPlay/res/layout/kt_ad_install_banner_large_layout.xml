@@ -1,100 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/kryptanium_list_item"
-    android:layout_width="320dp"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/kryptanium_section_bg_with_padding">
 
-    <!-- icon图片 -->
-    <com.ktplay.widget.KTRoundRectImageView
-        android:id="@+id/kt_ad_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp" />
+    <!-- 图片 -->
+    <ImageView
+        android:id="@+id/kt_app_image"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:scaleType="centerInside"
+        style="@style/kt_align_parent_end"
+        android:layout_centerVertical="true"
+        android:paddingTop="10dp" />
+
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/kt_ad_icon"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_toLeftOf="@id/kt_app_image"
+        android:layout_toStartOf="@id/kt_app_image"
+        android:paddingLeft="@dimen/kt_card_hpadding"
+        android:paddingRight="@dimen/kt_card_hpadding"
+        android:paddingBottom="4dp"
+        android:paddingTop="@dimen/kt_content_padding">
 
-        <RelativeLayout
+        <!--广告标题 -->
+        <TextView
+            android:id="@+id/kt_ad_title"
+            style="@style/kryptanium_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_toLeftOf="@+id/kt_ad_button"
-                android:orientation="vertical"
-                android:paddingRight="12dp">
-
-                <!-- 广告标题 -->
-                <TextView
-                    android:id="@+id/kt_ad_title"
-                    style="@style/kt_ad_title_style"
-                    android:maxLines="1" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/kt_app_store"
-                        style="@style/kryptanium_hint_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:maxLines="1"
-                        android:text="App Store" />
-
-                    <TextView
-                        android:id="@+id/kt_app_price"
-                        style="@style/kryptanium_hint_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:maxLines="1" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/kt_ad_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/kt_ad_action_border"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:textColor="@color/kt_ad_theme_color" />
-
-        </RelativeLayout>
-
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/kt_theme_title_textcolor"
+            android:lines="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false" />
 
         <!-- 广告内容 -->
         <TextView
             android:id="@+id/kt_ad_content"
-            style="@style/kt_ad_content_style"
-            android:layout_marginTop="3dp"
-            android:maxLines="2"
-            android:paddingRight="12dp" />
+            style="@style/kryptanium_secondary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/kt_content_padding"
+            android:includeFontPadding="false"
+            android:maxLines="2" />
 
-        <!-- 广告标志 -->
-        <TextView
-            style="@style/kt_ad_flag_style"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="3dp" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+            <!-- 广告标识 -->
+            <TextView
+                android:id="@+id/kt_ad_flag"
+                style="@style/kryptanium_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left|center_vertical"
+                android:textSize="12dp"
+                android:layout_alignParentBottom="true" />
 
+            <!--点击按钮-->
+            <TextView
+                android:id="@+id/kt_ad_button"
+                android:layout_alignTop="@id/kt_ad_flag"
+                style="@style/kt_ad_action_style" />
 
+        </RelativeLayout>
     </LinearLayout>
 
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_please_wait">Patientez...</string>
+    <string name="kt_loading">Chargement...</string>
+    <string name="kt_load_failed_retry">Cliquer pour recharger</string>
+    <string name="kt_pressagain_to_quit">Cliquer sur le bouton retour pour retourner à l\'application</string>
+    <string name="kt_sdcard_unavailable">Impossible d\'utiliser le stockage de l\'appareil</string>
+    <string formatted="false" name="kt_sns_app_unavailable">Vous devez installer la dernière version de l\'application %@</string>
+    <string formatted="false" name="kt_login_with_channel_account">Se connecter avec %@</string>
+    <string name="kt_log_appkey">[Infos KTPlaySDK]App Key :\t\t</string>
+    <string name="kt_log_appsecret">[Infos KTPlaySDK]App Secret :\t\t</string>
+    <string name="kt_log_kryptanium_version">[Infos KTPlaySDK]Version SDK :</string>
+    <string name="kt_log_kryptanium_type">[Infos KTPlaySDK]Type de version :</string>
+    <string name="kt_log_kryptanium_type_china">Chine</string>
+    <string name="kt_log_kryptanium_type_international">International</string>
+    <string name="kt_log_kryptanium_type_universal">Mondial</string>
+    <string name="kt_log_kryptanium_channelid">ID de canal</string>
+    <string name="kt_error_failurereason">Raison de l\'erreur</string>
+    <string name="kt_error_recoverysuggestion">Solution</string>
+    <string name="kt_plugin_not_found">Plugin non reconnu</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed">%@s est l\'unique méthode de connexion définie, mais nous ne parvenons pas à trouver ce plugin dans votre projet.</string>
+    <string formatted="false" name="kt_locked_loginchannel_plugin_missed_suggestion">Ajoutez un plugin %@ à votre projet, si vous souhaitez utiliser la méthode de connexion %@. Si vous n\'avez pas besoin de cette fonction, veuillez supprimer les métadonnées nommées KTPLAY_LOCK-LOGINTYPE, dans le fichier AndroidManifaest.xml</string>
+    <string formatted="false" name="kt_terms_agreement">En vous connectant ou vous inscrivant, vous acceptez les &lt;a&gt;conditions d\'utilisation et la politique de confidentialité de KTplay&lt;/a&gt;, et confirmez avoir plus de %@ ans.</string>
+    <string name="kt_terms_agreement_link">Conditions d\'utilisation et politique de confidentialité de KTplay</string>
+    <string name="kt_photo_select">Toutes les photos</string>
+    <string formatted="false" name="kt_max_of_photos">Sélectionner un maximum de %@ photos</string>
+    <string formatted="false" name="kt_saved">Sauvegardée(s) : %@</string>
+    <string name="kt_try_verify_number_signature">Première fois gratuite ! Faites vérifier votre numéro de mobile pour continuer à l\'utiliser.</string>
+    <string name="kt_try_verify_email_signature">Première fois gratuite ! Confirmez votre adresse e-mail pour continuer à l\'utiliser.</string>
+    <string name="kt_verify_number_signature">Faites vérifier votre numéro de mobile pour continuer à l\'utiliser.</string>
+    <string name="kt_verify_email_signature">Confirmez votre adresse e-mail pour continuer à l\'utiliser.</string>
+    <string formatted="false" name="kt_allow_storage">Activez la permission de stockage pour %@ immédiatement.</string>
+    <string formatted="false" name="kt_activate_storage">In-App Community stocke et accède aux informations de votre téléphone, telles que les photos. Pour autoriser cette fonction, rendez-vous dans réglages-applications-%@-autorisations et activez le stockage.</string>
+    <string formatted="false" name="kt_allow_record_audio">Activez la permission d\'enregistrement audio pour %@ immédiatement.</string>
+    <string formatted="false" name="kt_activate_audio">In-App Community doit pouvoir accéder à votre micro pour pouvoir enregistrer des messages vocaux. Pour autoriser cette fonction, rendez-vous dans réglages-applications-%@-autorisations et activez l\'enregistrement audio.</string>
+    <string name="kt_storage_usage">In-App Community stocke et accède aux informations de votre téléphone, telles que les photos.</string>
+</resources>

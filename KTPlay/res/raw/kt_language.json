@@ -1,0 +1,141 @@
+{
+  "languages": [
+    {
+      "English": {
+        "languageCode": "en",
+        "regionCode": "US"
+      }
+    },
+    {
+      "Japanese": {
+        "languageCode": "ja",
+        "regionCode": "JP"
+      }
+    },
+    {
+      "Korean": {
+        "languageCode": "ko",
+        "regionCode": "KR"
+      }
+    },
+    {
+      "ChineseSimplified": {
+        "languageCode": "zh",
+        "regionCode": "CN"
+      }
+    },
+    {
+      "ChineseTraditional_TW": {
+        "languageCode": "zh",
+        "regionCode": "TW"
+      }
+    },
+    {
+      "ChineseTraditional_HK": {
+        "languageCode": "zh",
+        "regionCode": "HK"
+      }
+    },
+    {
+      "Arabic": {
+        "languageCode": "ar",
+        "regionCode": "AE"
+      }
+    },
+    {
+      "French": {
+        "languageCode": "fr",
+        "regionCode": "FR"
+      }
+    },
+    {
+      "German": {
+        "languageCode": "de",
+        "regionCode": "DE"
+      }
+    },
+    {
+      "Spanish": {
+        "languageCode": "es",
+        "regionCode": "ES"
+      }
+    },
+    {
+      "Portuguese_BR": {
+        "languageCode": "pt",
+        "regionCode": "BR"
+      }
+    },
+    {
+      "Russian": {
+        "languageCode": "ru",
+        "regionCode": "RU"
+      }
+    },
+    {
+      "Italian": {
+        "languageCode": "it",
+        "regionCode": "IT"
+      }
+    },
+    {
+      "Turkish": {
+        "languageCode": "tr",
+        "regionCode": "TR"
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "en": "English"
+    },
+    {
+      "ja": "Japanese"
+    },
+    {
+      "ko": "Korean"
+    },
+    {
+      "zh": "ChineseSimplified"
+    },
+    {
+      "zh-CN": "ChineseSimplified"
+    },
+    {
+      "zh-HK": "ChineseTraditional_HK"
+    },
+    {
+      "zh-TW": "ChineseTraditional_TW"
+    },
+    {
+      "zh-Hans": "ChineseSimplified"
+    },
+    {
+      "zh-Hant": "ChineseTraditional_TW"
+    },
+    {
+      "ar": "Arabic"
+    },
+    {
+      "fr": "French"
+    },
+    {
+      "de": "German"
+    },
+    {
+      "es": "Spanish"
+    },
+    {
+      "pt-BR": "Portuguese_BR"
+    },
+    {
+      "ru": "Russian"
+    },
+    {
+      "it": "Italian"
+    },
+    {
+      "tr": "Turkish"
+    }
+  ]
+}

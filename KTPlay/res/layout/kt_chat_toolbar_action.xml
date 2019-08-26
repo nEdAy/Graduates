@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 聊天页面工具栏上的行为按钮 -->
+<com.ktplay.widget.StateImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_image"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:maxWidth="30dp"
+    android:maxHeight="30dp"
+    android:padding="@dimen/kt_content_padding" />

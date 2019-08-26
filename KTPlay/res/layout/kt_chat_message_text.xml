@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 文本消息布局 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/kryptanium_chat_receivedmessage_bg"
+    android:paddingBottom="5dp"
+    android:paddingEnd="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    android:paddingTop="5dp">
+
+    <com.ktplay.widget.KTEmojiText
+        android:id="@+id/kt_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:textColor="@color/kt_theme_primary_textcolor"
+        android:textSize="@dimen/kryptanium_text_size_standard"
+        android:visibility="gone" />
+
+    <ViewStub
+        android:id="@id/kt_translation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@layout/kt_translation_simple" />
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 图片消息布局 -->
+<!--<com.ktplay.widget.KTRoundRectImageView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:id="@id/kt_image"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_marginLeft="4dp"-->
+<!--android:layout_marginStart="4dp"-->
+<!--/>-->
+
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:id="@+id/kt_common_vg_1"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_gravity="center_vertical"-->
+<!--android:gravity="center"-->
+<!--&gt;-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_vg_1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.ktplay.widget.KTRoundRectImageView
+        android:id="@id/kt_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/kt_common_inner_vg_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:indeterminate="true" />
+    </LinearLayout>
+
+</FrameLayout><!--</RelativeLayout>-->

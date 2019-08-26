@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_common_vg_1"
+    style="@style/kryptanium_home_widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="14dp"
+    android:background="@color/kt_theme_section_background">
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/kt_home_subtitle_layout"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:paddingBottom="@dimen/kt_content_padding"-->
+    <!--android:paddingLeft="@dimen/kt_content_padding"-->
+    <!--android:paddingTop="@dimen/kt_content_padding">-->
+
+    <!--<ImageView-->
+    <!--android:id="@id/kt_icon"-->
+    <!--style="@style/kryptanium_subtitle_icon"-->
+    <!--android:src="@drawable/kt_home_featured" />-->
+
+    <!--<TextView-->
+    <!--style="@style/kryptanium_subtitle_text"-->
+    <!--android:layout_toRightOf="@id/kt_icon"-->
+    <!--android:text="@string/kt_featured_topics"-->
+
+    <!--/>-->
+    <!--</RelativeLayout>-->
+
+    <com.ktplay.widget.KTViewPager
+        android:id="@+id/kt_common_view_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/kt_theme_section_background"
+        android:gravity="top|center_horizontal" />
+
+    <ImageView
+        android:id="@+id/kt_left_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start|center_vertical"
+        android:paddingLeft="@dimen/kt_content_padding"
+        android:paddingRight="@dimen/kt_content_padding"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/kt_right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/kt_content_padding"
+        android:paddingLeft="@dimen/kt_content_padding"
+        android:layout_gravity="right|end|center_vertical"
+        android:visibility="gone" />
+
+</FrameLayout>

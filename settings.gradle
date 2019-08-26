@@ -1,1 +1,1 @@
-include ':app', ':KTPlay'
+include ':app', ':ktplay'

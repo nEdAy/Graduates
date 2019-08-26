@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:paddingBottom="15dp"
     android:paddingTop="15dp">
-
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,15 +21,14 @@
             android:contentDescription="@null"
             android:scaleType="fitXY" />
     </FrameLayout>
-
     <TextView
         android:id="@id/kt_compoundicon_text"
-        style="@style/kryptanium_secondary_text_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:includeFontPadding="false"
-        android:maxLines="1" />
+        android:maxLines="1"
+        style="@style/kryptanium_secondary_text_light" />
 </LinearLayout>

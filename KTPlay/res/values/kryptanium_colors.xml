@@ -28,4 +28,11 @@
 
     <color name="kt_imagepreview_blue">#29b6f6</color>
 
+    <!--广告暗色背景-->
+    <color name="kt_ad_bg_dark">#303030</color>
+
+    <color name="kt_ad_crosspromotion_layout_bg">#3C444F</color>
+    <color name="kt_ad_crosspromotion_description_layout_bg">#ffffffff</color>
+    <color name="kt_ad_crosspromotion_download_bg">#ff29b6f6</color>
+
 </resources>

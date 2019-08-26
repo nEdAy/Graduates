@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_selector"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <!-- icon -->
+    <ImageView
+        android:id="@id/kt_item_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical" />
+
+    <!-- text -->
+    <TextView
+        android:id="@id/kt_item_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        style="@style/kryptanium_secondary_text"
+        android:textSize="13sp"
+        android:paddingStart="@dimen/kt_content_padding"
+        android:paddingLeft="@dimen/kt_content_padding"
+        android:maxLines="1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/kryptanium_topic_classify_text_down_selected_press"
+        android:layout_gravity="center_vertical" />
+</LinearLayout>

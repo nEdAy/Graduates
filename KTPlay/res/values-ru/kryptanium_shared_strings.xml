@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="kt_connection_failed">Ваша сеть нестабильна</string>
+    <string name="kt_error_150001">Ошибка (Отсутствуют параметры: 150001)</string>
+    <string name="kt_error_150005">Ошибка (150005)</string>
+    <string name="kt_error_150101">Ошибка (150101)</string>
+    <string name="kt_error_150102">Ошибка (150102)</string>
+    <string name="kt_new">НОВОЕ</string>
+    <string name="kt_all">Все</string>
+    <string formatted="false" name="kt_community_version">Сообщество · v%@</string>
+    <string name="kt_powered_by">При поддержке</string>
+    <string name="kt_username">Имя пользователя</string>
+    <string name="kt_nickname">Никнейм</string>
+    <string name="kt_gender">Пол</string>
+    <string name="kt_follow">Зафолловить</string>
+    <string name="kt_following">Фолловите</string>
+    <string name="kt_followers">Фолловеры</string>
+    <string name="kt_influence_points">Оценка Влияния</string>
+    <string name="kt_development_mode">Режим Разработки</string>
+    <string name="kt_in_development">Это приложение в режиме разработки. Вы сейчас используете App Key и Secret ТЕСТОВОГО приложения.Перед релизом своего приложения в Маркете. Вы должны получить App Key и Secret (для Релиза) через "Завершение Интеграции" на веб-сайте разработчика KTplay. Затем, замените его в своем проекте.</string>
+    <string name="kt_blocked_account">Извините. Ваш аккаунт заблокирован</string>
+    <string formatted="false" name="kt_limited_account_promption">Аккаунт временно забанен, будет активирован заново в %@</string>
+    <string name="kt_time_format_yesterday">Вчера</string>
+    <string name="kt_network_unavailable">Ваша сеть нестабильна</string>
+    <string name="kt_confirm">ОК</string>
+    <string name="kt_confirm_yes">Да</string>
+    <string formatted="false" name="kt_login_success">%@. Добро пожаловать!</string>
+    <string formatted="false" name="kt_time_format_minutes_ago">%@ м.</string>
+    <string name="kt_time_format_last_year">dd-MM-yyyy</string>
+    <string name="kt_rule_password_character">Только цифры, буквы верхнего и нижнего регистра</string>
+    <string name="kt_delete">Удалить</string>
+    <string name="kt_cancel">Отменить</string>
+    <string name="kt_invalid_email_format">Неверный формат электронной почты</string>
+    <string name="kt_search">Искать</string>
+    <string name="kt_female">Жен.</string>
+    <string name="kt_male">Муж.</string>
+    <string name="kt_confidential">Секретный</string>
+    <string name="kt_login_expired">Вы вышли из аккаунта, пожалуйста, войдите заново</string>
+    <string name="kt_input_nickname">Создать никнейм</string>
+    <string name="kt_update_success">ОК</string>
+    <string name="kt_update_failed">Не удалось</string>
+    <string name="kt_rule_password">Пароль должен содержать 6-18 символов.</string>
+    <string name="kt_password_placeholder">Пароль из 6-18 символов</string>
+    <string name="kt_not_now">Не сейчас</string>
+    <string name="kt_app_settings">Настройки приложения</string>
+    <string name="kt_warning_delete_content">Удалить контент?</string>
+    <string name="kt_password">Пароль</string>
+    <string name="kt_terms_and_privacy">Условия и Политика конфиденциальности KTplay</string>
+    <string name="kt_my_friends">Друзья</string>
+    <string formatted="false" name="kt_time_format_hour">%@ ч.</string>
+    <string formatted="false" name="kt_remain_format_day_hour">%@ д. %@ ч.</string>
+    <string formatted="false" name="kt_remain_format_hour">%@ ч.</string>
+    <string formatted="false" name="kt_remain_format_min">%@ м.</string>
+    <string formatted="false" name="kt_remain_format_day">%@ д.</string>
+    <string formatted="false" name="kt_upload_failed_part">Загрузка поста %@ неудачна, он сохранен в черновики.</string>
+    <string name="kt_edit">Редактировать</string>
+    <string name="kt_sending">Отправляется</string>
+    <string name="kt_save_draft">Сохранен в черновики вашего Профайла.</string>
+    <string name="kt_login_first">Извините. Вы сначала должны войти.</string>
+    <string name="kt_system_support">Извините. Текущая версия системы не поддерживает видео.</string>
+    <string name="kt_app_version_support">Извините. Версия приложения не поддерживает видео.</string>
+    <string name="kt_community">Темы</string>
+    <string name="kt_more">Больше</string>
+    <string name="kt_see_all">Просмотреть все</string>
+    <string name="kt_time_format_month_day_hour_minute">MM-dd HH:mm</string>
+    <string name="kt_agree">Согласиться</string>
+    <string name="kt_reward_claimed">Забрать!</string>
+    <string name="kt_no_messages">Пока нет сообщений...</string>
+    <string name="kt_inbox">Входящие</string>
+    <string name="kt_claimed">Получено</string>
+    <string name="kt_claim">Получить</string>
+    <string name="kt_read_more">Детали</string>
+    <string formatted="false" name="kt_topic_count">Темы %@</string>
+    <string name="kt_select_topic_category">Выбрать категорию</string>
+    <string name="kt_create_topic">Темы</string>
+    <string name="kt_all_topics">Новинки</string>
+    <string name="kt_not_following_anyone">Упс! Вы еще никого не зафолловили. Зафолловите самых влиятельных пользователей сообщества, чтобы получить доступ к их первоклассному контенту!</string>
+    <string name="kt_like">Лайкнуть</string>
+    <string name="kt_profile_reply">Ответы</string>
+    <string name="kt_create_reply">Ответить</string>
+    <string name="kt_report_success">Жалоба подана</string>
+    <string name="kt_tip_reply_locked">Тема закрыта</string>
+    <string name="kt_topic_details">Тема</string>
+    <string name="kt_report">Пожаловаться</string>
+    <string name="kt_updates_created_topic">Создано</string>
+    <string name="kt_content_already_removed">Упс! Контент удален...</string>
+    <string name="kt_updates_replied_topic">Отвечено</string>
+    <string name="kt_publish_content_placeholder">Скажите что-нибудь...</string>
+    <string name="kt_create_topic_success">Контент отправлен</string>
+    <string name="kt_share_to_sns">Поделиться</string>
+    <string name="kt_all_players">Рейтинг Влияния</string>
+    <string name="kt_influencers">Влиятельные</string>
+    <string name="kt_topics">Темы</string>
+    <string name="kt_user_profile">Профайл</string>
+    <string name="kt_field_username">Имя пользователя:</string>
+    <string name="kt_recent_viewed">Недавно просмотренные:</string>
+    <string name="kt_increase_influence">Повысьте свое влияние в сообществе, запостите классный контент и заработайте больше фолловов!</string>
+    <string name="kt_logout">Выйти</string>
+    <string name="kt_warning_complete_email">Хотите ввести адрес электронной почты, чтобы завершить настройки безопасности?</string>
+    <string name="kt_bind_email">Привязать электронную почту</string>
+    <string name="kt_setting">Настройки</string>
+    <string name="kt_not_binding">Не настроено</string>
+    <string name="kt_not_setting">N/A</string>
+    <string name="kt_change_password">Изменить</string>
+    <string name="kt_confirm_to_logout">Нет. Спасибо</string>
+    <string name="kt_input_email">Введите свой адрес электронной почты</string>
+    <string name="kt_create_nickname">Установите свой никнейм</string>
+    <string name="kt_create_username_tip">Имя пользователя можно изменить только один раз. Вы можете использовать свое имя пользователя для входа в KTplay.</string>
+    <string name="kt_create_username">Создать имя пользователя</string>
+    <string name="kt_input_username">Имя пользователя может содержать только буквы, цифры, нижнее подчеркивание и точки</string>
+    <string name="kt_set_password">Изменить свой пароль</string>
+    <string name="kt_warning_same_oldpassword_and_newpassword">Ваш старый и новый пароли не должны совпадать</string>
+    <string name="kt_input_oldpassword">Текущий пароль</string>
+    <string name="kt_input_newpassword">Новый пароль</string>
+    <string name="kt_likes">Лайки</string>
+    <string name="kt_forget_password">Забыли пароль?</string>
+    <string name="kt_register">Зарегистрироваться</string>
+    <string name="kt_email_or_username">Введите электронную почту или имя пользователя</string>
+    <string name="kt_retrieve_password">Найти аккаунт KTplay</string>
+    <string name="kt_warning_retrieve_password_after_login_failure">Не удалось войти</string>
+    <string name="kt_login">Войти</string>
+    <string name="kt_quicklaunch_relogin">Нажмите ниже, чтобы повторить соединение</string>
+    <string name="kt_relogin">Войти заново</string>
+    <string name="kt_sign_up_ktplay">Зарегистрироваться</string>
+    <string name="kt_enter_number">Введите свой номер моб. тел., мы отправим вам код подтверждения.</string>
+    <string name="kt_verification_email_send">Мы отправим вам письмо подтверждения. Пожалуйста, подтвердите этот адрес электронной почты в течение 24 часов, чтобы получить доступ к функциям KTplay. Внимание: Вы можете изменить свой адрес электронной почты до того, как вы его подтвердите. Как только адрес электронной почты будет изменен, вам нужно будет войти в KTplay, используя новый адрес электронной почты.</string>
+    <string name="kt_verification_email">Письмо подтверждения отправлено. Пожалуйста, подтвердите этот адрес электронной почты в течение 24 часов, чтобы получить доступ к функциям KTplay.</string>
+    <string name="kt_reset_enter_username_with_email">электронную почту или имя пользователя</string>
+    <string name="kt_reset_enterusername">Сбросьте свой пароль через имя пользователя или электронную почту.</string>
+    <string formatted="false" name="kt_reset_password_email_failure">Извините. К аккаунту %@ не привязан адрес электронной почты. Вы сейчас не можете сбросить свой пароль.</string>
+    <string formatted="false" name="kt_tip_resetpassword_with_email">Вам на %@ было отправлено письмо для сброса вашего пароля. Пожалуйста, проверьте свою почту.</string>
+    <string formatted="false" name="kt_reset_password_failure">Извините. К аккаунту %@ не привязан адрес электронной почты или номер телефона. Вы сейчас не можете сбросить свой пароль.</string>
+    <string name="kt_reset_password">Сбросить пароль</string>
+    <string name="kt_login_failed">Не удалось войти</string>
+    <string name="kt_send">Отправить</string>
+    <string name="kt_phone_number">Номер моб. тел.</string>
+    <string name="kt_get_verification_code">Запросить</string>
+    <string name="kt_verification_code">Код подтверждения</string>
+    <string name="kt_reset">Сбросить</string>
+    <string name="kt_done">ОК</string>
+    <string name="kt_complete_user_profile">Настройки пользователя</string>
+    <string name="kt_ktplay_slogan">СОВЕТЫ · ВОПРОСЫ · ДРУЗЬЯ · НАГРАДЫ</string>
+    <string name="kt_login_with_phonenumber">Войти</string>
+    <string name="kt_login_with_username">Логин</string>
+    <string name="kt_whats_hot">Сообщество</string>
+    <string formatted="false" name="kt_replies_count">Ответов %@</string>
+    <string name="kt_top_collections">Коллекции</string>
+    <string name="kt_categories">Категории</string>
+    <string name="kt_recommended_topics">Рекомендованное</string>
+    <string name="kt_highest_growth">Восходящие пользователи</string>
+    <string name="kt_top_Influencers">Топ по влиянию</string>
+    <string name="kt_rising_topics">Восходящие темы</string>
+    <string name="kt_register_with_phonenumber">Зарегистрироваться</string>
+    <string name="kt_bind_phonenumber">Номер моб. тел.</string>
+    <string name="kt_go">Детали</string>
+    <string name="kt_i_know">ОК</string>
+    <string name="kt_link_login_with_phonenumber">Войти по номеру моб. тел.</string>
+    <string name="kt_friends_symbol">null</string>
+    <string formatted="false" name="kt_seconds_countdown">%%@ S</string>
+    <string name="kt_verification_code_sent">Мы отправили вам код подтверждения по СМС.</string>
+    <string name="kt_setting_baseinfo">Мой профайл</string>
+    <string name="kt_setting_avatar">Фото профайла</string>
+    <string name="kt_setting_security">Настройки безопасности</string>
+    <string name="kt_reply_to_someone">Ответить</string>
+    <string name="kt_tip_change_nickname">Это имя используется, чтобы другие смогли вас найти.</string>
+    <string name="kt_security_verification">Подтверждение безопасности</string>
+    <string name="kt_security_verification_prompt">Если вы когда-либо входили в KTplay в одном из следующих приложений, пожалуйста, выберите его для подтверждения вашей личности.</string>
+    <string formatted="false" name="kt_security_verification_failure_times">Подтверждение не удалось %@/%@</string>
+    <string name="kt_warning_security_verification_times">Если подтверждение будет неудачным дважды, то вам придется подождать 24 часа, чтобы попробовать снова.</string>
+    <string name="kt_try_again">Попробовать снова</string>
+    <string name="kt_skip_security_verification">Пропустить подтверждение</string>
+    <string name="kt_login_with_other_accounts">Использовать другой аккаунт</string>
+    <string name="kt_login_to_ktplay">Войти в KTplay</string>
+    <string name="kt_login_with_selected_account">Выбрать аккаунт</string>
+    <string name="kt_report_content">Сообщить о нарушении</string>
+    <string name="kt_warning_complete_phonenumber">Хотите привязать свой номер телефона, чтобы завершить настройки безопасности?</string>
+    <string formatted="false" name="kt_login_welcome">%@. Добро пожаловать!</string>
+    <string name="kt_chat">Сообщения</string>
+    <string name="kt_block_chat">Заблокировать в чате</string>
+    <string name="kt_copy">Скопировать</string>
+    <string name="kt_unsupported_chat_message_type">Текущая версия KTplay не поддерживает отображение данного контента</string>
+    <string name="kt_tip_chattype_image">Изображение</string>
+    <string formatted="false" name="kt_warning_block_chatuser">Уверены, что хотите заблокировать %@ в чате?</string>
+    <string name="kt_privacy">Конфиденциальность</string>
+    <string name="kt_blocked_list">Список блокировки</string>
+    <string name="kt_block_private_chat">Блокировать чат, если вы не фолловите друг друга</string>
+    <string name="kt_unblock">Разблокировать</string>
+    <string formatted="false" name="kt_warning_unblock_chatuser">Уверены, что хотите разблокировать %@ в чате?</string>
+    <string name="kt_blocked_list_placeholder">Вы еще никого не заблокировали</string>
+    <string name="kt_resend">Переслать</string>
+    <string formatted="false" name="kt_pattern_blocked_user">(Заблокирован)%@</string>
+    <string name="kt_tip_message_blocked">Сообщение отклонено</string>
+    <string name="kt_report_submitted_description">Ваша заявка подана. Мы рассмотрим ее и отправим вам результат. Спасибо за вашу заявку!</string>
+    <string name="kt_request_img_failed">Не удалось загрузить изображение</string>
+    <string name="kt_quicklaunch_netlogged">Вы не вошли, пожалуйста, сначала войдите в приложение.</string>
+    <string name="kt_account_adm">ADM</string>
+    <string name="kt_account_mod">MOD</string>
+    <string name="kt_no_topic_yet">Пока нет тем</string>
+    <string name="kt_no_reply_yet">Пока нет ответов</string>
+    <string name="kt_no_like_yet">Пока нет лайков</string>
+    <string name="kt_no_more_topic">Больше нет тем</string>
+    <string name="kt_no_more_reply">Больше нет ответов</string>
+    <string name="kt_no_more_like">Больше нет лайков</string>
+    <string name="kt_favorite">Избранное</string>
+    <string name="kt_not_in_group">Вы не участник этой группы</string>
+    <string name="kt_selecet_a_topic">Выбрать Тему</string>
+    <string name="kt_my_topics">Мои Темы</string>
+    <string name="kt_locked">Закрыто</string>
+    <string name="kt_hot_searches">Хит поиска</string>
+    <string name="kt_recent_searches">Недавние поиски</string>
+    <string name="kt_reward">Награды</string>
+    <string name="kt_campaign_share_topic">[Кампания]Поделитесь и выиграйте награду!</string>
+    <string name="kt_campaign_rewards">Награды:</string>
+    <string name="kt_campaign_remain">Осталось времени:</string>
+    <string formatted="false" name="kt_topic_share">Недавняя тема от %@</string>
+    <string name="kt_reward_expired">Извините! Награда просрочена. Спасибо за участие!</string>
+    <string name="kt_drafts">Черновики</string>
+    <string name="kt_no_draft_yet">Нет черновиков</string>
+    <string name="kt_no_more_drafts">Больше нет черновиков</string>
+    <string formatted="false" name="kt_topic_task_limit">Вы можете одновременно загрузить максимум %@ поста. Последний пост был сохранен в черновики.</string>
+    <string formatted="false" name="kt_vote_is_ongoing">[Голосовать сейчас!] Уже %@ голосов!</string>
+    <string name="kt_vote_now">Голосовать сейчас!</string>
+    <string name="kt_vote_thank">Спасибо за ваш голос!</string>
+    <string name="kt_vote_expired">Голосование просрочено!</string>
+    <string name="kt_vote">Проголосовать</string>
+    <string name="kt_select_video">Выбрать видео</string>
+    <string name="kt_video_and_images">Вы не можете одновременно загружать фото и видео.</string>
+    <string formatted="false" name="kt_video_size">Размер видео %@МВ.</string>
+    <string name="kt_can_not_video">В настоящее время вы не можете загружать видео в свой контент.</string>
+    <string name="kt_in_review">На рассмотрении</string>
+    <string name="kt_in_reviewing">Рассматривается...</string>
+    <string formatted="false" name="kt_video_exceed">Извините. Видео не должно превышать %@MB по размеру или %@ мин по длительности.</string>
+    <string name="kt_reply_notify">Уведомления</string>
+    <string name="kt_no_video">Пока нет видео</string>
+    <string name="kt_complete_profile">Заполните свой профайл, чтобы другие смогли узнать вас получше.</string>
+    <string name="kt_birthday">День рождения</string>
+    <string name="kt_email">Электронная почта</string>
+    <string name="kt_enter_email_reward">Чтобы получить награду, введите свою электронную почту. Вы не сможете изменить адрес электронной почты после настройки.</string>
+    <string name="kt_verify_mobile_password">Чтобы получить награду, подтвердите свой номер телефона по СМС и установите пароль для своего аккаунта.</string>
+    <string name="kt_verify_mobile">Чтобы получить награду, подтвердите свой номер телефона по СМС.</string>
+    <string name="kt_email_already_registered">Этот адрес электронной почты уже зарегистрирован на KTplay, пожалуйста, используйте другой адрес.</string>
+    <string name="kt_mobile_already_registered">Этот номер телефона уже зарегистрирован на KTplay, пожалуйста, используйте другой номер телефона.</string>
+    <string name="kt_set_login_password">Установите пароль входа для своего аккаунта.</string>
+    <string name="kt_to_enter_email">Чтобы создать персональную видео подпись, введите свою электронную почту. Вы не сможете изменить адрес электронной почты после настройки.</string>
+    <string name="kt_to_verify_number">Чтобы создать персональную видео подпись, подтвердите свой номер телефона по СМС.</string>
+    <string name="kt_binding_email_to">Привяжите свой адрес электронной почты, чтобы сбросить пароль, получить награду и использовать персонализированные функции. Вы не сможете изменить адрес электронной почты после настройки.</string>
+    <string name="kt_binding_number_password_to">Привяжите свой номер телефона и установите пароль, чтобы сбросить пароль, получить награду и использовать персонализированные функции.</string>
+    <string name="kt_binding_number_to">Привяжите свой номер телефона, чтобы сбросить пароль, получить награду и использовать персонализированные функции.</string>
+    <string name="kt_enter_email">Введите свой адрес электронной почты и установите пароль.</string>
+    <string name="kt_more_collections">Больше коллекций</string>
+    <string name="kt_collection">Коллекции</string>
+    <string name="kt_views">Просмотров</string>
+    <string name="kt_video">Видео</string>
+    <string name="kt_see_more_replies">Просмотреть больше ответов</string>
+    <string name="kt_no_more_collections">Больше нет коллекций</string>
+    <string name="kt_manage_title_manage">Управление</string>
+    <string name="kt_manage_button_quarantine">Карантин</string>
+    <string name="kt_manage_info_quarantine">Пост не будет отображаться в списке, когда вы поместите его в карантин.</string>
+    <string name="kt_manage_title_move_topic">Переместить</string>
+    <string name="kt_manage_info_move_topic">Вы можете переместить пост в любой каталог.</string>
+    <string name="kt_manage_button_highlight">Рекомендованное</string>
+    <string name="kt_manage_button_unhighlight">Отменить Рекомендованное</string>
+    <string name="kt_manage_info_highlight">Вы можете отметить ценный контент и поместить его в Основные моменты.</string>
+    <string name="kt_manage_button_lock">Закрыть</string>
+    <string name="kt_manage_button_unlock">Открыть</string>
+    <string name="kt_manage_info_lock">На тему нельзя ответить, когда вы ее закрываете, она также опустится вниз списка тем, когда будет опубликован новый контент.</string>
+    <string name="kt_manage_title_main_page_insert">Поместить на Главную страницу</string>
+    <string name="kt_manage_info_main_page_insert">Поместить тему на Главную страницу.</string>
+    <string name="kt_manage_option_hot_topics">Размещенные темы</string>
+    <string name="kt_manage_option_recommended_photos">Рекомендованные фото</string>
+    <string name="kt_manage_option_game_video">Популярные фото</string>
+    <string name="kt_manage_info">Заметка: Вы не можете управлять постами, размещенными Админами.</string>
+    <string name="kt_manage_alert_quarantine_title">Контент на карантине</string>
+    <string name="kt_manage_alert_quarantine_text">Уверены, что хотите поместить контент в карантин?</string>
+    <string name="kt_manage_alert_highlight_title">Рекомендованные темы</string>
+    <string name="kt_manage_alert_highlight_text">Уверены, что хотите рекомендовать данный контент?</string>
+    <string name="kt_manage_alert_unhighlight_title">Удалить из Рекомендованного</string>
+    <string name="kt_manage_alert_unhighlight_text">Уверены, что хотите удалить контент из Рекомендованного?</string>
+    <string name="kt_manage_alert_lock_title">Заблокировать контент</string>
+    <string name="kt_manage_alert_lock_text">Уверены, что хотите заблокировать контент?</string>
+    <string name="kt_manage_alert_unlock_title">Разблокировать контент</string>
+    <string name="kt_manage_alert_unlock_text">Уверены, что хотите разблокировать контент?</string>
+    <string name="kt_manage_alert_move_title">Переместить контент</string>
+    <string name="kt_manage_alert_move_text">Уверены, что хотите переместить контент?</string>
+    <string name="kt_manage_alert_insert_mainpage_title">Добавить тему в размещенное на Главной странице</string>
+    <string name="kt_manage_alert_insert_mainpage_text">Уверены, что хотите поместить тему на Главную страницу?</string>
+    <string name="kt_pin_to_top">Прикрепить наверх</string>
+    <string name="kt_unpinned">Снять прикрепление</string>
+    <string name="kt_pin_a_post_to_top">Прикрепить пост вверх списка.</string>
+    <string name="kt_uppin_a_post_from_top">Снять прикрепление в топ списка контента.</string>
+    <string name="kt_manage_alert_pin_title">Прикрепить пост вверх</string>
+    <string name="kt_manage_alert_pin_text">Уверены, что хотите прикрепить этот пост вверх?</string>
+    <string name="kt_manage_alert_unpin_title">Снять прикрепление</string>
+    <string name="kt_manage_alert_unpin_text">Уверены, что хотите снять прикрепление этого поста?</string>
+    <string name="kt_campaign_share_Collections">[Кампания]Поделитесь и выиграйте награду!</string>
+    <string formatted="false" name="kt_reply_to">Ответить %@</string>
+    <string name="kt_original_topic">Исходная тема:</string>
+    <string name="kt_original_reply">Исходный ответ:</string>
+    <string formatted="false" name="kt_send_email_limit">Извините. Пожалуйста, подождите %@ мин.</string>
+    <string name="kt_email_unverified">Не подтверждено</string>
+    <string name="kt_resend_email">Отправить письмо подтверждения еще раз</string>
+    <string name="kt_title_optional">Дайте классное заглавие своей теме</string>
+    <string name="kt_voted">Проголосовали</string>
+    <string name="kt_ad">Реклама от</string>
+    <string name="kt_ad_download">Скачать</string>
+    <string name="kt_ad_open">Детали</string>
+    <string name="kt_suggested_for_you">Рекомендуем вам</string>
+    <string name="kt_about_Influence">Об Оценке Влияния</string>
+    <string formatted="false" name="kt_you_rank_lower">#%@·Место внизу %@</string>
+    <string formatted="false" name="kt_you_rank_top">#%@·Место в топ %@</string>
+    <string name="kt_rank">Рейтинг</string>
+    <string name="kt_players">Пользователи</string>
+    <string name="kt_today">Сегодня</string>
+    <string name="kt_all_time">Все время</string>
+    <string name="kt_write_bio">Напишите себе краткое описание!</string>
+    <string name="kt_header_background">Фон заголовка</string>
+    <string formatted="false" name="kt_rank_number">#%@</string>
+    <string name="kt_bio">Описание</string>
+    <string name="kt_have_reported">Вы уже пожаловались на это сообщение</string>
+    <string name="kt_see_rank">Просмотреть рейтинг</string>
+    <string name="kt_influence_rank">Рейтинг Влияния</string>
+    <string name="kt_no_more_follower">Больше нет фолловеров</string>
+    <string name="kt_no_more_following">Больше нет пользователей</string>
+    <string name="kt_cannot_message_unless">Вы не можете отправлять сообщения, если не зафолловите друг друга</string>
+    <string name="kt_unfollow">Удалить фоллов</string>
+    <string name="kt_unfollow_this_player">Уверены, что хотите удалить фоллов этого пользователя?</string>
+    <string name="kt_follow_success">Удачно зафолловили</string>
+    <string name="kt_no_following">Он/она слишком скромный(ая), чтобы кого-то зафолловить...</string>
+    <string name="kt_no_follower">Пока нет фолловеров...</string>
+    <string name="kt_say_hello">Сказал тебе привет</string>
+    <string name="kt_require_content">Введите заглавие или контент для поста</string>
+    <string name="kt_no_more_messages">Больше нет сообщений</string>
+    <string name="kt_no_record_yet">Упс! Никто не заработал Оценку Влияния. Сделайте вклад в сообщество, чтобы стать Первым по влиянию!</string>
+    <string name="kt_no_chat_yet">Начните общение с другими, просматривая их профайлы.</string>
+    <string name="kt_say_hello_to">Сказать привет ему/ей!</string>
+    <string name="kt_delete_conversation">Удалить беседу</string>
+    <string name="kt_sure_delete_conversation">Уверены, что хотите удалить эту беседу? После удаления вся история чата будет недоступна.</string>
+    <string name="kt_post_quickly">Вы постите слишком быстро</string>
+    <string name="kt_not_have_review">У вас ничего нет в просматриваемом</string>
+    <string name="kt_login_start_conversation">Войдите и начните общение с другими, просматривая их профайлы.</string>
+    <string name="kt_log_in_web">Войти в Веб-Сообщество</string>
+    <string name="kt_verification_code_web">Код подтверждения</string>
+    <string formatted="false" name="kt_verification_code_will_expire">Будет просрочен через %@ сек.</string>
+    <string name="kt_visite_web_community">Посетить</string>
+    <string name="kt_about_web_community">О Веб-Сообществе KTplay</string>
+    <string name="kt_request_new_code">Запросить новый код</string>
+    <string name="kt_create_message">Новое сообщение</string>
+    <string name="kt_have_not_visit_user">Вы еще не посещали профайлы других пользователей...</string>
+    <string name="kt_have_not_view_topic">Вы не просматривали никакие темы...</string>
+    <string name="kt_leaderboards">Списки лидеров</string>
+    <string formatted="false" name="kt_overallrank">Всеобщий #%@</string>
+    <string formatted="false" name="kt_will_be_reset">Будет сброшено через %@</string>
+    <string name="kt_remain">Остается</string>
+    <string name="kt_get_rank_login">Заработайте рейтинг с помощью входа</string>
+    <string name="kt_overall">Всеобщий</string>
+    <string name="kt_my_rank">Мой рейтинг</string>
+    <string formatted="false" name="kt_top_rank">Топ %@</string>
+    <string name="kt_not_ranked">Нет рейтинга</string>
+    <string name="kt_no_ranking">Извините. Сейчас нет пользователей в Списке лидеров...</string>
+    <string name="kt_not_ranked_on">Извините. Вы не в рейтинге Списка лидеров...</string>
+    <string name="kt_promotion_viewed">Продвижение было просмотрено</string>
+    <string name="kt_ad_ktplay">Реклама от KTplay</string>
+    <string name="kt_quick_login">Гостевой вход</string>
+    <string name="kt_not_complete_profile">Вы не заполнили свой аккаунт!</string>
+    <string name="kt_protect_your_account">Чтобы защитить ваш KTplay аккаунт и соответствующий контент, пожалуйста, настройте пароль своего аккаунта.</string>
+    <string name="kt_agree_to_terms">Продолжая использовать Сообщество, вы соглашаетесь с Условиями и Политикой конфиденциальности Сообщества, как указано ниже.</string>
+    <string name="kt_related_topics">Связанные темы</string>
+    <string name="kt_no_replated_topic">Не найдены связанные темы</string>
+    <string formatted="false" name="kt_has_been_bind">%@ уже привязан другим аккаунтом</string>
+    <string name="kt_warning_account_lost">Войдите через этот аккаунт, если он у вас есть. Предупреждение: Если вы войдете через него, то данные вашего текущего аккаунта и посты могут быть потеряны.</string>
+    <string name="kt_see_translation">Смотреть перевод</string>
+    <string name="kt_automatically_translated">Переведено автоматически</string>
+    <string formatted="false" name="kt_sort_by">Сортировать по %@</string>
+    <string name="kt_last_reply">Последний ответ</string>
+    <string name="kt_oldest_reply">Самый старый ответ</string>
+    <string name="kt_most_replies">Больше всего ответов</string>
+    <string name="kt_most_likes">Больше всего лайков</string>
+    <string name="kt_top_replies">Топ по ответам</string>
+    <string name="kt_current_language">Текущий язык</string>
+    <string name="kt_cannot_load_video">Невозможно загрузить видео</string>
+    <string name="kt_expand">расширение</string>
+    <string name="kt_welcome_to_community">Добро пожаловать в сообщество</string>
+    <string name="kt_support">Поддержка</string>
+    <string name="kt_recover_account">Восстановить аккаунт</string>
+    <string name="kt_rate_our_services">Оцените работу нашей службы.</string>
+    <string name="kt_how_can_we_help">Чем мы можем помочь?</string>
+    <string name="kt_faq">Вопросы и ответы</string>
+    <string name="kt_confirm_to_proceed">Вы уверены, что хотите продолжить?</string>
+    <string name="kt_ban_user">Запретить пользователю (24 часа)</string>
+    <string name="kt_unban_user">Unban пользователь</string>
+    <string name="kt_default">По умолчанию</string>
+    <string name="kt_cancel_quarantine">Отменить карантин</string>
+    <string name="kt_no_more">Больше не надо...</string>
+    <string name="kt_retry">повторить попытку</string>
+    <string name="kt_realname_verify_phone">Согласно национальным законам и правилам, мы должны подтвердить вашу личность, и мы не будем раскрывать вашу информацию.</string>
+    <string name="kt_realname_verify_legal">Статья 24 «Закона о кибербезопасности КНР», «Операторы сети предоставляют пользователям возможность публикации информации, обмена мгновенными сообщениями и других сервисов. При подписании соглашений с пользователями или подтверждении предоставления услуг они должны требовать от пользователей предоставления достоверной идентификационной информации. Предоставляя реальную идентификационную информацию, сетевые операторы не должны предоставлять связанные услуги ».</string>
+    <string name="kt_input_age">Прежде чем начать, сообщите нам свой возраст.</string>
+    <string name="kt_age_verify_failed">Извините, ваш возраст не соответствует требованиям сообщества и не может использовать функции сообщества.</string>
+    <string name="kt_notification_settings">Настройки уведомлений</string>
+    <string name="kt_activity_about_you">О компании</string>
+    <string name="kt_see_original">См. Оригинал</string>
+    <string name="kt_no_permission">Вы не авторизованы для этого.</string>
+    <string name="kt_user_profile_muted">кляп</string>
+    <string name="kt_enter_youtube_url">Введите URL видео на Youtube</string>
+    <string name="kt_album">Альбом</string>
+</resources>

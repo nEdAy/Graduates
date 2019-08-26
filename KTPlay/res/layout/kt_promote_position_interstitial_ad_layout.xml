@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/kt_interstitial_ad_content"
-    android:layout_width="@dimen/kt_popup_ad_width"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/kryptanium_popup_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="12dp">
+    android:paddingBottom="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/kt_popup_ad_title_height"
         android:background="@android:color/transparent">
 
         <TextView
             android:id="@+id/kt_interstitial_ad_title"
-            style="@style/kryptanium_title"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/kt_popup_ad_title_height"
             android:layout_centerHorizontal="true"
-            android:gravity="center" />
+            android:gravity="center"
+            style="@style/kryptanium_title" />
 
         <FrameLayout
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/kt_popup_ad_title_height"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true">
 
@@ -32,17 +32,17 @@
                 android:id="@+id/kt_interstitial_ad_close"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:src="@drawable/kryptanium_close_icon" />
+                android:src="@drawable/kryptanium_close_icon"
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/kt_interstitial_ad_wait"
-                style="@style/kryptanium_primary_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:visibility="gone"
                 android:textSize="18sp"
-                android:visibility="gone" />
+                style="@style/kryptanium_primary_text" />
 
         </FrameLayout>
 
@@ -51,14 +51,15 @@
     <View style="@style/kryptanium_seperate_line" />
 
     <RelativeLayout
+        android:id="@+id/kt_interstitial_ad_container"
         android:layout_width="match_parent"
-        android:layout_height="283dp">
+        android:layout_height="wrap_content">
 
         <FrameLayout
             android:id="@+id/kt_interstitial_ad_content_layout"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_height="match_parent">
 
         </FrameLayout>
 

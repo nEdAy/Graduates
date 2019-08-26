@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/kt_reply_sort"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/kryptanium_listview_item_bg">
+
+    <TextView
+        android:id="@+id/kt_sort_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/kt_theme_background" />
+
+    <TextView
+        android:id="@+id/kt_reply_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kt_sort_empty"
+        android:paddingBottom="6dp"
+        android:paddingLeft="12dp"
+        android:paddingStart="12dp"
+        android:paddingTop="6dp"
+        android:textColor="@color/kryptanium_text_dark_gray"
+        android:textSize="@dimen/kryptanium_text_size_standard" />
+
+    <ImageView
+        android:id="@+id/kt_icon"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_below="@+id/kt_sort_empty"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/kryptanium_topic_classify_text_down_selected_press" />
+
+    <TextView
+        android:id="@+id/kt_reply_sort_pop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/kt_icon"
+        android:layout_toStartOf="@+id/kt_icon"
+        android:singleLine="true"
+        android:maxWidth="200dp"
+        android:layout_below="@+id/kt_sort_empty"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:textColor="@color/kt_theme_color"
+        android:textSize="@dimen/kryptanium_text_size_standard" />
+
+
+</RelativeLayout>

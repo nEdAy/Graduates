@@ -105,17 +105,17 @@ public class StartFragmentA extends BaseFragment {
             public void onClick(View v) {
                 String nickname = NiftyDialogBuilder.et_player.getText().toString();
                 mSharedSettingsUtil.setUserNick(nickname);
-                KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
-                    @Override
-                    public void onSetNicknameResult(boolean isSuccess, String nickname,
-                                                    KTUser user, KTError error) {
-                        if (isSuccess) {
-                            showToast("网络帐号昵称同步成功", true);
-                        } else {
-                            showToast("网络帐号昵称同步失败", false);
-                        }
-                    }
-                });
+//                KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
+//                    @Override
+//                    public void onSetNicknameResult(boolean isSuccess, String nickname,
+//                                                    KTUser user, KTError error) {
+//                        if (isSuccess) {
+//                            showToast("网络帐号昵称同步成功", true);
+//                        } else {
+//                            showToast("网络帐号昵称同步失败", false);
+//                        }
+//                    }
+//                });
                 dialogBuilder.dismiss();
                 onActivityCreated(null);
             }

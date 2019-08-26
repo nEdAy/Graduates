@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="center"
+    android:background="@color/kt_theme_titlebar_background"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/kt_content_padding"
+        android:paddingStart="@dimen/kt_content_padding">
+
+        <!-- 图标-->
+        <ViewStub
+            android:id="@id/kt_stub"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="@dimen/kt_content_padding"
+            android:layout="@layout/kt_tab_icon" />
+
+        <TextView
+            android:id="@+id/kt_common_text"
+            style="@style/kryptanium_secondary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/kt_all_topics"
+            android:textColor="@color/kt_state_text"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/kt_common_iv_1"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/kt_topic_tab_classify_selector" />
+
+        <include
+            layout="@layout/kt_newmsg"
+            android:layout_width="@dimen/kryptanium_new_msg_size"
+            android:layout_height="@dimen/kryptanium_new_msg_size"
+            android:layout_marginLeft="6dp"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/kt_seperate_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/kt_topic_tab_item_barline_selector" />
+
+</FrameLayout>

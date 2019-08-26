@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/kt_translation_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/kt_content_padding"
+    android:visibility="gone">
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/kt_theme_listitem_dividercolor" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/kt_content_padding"
+        android:paddingRight="@dimen/kt_content_padding">
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@id/kt_translation_title"
+            style="@style/kryptanium_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/kt_content_padding" />
+
+        <com.ktplay.widget.KTEmojiText
+            android:id="@id/kt_translation_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/kryptanium_secondary_text"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/kryptanium_hint_text"
+            android:layout_marginTop="2dp"
+            android:text="@string/kt_automatically_translated" />
+    </LinearLayout>
+</LinearLayout>

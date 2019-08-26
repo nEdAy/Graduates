@@ -1,131 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- 手机号注册界面 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!-- 内容区 -->
 
-        <!-- 内容区 -->
+    <RelativeLayout
+        android:layout_width="@dimen/kryptanium_login_content_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="@dimen/kryptanium_login_content_width"
+        <ImageView
+            android:id="@+id/kt_common_iv_1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/kt_icon_binding_phone_default" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/kt_icon_binding_phone_default" />
+        <TextView
+            android:id="@+id/kt_common_iv_2"
+            style="@style/kryptanium_primary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kt_common_iv_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="@string/kt_enter_number" />
 
-            <TextView
-                style="@style/kryptanium_menu_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:text="@string/kt_enter_number" />
+        <!-- 国家代码 -->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/kt_common_iv_3"
+            style="@style/kryptanium_edittext"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/kt_common_iv_2"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/kt_theme_color" />
 
-                <!-- 国家代码 -->
+        <!-- 手机号 -->
 
-                <TextView
-                    android:id="@+id/kryptanium_phoneregister_countrycode"
-                    style="@style/kryptanium_edittext"
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@color/kt_theme_color" />
+        <com.ktplay.widget.KTClearableEditText
+            android:id="@+id/kt_common_view_4"
+            style="@style/kryptanium_edittext"
+            android:layout_width="fill_parent"
+            android:layout_alignTop="@+id/kt_common_iv_3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/kt_common_iv_3"
+            android:layout_toEndOf="@+id/kt_common_iv_3"
+            android:hint="@string/kt_phone_number"
+            android:inputType="phone" />
+        <!-- 密码 -->
 
-                <!-- 手机号 -->
+        <com.ktplay.widget.KTClearableEditText
+            android:id="@+id/kt_common_view_5"
+            style="@style/kryptanium_edittext"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/kt_common_iv_3"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:hint="@string/kt_password_placeholder"
+            android:inputType="textPassword" />
 
-                <com.ktplay.widget.KTClearableEditText
-                    android:id="@+id/kryptanium_phoneregister_number"
-                    style="@style/kryptanium_edittext"
-                    android:layout_width="match_parent"
-                    android:hint="@string/kt_phone_number"
-                    android:inputType="phone" />
-            </LinearLayout>
-            <!-- 密码 -->
+        <!-- 验证码 -->
 
-            <com.ktplay.widget.KTClearableEditText
-                android:id="@+id/kryptanium_phoneregister_password"
-                style="@style/kryptanium_edittext"
-                android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:hint="@string/kt_password_placeholder"
-                android:inputType="textPassword" />
+        <!-- 获取验证码 -->
 
-            <!-- 验证码 -->
+        <TextView
+            android:id="@+id/kt_common_view_6"
+            style="@style/kryptanium_button_style_main"
+            android:layout_width="100dp"
+            android:layout_below="@+id/kt_common_view_5"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:text="@string/kt_get_verification_code" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp">
+        <!-- 验证码 -->
 
-                <!-- 获取验证码 -->
+        <com.ktplay.widget.KTClearableEditText
+            android:id="@+id/kt_edit"
+            style="@style/kryptanium_edittext"
+            android:layout_width="fill_parent"
+            android:layout_alignTop="@+id/kt_common_view_6"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/kt_common_view_6"
+            android:layout_toEndOf="@+id/kt_common_view_6"
+            android:hint="@string/kt_verification_code"
+            android:inputType="number" />
 
-                <TextView
-                    android:id="@+id/kryptanium_phoneregister_get_verifycode"
-                    style="@style/kryptanium_button_style_main"
-                    android:layout_width="100dp"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/kt_get_verification_code" />
+        <!-- 注册按钮 -->
 
-                <!-- 验证码 -->
+        <TextView
+            android:id="@+id/kt_text"
+            style="@style/kryptanium_button_style_main"
+            android:layout_width="fill_parent"
+            android:layout_below="@+id/kt_common_view_6"
+            android:layout_marginTop="8dp"
+            android:text="@string/kt_register" />
 
-                <com.ktplay.widget.KTClearableEditText
-                    android:id="@+id/kryptanium_phoneregister_verifycode"
-                    style="@style/kryptanium_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="105dp"
-                    android:hint="@string/kt_verification_code"
-                    android:inputType="number" />
-            </FrameLayout>
+        <!-- 用户条款和隐私协议 -->
 
-            <!-- 注册按钮 -->
-
-            <TextView
-                android:id="@+id/kryptanium_phoneregister_register"
-                style="@style/kryptanium_button_style_main"
-                android:layout_width="match_parent"
-                android:layout_marginTop="8dp"
-                android:text="@string/kt_register" />
-
-            <!-- 用户条款和隐私协议 -->
-
-            <com.ktplay.widget.KTLinkableTextView
-                android:id="@+id/kryptanium_phoneregister_privacy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/kt_terms_agreement"
-                android:textColor="@color/kryptanium_text_dark_gray"
-                android:textSize="@dimen/kryptanium_fontsize_middle" />
-
-            <!-- 用户名注册链接 -->
-
-            <!--  <TextView
-                 style="@style/kryptanium_link_text"
-                 android:id="@+id/kryptanium_phoneregister_to_usernameregister"
-                 android:layout_gravity="center_horizontal|bottom"
-                 android:layout_marginTop="40dp"
-                 android:text="@string/kt_link_register_with_username"/> -->
-        </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+        <com.ktplay.widget.KTLinkableTextView
+            android:id="@+id/kt_common_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/kt_text"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/kt_terms_agreement"
+            android:textColor="@color/kryptanium_text_dark_gray"
+            android:textSize="@dimen/kryptanium_fontsize_middle" />
+    </RelativeLayout>
+</ScrollView>

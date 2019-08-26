@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!-- 内容作者头像 -->
+
+    <include
+        layout="@layout/kt_item_avatar"
+        android:id="@id/kt_item_avatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <!-- 内容作者名称 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/kt_sub_reply_content" />
+
+        <!-- 内容创建时间 -->
+
+        <TextView
+            android:id="@+id/kt_common_show_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/kt_content_padding"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingBottom="16dp"
+            style="@style/kryptanium_hint_text" />
+    </LinearLayout>
+</LinearLayout>

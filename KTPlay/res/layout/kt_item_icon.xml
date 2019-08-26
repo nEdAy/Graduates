@@ -4,4 +4,6 @@
     android:layout_width="@dimen/kt_icon_width"
     android:layout_height="@dimen/kt_icon_height"
     android:background="@null"
-    android:scaleType="fitXY" />
+    android:scaleType="centerCrop" />
+
+

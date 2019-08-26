@@ -14,7 +14,7 @@
 -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/kt_theme_hint_textcolor" android:state_enabled="false" />
+    <item android:state_enabled="false" android:color="@color/kt_theme_hint_textcolor" />
     <item android:color="@color/kt_theme_color" android:state_selected="true" />
     <item android:color="@color/kt_theme_primary_textcolor" />
 </selector>

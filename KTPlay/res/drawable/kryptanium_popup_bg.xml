@@ -3,51 +3,51 @@
     <!-- Drop Shadow Stack -->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp"/>-->
-    <!--<solid android:color="#02000000"/>-->
-    <!--<corners android:radius="8dp"/>-->
+    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />-->
+    <!--<solid android:color="#02000000" />-->
+    <!--<corners android:radius="8dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp"/>-->
-    <!--<solid android:color="#05000000"/>-->
-    <!--<corners android:radius="7dp"/>-->
+    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />-->
+    <!--<solid android:color="#05000000" />-->
+    <!--<corners android:radius="7dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp"/>-->
-    <!--<solid android:color="#10000000"/>-->
-    <!--<corners android:radius="6dp"/>-->
+    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />-->
+    <!--<solid android:color="#10000000" />-->
+    <!--<corners android:radius="6dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp"/>-->
-    <!--<solid android:color="#15000000"/>-->
-    <!--<corners android:radius="5dp"/>-->
+    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />-->
+    <!--<solid android:color="#15000000" />-->
+    <!--<corners android:radius="5dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
     <!--<padding  android:bottom="1dp"  />-->
-    <!--<solid android:color="#05000000"/>-->
-    <!--<corners android:radius="4dp"/>-->
+    <!--<solid android:color="#05000000" />-->
+    <!--<corners android:radius="4dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:bottom="1dp"/>-->
-    <!--<solid android:color="#10000000"/>-->
-    <!--<corners android:radius="3dp"/>-->
+    <!--<padding android:bottom="1dp" />-->
+    <!--<solid android:color="#10000000" />-->
+    <!--<corners android:radius="3dp" />-->
     <!--</shape>-->
     <!--</item>-->
     <!--<item>-->
     <!--<shape>-->
-    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp"/>-->
-    <!--<solid android:color="#15000000"/>-->
-    <!--<corners android:radius="3dp"/>-->
+    <!--<padding android:top="1dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />-->
+    <!--<solid android:color="#15000000" />-->
+    <!--<corners android:radius="3dp" />-->
     <!--</shape>-->
     <!--</item>-->
 
@@ -55,10 +55,10 @@
     <item>
         <shape>
             <solid android:color="@color/kt_theme_popup_background" />
-            <corners android:radius="3dp" />
+            <corners android:radius="2dp" />
             <stroke
-                android:width="1dp"
-                android:color="@color/kt_theme_popup_border" />
+                android:color="@color/kt_theme_popup_border"
+                android:width="1dp" />
         </shape>
     </item>
 </layer-list>

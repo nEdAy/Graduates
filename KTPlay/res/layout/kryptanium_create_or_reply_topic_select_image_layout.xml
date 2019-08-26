@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <GridView
-        android:id="@+id/kryptanium_createtopic_image_group"
+    <com.ktplay.widget.KTGridView
+        android:id="@+id/kt_common_gridview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:cacheColorHint="#000000"
