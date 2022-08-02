@@ -3,6 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+Properties debugSigning = new Properties()
+debugSigning.load(new FileInputStream(file(project.property("debug-signing.properties"))))
+
+Properties releaseSigning = new Properties()
+releaseSigning.load(new FileInputStream(file(project.property("release-signing.properties"))))
+
 android {
     compileSdk 33
     defaultConfig {
@@ -17,13 +23,28 @@ android {
             abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
+    signingConfigs {
+        debug {
+            storeFile file(debugSigning['storeFile'])
+            storePassword debugSigning['storePassword']
+            keyAlias debugSigning['keyAlias']
+            keyPassword debugSigning['keyPassword']
+        }
+        release {
+            storeFile file(releaseSigning['storeFile'])
+            storePassword releaseSigning['storePassword']
+            keyAlias releaseSigning['keyAlias']
+            keyPassword releaseSigning['keyPassword']
+        }
+    }
     buildTypes {
         debug {
-            // signingConfig signingConfigs.nEdAy
+            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -38,6 +59,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.nineoldandroids:library:2.4.0'
 
