@@ -20,7 +20,7 @@ import com.xpple.graduates.view.NiftyDialogBuilder;
 
 public class SettingsFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static SettingsFragment instance = new SettingsFragment();
+    private static final SettingsFragment instance = new SettingsFragment();
     private View parentView;
     private ImageView iv_open_music, iv_close_music, iv_open_sound, iv_close_sound;
     private SpSettingsUtil mSharedSettingsUtil;
@@ -44,31 +44,31 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.btn_back);
+        ImageView iv_back = parentView.findViewById(R.id.btn_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        rl_switch_music = (RelativeLayout) parentView.findViewById(R.id.rl_switch_music);
-        rl_switch_sound = (RelativeLayout) parentView.findViewById(R.id.rl_switch_sound);
-        rl_text_phone = (RelativeLayout) parentView.findViewById(R.id.rl_text_phone);
-        rl_text_nick = (RelativeLayout) parentView.findViewById(R.id.rl_text_nick);
-        rl_text_sex = (RelativeLayout) parentView.findViewById(R.id.rl_text_sex);
+        rl_switch_music = parentView.findViewById(R.id.rl_switch_music);
+        rl_switch_sound = parentView.findViewById(R.id.rl_switch_sound);
+        rl_text_phone = parentView.findViewById(R.id.rl_text_phone);
+        rl_text_nick = parentView.findViewById(R.id.rl_text_nick);
+        rl_text_sex = parentView.findViewById(R.id.rl_text_sex);
 
-        iv_open_music = (ImageView) parentView.findViewById(R.id.iv_open_music);
-        iv_close_music = (ImageView) parentView.findViewById(R.id.iv_close_music);
-        iv_open_sound = (ImageView) parentView.findViewById(R.id.iv_open_sound);
-        iv_close_sound = (ImageView) parentView.findViewById(R.id.iv_close_sound);
+        iv_open_music = parentView.findViewById(R.id.iv_open_music);
+        iv_close_music = parentView.findViewById(R.id.iv_close_music);
+        iv_open_sound = parentView.findViewById(R.id.iv_open_sound);
+        iv_close_sound = parentView.findViewById(R.id.iv_close_sound);
 
-        tv_phone = (TextView) parentView.findViewById(R.id.tv_phone);
-        tv_nick = (TextView) parentView.findViewById(R.id.tv_nick);
-        tv_sex = (TextView) parentView.findViewById(R.id.tv_sex);
-        btn_splash = (ImageView) parentView.findViewById(R.id.btn_splash);
-        btn_about = (ImageView) parentView.findViewById(R.id.btn_abont);
-        btn_suggest = (ImageView) parentView.findViewById(R.id.btn_suggent);
-        btn_update = (ImageView) parentView.findViewById(R.id.btn_update);
+        tv_phone = parentView.findViewById(R.id.tv_phone);
+        tv_nick = parentView.findViewById(R.id.tv_nick);
+        tv_sex = parentView.findViewById(R.id.tv_sex);
+        btn_splash = parentView.findViewById(R.id.btn_splash);
+        btn_about = parentView.findViewById(R.id.btn_abont);
+        btn_suggest = parentView.findViewById(R.id.btn_suggent);
+        btn_update = parentView.findViewById(R.id.btn_update);
         setListener();
     }
 

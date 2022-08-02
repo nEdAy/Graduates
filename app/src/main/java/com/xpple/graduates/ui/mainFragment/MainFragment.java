@@ -20,7 +20,7 @@ import com.xpple.graduates.view.NiftyDialogBuilder;
 
 public class MainFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static MainFragment instance = new MainFragment();
+    private static final MainFragment instance = new MainFragment();
     private View parentView;
     private ImageView btn_exit, btn_share, btn_top, btn_start,
             btn_replay, btn_options, btn_help, btn_ktplay;
@@ -45,14 +45,14 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 
 
     private void setUpViews() {
-        btn_exit = (ImageView) parentView.findViewById(R.id.btn_exit);
-        btn_share = (ImageView) parentView.findViewById(R.id.btn_share);
-        btn_top = (ImageView) parentView.findViewById(R.id.btn_top);
-        btn_start = (ImageView) parentView.findViewById(R.id.btn_start);
-        btn_replay = (ImageView) parentView.findViewById(R.id.btn_replay);
-        btn_options = (ImageView) parentView.findViewById(R.id.btn_options);
-        btn_help = (ImageView) parentView.findViewById(R.id.btn_help);
-        btn_ktplay = (ImageView) parentView.findViewById(R.id.btn_ktplay);
+        btn_exit = parentView.findViewById(R.id.btn_exit);
+        btn_share = parentView.findViewById(R.id.btn_share);
+        btn_top = parentView.findViewById(R.id.btn_top);
+        btn_start = parentView.findViewById(R.id.btn_start);
+        btn_replay = parentView.findViewById(R.id.btn_replay);
+        btn_options = parentView.findViewById(R.id.btn_options);
+        btn_help = parentView.findViewById(R.id.btn_help);
+        btn_ktplay = parentView.findViewById(R.id.btn_ktplay);
         setListener();
     }
 

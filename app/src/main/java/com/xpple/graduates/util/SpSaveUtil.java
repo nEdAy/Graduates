@@ -58,7 +58,7 @@ public class SpSaveUtil {
     private static final String PARTNER_SN = "partner_sn"; //十娘
     private static final String PARTNER_SN_TIME = "partner_sn_time"; //十娘
     private static SharedPreferences.Editor editor;
-    private SharedPreferences mSharedPreferences;
+    private final SharedPreferences mSharedPreferences;
 
     @SuppressLint("CommitPrefEdits")
     public SpSaveUtil(Context context, String name) {

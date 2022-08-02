@@ -17,7 +17,7 @@ import com.xpple.graduates.view.BaseFragment;
 
 public class PartnerFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static PartnerFragment instance = new PartnerFragment();
+    private static final PartnerFragment instance = new PartnerFragment();
     private View parentView;
     private ImageView iv_partner_0;
     private ImageView iv_partner_1;
@@ -49,28 +49,28 @@ public class PartnerFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        sv_partner = (ScrollView) parentView.findViewById(R.id.sv_partner);
-        ll_partner_0 = (LinearLayout) parentView.findViewById(R.id.ll_partner_0);
-        ll_partner_1 = (LinearLayout) parentView.findViewById(R.id.ll_partner_1);
-        ImageView iv_partner = (ImageView) parentView.findViewById(R.id.iv_partner);
+        sv_partner = parentView.findViewById(R.id.sv_partner);
+        ll_partner_0 = parentView.findViewById(R.id.ll_partner_0);
+        ll_partner_1 = parentView.findViewById(R.id.ll_partner_1);
+        ImageView iv_partner = parentView.findViewById(R.id.iv_partner);
         iv_partner.setOnClickListener(this);
-        iv_partner_0 = (ImageView) parentView.findViewById(R.id.iv_partner_0);
-        iv_partner_1 = (ImageView) parentView.findViewById(R.id.iv_partner_1);
-        iv_partner_2 = (ImageView) parentView.findViewById(R.id.iv_partner_2);
-        iv_partner_3 = (ImageView) parentView.findViewById(R.id.iv_partner_3);
-        iv_partner_4 = (ImageView) parentView.findViewById(R.id.iv_partner_4);
-        iv_partner_5 = (ImageView) parentView.findViewById(R.id.iv_partner_5);
-        iv_partner_6 = (ImageView) parentView.findViewById(R.id.iv_partner_6);
-        iv_partner_7 = (ImageView) parentView.findViewById(R.id.iv_partner_7);
-        iv_partner_8 = (ImageView) parentView.findViewById(R.id.iv_partner_8);
-        iv_partner_9 = (ImageView) parentView.findViewById(R.id.iv_partner_9);
+        iv_partner_0 = parentView.findViewById(R.id.iv_partner_0);
+        iv_partner_1 = parentView.findViewById(R.id.iv_partner_1);
+        iv_partner_2 = parentView.findViewById(R.id.iv_partner_2);
+        iv_partner_3 = parentView.findViewById(R.id.iv_partner_3);
+        iv_partner_4 = parentView.findViewById(R.id.iv_partner_4);
+        iv_partner_5 = parentView.findViewById(R.id.iv_partner_5);
+        iv_partner_6 = parentView.findViewById(R.id.iv_partner_6);
+        iv_partner_7 = parentView.findViewById(R.id.iv_partner_7);
+        iv_partner_8 = parentView.findViewById(R.id.iv_partner_8);
+        iv_partner_9 = parentView.findViewById(R.id.iv_partner_9);
         setListener();
     }
 

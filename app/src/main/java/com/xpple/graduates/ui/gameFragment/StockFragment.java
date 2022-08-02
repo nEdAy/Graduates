@@ -17,7 +17,7 @@ import com.xpple.graduates.view.BaseFragment;
 
 public class StockFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static StockFragment instance = new StockFragment();
+    private static final StockFragment instance = new StockFragment();
     private View parentView;
     private TextView tv_index, tv_money, tv_value, tv_rate;
     private ImageView iv_rate;
@@ -42,22 +42,22 @@ public class StockFragment extends BaseFragment implements View.OnClickListener 
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        tv_index = (TextView) parentView.findViewById(R.id.tv_index);
-        tv_money = (TextView) parentView.findViewById(R.id.tv_money);
-        tv_value = (TextView) parentView.findViewById(R.id.tv_value);
-        tv_rate = (TextView) parentView.findViewById(R.id.tv_rate);
-        iv_rate = (ImageView) parentView.findViewById(R.id.iv_rate);
-        et_buy = (EditText) parentView.findViewById(R.id.et_buy);
-        et_sell = (EditText) parentView.findViewById(R.id.et_sell);
-        btn_buy = (ImageView) parentView.findViewById(R.id.btn_buy);
-        btn_sell = (ImageView) parentView.findViewById(R.id.btn_sell);
+        tv_index = parentView.findViewById(R.id.tv_index);
+        tv_money = parentView.findViewById(R.id.tv_money);
+        tv_value = parentView.findViewById(R.id.tv_value);
+        tv_rate = parentView.findViewById(R.id.tv_rate);
+        iv_rate = parentView.findViewById(R.id.iv_rate);
+        et_buy = parentView.findViewById(R.id.et_buy);
+        et_sell = parentView.findViewById(R.id.et_sell);
+        btn_buy = parentView.findViewById(R.id.btn_buy);
+        btn_sell = parentView.findViewById(R.id.btn_sell);
         setListener();
     }
 

@@ -80,32 +80,32 @@ public class HouseFragment extends BaseFragment implements View.OnClickListener 
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        text_house = (TextView) parentView.findViewById(R.id.text_house);
-        iv_house = (ImageView) parentView.findViewById(R.id.iv_house);
-        tv_house = (TextView) parentView.findViewById(R.id.tv_index);
-        tv_house_0 = (TextView) parentView.findViewById(R.id.tv_house_0);
-        tv_house_1 = (TextView) parentView.findViewById(R.id.tv_house_1);
-        tv_house_2 = (TextView) parentView.findViewById(R.id.tv_house_2);
-        tv_house_3 = (TextView) parentView.findViewById(R.id.tv_house_3);
-        tv_house_4 = (TextView) parentView.findViewById(R.id.tv_house_4);
-        tv_house_5 = (TextView) parentView.findViewById(R.id.tv_house_5);
-        tv_house_6 = (TextView) parentView.findViewById(R.id.tv_house_6);
-        tv_house_7 = (TextView) parentView.findViewById(R.id.tv_house_7);
-        btn_house_0 = (ImageView) parentView.findViewById(R.id.btn_house_0);
-        btn_house_1 = (ImageView) parentView.findViewById(R.id.btn_house_1);
-        btn_house_2 = (ImageView) parentView.findViewById(R.id.btn_house_2);
-        btn_house_3 = (ImageView) parentView.findViewById(R.id.btn_house_3);
-        btn_house_4 = (ImageView) parentView.findViewById(R.id.btn_house_4);
-        btn_house_5 = (ImageView) parentView.findViewById(R.id.btn_house_5);
-        btn_house_6 = (ImageView) parentView.findViewById(R.id.btn_house_6);
-        btn_house_7 = (ImageView) parentView.findViewById(R.id.btn_house_7);
+        text_house = parentView.findViewById(R.id.text_house);
+        iv_house = parentView.findViewById(R.id.iv_house);
+        tv_house = parentView.findViewById(R.id.tv_index);
+        tv_house_0 = parentView.findViewById(R.id.tv_house_0);
+        tv_house_1 = parentView.findViewById(R.id.tv_house_1);
+        tv_house_2 = parentView.findViewById(R.id.tv_house_2);
+        tv_house_3 = parentView.findViewById(R.id.tv_house_3);
+        tv_house_4 = parentView.findViewById(R.id.tv_house_4);
+        tv_house_5 = parentView.findViewById(R.id.tv_house_5);
+        tv_house_6 = parentView.findViewById(R.id.tv_house_6);
+        tv_house_7 = parentView.findViewById(R.id.tv_house_7);
+        btn_house_0 = parentView.findViewById(R.id.btn_house_0);
+        btn_house_1 = parentView.findViewById(R.id.btn_house_1);
+        btn_house_2 = parentView.findViewById(R.id.btn_house_2);
+        btn_house_3 = parentView.findViewById(R.id.btn_house_3);
+        btn_house_4 = parentView.findViewById(R.id.btn_house_4);
+        btn_house_5 = parentView.findViewById(R.id.btn_house_5);
+        btn_house_6 = parentView.findViewById(R.id.btn_house_6);
+        btn_house_7 = parentView.findViewById(R.id.btn_house_7);
         setListener();
     }
 

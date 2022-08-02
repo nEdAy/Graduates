@@ -30,20 +30,20 @@ import java.util.Random;
 
 public class GameFragment extends BaseFragment implements
         View.OnClickListener {
-    private static String[] mPositionString = {"国内中小公司基层员工", "国内知名公司基层员工", "海外驻华公司基层员工",
+    private static final String[] mPositionString = {"国内中小公司基层员工", "国内知名公司基层员工", "海外驻华公司基层员工",
             "国内中小公司基层主管", "国内知名公司基层主管", "海外驻华公司基层主管",
             "国内中小公司中层经理", "国内知名公司中层经理", "海外驻华公司中层经理",
             "国内中小公司高层老总", "国内知名公司高层老总", "海外驻华公司高层老总"};
-    private static String[] mCarString = {"你还没有买车", "你有一辆小型节油低档车", "你有一辆经济实用中档车",
+    private static final String[] mCarString = {"你还没有买车", "你有一辆小型节油低档车", "你有一辆经济实用中档车",
             "你有一辆豪华舒适中档车", "你有一辆超豪华享受高档车", "你有一辆时尚拉风跑车"};
-    private static String[] mHouseString = {"你还没有买房", "你有1室1厅的房子"
+    private static final String[] mHouseString = {"你还没有买房", "你有1室1厅的房子"
             , "你有2室1厅的房子", "你有2室2厅的房子", "你有3室1厅的房子", "你有3室2厅的房子", "你有4室2厅的房子",
             "你有市郊豪华小别墅", "你有城区超豪华别墅"};
-    private static String[] mPartnerString = {"你还没有女朋友", "你的女友是施施", "你的女友是阿禅",
+    private static final String[] mPartnerString = {"你还没有女朋友", "你的女友是施施", "你的女友是阿禅",
             "你的女友是昭君", "你的女友是玉环", "你的女友是圆圆", "你的女友是香香",
             "你的女友是十娘", "你的女友是小小", "你的女友是飞燕", "你的女友是莺莺"};
     @SuppressLint("StaticFieldLeak")
-    private static GameFragment instance = new GameFragment();
+    private static final GameFragment instance = new GameFragment();
     private View parentView;
     private SpScoreUtil mSharedScoreUtil;
     private SpSaveUtil mSharedSaveUtil;
@@ -76,7 +76,7 @@ public class GameFragment extends BaseFragment implements
     private SolarSystem solarSystem;
     private AnimationDrawable mAnimation;
     private AnimationDrawable animationDrawable;
-    private Handler handler = new Handler(new Handler.Callback() {
+    private final Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             if (msg.what == 101)
@@ -103,37 +103,37 @@ public class GameFragment extends BaseFragment implements
 
 
     private void setUpViews() {
-        mHealthyValueView = (TextView) parentView.findViewById(R.id.tv_healthy);
-        mMoneyValueView = (TextView) parentView.findViewById(R.id.tv_money);
-        mAbilityValueView = (TextView) parentView.findViewById(R.id.tv_ability);
-        mExperienceValueView = (TextView) parentView.findViewById(R.id.tv_experience);
-        mHappyValueView = (TextView) parentView.findViewById(R.id.tv_happy);
-        mMoralityValueView = (TextView) parentView.findViewById(R.id.tv_morality);
-        mCommunicationValueView = (TextView) parentView.findViewById(R.id.tv_communication);
-        mAgeValueView = (TextView) parentView.findViewById(R.id.tv_age);
-        mPositionView = (TextView) parentView.findViewById(R.id.tv_position);
-        mCarView = (TextView) parentView.findViewById(R.id.tv_car);
-        mHouseView = (TextView) parentView.findViewById(R.id.tv_house);
-        mPartnerView = (TextView) parentView.findViewById(R.id.tv_partner);
-        mMonthValueView = (TextView) parentView.findViewById(R.id.tv_month);
-        mTimeValueView = (TextView) parentView.findViewById(R.id.tv_time);
+        mHealthyValueView = parentView.findViewById(R.id.tv_healthy);
+        mMoneyValueView = parentView.findViewById(R.id.tv_money);
+        mAbilityValueView = parentView.findViewById(R.id.tv_ability);
+        mExperienceValueView = parentView.findViewById(R.id.tv_experience);
+        mHappyValueView = parentView.findViewById(R.id.tv_happy);
+        mMoralityValueView = parentView.findViewById(R.id.tv_morality);
+        mCommunicationValueView = parentView.findViewById(R.id.tv_communication);
+        mAgeValueView = parentView.findViewById(R.id.tv_age);
+        mPositionView = parentView.findViewById(R.id.tv_position);
+        mCarView = parentView.findViewById(R.id.tv_car);
+        mHouseView = parentView.findViewById(R.id.tv_house);
+        mPartnerView = parentView.findViewById(R.id.tv_partner);
+        mMonthValueView = parentView.findViewById(R.id.tv_month);
+        mTimeValueView = parentView.findViewById(R.id.tv_time);
 
-        stock = (ImageView) parentView.findViewById(R.id.stock);
-        position = (ImageView) parentView.findViewById(R.id.position);
-        house = (ImageView) parentView.findViewById(R.id.house);
-        car = (ImageView) parentView.findViewById(R.id.car);
-        partner = (ImageView) parentView.findViewById(R.id.partner);
-        lottery = (ImageView) parentView.findViewById(R.id.lottery);
-        btn_back = (ImageView) parentView.findViewById(R.id.btn_exit);
-        btn_save = (ImageView) parentView.findViewById(R.id.btn_save);
-        btn_load = (ImageView) parentView.findViewById(R.id.btn_load);
-        btn_go_next_month = (ImageView) parentView.findViewById(R.id.btn_go_next_month);
+        stock = parentView.findViewById(R.id.stock);
+        position = parentView.findViewById(R.id.position);
+        house = parentView.findViewById(R.id.house);
+        car = parentView.findViewById(R.id.car);
+        partner = parentView.findViewById(R.id.partner);
+        lottery = parentView.findViewById(R.id.lottery);
+        btn_back = parentView.findViewById(R.id.btn_exit);
+        btn_save = parentView.findViewById(R.id.btn_save);
+        btn_load = parentView.findViewById(R.id.btn_load);
+        btn_go_next_month = parentView.findViewById(R.id.btn_go_next_month);
         setSolarSystem();
         setListener();
     }
 
     private void setSolarSystem() {
-        RelativeLayout relative = (RelativeLayout) parentView
+        RelativeLayout relative = parentView
                 .findViewById(R.id.relative);
         DisplayMetrics outMetrics = new DisplayMetrics();
         getActivity().getWindow().getWindowManager().getDefaultDisplay()
@@ -145,7 +145,7 @@ public class GameFragment extends BaseFragment implements
         relative.setLayoutParams(lp);
         relative.setBackgroundResource(R.drawable.animation_rect_list);
         animationDrawable = (AnimationDrawable) relative.getBackground();
-        solarSystem = (SolarSystem) parentView
+        solarSystem = parentView
                 .findViewById(R.id.ss);
         int childCount = solarSystem.getChildCount();
         FrameLayout.LayoutParams tvParams = new FrameLayout.LayoutParams(
@@ -172,7 +172,7 @@ public class GameFragment extends BaseFragment implements
         });
 
         // 通过ImageView对象拿到背景显示的AnimationDrawable
-        ImageView centerMenu = (ImageView) parentView.findViewById(R.id.centerMenu);
+        ImageView centerMenu = parentView.findViewById(R.id.centerMenu);
         mAnimation = (AnimationDrawable) centerMenu.getBackground();
         centerMenu.post(new Runnable() {
             @Override

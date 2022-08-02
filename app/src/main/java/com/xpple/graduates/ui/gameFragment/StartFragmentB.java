@@ -15,7 +15,7 @@ import com.xpple.graduates.view.NiftyDialogBuilder;
 
 public class StartFragmentB extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static StartFragmentB instance = new StartFragmentB();
+    private static final StartFragmentB instance = new StartFragmentB();
     private View parentView;
 
     public StartFragmentB() {
@@ -34,12 +34,12 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
     }
 
     private void setUpViews() {
-        ImageView btn_forward = (ImageView) parentView.findViewById(R.id.btn_forward);
-        Button rb_start_0 = (Button) parentView.findViewById(R.id.rb_start_0);
-        Button rb_start_1 = (Button) parentView.findViewById(R.id.rb_start_1);
-        Button rb_start_2 = (Button) parentView.findViewById(R.id.rb_start_2);
-        Button rb_start_3 = (Button) parentView.findViewById(R.id.rb_start_3);
-        Button rb_start_4 = (Button) parentView.findViewById(R.id.rb_start_4);
+        ImageView btn_forward = parentView.findViewById(R.id.btn_forward);
+        Button rb_start_0 = parentView.findViewById(R.id.rb_start_0);
+        Button rb_start_1 = parentView.findViewById(R.id.rb_start_1);
+        Button rb_start_2 = parentView.findViewById(R.id.rb_start_2);
+        Button rb_start_3 = parentView.findViewById(R.id.rb_start_3);
+        Button rb_start_4 = parentView.findViewById(R.id.rb_start_4);
         btn_forward.setOnClickListener(this);
         rb_start_0.setOnClickListener(this);
         rb_start_1.setOnClickListener(this);

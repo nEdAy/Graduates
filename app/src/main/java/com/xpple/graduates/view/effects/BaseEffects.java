@@ -39,7 +39,7 @@ public abstract class BaseEffects {
 
     long mDuration = DURATION;
 
-    private AnimatorSet mAnimatorSet;
+    private final AnimatorSet mAnimatorSet;
 
     {
         mAnimatorSet = new AnimatorSet();

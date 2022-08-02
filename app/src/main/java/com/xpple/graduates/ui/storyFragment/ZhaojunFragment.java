@@ -16,13 +16,13 @@ import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
 public class ZhaojunFragment extends BaseFragment implements View.OnClickListener {
-    private static int[] zj_talk_0 = {R.string.zhaojun_0_00, R.string.zhaojun_0_01, R.string.zhaojun_0_02,
+    private static final int[] zj_talk_0 = {R.string.zhaojun_0_00, R.string.zhaojun_0_01, R.string.zhaojun_0_02,
             R.string.zhaojun_0_03, R.string.zhaojun_0_04, R.string.zhaojun_0_05,
             R.string.zhaojun_0_06, R.string.zhaojun_0_07, R.string.zhaojun_0_08,
             R.string.zhaojun_0_09, R.string.zhaojun_0_10, R.string.zhaojun_0_11,
             R.string.zhaojun_0_12, R.string.zhaojun_0_13, R.string.zhaojun_0_14,
             R.string.zhaojun_0_15, R.string.zhaojun_0_16};
-    private static int[] zj_talk_1 = {R.string.zhaojun_1_00, R.string.zhaojun_1_01, R.string.zhaojun_1_02,
+    private static final int[] zj_talk_1 = {R.string.zhaojun_1_00, R.string.zhaojun_1_01, R.string.zhaojun_1_02,
             R.string.zhaojun_1_03, R.string.zhaojun_1_04, R.string.zhaojun_1_05,
             R.string.zhaojun_1_06, R.string.zhaojun_1_07, R.string.zhaojun_1_08,
             R.string.zhaojun_1_09, R.string.zhaojun_1_10, R.string.zhaojun_1_11,
@@ -36,7 +36,7 @@ public class ZhaojunFragment extends BaseFragment implements View.OnClickListene
             R.string.zhaojun_1_33, R.string.zhaojun_1_34, R.string.zhaojun_1_35,
             R.string.zhaojun_1_36, R.string.zhaojun_1_37, R.string.zhaojun_1_38,
             R.string.zhaojun_1_39,};
-    private static int[] zj_talk_2 = {R.string.zhaojun_2_00, R.string.zhaojun_2_01, R.string.zhaojun_2_02,
+    private static final int[] zj_talk_2 = {R.string.zhaojun_2_00, R.string.zhaojun_2_01, R.string.zhaojun_2_02,
             R.string.zhaojun_2_03, R.string.zhaojun_2_04, R.string.zhaojun_2_05,
             R.string.zhaojun_2_06, R.string.zhaojun_2_07, R.string.zhaojun_2_08,
             R.string.zhaojun_2_09, R.string.zhaojun_2_10, R.string.zhaojun_2_11,
@@ -63,7 +63,7 @@ public class ZhaojunFragment extends BaseFragment implements View.OnClickListene
             R.string.zhaojun_2_72, R.string.zhaojun_2_73, R.string.zhaojun_2_74
     };
     @SuppressLint("StaticFieldLeak")
-    private static ZhaojunFragment instance = new ZhaojunFragment();
+    private static final ZhaojunFragment instance = new ZhaojunFragment();
     private View parentView;
     private ImageView iv_story;
     private TextView tv_talk;
@@ -90,11 +90,11 @@ public class ZhaojunFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void setUpViews() {
-        iv_story = (ImageView) parentView.findViewById(R.id.iv_story);
-        tv_talk = (TextView) parentView.findViewById(R.id.tv_talk);
-        rg_story = (RadioGroup) parentView.findViewById(R.id.rg_story);
-        rb_yes = (RadioButton) parentView.findViewById(R.id.rb_yes);
-        rb_no = (RadioButton) parentView.findViewById(R.id.rb_no);
+        iv_story = parentView.findViewById(R.id.iv_story);
+        tv_talk = parentView.findViewById(R.id.tv_talk);
+        rg_story = parentView.findViewById(R.id.rg_story);
+        rb_yes = parentView.findViewById(R.id.rb_yes);
+        rb_no = parentView.findViewById(R.id.rb_no);
         setListener();
     }
 

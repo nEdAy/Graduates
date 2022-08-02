@@ -16,7 +16,7 @@ import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
 public class XiaoyingFragment extends BaseFragment implements View.OnClickListener {
-    private static int[] xy_talk_0 = {R.string.xiaoying_0_00, R.string.xiaoying_0_01, R.string.xiaoying_0_02,
+    private static final int[] xy_talk_0 = {R.string.xiaoying_0_00, R.string.xiaoying_0_01, R.string.xiaoying_0_02,
             R.string.xiaoying_0_03, R.string.xiaoying_0_04, R.string.xiaoying_0_05,
             R.string.xiaoying_0_06, R.string.xiaoying_0_07, R.string.xiaoying_0_08,
             R.string.xiaoying_0_09, R.string.xiaoying_0_10, R.string.xiaoying_0_11,
@@ -43,7 +43,7 @@ public class XiaoyingFragment extends BaseFragment implements View.OnClickListen
             R.string.xiaoying_0_72
     };
     @SuppressLint("StaticFieldLeak")
-    private static XiaoyingFragment instance = new XiaoyingFragment();
+    private static final XiaoyingFragment instance = new XiaoyingFragment();
     private View parentView;
     private ImageView iv_story;
     private TextView tv_talk;
@@ -68,11 +68,11 @@ public class XiaoyingFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void setUpViews() {
-        iv_story = (ImageView) parentView.findViewById(R.id.iv_story);
-        tv_talk = (TextView) parentView.findViewById(R.id.tv_talk);
-        rg_story = (RadioGroup) parentView.findViewById(R.id.rg_story);
-        rb_yes = (RadioButton) parentView.findViewById(R.id.rb_yes);
-        rb_no = (RadioButton) parentView.findViewById(R.id.rb_no);
+        iv_story = parentView.findViewById(R.id.iv_story);
+        tv_talk = parentView.findViewById(R.id.tv_talk);
+        rg_story = parentView.findViewById(R.id.rg_story);
+        rb_yes = parentView.findViewById(R.id.rb_yes);
+        rb_no = parentView.findViewById(R.id.rb_no);
         setListener();
     }
 

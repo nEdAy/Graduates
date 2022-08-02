@@ -16,7 +16,7 @@ import com.xpple.graduates.view.BaseFragment;
 
 public class StartFragmentC extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
-    private static StartFragmentC instance = new StartFragmentC();
+    private static final StartFragmentC instance = new StartFragmentC();
     private View parentView;
     private SpScoreUtil mSharedScoreUtil;
     private TextView tv_jtbg, tv_xgqx, tv_dxzy, tv_gzfx, tv_yxnd;
@@ -38,7 +38,7 @@ public class StartFragmentC extends BaseFragment {
     }
 
     private void setUpViews() {
-        ImageView btn_go_game = (ImageView) parentView.findViewById(R.id.btn_go_game);
+        ImageView btn_go_game = parentView.findViewById(R.id.btn_go_game);
         btn_go_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,8 +48,8 @@ public class StartFragmentC extends BaseFragment {
             }
         });
 
-        tv_jtbg = (TextView) parentView.findViewById(R.id.tv_jtbg);
-        RadioGroup rg_jtbg = (RadioGroup) parentView.findViewById(R.id.rg_jtbg);
+        tv_jtbg = parentView.findViewById(R.id.tv_jtbg);
+        RadioGroup rg_jtbg = parentView.findViewById(R.id.rg_jtbg);
         rg_jtbg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {
@@ -78,8 +78,8 @@ public class StartFragmentC extends BaseFragment {
                 }
             }
         });
-        tv_xgqx = (TextView) parentView.findViewById(R.id.tv_xgqx);
-        RadioGroup rg_xgqx = (RadioGroup) parentView.findViewById(R.id.rg_xgqx);
+        tv_xgqx = parentView.findViewById(R.id.tv_xgqx);
+        RadioGroup rg_xgqx = parentView.findViewById(R.id.rg_xgqx);
         rg_xgqx.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {
@@ -108,8 +108,8 @@ public class StartFragmentC extends BaseFragment {
                 }
             }
         });
-        tv_dxzy = (TextView) parentView.findViewById(R.id.tv_dxzy);
-        RadioGroup rg_dxzy = (RadioGroup) parentView.findViewById(R.id.rg_dxzy);
+        tv_dxzy = parentView.findViewById(R.id.tv_dxzy);
+        RadioGroup rg_dxzy = parentView.findViewById(R.id.rg_dxzy);
         rg_dxzy.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {
@@ -138,8 +138,8 @@ public class StartFragmentC extends BaseFragment {
                 }
             }
         });
-        tv_gzfx = (TextView) parentView.findViewById(R.id.tv_gzfx);
-        RadioGroup rg_gzfx = (RadioGroup) parentView.findViewById(R.id.rg_gzfx);
+        tv_gzfx = parentView.findViewById(R.id.tv_gzfx);
+        RadioGroup rg_gzfx = parentView.findViewById(R.id.rg_gzfx);
         rg_gzfx.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {
@@ -168,8 +168,8 @@ public class StartFragmentC extends BaseFragment {
                 }
             }
         });
-        tv_yxnd = (TextView) parentView.findViewById(R.id.tv_yxnd);
-        RadioGroup rg_yxnd = (RadioGroup) parentView.findViewById(R.id.rg_yxnd);
+        tv_yxnd = parentView.findViewById(R.id.tv_yxnd);
+        RadioGroup rg_yxnd = parentView.findViewById(R.id.rg_yxnd);
         rg_yxnd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {

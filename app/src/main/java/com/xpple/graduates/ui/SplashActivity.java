@@ -12,7 +12,7 @@ public class SplashActivity extends BaseActivity {
     private static final int GO_GUIDE = 100;
     private static final int GO_MAIN = 200;
     //    private Boolean isUserSuggest;
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

@@ -14,7 +14,7 @@ import com.xpple.graduates.view.BaseFragment;
 
 public class PositionFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static PositionFragment instance = new PositionFragment();
+    private static final PositionFragment instance = new PositionFragment();
     private View parentView;
     private ImageView btn_position_0, btn_position_1, btn_position_2, btn_position_3, btn_position_4, btn_position_5, btn_position_6, btn_position_7, btn_position_8, btn_position_9, btn_position_10, btn_position_11;
     private SpScoreUtil mSharedScoreUtil;
@@ -36,25 +36,25 @@ public class PositionFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        btn_position_0 = (ImageView) parentView.findViewById(R.id.btn_position_0);
-        btn_position_1 = (ImageView) parentView.findViewById(R.id.btn_position_1);
-        btn_position_2 = (ImageView) parentView.findViewById(R.id.btn_position_2);
-        btn_position_3 = (ImageView) parentView.findViewById(R.id.btn_position_3);
-        btn_position_4 = (ImageView) parentView.findViewById(R.id.btn_position_4);
-        btn_position_5 = (ImageView) parentView.findViewById(R.id.btn_position_5);
-        btn_position_6 = (ImageView) parentView.findViewById(R.id.btn_position_6);
-        btn_position_7 = (ImageView) parentView.findViewById(R.id.btn_position_7);
-        btn_position_8 = (ImageView) parentView.findViewById(R.id.btn_position_8);
-        btn_position_9 = (ImageView) parentView.findViewById(R.id.btn_position_9);
-        btn_position_10 = (ImageView) parentView.findViewById(R.id.btn_position_10);
-        btn_position_11 = (ImageView) parentView.findViewById(R.id.btn_position_11);
+        btn_position_0 = parentView.findViewById(R.id.btn_position_0);
+        btn_position_1 = parentView.findViewById(R.id.btn_position_1);
+        btn_position_2 = parentView.findViewById(R.id.btn_position_2);
+        btn_position_3 = parentView.findViewById(R.id.btn_position_3);
+        btn_position_4 = parentView.findViewById(R.id.btn_position_4);
+        btn_position_5 = parentView.findViewById(R.id.btn_position_5);
+        btn_position_6 = parentView.findViewById(R.id.btn_position_6);
+        btn_position_7 = parentView.findViewById(R.id.btn_position_7);
+        btn_position_8 = parentView.findViewById(R.id.btn_position_8);
+        btn_position_9 = parentView.findViewById(R.id.btn_position_9);
+        btn_position_10 = parentView.findViewById(R.id.btn_position_10);
+        btn_position_11 = parentView.findViewById(R.id.btn_position_11);
         setListener();
     }
 

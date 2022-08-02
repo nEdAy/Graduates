@@ -21,7 +21,7 @@ import com.xpple.graduates.view.NiftyDialogBuilder;
 
 public class StartFragmentA extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
-    private static StartFragmentA instance = new StartFragmentA();
+    private static final StartFragmentA instance = new StartFragmentA();
     private View parentView;
     private SpSettingsUtil mSharedSettingsUtil;
     private Boolean mSex;
@@ -44,7 +44,7 @@ public class StartFragmentA extends BaseFragment {
     }
 
     private void setUpViews() {
-        ImageView btn_next_start = (ImageView) parentView.findViewById(R.id.btn_next_start);
+        ImageView btn_next_start = parentView.findViewById(R.id.btn_next_start);
         btn_next_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class StartFragmentA extends BaseFragment {
                 nextStart();
             }
         });
-        tv_nick = (TextView) parentView.findViewById(R.id.tv_nick);
+        tv_nick = parentView.findViewById(R.id.tv_nick);
         tv_nick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,9 +60,9 @@ public class StartFragmentA extends BaseFragment {
                 upNick();
             }
         });
-        rb_sex_0 = (RadioButton) parentView.findViewById(R.id.rb_sex_0);
-        rb_sex_1 = (RadioButton) parentView.findViewById(R.id.rb_sex_1);
-        RadioGroup rg_sex = (RadioGroup) parentView.findViewById(R.id.rg_sex);
+        rb_sex_0 = parentView.findViewById(R.id.rb_sex_0);
+        rb_sex_1 = parentView.findViewById(R.id.rb_sex_1);
+        RadioGroup rg_sex = parentView.findViewById(R.id.rg_sex);
         rg_sex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup arg0, int arg1) {

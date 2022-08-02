@@ -1,7 +1,6 @@
 package com.xpple.graduates;
 
 import android.app.Application;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
@@ -69,9 +68,9 @@ public class CustomApplication extends Application {
      * 初始化音乐播放器
      */
     private static void initMusic(Integer id) {
-        /**创建MediaPlayer对象**/
+        // 创建MediaPlayer对象
         mMediaPlayer = MediaPlayer.create(mInstance, musicId[id]);
-        /**设置为循环播放**/
+        // 设置为循环播放
         mMediaPlayer.setLooping(true);
     }
 
@@ -163,12 +162,9 @@ public class CustomApplication extends Application {
     }
 
     private void initSound() {
-        /**创建一个声音播放池**/
-        //参数1为声音池同时播放的流的最大数量
-        //参数2为播放流的类型
-        //参数3为音乐播放效果
-        mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 100);
-        //读取音效
+        // 创建一个声音播放池
+        mSoundPool = new SoundPool.Builder().setMaxStreams(1).build();
+        // 读取音效
         soundMap = new HashMap<>();
         soundMap.put(R.raw.button_0, mSoundPool.load(this, R.raw.button_0, 0));
         soundMap.put(R.raw.button_1, mSoundPool.load(this, R.raw.button_1, 0));

@@ -31,7 +31,7 @@ class Flake {
 
     // This map stores pre-scaled bitmaps according to the width. No reason to create
     // new bitmaps for sizes we've already seen.
-    private static HashMap<Integer, Bitmap> bitmapMap = new HashMap<>();
+    private static final HashMap<Integer, Bitmap> bitmapMap = new HashMap<>();
     // These are the unique properties of any flake: its size, rotation, speed,
     // location, and its underlying Bitmap object
     float x, y;

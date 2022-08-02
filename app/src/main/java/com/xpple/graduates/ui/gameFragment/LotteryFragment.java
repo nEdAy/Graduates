@@ -26,7 +26,7 @@ import java.util.Random;
 
 public class LotteryFragment extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
-    private static LotteryFragment instance = new LotteryFragment();
+    private static final LotteryFragment instance = new LotteryFragment();
     private View parentView;
     private ImageView btn_lottery;
     private SpScoreUtil mSharedScoreUtil;
@@ -51,14 +51,14 @@ public class LotteryFragment extends BaseFragment {
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        btn_lottery = (ImageView) parentView.findViewById(R.id.btn_lottery);
+        btn_lottery = parentView.findViewById(R.id.btn_lottery);
     }
 
     @Override
@@ -98,11 +98,11 @@ public class LotteryFragment extends BaseFragment {
         mSharedScoreUtil.setMoney(Integer.valueOf(moneyStr));
         getActivity().getSupportFragmentManager().popBackStack();
         View view = getActivity().getLayoutInflater().inflate(R.layout.view_login_reward, null);
-        TextView tvTips = (TextView) view.findViewById(R.id.tv_tip);
-        TextView money = (TextView) view.findViewById(R.id.tv_money);
+        TextView tvTips = view.findViewById(R.id.tv_tip);
+        TextView money = view.findViewById(R.id.tv_money);
         tvTips.setText("恭喜您中得" + lotteryStr + ",奖金" + moneyStr + ",请领取！");
         money.setText(moneyStr);
-        final LinearLayout container = (LinearLayout) view.findViewById(R.id.container);
+        final LinearLayout container = view.findViewById(R.id.container);
         //将flakeView 添加到布局中
         container.addView(flakeView);
         //设置背景

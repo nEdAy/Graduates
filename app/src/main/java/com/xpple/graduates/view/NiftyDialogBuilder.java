@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -69,7 +68,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
     private void init(Context context) {
         View mDialogView = View.inflate(context, R.layout.dialog_layout, null);
-        mLinearLayoutView = (RelativeLayout) mDialogView
+        mLinearLayoutView = mDialogView
                 .findViewById(R.id.parentPanel);// null
         mLinearLayoutView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,23 +76,23 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
                 keepDialog(NiftyDialogBuilder.this);
             }
         });
-        mRelativeLayoutView = (RelativeLayout) mDialogView
+        mRelativeLayoutView = mDialogView
                 .findViewById(R.id.main);// null
-        mLinearLayoutTopView = (LinearLayout) mDialogView
+        mLinearLayoutTopView = mDialogView
                 .findViewById(R.id.topPanel);// null
 
-        mTitle = (TextView) mDialogView.findViewById(R.id.alertTitle);// null
-        mMessage = (TextView) mDialogView.findViewById(R.id.message);// null
-        et_player = (EditText) mDialogView.findViewById(R.id.et_player);
-        iv_show = (ImageView) mDialogView.findViewById(R.id.iv_show);
-        iv_big_show = (ImageView) mDialogView.findViewById(R.id.iv_big_show);
-        btn_ok = (ImageView) mDialogView.findViewById(R.id.btn_ok);
-        btn_cancle = (ImageView) mDialogView.findViewById(R.id.btn_cancle);
-        rg_dialog = (RadioGroup) mDialogView.findViewById(R.id.dialog_rg);
-        rb_a = (RadioButton) mDialogView.findViewById(R.id.rb_a);
-        rb_b = (RadioButton) mDialogView.findViewById(R.id.rb_b);
-        rb_c = (RadioButton) mDialogView.findViewById(R.id.rb_c);
-        rb_d = (RadioButton) mDialogView.findViewById(R.id.rb_d);
+        mTitle = mDialogView.findViewById(R.id.alertTitle);// null
+        mMessage = mDialogView.findViewById(R.id.message);// null
+        et_player = mDialogView.findViewById(R.id.et_player);
+        iv_show = mDialogView.findViewById(R.id.iv_show);
+        iv_big_show = mDialogView.findViewById(R.id.iv_big_show);
+        btn_ok = mDialogView.findViewById(R.id.btn_ok);
+        btn_cancle = mDialogView.findViewById(R.id.btn_cancle);
+        rg_dialog = mDialogView.findViewById(R.id.dialog_rg);
+        rb_a = mDialogView.findViewById(R.id.rb_a);
+        rb_b = mDialogView.findViewById(R.id.rb_b);
+        rb_c = mDialogView.findViewById(R.id.rb_c);
+        rb_d = mDialogView.findViewById(R.id.rb_d);
         setContentView(mDialogView);
 
         this.setOnShowListener(new OnShowListener() {
@@ -181,7 +180,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
     }
 
     public NiftyDialogBuilder withBigImageView(int obj) {
-        mLinearLayoutView.setBackgroundDrawable(null);
+        mLinearLayoutView.setBackground(null);
         mLinearLayoutTopView.setVisibility(View.GONE);
         iv_big_show.setVisibility(View.VISIBLE);
         iv_big_show.setImageResource(obj);

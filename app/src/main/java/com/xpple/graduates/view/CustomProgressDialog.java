@@ -13,7 +13,7 @@ public class CustomProgressDialog extends ProgressDialog {
 
     private AnimationDrawable mAnimation;
     private ImageView mImageView;
-    private int mLoadingTip;
+    private final int mLoadingTip;
     private TextView mLoadingTv;
 
     public CustomProgressDialog(Context context, int content) {
@@ -31,8 +31,8 @@ public class CustomProgressDialog extends ProgressDialog {
 
     private void initView() {
         setContentView(R.layout.progress_dialog);
-        mLoadingTv = (TextView) findViewById(R.id.loadingTv);
-        mImageView = (ImageView) findViewById(R.id.loadingIv);
+        mLoadingTv = findViewById(R.id.loadingTv);
+        mImageView = findViewById(R.id.loadingIv);
     }
 
     private void initData() {

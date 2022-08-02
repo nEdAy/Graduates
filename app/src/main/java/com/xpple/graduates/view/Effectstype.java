@@ -7,7 +7,7 @@ import com.xpple.graduates.view.effects.Shake;
 public enum Effectstype {
     DialogCancel(DialogCancel.class), Shake(
             Shake.class);
-    private Class<? extends BaseEffects> effectsClazz;
+    private final Class<? extends BaseEffects> effectsClazz;
 
     Effectstype(Class<? extends BaseEffects> mClass) {
         effectsClazz = mClass;

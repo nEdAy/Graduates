@@ -39,12 +39,12 @@ public class FlakeView extends View {
     // Animator used to drive all separate flake animations. Rather than have potentially
     // hundreds of separate animators, we just use one and then update all flakes for each
     // frame of that single animation.
-    private ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
-    private Bitmap droid;       // The bitmap that all flakes use
+    private final ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+    private final Bitmap droid;       // The bitmap that all flakes use
     private int numFlakes = 0;  // Current number of flakes
-    private ArrayList<Flake> flakes = new ArrayList<>(); // List of current flakes
+    private final ArrayList<Flake> flakes = new ArrayList<>(); // List of current flakes
     private long startTime, prevTime; // Used to track elapsed time for animations and fps
-    private Matrix m = new Matrix(); // Matrix used to translate/rotate each flake during rendering
+    private final Matrix m = new Matrix(); // Matrix used to translate/rotate each flake during rendering
 
     /**
      * Constructor. Create objects used throughout the life of the View: the Paint and

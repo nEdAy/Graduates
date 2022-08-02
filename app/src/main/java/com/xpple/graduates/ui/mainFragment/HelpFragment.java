@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class HelpFragment extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
-    private static HelpFragment instance = new HelpFragment();
+    private static final HelpFragment instance = new HelpFragment();
     private View parentView;
     private ListView mListView;
 
@@ -40,8 +40,8 @@ public class HelpFragment extends BaseFragment {
     }
 
     private void setUpViews() {
-        mListView = (ListView) parentView.findViewById(R.id.listView);
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.btn_back);
+        mListView = parentView.findViewById(R.id.listView);
+        ImageView iv_back = parentView.findViewById(R.id.btn_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -76,8 +76,7 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
 
         // 获取屏幕长和高
         int width = activity.getWindowManager().getDefaultDisplay().getWidth();
-        int height = activity.getWindowManager().getDefaultDisplay()
-                .getHeight();
+        int height = activity.getWindowManager().getDefaultDisplay().getHeight();
         // 去掉标题栏
         Bitmap b = Bitmap.createBitmap(b1, 0, statusBarHeight, width, height
                 - statusBarHeight);

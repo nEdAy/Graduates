@@ -14,7 +14,7 @@ import com.xpple.graduates.view.BaseFragment;
 public class AboutFragment extends BaseFragment {
 
     @SuppressLint("StaticFieldLeak")
-    private static AboutFragment instance = new AboutFragment();
+    private static final AboutFragment instance = new AboutFragment();
 
     public AboutFragment() {
     }

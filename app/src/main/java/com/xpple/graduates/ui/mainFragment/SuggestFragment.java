@@ -35,7 +35,7 @@ public class SuggestFragment extends BaseFragment implements
         RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
     @SuppressLint("StaticFieldLeak")
-    private static SuggestFragment instance = new SuggestFragment();
+    private static final SuggestFragment instance = new SuggestFragment();
     private View parentView;
     private SpSettingsUtil mSharedSettingsUtil;
     private EditText price;
@@ -64,20 +64,20 @@ public class SuggestFragment extends BaseFragment implements
 
     private void setUpViews() {
         BP.init(getContext(), Config.BMOB_KEY);
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.btn_back);
+        ImageView iv_back = parentView.findViewById(R.id.btn_back);
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-        price = (EditText) parentView.findViewById(R.id.price);
-        go = (ImageView) parentView.findViewById(R.id.go);
-        type = (RadioGroup) parentView.findViewById(R.id.type);
-        rl_switch_suggest = (RelativeLayout) parentView.findViewById(R.id.rl_switch_suggest);
-        iv_close_suggest = (ImageView) parentView.findViewById(R.id.iv_close_suggest);
-        iv_open_suggest = (ImageView) parentView.findViewById(R.id.iv_open_suggest);
-        tv_suggest = (TextView) parentView.findViewById(R.id.tv_suggest);
+        price = parentView.findViewById(R.id.price);
+        go = parentView.findViewById(R.id.go);
+        type = parentView.findViewById(R.id.type);
+        rl_switch_suggest = parentView.findViewById(R.id.rl_switch_suggest);
+        iv_close_suggest = parentView.findViewById(R.id.iv_close_suggest);
+        iv_open_suggest = parentView.findViewById(R.id.iv_open_suggest);
+        tv_suggest = parentView.findViewById(R.id.tv_suggest);
         setListener();
     }
 

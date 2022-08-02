@@ -17,7 +17,7 @@ public class SpSettingsUtil {
     private static final String USER_SUGGEST = "user_suggest";
     private static final String USER_SUGGEST_MONEY = "user_suggest_money";
     private static SharedPreferences.Editor editor;
-    private SharedPreferences mSharedPreferences;
+    private final SharedPreferences mSharedPreferences;
 
     @SuppressLint("CommitPrefEdits")
     public SpSettingsUtil(Context context, String name) {
