@@ -70,7 +70,6 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
         dialogBuilder.withTitle(title)
                 .withMessage(message).withImageView(iv).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -93,7 +92,6 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
         dialogBuilder.withTitle(title)
                 .withMessage(message).isCancelable(false)
                 .withDuration(500).withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonOk(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ktplay.open.KTAccountManager;
-import com.ktplay.open.KTError;
-import com.ktplay.open.KTLeaderboard;
-import com.ktplay.open.KTPlay;
 import com.xpple.graduates.R;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
@@ -37,19 +33,6 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
             "你的女友是十娘", "你的女友是小小", "你的女友是飞燕", "你的女友是莺莺"};
     @SuppressLint("StaticFieldLeak")
     private static OverFragment instance = new OverFragment();
-    //创建回调
-    private KTLeaderboard.OnReportScoreListener onReportScoreListener =
-            new KTLeaderboard.OnReportScoreListener() {
-                @Override
-                public void onReportScoreResult(boolean isSuccess,
-                                                String leaderboardId, long score, String scoreTag, KTError error) {
-                    if (isSuccess) {
-                        showToast("上传分数成功", true);
-                    } else {
-                        showToast(error.description, false);
-                    }
-                }
-            };
     private View parentView;
     private TextView mHealthyValueView, mMoneyValueView, mAbilityValueView,
             mExperienceValueView, mHappyValueView, mMoralityValueView,
@@ -204,12 +187,12 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
      */
     private void uploadScore() {
         //使用上传分数功能时需要登录
-        boolean isLoggedIn = KTAccountManager.isLoggedIn();
-        if (isLoggedIn) {
-            KTLeaderboard.reportScore(getScore(), "_Score", "scoreTag", onReportScoreListener);
-        } else {
-            KTAccountManager.showLoginView(true, null);
-        }
+//        boolean isLoggedIn = KTAccountManager.isLoggedIn();
+//        if (isLoggedIn) {
+//            KTLeaderboard.reportScore(getScore(), "_Score", "scoreTag", onReportScoreListener);
+//        } else {
+//            KTAccountManager.showLoginView(true, null);
+//        }
         savePic(takeScreenShot(getActivity()), "sdcard/xx.png");
     }
 
@@ -222,7 +205,7 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
             fos.flush();
             fos.close();
             showToast("保存成功", true);
-            KTPlay.shareImageToKT("sdcard/xx.png", "大家来看看我的黄金岁月哈～～～");
+            // KTPlay.shareImageToKT("sdcard/xx.png", "大家来看看我的黄金岁月哈～～～");
         } catch (IOException e) {
             e.printStackTrace();
         }

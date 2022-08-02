@@ -4,14 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.ktplay.open.KTPlay;
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.ui.mainFragment.MainFragment;
 import com.xpple.graduates.view.BaseActivity;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends BaseActivity {
 
@@ -47,7 +45,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        KTPlay.onResume(this);
         CustomApplication.resumeMusic(0);
     }
 
@@ -55,7 +52,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        KTPlay.onPause(this);
         CustomApplication.pauseMusic();
     }
 
@@ -82,7 +78,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 }
 

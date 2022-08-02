@@ -11,8 +11,7 @@ import com.xpple.graduates.ui.gameFragment.StartFragmentA;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseActivity;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class GameActivity extends BaseActivity {
 
@@ -60,7 +59,6 @@ public class GameActivity extends BaseActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
-
 }

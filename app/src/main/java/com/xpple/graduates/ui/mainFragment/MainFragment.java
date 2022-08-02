@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.ktplay.open.KTPlay;
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.ui.GameActivity;
@@ -152,7 +151,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                         .commit();
                 break;
             case R.id.btn_ktplay:
-                KTPlay.show();
+                // TODO: TapTap
                 break;
             default:
                 break;
@@ -165,7 +164,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         dialogBuilder.withTitle(R.string.exit_or_un)
                 .withMessage(R.string.exit_or_un_0).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -185,7 +183,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 .getInstance(getActivity());
         dialogBuilder.withTitle(R.string.restart_or_un)
                 .withMessage(R.string.restart_or_un_0).isCancelable(true)
-                .withDuration(500).withButtonCancle().withButtonOk().setCustomView(0, getActivity())
+                .withDuration(500).withButtonCancle().withButtonOk()
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

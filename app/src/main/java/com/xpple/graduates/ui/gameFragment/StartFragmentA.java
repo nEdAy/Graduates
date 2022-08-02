@@ -12,9 +12,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.ktplay.open.KTAccountManager;
-import com.ktplay.open.KTError;
-import com.ktplay.open.KTUser;
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.ui.MainActivity;
@@ -94,7 +91,6 @@ public class StartFragmentA extends BaseFragment {
         dialogBuilder.withTitle("设置昵称")
                 .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

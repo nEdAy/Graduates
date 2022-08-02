@@ -32,7 +32,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
     private RelativeLayout mLinearLayoutView;
     private RelativeLayout mRelativeLayoutView;
     private LinearLayout mLinearLayoutTopView;
-    private FrameLayout mFrameLayoutCustomView;
     private TextView mTitle;
     private TextView mMessage;
     private ImageView iv_show, iv_big_show;
@@ -82,8 +81,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
                 .findViewById(R.id.main);// null
         mLinearLayoutTopView = (LinearLayout) mDialogView
                 .findViewById(R.id.topPanel);// null
-        mFrameLayoutCustomView = (FrameLayout) mDialogView
-                .findViewById(R.id.customPanel);// null
 
         mTitle = (TextView) mDialogView.findViewById(R.id.alertTitle);// null
         mMessage = (TextView) mDialogView.findViewById(R.id.message);// null
@@ -223,18 +220,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
     public NiftyDialogBuilder withEditText(int obj) {
         et_player.setInputType(obj);
         et_player.setVisibility(View.VISIBLE);
-        return this;
-    }
-
-    public NiftyDialogBuilder setCustomView(int resId, Context context) {
-        if (resId == 0) {
-            return this;
-        }
-        View customView = View.inflate(context, resId, null);
-        if (mFrameLayoutCustomView.getChildCount() > 0) {
-            mFrameLayoutCustomView.removeAllViews();
-        }
-        mFrameLayoutCustomView.addView(customView);
         return this;
     }
 

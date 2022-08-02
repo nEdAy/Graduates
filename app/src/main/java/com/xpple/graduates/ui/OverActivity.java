@@ -3,13 +3,11 @@ package com.xpple.graduates.ui;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.ktplay.open.KTPlay;
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.view.BaseActivity;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class OverActivity extends BaseActivity {
 
@@ -29,7 +27,6 @@ public class OverActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        KTPlay.onResume(this);
         CustomApplication.resumeMusic(1);
     }
 
@@ -37,7 +34,6 @@ public class OverActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        KTPlay.onPause(this);
         CustomApplication.pauseMusic();
     }
 
@@ -48,8 +44,7 @@ public class OverActivity extends BaseActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
-
 }
 

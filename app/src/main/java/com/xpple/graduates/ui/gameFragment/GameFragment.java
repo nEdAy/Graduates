@@ -2285,7 +2285,7 @@ public class GameFragment extends BaseFragment implements
                 .getInstance(getActivity());
         dialogBuilder.withTitle(R.string.load_or_un)
                 .withMessage("您的数据将恢复到上次保存的值（可读档次数共9次，当前还剩" + mLoadValue + "次，请慎重使用）。").isCancelable(true)
-                .withDuration(500).withButtonCancle().withButtonOk().setCustomView(0, getActivity())
+                .withDuration(500).withButtonCancle().withButtonOk()
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -2425,7 +2425,6 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.return_main_or_un)
                 .withMessage(R.string.return_main_or_un_0).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -2447,7 +2446,6 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.event)
                 .withMessage(message).isCancelable(true)
                 .withDuration(500).withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonOk(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -2462,7 +2460,6 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(title)
                 .withMessage(message).withImageView(iv).isCancelable(true)
                 .withDuration(500).withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonOk(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -2478,7 +2475,6 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.event)
                 .withMessage(id).isCancelable(false)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setCustomView(0, getActivity())
                 .setButtonCancleClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -2531,7 +2527,7 @@ public class GameFragment extends BaseFragment implements
             }
         })
                 .withMessage(message).isCancelable(false)
-                .withDuration(500).setCustomView(0, getActivity()).show();
+                .withDuration(500).show();
 
     }
 

@@ -1,9 +1,6 @@
-apply plugin: 'com.android.application'
-apply plugin: 'bugly'
-
-bugly {
-    appId = 'b77676f5a3'
-    appKey = '1674c344-91eb-4b13-85ab-ae54405af19a'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -15,13 +12,13 @@ android {
             storePassword 'abcd1234'
         }
     }
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+
+    compileSdk 32
+
     defaultConfig {
         applicationId "com.xpple.graduates"
-        minSdkVersion 15
-        //noinspection ExpiredTargetSdkVersion,OldTargetApi  逃避权限管理,壓制目标SDK版本，如果目标设备的API版本正好等于此数值，就不会为此程序开启兼容性检查判断的工作
-        targetSdkVersion 22
+        minSdk 21
+        targetSdk 32
         versionCode 170
         versionName "1.7.0"
         resConfigs "zh"
@@ -49,8 +46,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
     implementation 'com.nineoldandroids:library:2.4.0'
-    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.0'
-    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
 }

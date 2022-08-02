@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.ktplay.open.KTPlay;
 import com.xpple.graduates.R;
-import com.xpple.graduates.config.Config;
 import com.xpple.graduates.view.BaseActivity;
-
 
 public class SplashActivity extends BaseActivity {
     private static final int GO_GUIDE = 100;
@@ -43,8 +40,6 @@ public class SplashActivity extends BaseActivity {
 //        SpSettingsUtil mSharedSettingsUtil = mApplication.getSpSettingsUtil();
         // Boolean user_first = mSharedSettingsUtil.isAllowFirst();
 //        isUserSuggest = mSharedSettingsUtil.isUserSuggest();
-        // 初始化 KTPlay SDK
-        KTPlay.startWithAppKey(this, Config.KTPLAY_KEY, Config.KTPLAY_SECRET);
 //        // 初始化 有米广告 SDK
 //        if (!isUserSuggest) {
 //            AdManager.getInstance(this).init(Config.YOUMI_KEY, Config.YOUMI_SECRET, true, true);

@@ -10,10 +10,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ktplay.open.KTAccountManager;
-import com.ktplay.open.KTError;
-import com.ktplay.open.KTUser;
-import com.tencent.bugly.beta.Beta;
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.util.SpSettingsUtil;
@@ -153,7 +149,6 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 dialogBuilder.withTitle("设置手机号")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_PHONE).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
-                        .setCustomView(0, getActivity())
                         .setButtonCancleClick(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -178,7 +173,6 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 dialogBuilder.withTitle("设置昵称")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
-                        .setCustomView(0, getActivity())
                         .setButtonCancleClick(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -238,7 +232,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.btn_update:
                 /***** 检查更新 *****/
-                Beta.checkUpgrade();
+                // Beta.checkUpgrade();
                 break;
             default:
                 break;

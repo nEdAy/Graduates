@@ -192,7 +192,6 @@ public class CarFragment extends BaseFragment implements View.OnClickListener {
                 .getInstance(getActivity());
         dialogBuilder.isCancelable(true)
                 .withDuration(500).withBigImageView(id)
-                .setCustomView(0, getActivity())
                 .show();
 
     }

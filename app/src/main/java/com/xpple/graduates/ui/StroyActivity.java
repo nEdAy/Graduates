@@ -12,7 +12,7 @@ import com.xpple.graduates.ui.storyFragment.ZhaojunFragment;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseActivity;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class StroyActivity extends BaseActivity {
     @Override
@@ -70,8 +70,7 @@ public class StroyActivity extends BaseActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
-
 }
 
