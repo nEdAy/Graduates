@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
     defaultConfig {
         applicationId "com.xpple.graduates"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 180
         versionName "1.8.0"
         resConfigs "zh"
