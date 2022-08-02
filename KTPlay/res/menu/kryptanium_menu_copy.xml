@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@id/kt_copy"
-        android:title="@string/kt_copy"
-        android:icon="@drawable/kryptanium_icon_copy" />
-</menu>

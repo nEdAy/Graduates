@@ -48,7 +48,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':ktplay')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
     implementation 'com.nineoldandroids:library:2.4.0'
