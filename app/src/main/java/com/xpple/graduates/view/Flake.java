@@ -15,11 +15,9 @@
  */
 package com.xpple.graduates.view;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.DisplayMetrics;
 
-import com.xpple.graduates.util.PixelUtil;
+import com.blankj.utilcode.util.ScreenUtils;
 
 import java.util.HashMap;
 
@@ -45,11 +43,10 @@ class Flake {
      * Creates a new droidflake in the given xRange and with the given bitmap. Parameters of
      * location, size, rotation, and speed are randomly determined.
      */
-    static Flake createFlake(float xRange, Bitmap originalBitmap, Context Context) {
+    static Flake createFlake(float xRange, Bitmap originalBitmap) {
         Flake flake = new Flake();
         // Size each flake with a width between 5 and 55 and a proportional height
-        DisplayMetrics metrics = PixelUtil.getDisplayMetrics(Context);
-        if (metrics.widthPixels >= 1080) {
+        if (ScreenUtils.getScreenWidth() >= 1080) {
             flake.width = (int) (5 + (float) Math.random() * 80);
             float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();
             flake.height = (int) (flake.width * hwRatio + 60);

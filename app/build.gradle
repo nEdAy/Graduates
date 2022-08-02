@@ -46,7 +46,16 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.nineoldandroids:library:2.4.0'
+
+    // Calligraphy3
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'
-    implementation 'com.nineoldandroids:library:2.4.0'
+
+    // Key-Value Storage
+    implementation 'com.tencent:mmkv:1.2.13'
+    // Utils
+    implementation 'com.blankj:utilcodex:1.31.0'
+    // Android Debug Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 }

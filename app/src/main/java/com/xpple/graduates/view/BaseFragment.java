@@ -21,7 +21,6 @@ import androidx.fragment.app.Fragment;
 
 import com.xpple.graduates.R;
 import com.xpple.graduates.ThisApplication;
-import com.xpple.graduates.util.CommonUtil;
 
 /**
  * Fragmenet 基类
@@ -76,16 +75,9 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
         if (mToast == null) {
             mToast = new Toast(getActivity().getApplicationContext());
             mToast.setDuration(Toast.LENGTH_SHORT);
-            mToast.setView(layout);
-        } else {
-            mToast.setView(layout);
         }
+        mToast.setView(layout);
         mToast.show();
-    }
-
-
-    protected boolean isNetConnected() {
-        return CommonUtil.isNetworkAvailable(getActivity());
     }
 
     protected void startAnimActivity(Class<?> cla) {

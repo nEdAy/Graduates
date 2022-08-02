@@ -4,6 +4,7 @@ import android.app.Application;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
+import com.tencent.mmkv.MMKV;
 import com.xpple.graduates.util.SpSaveUtil;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.util.SpSettingsUtil;
@@ -149,6 +150,8 @@ public class ThisApplication extends Application {
         mInstance = this;
         initTextType();
         initSound();
+        String rootDir = MMKV.initialize(this);
+        System.out.println("MMKV root: " + rootDir);
     }
 
     private void initTextType() {

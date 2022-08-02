@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import androidx.fragment.app.FragmentActivity;
 
 import com.xpple.graduates.ThisApplication;
-import com.xpple.graduates.util.CommonUtil;
 
 
 /**
@@ -31,10 +30,4 @@ public class BaseActivity extends FragmentActivity {
     protected void startAnimActivity(Class<?> cla) {
         this.startActivity(new Intent(this, cla));
     }
-
-    protected boolean isNetConnected() {
-        return CommonUtil.isNetworkAvailable(this);
-    }
-
-
 }

@@ -212,12 +212,8 @@ public class SuggestFragment extends BaseFragment implements
         switch (v.getId()) {
             case R.id.go:
                 // 当选择的是支付宝支付时
-                if (type.getCheckedRadioButtonId() == R.id.alipay) {
-                    pay(true, "打赏", getPrice(), getActivity());
-                } else {
-                    // 调用插件用微信支付
-                    pay(false, "打赏", getPrice(), getActivity());
-                }
+                // 调用插件用微信支付
+                pay(type.getCheckedRadioButtonId() == R.id.alipay, "打赏", getPrice(), getActivity());
                 break;
             case R.id.rl_switch_suggest:
                 ThisApplication.playSound(R.raw.button_1);

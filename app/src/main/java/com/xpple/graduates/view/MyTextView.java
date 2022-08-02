@@ -6,9 +6,10 @@ import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
-import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 public class MyTextView extends TextView {
 
@@ -51,5 +52,4 @@ public class MyTextView extends TextView {
             postInvalidateDelayed(50);
         }
     }
-
 }

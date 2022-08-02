@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.RegexUtils;
 import com.xpple.graduates.R;
 import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpSettingsUtil;
-import com.xpple.graduates.util.StringUtils;
 import com.xpple.graduates.view.BaseFragment;
 import com.xpple.graduates.view.NiftyDialogBuilder;
 
@@ -146,7 +146,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                         .withDuration(500).withButtonCancle().withButtonOk()
                         .setButtonCancleClick(v14 -> dialogBuilder.getDismiss()).setButtonOk(v13 -> {
                             String phone = NiftyDialogBuilder.et_player.getText().toString();
-                            if (StringUtils.isPhoneNumberValid(phone)) {
+                            if (RegexUtils.isMobileExact(phone)) {
                                 mSharedSettingsUtil.setUserPhone(phone);
                                 dialogBuilder.dismiss();
                                 onActivityCreated(null);
