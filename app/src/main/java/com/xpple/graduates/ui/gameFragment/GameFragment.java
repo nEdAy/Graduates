@@ -19,7 +19,7 @@ import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
 import com.xpple.graduates.ui.MainActivity;
 import com.xpple.graduates.ui.OverActivity;
-import com.xpple.graduates.ui.StroyActivity;
+import com.xpple.graduates.ui.StorylineActivity;
 import com.xpple.graduates.util.SpSaveUtil;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
@@ -485,7 +485,7 @@ public class GameFragment extends BaseFragment implements
                             // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
                             if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(1)) {
                                 mSharedScoreUtil.setPartnerStory(2);
-                                startAnimActivity(StroyActivity.class);
+                                startAnimActivity(StorylineActivity.class);
                                 getActivity().finish();
                             }
                             mSharedScoreUtil.setGj(1);
@@ -540,7 +540,7 @@ public class GameFragment extends BaseFragment implements
                             // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
                             if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(2)) {
                                 mSharedScoreUtil.setPartnerStory(2);
-                                startAnimActivity(StroyActivity.class);
+                                startAnimActivity(StorylineActivity.class);
                                 getActivity().finish();
                             }
                             mSharedScoreUtil.setCm(1);
@@ -596,7 +596,7 @@ public class GameFragment extends BaseFragment implements
                             // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
                             if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(0)) {
                                 mSharedScoreUtil.setPartnerStory(1);
-                                startAnimActivity(StroyActivity.class);
+                                startAnimActivity(StorylineActivity.class);
                                 getActivity().finish();
                             }
                             mSharedScoreUtil.setCj(1);
@@ -1071,7 +1071,7 @@ public class GameFragment extends BaseFragment implements
         //如果你的女友是十娘在你28岁时开始会有剧情，注意如果剩余时间不够24个月将无法触发十娘的所有剧情。
         if (PartnerSn.equals(0)) {
             mSharedScoreUtil.setPartnerStory(4);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         } else {
             mSharedScoreUtil.setPartnerSnTime(+1);
@@ -1079,37 +1079,37 @@ public class GameFragment extends BaseFragment implements
         //第二幕在四个月后
         if (PartnerSn.equals(1) && PartnerSnTime.equals(4)) {
             mSharedScoreUtil.setPartnerStory(5);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
         //第三幕在四个月后
         if (PartnerSn.equals(2) && PartnerSnTime.equals(4)) {
             mSharedScoreUtil.setPartnerStory(6);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
         //第四幕在四个月后
         if (PartnerSn.equals(3) && PartnerSnTime.equals(4)) {
             mSharedScoreUtil.setPartnerStory(7);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
         //第五幕在四个月后
         if (PartnerSn.equals(4) && PartnerSnTime.equals(4)) {
             mSharedScoreUtil.setPartnerStory(8);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
         //第六幕A在六个月后
         if (PartnerSn.equals(5) && PartnerSnTime.equals(6)) {
             mSharedScoreUtil.setPartnerStory(9);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
         //第六幕B在六个月后
         if (PartnerSn.equals(6) && PartnerSnTime.equals(6)) {
             mSharedScoreUtil.setPartnerStory(10);
-            startAnimActivity(StroyActivity.class);
+            startAnimActivity(StorylineActivity.class);
             getActivity().finish();
         }
     }
@@ -2425,19 +2425,11 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.return_main_or_un)
                 .withMessage(R.string.return_main_or_un_0).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.getDismiss();
-                    }
-                }).setButtonOk(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBuilder.closeDialog(dialogBuilder);
-                startAnimActivity(MainActivity.class);
-                getActivity().finish();
-            }
-        }).show();
+                .setButtonCancleClick(v -> dialogBuilder.getDismiss()).setButtonOk(v -> {
+                    dialogBuilder.closeDialog(dialogBuilder);
+                    startAnimActivity(MainActivity.class);
+                    getActivity().finish();
+                }).show();
     }
 
     private void showViewDialog(int message) {

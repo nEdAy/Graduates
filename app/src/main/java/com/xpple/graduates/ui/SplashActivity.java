@@ -1,12 +1,12 @@
 package com.xpple.graduates.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
 import com.xpple.graduates.R;
 import com.xpple.graduates.view.BaseActivity;
+
 
 public class SplashActivity extends BaseActivity {
     private static final int GO_GUIDE = 100;
@@ -65,29 +65,4 @@ public class SplashActivity extends BaseActivity {
 //        finish();
 //        }
 //    }
-
-    // 请务必加上词句，否则进入网页广告后无法进去原sdk
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == 10045) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        SpotManager.getInstance(this).onStop();
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        SpotManager.getInstance(this).onDestroy();
-//    }
-
 }

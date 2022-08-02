@@ -2,6 +2,7 @@ package com.xpple.graduates.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
 
 import com.xpple.graduates.CustomApplication;
@@ -14,11 +15,11 @@ import com.xpple.graduates.view.BaseActivity;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
-public class StroyActivity extends BaseActivity {
+public class StorylineActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_story);
+        setContentView(R.layout.activity_storyline);
         setUpFragment(savedInstanceState);
     }
 

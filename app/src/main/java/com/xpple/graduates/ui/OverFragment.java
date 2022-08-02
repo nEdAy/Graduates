@@ -19,20 +19,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class OverFragment extends BaseFragment implements View.OnClickListener {
-    private static String[] mPositionString = {"国内中小公司基层员工", "国内知名公司基层员工", "海外驻华公司基层员工",
+    private static final String[] mPositionString = {"国内中小公司基层员工", "国内知名公司基层员工", "海外驻华公司基层员工",
             "国内中小公司基层主管", "国内知名公司基层主管", "海外驻华公司基层主管",
             "国内中小公司中层经理", "国内知名公司中层经理", "海外驻华公司中层经理",
             "国内中小公司高层老总", "国内知名公司高层老总", "海外驻华公司高层老总"};
-    private static String[] mCarString = {"你还没有买车", "你有一辆小型节油低档车", "你有一辆经济实用中档车",
+    private static final String[] mCarString = {"你还没有买车", "你有一辆小型节油低档车", "你有一辆经济实用中档车",
             "你有一辆豪华舒适中档车", "你有一辆超豪华享受高档车", "你有一辆时尚拉风跑车"};
-    private static String[] mHouseString = {"你还没有买房", "你有1室1厅的房子"
+    private static final String[] mHouseString = {"你还没有买房", "你有1室1厅的房子"
             , "你有2室1厅的房子", "你有2室2厅的房子", "你有3室1厅的房子", "你有3室2厅的房子", "你有4室2厅的房子",
             "你有市郊豪华小别墅", "你有城区超豪华别墅"};
-    private static String[] mPartnerString = {"你还没有女朋友", "你的女友是施施", "你的女友是阿禅",
+    private static final String[] mPartnerString = {"你还没有女朋友", "你的女友是施施", "你的女友是阿禅",
             "你的女友是昭君", "你的女友是玉环", "你的女友是圆圆", "你的女友是香香",
             "你的女友是十娘", "你的女友是小小", "你的女友是飞燕", "你的女友是莺莺"};
     @SuppressLint("StaticFieldLeak")
-    private static OverFragment instance = new OverFragment();
+    private static final OverFragment instance = new OverFragment();
     private View parentView;
     private TextView mHealthyValueView, mMoneyValueView, mAbilityValueView,
             mExperienceValueView, mHappyValueView, mMoralityValueView,
@@ -40,12 +40,19 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
             mPositionView, mCarView, mHouseView, mPartnerView;
     private ImageView tv_over;
     private TextView tv_over_1, tv_over_0;
-    private Integer mStockValue, mIndexStockValue, mIndexHouseValue, mIncomeValue,
-            mCommunicationMonthlyValue, mHappyMonthlyValue,
-            mLoadValue, mHealthyValue, mMoneyValue, mAbilityValue,
-            mExperienceValue, mHappyValue, mMoralityValue,
-            mCommunicationValue, mPositionValue, mCarValue, mHouseValue,
-            mPartnerValue, mCareerValue, mLoveValue;
+    private Integer mHealthyValue;
+    private Integer mMoneyValue;
+    private Integer mAbilityValue;
+    private Integer mExperienceValue;
+    private Integer mHappyValue;
+    private Integer mMoralityValue;
+    private Integer mCommunicationValue;
+    private Integer mPositionValue;
+    private Integer mCarValue;
+    private Integer mHouseValue;
+    private Integer mPartnerValue;
+    private Integer mCareerValue;
+    private Integer mLoveValue;
 
     public OverFragment() {
     }
@@ -87,20 +94,20 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void setUpViews() {
-        mHealthyValueView = (TextView) parentView.findViewById(R.id.tv_healthy);
-        mMoneyValueView = (TextView) parentView.findViewById(R.id.tv_money);
-        mAbilityValueView = (TextView) parentView.findViewById(R.id.tv_ability);
-        mExperienceValueView = (TextView) parentView.findViewById(R.id.tv_experience);
-        mHappyValueView = (TextView) parentView.findViewById(R.id.tv_happy);
-        mMoralityValueView = (TextView) parentView.findViewById(R.id.tv_morality);
-        mCommunicationValueView = (TextView) parentView.findViewById(R.id.tv_communication);
-        mPositionView = (TextView) parentView.findViewById(R.id.tv_position);
-        mCarView = (TextView) parentView.findViewById(R.id.tv_car);
-        mHouseView = (TextView) parentView.findViewById(R.id.tv_house);
-        mPartnerView = (TextView) parentView.findViewById(R.id.tv_partner);
-        tv_over = (ImageView) parentView.findViewById(R.id.tv_over);
-        tv_over_0 = (TextView) parentView.findViewById(R.id.tv_over_0);
-        tv_over_1 = (TextView) parentView.findViewById(R.id.tv_over_1);
+        mHealthyValueView = parentView.findViewById(R.id.tv_healthy);
+        mMoneyValueView = parentView.findViewById(R.id.tv_money);
+        mAbilityValueView = parentView.findViewById(R.id.tv_ability);
+        mExperienceValueView = parentView.findViewById(R.id.tv_experience);
+        mHappyValueView = parentView.findViewById(R.id.tv_happy);
+        mMoralityValueView = parentView.findViewById(R.id.tv_morality);
+        mCommunicationValueView = parentView.findViewById(R.id.tv_communication);
+        mPositionView = parentView.findViewById(R.id.tv_position);
+        mCarView = parentView.findViewById(R.id.tv_car);
+        mHouseView = parentView.findViewById(R.id.tv_house);
+        mPartnerView = parentView.findViewById(R.id.tv_partner);
+        tv_over = parentView.findViewById(R.id.tv_over);
+        tv_over_0 = parentView.findViewById(R.id.tv_over_0);
+        tv_over_1 = parentView.findViewById(R.id.tv_over_1);
     }
 
     //总分计算公式：
@@ -114,7 +121,7 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
 
     private void setValue() {
         SpScoreUtil mSharedScoreUtil = mApplication.getSpScoreUtil();
-        mLoadValue = mSharedScoreUtil.getLoad();
+        Integer mLoadValue = mSharedScoreUtil.getLoad();
         mHealthyValue = mSharedScoreUtil.getHealthy();
         mMoneyValue = mSharedScoreUtil.getMoney();
         mAbilityValue = mSharedScoreUtil.getAbility();
@@ -122,8 +129,8 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
         mHappyValue = mSharedScoreUtil.getHappy();
         mMoralityValue = mSharedScoreUtil.getMorality();
         mCommunicationValue = mSharedScoreUtil.getCommunication();
-        mCommunicationMonthlyValue = mSharedScoreUtil.getCommunicationMonthly();
-        mHappyMonthlyValue = mSharedScoreUtil.getHappyMonthly();
+        Integer mCommunicationMonthlyValue = mSharedScoreUtil.getCommunicationMonthly();
+        Integer mHappyMonthlyValue = mSharedScoreUtil.getHappyMonthly();
 
         mCareerValue = mSharedScoreUtil.getCareer();
         mLoveValue = mSharedScoreUtil.getLove();
@@ -132,10 +139,10 @@ public class OverFragment extends BaseFragment implements View.OnClickListener {
         mPartnerValue = mSharedScoreUtil.getPartner();
         mPositionValue = mSharedScoreUtil.getPosition();
         mHouseValue = mSharedScoreUtil.getHouse();
-        mIncomeValue = mSharedScoreUtil.getIncome();
-        mStockValue = mSharedScoreUtil.getStock();
-        mIndexStockValue = mSharedScoreUtil.getIndexStock();
-        mIndexHouseValue = mSharedScoreUtil.getIndexHouse();
+        Integer mIncomeValue = mSharedScoreUtil.getIncome();
+        Integer mStockValue = mSharedScoreUtil.getStock();
+        Integer mIndexStockValue = mSharedScoreUtil.getIndexStock();
+        Integer mIndexHouseValue = mSharedScoreUtil.getIndexHouse();
         mHealthyValueView.setText("" + mHealthyValue);
         mMoneyValueView.setText("" + mMoneyValue);
         mAbilityValueView.setText("" + mAbilityValue);

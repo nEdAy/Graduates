@@ -142,7 +142,6 @@
                     android:hint="请输入买入股票金额"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:numeric="integer"
                     android:textColor="@color/lsxa" />
 
                 <ImageView
@@ -170,7 +169,6 @@
                     android:hint="请输入卖出股票金额"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:numeric="integer"
                     android:textColor="@color/base_color_text_black" />
 
                 <ImageView

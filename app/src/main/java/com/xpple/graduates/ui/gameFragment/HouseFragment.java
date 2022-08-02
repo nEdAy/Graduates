@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
-import com.xpple.graduates.ui.StroyActivity;
+import com.xpple.graduates.ui.StorylineActivity;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
 
 public class HouseFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static HouseFragment instance = new HouseFragment();
+    private static final HouseFragment instance = new HouseFragment();
     private View parentView;
     private ImageView iv_house;
     private TextView text_house, tv_house, tv_house_0, tv_house_1, tv_house_2, tv_house_3, tv_house_4, tv_house_5, tv_house_6, tv_house_7;
@@ -27,7 +27,7 @@ public class HouseFragment extends BaseFragment implements View.OnClickListener 
     private Integer index_house;
     private Integer partner_xy;
     private Integer money_0, money_1, money_2, money_3, money_4, money_5, money_6, money_7;
-    private int[] house_text = {R.string.text_house_00, R.string.text_house_01, R.string.text_house_02,
+    private final int[] house_text = {R.string.text_house_00, R.string.text_house_01, R.string.text_house_02,
             R.string.text_house_03, R.string.text_house_04, R.string.text_house_05,
             R.string.text_house_06, R.string.text_house_07, R.string.text_house_08,
             R.string.text_house_09, R.string.text_house_10, R.string.text_house_11,
@@ -417,7 +417,7 @@ public class HouseFragment extends BaseFragment implements View.OnClickListener 
                     case 90:
                         iv_house.setClickable(false);
                         mSharedScoreUtil.setPartnerStory(0);
-                        startAnimActivity(StroyActivity.class);
+                        startAnimActivity(StorylineActivity.class);
                         getActivity().finish();
                         break;
                     case 92:

@@ -15,7 +15,7 @@ import com.xpple.graduates.view.NiftyDialogBuilder;
 
 public class CarFragment extends BaseFragment implements View.OnClickListener {
     @SuppressLint("StaticFieldLeak")
-    private static CarFragment instance = new CarFragment();
+    private static final CarFragment instance = new CarFragment();
     private View parentView;
     private ImageView btn_car_0, btn_car_1, btn_car_2, btn_car_3, btn_car_4, iv_car_0, iv_car_1, iv_car_2, iv_car_3, iv_car_4;
     private SpScoreUtil mSharedScoreUtil;
@@ -37,23 +37,18 @@ public class CarFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void setUpViews() {
-        ImageView iv_back = (ImageView) parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
-        btn_car_0 = (ImageView) parentView.findViewById(R.id.btn_car_0);
-        btn_car_1 = (ImageView) parentView.findViewById(R.id.btn_car_1);
-        btn_car_2 = (ImageView) parentView.findViewById(R.id.btn_car_2);
-        btn_car_3 = (ImageView) parentView.findViewById(R.id.btn_car_3);
-        btn_car_4 = (ImageView) parentView.findViewById(R.id.btn_car_4);
-        iv_car_0 = (ImageView) parentView.findViewById(R.id.iv_car_0);
-        iv_car_1 = (ImageView) parentView.findViewById(R.id.iv_car_1);
-        iv_car_2 = (ImageView) parentView.findViewById(R.id.iv_car_2);
-        iv_car_3 = (ImageView) parentView.findViewById(R.id.iv_car_3);
-        iv_car_4 = (ImageView) parentView.findViewById(R.id.iv_car_4);
+        ImageView iv_back = parentView.findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
+        btn_car_0 = parentView.findViewById(R.id.btn_car_0);
+        btn_car_1 = parentView.findViewById(R.id.btn_car_1);
+        btn_car_2 = parentView.findViewById(R.id.btn_car_2);
+        btn_car_3 = parentView.findViewById(R.id.btn_car_3);
+        btn_car_4 = parentView.findViewById(R.id.btn_car_4);
+        iv_car_0 = parentView.findViewById(R.id.iv_car_0);
+        iv_car_1 = parentView.findViewById(R.id.iv_car_1);
+        iv_car_2 = parentView.findViewById(R.id.iv_car_2);
+        iv_car_3 = parentView.findViewById(R.id.iv_car_3);
+        iv_car_4 = parentView.findViewById(R.id.iv_car_4);
         setListener();
     }
 

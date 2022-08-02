@@ -16,21 +16,21 @@ import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
 public class ShiniangFragment extends BaseFragment implements View.OnClickListener {
-    private static int[] sn_talk_0 = {R.string.shiniang_0_00, R.string.shiniang_0_01, R.string.shiniang_0_02,
+    private static final int[] sn_talk_0 = {R.string.shiniang_0_00, R.string.shiniang_0_01, R.string.shiniang_0_02,
             R.string.shiniang_0_03, R.string.shiniang_0_04, R.string.shiniang_0_05,
             R.string.shiniang_0_06, R.string.shiniang_0_07, R.string.shiniang_0_08,
             R.string.shiniang_0_09, R.string.shiniang_0_10, R.string.shiniang_0_11,
             R.string.shiniang_0_12, R.string.shiniang_0_13, R.string.shiniang_0_14,
             R.string.shiniang_0_15, R.string.shiniang_0_16, R.string.shiniang_0_17,
             R.string.shiniang_0_18, R.string.shiniang_0_19, R.string.shiniang_0_20};
-    private static int[] sn_talk_1 = {R.string.shiniang_1_00, R.string.shiniang_1_01, R.string.shiniang_1_02,
+    private static final int[] sn_talk_1 = {R.string.shiniang_1_00, R.string.shiniang_1_01, R.string.shiniang_1_02,
             R.string.shiniang_1_03, R.string.shiniang_1_04, R.string.shiniang_1_05,
             R.string.shiniang_1_06, R.string.shiniang_1_07, R.string.shiniang_1_08,
             R.string.shiniang_1_09, R.string.shiniang_1_10, R.string.shiniang_1_11,
             R.string.shiniang_1_12, R.string.shiniang_1_13, R.string.shiniang_1_14,
             R.string.shiniang_1_15, R.string.shiniang_1_16, R.string.shiniang_1_17,
             R.string.shiniang_1_18};
-    private static int[] sn_talk_2 = {R.string.shiniang_2_00, R.string.shiniang_2_01, R.string.shiniang_2_02,
+    private static final int[] sn_talk_2 = {R.string.shiniang_2_00, R.string.shiniang_2_01, R.string.shiniang_2_02,
             R.string.shiniang_2_03, R.string.shiniang_2_04, R.string.shiniang_2_05,
             R.string.shiniang_2_06, R.string.shiniang_2_07, R.string.shiniang_2_08,
             R.string.shiniang_2_09, R.string.shiniang_2_10, R.string.shiniang_2_11,
@@ -40,18 +40,18 @@ public class ShiniangFragment extends BaseFragment implements View.OnClickListen
             R.string.shiniang_2_21, R.string.shiniang_2_22, R.string.shiniang_2_23,
             R.string.shiniang_2_24, R.string.shiniang_2_25, R.string.shiniang_2_26,
             R.string.shiniang_2_27, R.string.shiniang_2_28};
-    private static int[] sn_talk_3 = {R.string.shiniang_3_00, R.string.shiniang_3_01, R.string.shiniang_3_02,
+    private static final int[] sn_talk_3 = {R.string.shiniang_3_00, R.string.shiniang_3_01, R.string.shiniang_3_02,
             R.string.shiniang_3_03, R.string.shiniang_3_04, R.string.shiniang_3_05,
             R.string.shiniang_3_06, R.string.shiniang_3_07, R.string.shiniang_3_08,
             R.string.shiniang_3_09, R.string.shiniang_3_10, R.string.shiniang_3_11,
             R.string.shiniang_3_12, R.string.shiniang_3_13, R.string.shiniang_3_14,
             R.string.shiniang_3_15, R.string.shiniang_3_16, R.string.shiniang_3_17};
-    private static int[] sn_talk_4 = {R.string.shiniang_4_00, R.string.shiniang_4_01, R.string.shiniang_4_02,
+    private static final int[] sn_talk_4 = {R.string.shiniang_4_00, R.string.shiniang_4_01, R.string.shiniang_4_02,
             R.string.shiniang_4_03, R.string.shiniang_4_04, R.string.shiniang_4_05,
             R.string.shiniang_4_06, R.string.shiniang_4_07, R.string.shiniang_4_08,
             R.string.shiniang_4_09, R.string.shiniang_4_10, R.string.shiniang_4_11,
             R.string.shiniang_4_12, R.string.shiniang_4_13, R.string.shiniang_4_14};
-    private static int[] sn_talk_5_a = {R.string.shiniang_5_a_00, R.string.shiniang_5_a_01, R.string.shiniang_5_a_02,
+    private static final int[] sn_talk_5_a = {R.string.shiniang_5_a_00, R.string.shiniang_5_a_01, R.string.shiniang_5_a_02,
             R.string.shiniang_5_a_03, R.string.shiniang_5_a_04, R.string.shiniang_5_a_05,
             R.string.shiniang_5_a_06, R.string.shiniang_5_a_07, R.string.shiniang_5_a_08,
             R.string.shiniang_5_a_09, R.string.shiniang_5_a_10, R.string.shiniang_5_a_11,
@@ -62,7 +62,7 @@ public class ShiniangFragment extends BaseFragment implements View.OnClickListen
             R.string.shiniang_5_a_24, R.string.shiniang_5_a_25, R.string.shiniang_5_a_26,
             R.string.shiniang_5_a_27, R.string.shiniang_5_a_28, R.string.shiniang_5_a_29,
             R.string.shiniang_5_a_30};
-    private static int[] sn_talk_5_b = {R.string.shiniang_5_b_00, R.string.shiniang_5_b_01, R.string.shiniang_5_b_02,
+    private static final int[] sn_talk_5_b = {R.string.shiniang_5_b_00, R.string.shiniang_5_b_01, R.string.shiniang_5_b_02,
             R.string.shiniang_5_b_03, R.string.shiniang_5_b_04, R.string.shiniang_5_b_05,
             R.string.shiniang_5_b_06, R.string.shiniang_5_b_07, R.string.shiniang_5_b_08,
             R.string.shiniang_5_b_09, R.string.shiniang_5_b_10, R.string.shiniang_5_b_11,
@@ -81,7 +81,7 @@ public class ShiniangFragment extends BaseFragment implements View.OnClickListen
             R.string.shiniang_5_b_48
     };
     @SuppressLint("StaticFieldLeak")
-    private static ShiniangFragment instance = new ShiniangFragment();
+    private static final ShiniangFragment instance = new ShiniangFragment();
     private View parentView;
     private ImageView iv_story;
     private TextView tv_talk;
@@ -108,11 +108,11 @@ public class ShiniangFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void setUpViews() {
-        iv_story = (ImageView) parentView.findViewById(R.id.iv_story);
-        tv_talk = (TextView) parentView.findViewById(R.id.tv_talk);
-        rg_story = (RadioGroup) parentView.findViewById(R.id.rg_story);
-        rb_yes = (RadioButton) parentView.findViewById(R.id.rb_yes);
-        rb_no = (RadioButton) parentView.findViewById(R.id.rb_no);
+        iv_story = parentView.findViewById(R.id.iv_story);
+        tv_talk = parentView.findViewById(R.id.tv_talk);
+        rg_story = parentView.findViewById(R.id.rg_story);
+        rb_yes = parentView.findViewById(R.id.rb_yes);
+        rb_no = parentView.findViewById(R.id.rb_no);
         setListener();
     }
 
