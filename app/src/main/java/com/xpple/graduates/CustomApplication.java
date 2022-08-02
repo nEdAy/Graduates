@@ -156,7 +156,7 @@ public class CustomApplication extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/myfont.ttf")
+                                .setDefaultFontPath("fonts/MyFont.ttf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
