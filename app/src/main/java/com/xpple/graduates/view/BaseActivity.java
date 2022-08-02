@@ -18,7 +18,6 @@ public class BaseActivity extends FragmentActivity {
 
     protected ThisApplication mApplication;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

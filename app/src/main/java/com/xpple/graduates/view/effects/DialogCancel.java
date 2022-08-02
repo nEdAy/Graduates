@@ -8,7 +8,6 @@ public class DialogCancel extends BaseEffects {
 
     @Override
     protected void setupAnimation(View view) {
-        // TODO Auto-generated method stub
         getAnimatorSet().playTogether(
                 ObjectAnimator.ofFloat(view, "rotation", 720, 1080, 0, 360)
                         .setDuration(mDuration),// 旋转
@@ -18,8 +17,6 @@ public class DialogCancel extends BaseEffects {
                         mDuration),
                 ObjectAnimator.ofFloat(view, "scaleY", 1, 0.5f, 0).setDuration(
                         mDuration)
-
         );
     }
-
 }

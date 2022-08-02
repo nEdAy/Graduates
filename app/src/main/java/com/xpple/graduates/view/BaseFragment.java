@@ -23,13 +23,13 @@ import com.xpple.graduates.R;
 import com.xpple.graduates.ThisApplication;
 
 /**
- * Fragmenet 基类
+ * Fragment 基类
  */
 public abstract class BaseFragment extends Fragment implements View.OnTouchListener {
 
     private final static int TOAST_LAYOUT_ID_FAIL = R.layout.toast_fail;
-    private final static int TOAST_LAYOUT_ID_SUCCSESS = R.layout.toast_success;
-    private final static int TOAST_ID_TEXTVIEW_SUCCSESS = R.id.toast_message;
+    private final static int TOAST_LAYOUT_ID_SUCCESS = R.layout.toast_success;
+    private final static int TOAST_ID_TEXTVIEW_SUCCESS = R.id.toast_message;
     private final static int TOAST_ID_TEXTVIEW_FAIL = R.id.toast_fail_message;
     protected ThisApplication mApplication;
     private Toast mToast;
@@ -40,7 +40,6 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         mApplication = ThisApplication.getInstance();
@@ -54,8 +53,8 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     protected void showToast(String text, boolean state) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        @SuppressLint("WrongViewCast") View layout = inflater.inflate(state ? TOAST_LAYOUT_ID_SUCCSESS : TOAST_LAYOUT_ID_FAIL, getActivity().findViewById(TOAST_ID_TEXTVIEW_SUCCSESS));
-        ((TextView) layout.findViewById(state ? TOAST_ID_TEXTVIEW_SUCCSESS : TOAST_ID_TEXTVIEW_FAIL)).setText(text);
+        @SuppressLint("WrongViewCast") View layout = inflater.inflate(state ? TOAST_LAYOUT_ID_SUCCESS : TOAST_LAYOUT_ID_FAIL, getActivity().findViewById(TOAST_ID_TEXTVIEW_SUCCESS));
+        ((TextView) layout.findViewById(state ? TOAST_ID_TEXTVIEW_SUCCESS : TOAST_ID_TEXTVIEW_FAIL)).setText(text);
         if (mToast == null) {
             mToast = new Toast(getActivity().getApplicationContext());
             mToast.setDuration(Toast.LENGTH_SHORT);
@@ -70,8 +69,8 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     protected void showToast(int text, boolean state) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        @SuppressLint("WrongViewCast") View layout = inflater.inflate(state ? TOAST_LAYOUT_ID_SUCCSESS : TOAST_LAYOUT_ID_FAIL, getActivity().findViewById(TOAST_ID_TEXTVIEW_SUCCSESS));
-        ((TextView) layout.findViewById(state ? TOAST_ID_TEXTVIEW_SUCCSESS : TOAST_ID_TEXTVIEW_FAIL)).setText(text);
+        @SuppressLint("WrongViewCast") View layout = inflater.inflate(state ? TOAST_LAYOUT_ID_SUCCESS : TOAST_LAYOUT_ID_FAIL, getActivity().findViewById(TOAST_ID_TEXTVIEW_SUCCESS));
+        ((TextView) layout.findViewById(state ? TOAST_ID_TEXTVIEW_SUCCESS : TOAST_ID_TEXTVIEW_FAIL)).setText(text);
         if (mToast == null) {
             mToast = new Toast(getActivity().getApplicationContext());
             mToast.setDuration(Toast.LENGTH_SHORT);

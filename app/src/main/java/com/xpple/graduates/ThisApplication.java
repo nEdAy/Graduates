@@ -17,6 +17,27 @@ import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
 
 /**
+ * 　　　　　　　　┏┓　　　┏┓+ +
+ * 　　　　　　　┏┛┻━━━┛┻┓ + +
+ * 　　　　　　　┃　　　　　　　┃
+ * 　　　　　　　┃　　　━　　　┃ ++ + + +
+ * 　　　　　　 ████━████ ┃+
+ * 　　　　　　　┃　　　　　　　┃ +
+ * 　　　　　　　┃　　　┻　　　┃
+ * 　　　　　　　┃　　　　　　　┃ + +
+ * 　　　　　　　┗━┓　　　┏━┛
+ * 　　　　　　　　　┃　　　┃
+ * 　　　　　　　　　┃　　　┃ + + + +
+ * 　　　　　　　　　┃　　　┃　　　　Code is far away from bug with the animal protecting
+ * 　　　　　　　　　┃　　　┃ + 　　　　神兽保佑,代码无bug
+ * 　　　　　　　　　┃　　　┃
+ * 　　　　　　　　　┃　　　┃　　+
+ * 　　　　　　　　　┃　 　　┗━━━┓ + +
+ * 　　　　　　　　　┃ 　　　　　　　┣┓
+ * 　　　　　　　　　┃ 　　　　　　　┏┛
+ * 　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
+ * 　　　　　　　　　　┃┫┫　┃┫┫
+ * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  * 自定义全局Application类
  *
  * @author nEdAy
@@ -30,7 +51,7 @@ public class ThisApplication extends Application {
     private static ThisApplication mInstance;
     private static SoundPool mSoundPool;
     private static MediaPlayer mMediaPlayer;
-    //音乐播放位置
+    // 音乐播放位置
     private static int position;
     private static Map<Integer, Integer> soundMap;
     // 单例模式，才能及时返回数据
