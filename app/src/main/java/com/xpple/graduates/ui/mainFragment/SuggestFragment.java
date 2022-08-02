@@ -16,8 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.config.Config;
 import com.xpple.graduates.util.SpSettingsUtil;
 import com.xpple.graduates.view.BaseFragment;
@@ -220,7 +220,7 @@ public class SuggestFragment extends BaseFragment implements
                 }
                 break;
             case R.id.rl_switch_suggest:
-                CustomApplication.playSound(R.raw.button_1);
+                ThisApplication.playSound(R.raw.button_1);
                 if (suggest_money > 0) {
                     if (iv_open_suggest.getVisibility() == View.VISIBLE) {
                         iv_open_suggest.setVisibility(View.INVISIBLE);

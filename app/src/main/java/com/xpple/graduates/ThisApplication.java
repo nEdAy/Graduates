@@ -20,13 +20,13 @@ import io.github.inflationx.viewpump.ViewPump;
  *
  * @author nEdAy
  */
-public class CustomApplication extends Application {
+public class ThisApplication extends Application {
 
     private static final String PREFERENCE_NAME_0 = "_score";
     private static final String PREFERENCE_NAME_1 = "_settings";
     private static final String PREFERENCE_NAME_2 = "_save";
     private static final int[] musicId = {R.raw.bg_start, R.raw.bg_end, R.raw.bg_game};
-    private static CustomApplication mInstance;
+    private static ThisApplication mInstance;
     private static SoundPool mSoundPool;
     private static MediaPlayer mMediaPlayer;
     //音乐播放位置
@@ -37,7 +37,7 @@ public class CustomApplication extends Application {
     private SpSettingsUtil mSpSettingsUtil;
     private SpSaveUtil mSpSaveUtil;
 
-    public static CustomApplication getInstance() {
+    public static ThisApplication getInstance() {
         return mInstance;
     }
 
@@ -54,14 +54,14 @@ public class CustomApplication extends Application {
      * 获得音效开关状态
      */
     private static boolean isAllowSound() {
-        return CustomApplication.getInstance().getSpSettingsUtil().isAllowSound();
+        return ThisApplication.getInstance().getSpSettingsUtil().isAllowSound();
     }
 
     /**
      * 设置音效开关
      */
     public static void setAllowSoundEnable(boolean enable) {
-        CustomApplication.getInstance().getSpSettingsUtil().setAllowSoundEnable(enable);
+        ThisApplication.getInstance().getSpSettingsUtil().setAllowSoundEnable(enable);
     }
 
     /**
@@ -124,14 +124,14 @@ public class CustomApplication extends Application {
      * 获得音乐开关状态
      */
     private static boolean isAllowMusic() {
-        return CustomApplication.getInstance().getSpSettingsUtil().isAllowMusic();
+        return ThisApplication.getInstance().getSpSettingsUtil().isAllowMusic();
     }
 
     /**
      * 设置音乐开关
      */
     public static void setAllowMusicEnable(boolean enable) {
-        CustomApplication.getInstance().getSpSettingsUtil().setAllowMusicEnable(enable);
+        ThisApplication.getInstance().getSpSettingsUtil().setAllowMusicEnable(enable);
         if (enable) {
             if (position > 0) {
                 resumeMusic(0);

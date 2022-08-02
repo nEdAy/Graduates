@@ -2,10 +2,11 @@ package com.xpple.graduates.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.mainFragment.MainFragment;
 import com.xpple.graduates.view.BaseActivity;
 
@@ -38,21 +39,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        CustomApplication.destroyMusic();
-        CustomApplication.startMusic(0);
+        ThisApplication.destroyMusic();
+        ThisApplication.startMusic(0);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        CustomApplication.resumeMusic(0);
+        ThisApplication.resumeMusic(0);
     }
 
 
     @Override
     protected void onPause() {
         super.onPause();
-        CustomApplication.pauseMusic();
+        ThisApplication.pauseMusic();
     }
 
 //    @Override

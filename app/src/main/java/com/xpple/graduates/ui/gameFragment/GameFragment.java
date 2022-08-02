@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.MainActivity;
 import com.xpple.graduates.ui.OverActivity;
 import com.xpple.graduates.ui.StorylineActivity;
@@ -274,7 +274,7 @@ public class GameFragment extends BaseFragment implements
                 // 阅读专业书籍：能力+6，经验+7，快乐-2，金钱-200，时间-30
                 case "yd":
                     if (checkValue(30, 200)) {
-                        CustomApplication.playSound(R.raw.read);
+                        ThisApplication.playSound(R.raw.read);
                         showImageViewDialog(R.string.plan, R.string.plan_0, R.mipmap.rd);
                         setValue(0, -200, 6, 7, -2, 0, 0, -30);
                         mSharedScoreUtil.setYd(1);
@@ -311,7 +311,7 @@ public class GameFragment extends BaseFragment implements
                 // 博览其他书籍：能力+4，经验+5，快乐+2，金钱-100，时间-30
                 case "bl":
                     if (checkValue(30, 100)) {
-                        CustomApplication.playSound(R.raw.read);
+                        ThisApplication.playSound(R.raw.read);
                         showImageViewDialog(R.string.plan, R.string.plan_1, R.mipmap.bl);
                         setValue(0, -100, 4, 5, 2, 0, 0, -30);
                         mSharedScoreUtil.setBl(1);
@@ -348,7 +348,7 @@ public class GameFragment extends BaseFragment implements
                 // 同事疯狂派对：快乐+5，交际+6，经验+4，道德-2，健康-2，金钱-1000，时间-30
                 case "ts":
                     if (checkValue(30, 1000)) {
-                        CustomApplication.playSound(R.raw.bar);
+                        ThisApplication.playSound(R.raw.bar);
                         showImageViewDialog(R.string.plan, R.string.plan_2, R.mipmap.ts);
                         setValue(-2, -1000, 0, 4, 5, -2, 6, -30);
                         mSharedScoreUtil.setTs(1);
@@ -386,7 +386,7 @@ public class GameFragment extends BaseFragment implements
                 // 同学朋友聚会：快乐+3，交际+4 经验+2，金钱-600，时间-30
                 case "tx":
                     if (checkValue(30, 600)) {
-                        CustomApplication.playSound(R.raw.classmate);
+                        ThisApplication.playSound(R.raw.classmate);
                         showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx);
                         setValue(0, -600, 0, 2, 3, 0, 4, -30);
                         mSharedScoreUtil.setPy(1);
@@ -423,7 +423,7 @@ public class GameFragment extends BaseFragment implements
                 // 逛街购物吃饭：快乐+7，经验+2，金钱-1000，时间-30
                 case "gj":
                     if (checkValue(30, 1000)) {
-                        CustomApplication.playSound(R.raw.shopping);
+                        ThisApplication.playSound(R.raw.shopping);
                         showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj);
                         setValue(0, -1000, 0, 2, 7, 0, 0, -30);
                         // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
@@ -466,7 +466,7 @@ public class GameFragment extends BaseFragment implements
                 // 出门旅游度假：健康+4，能力+4，经验+4，快乐+10，交际+2，金钱-3000，时间-60
                 case "cm":
                     if (checkValue(60, 3000)) {
-                        CustomApplication.playSound(R.raw.tour);
+                        ThisApplication.playSound(R.raw.tour);
                         showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm);
                         setValue(4, -3000, 4, 4, 10, 0, 2, -60);
                         // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
@@ -509,7 +509,7 @@ public class GameFragment extends BaseFragment implements
                 // 参加学习培训：能力+20，经验+20，快乐-4，健康-2，金钱-2000，时间-60
                 case "cj":
                     if (checkValue(60, 2000)) {
-                        CustomApplication.playSound(R.raw.train);
+                        ThisApplication.playSound(R.raw.train);
                         showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj);
                         setValue(-2, -2000, 20, 20, -4, 0, 0, -60);
                         ////说明：首先满足条件——女友是昭君，
@@ -553,7 +553,7 @@ public class GameFragment extends BaseFragment implements
                 // 在家睡觉休息：健康+2，快乐+2，时间-20
                 case "zj":
                     if (checkValue(20, -5000000)) {
-                        CustomApplication.playSound(R.raw.sleep);
+                        ThisApplication.playSound(R.raw.sleep);
                         showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj);
                         setValue(2, 0, 0, 0, 2, 0, 0, -20);
                         mSharedScoreUtil.setZj(1);
@@ -590,7 +590,7 @@ public class GameFragment extends BaseFragment implements
                 // 加班或做兼职：能力+10，经验+10，快乐-8，健康-5，金钱+1500，时间-60
                 case "jb":
                     if (checkValue(60, -5000000)) {
-                        CustomApplication.playSound(R.raw.hammer);
+                        ThisApplication.playSound(R.raw.hammer);
                         showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb);
                         setValue(-5, 1500, 10, 10, -8, 0, 0, -60);
                         mSharedScoreUtil.setJb(1);
@@ -627,7 +627,7 @@ public class GameFragment extends BaseFragment implements
                 // 上网休闲娱乐：快乐+8，经验+2，交际-1，健康-2，金钱-100，时间-60
                 case "sw":
                     if (checkValue(60, -100)) {
-                        CustomApplication.playSound(R.raw.internet);
+                        ThisApplication.playSound(R.raw.internet);
                         showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw);
                         setValue(-2, -100, 0, 2, 8, 0, -1, -60);
                         mSharedScoreUtil.setSw(1);
@@ -664,7 +664,7 @@ public class GameFragment extends BaseFragment implements
                 // 体育健身运动：能力+3，健康+5，快乐+2，金钱-100，时间-30
                 case "ty":
                     if (checkValue(30, -100)) {
-                        CustomApplication.playSound(R.raw.exercise);
+                        ThisApplication.playSound(R.raw.exercise);
                         showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty);
                         setValue(5, -100, 3, 0, 2, 0, 0, -30);
                         mSharedScoreUtil.setTy(1);
@@ -701,7 +701,7 @@ public class GameFragment extends BaseFragment implements
                 // 回家看望父母：快乐+2，道德+2，健康+1，金钱-300，时间-30
                 case "hj":
                     if (checkValue(30, -300)) {
-                        CustomApplication.playSound(R.raw.parents);
+                        ThisApplication.playSound(R.raw.parents);
                         showImageViewDialog(R.string.plan, R.string.plan_11, R.mipmap.hj);
                         setValue(1, -300, 0, 0, 2, 2, 0, -30);
                         mSharedScoreUtil.setHj(1);
@@ -826,14 +826,14 @@ public class GameFragment extends BaseFragment implements
         switch (view.getId()) {
             case R.id.stock:
                 mSharedScoreUtil.setStock(true);
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
                                 StockFragment.newInstance()).addToBackStack(null).commit();
                 break;
             case R.id.position:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
@@ -841,28 +841,28 @@ public class GameFragment extends BaseFragment implements
                 break;
             case R.id.house:
                 mSharedScoreUtil.setHouse(true);
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
                                 HouseFragment.newInstance()).addToBackStack(null).commit();
                 break;
             case R.id.car:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
                                 CarFragment.newInstance()).addToBackStack(null).commit();
                 break;
             case R.id.partner:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
                                 PartnerFragment.newInstance()).addToBackStack(null).commit();
                 break;
             case R.id.lottery:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_game,
@@ -882,9 +882,9 @@ public class GameFragment extends BaseFragment implements
                 }
                 break;
             case R.id.btn_go_next_month:
-                CustomApplication.playSound(R.raw.next_month);
+                ThisApplication.playSound(R.raw.next_month);
                 if (mHappyValue < 0 || mMoralityValue < 0 || mHealthyValue < 0) {
-                    CustomApplication.playSound(R.raw.die);
+                    ThisApplication.playSound(R.raw.die);
                     toGameOver();
                 } else if (mMonthValue <= 0) {
                     toGameOver();
@@ -1978,7 +1978,7 @@ public class GameFragment extends BaseFragment implements
     }
 
     private void goSave() {
-        CustomApplication.playSound(R.raw.appreciation);
+        ThisApplication.playSound(R.raw.appreciation);
         mSharedSaveUtil.setSave(true);
         mSharedSaveUtil.setHealthy(mHealthyValue);
         mSharedSaveUtil.setMoney(mMoneyValue);
@@ -2037,7 +2037,7 @@ public class GameFragment extends BaseFragment implements
         if (mLoadValue.equals(0)) {
             showToast(R.string.load_times_run_out, false);
         } else {
-            CustomApplication.playSound(R.raw.appreciation);
+            ThisApplication.playSound(R.raw.appreciation);
             Integer load = mSharedScoreUtil.getLoad();
             mSharedScoreUtil.cleanSharedPreference();
             mSharedScoreUtil.setScore(true);

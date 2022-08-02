@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.GameActivity;
 import com.xpple.graduates.util.SpSaveUtil;
 import com.xpple.graduates.util.SpScoreUtil;
@@ -100,7 +100,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        CustomApplication.playSound(R.raw.button_0);
+        ThisApplication.playSound(R.raw.button_0);
         switch (view.getId()) {
             case R.id.btn_exit:
                 showExitDialog();

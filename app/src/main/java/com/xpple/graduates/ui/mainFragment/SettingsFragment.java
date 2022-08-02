@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpSettingsUtil;
 import com.xpple.graduates.util.StringUtils;
 import com.xpple.graduates.view.BaseFragment;
@@ -114,33 +114,33 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 .getInstance(getActivity());
         switch (v.getId()) {
             case R.id.rl_switch_music:
-                CustomApplication.playSound(R.raw.button_1);
+                ThisApplication.playSound(R.raw.button_1);
                 if (iv_open_music.getVisibility() == View.VISIBLE) {
                     iv_open_music.setVisibility(View.INVISIBLE);
                     iv_close_music.setVisibility(View.VISIBLE);
-                    CustomApplication.setAllowMusicEnable(false);
+                    ThisApplication.setAllowMusicEnable(false);
                 } else {
                     iv_open_music.setVisibility(View.VISIBLE);
                     iv_close_music.setVisibility(View.INVISIBLE);
-                    CustomApplication.setAllowMusicEnable(true);
+                    ThisApplication.setAllowMusicEnable(true);
                 }
                 onActivityCreated(null);
                 break;
             case R.id.rl_switch_sound:
-                CustomApplication.playSound(R.raw.button_1);
+                ThisApplication.playSound(R.raw.button_1);
                 if (iv_open_sound.getVisibility() == View.VISIBLE) {
                     iv_open_sound.setVisibility(View.INVISIBLE);
                     iv_close_sound.setVisibility(View.VISIBLE);
-                    CustomApplication.setAllowSoundEnable(false);
+                    ThisApplication.setAllowSoundEnable(false);
                 } else {
                     iv_open_sound.setVisibility(View.VISIBLE);
                     iv_close_sound.setVisibility(View.INVISIBLE);
-                    CustomApplication.setAllowSoundEnable(true);
+                    ThisApplication.setAllowSoundEnable(true);
                 }
                 onActivityCreated(null);
                 break;
             case R.id.rl_text_phone:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 dialogBuilder.withTitle("设置手机号")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_PHONE).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
@@ -156,7 +156,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                         }).show();
                 break;
             case R.id.rl_text_nick:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 dialogBuilder.withTitle("设置昵称")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
@@ -189,12 +189,12 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 onActivityCreated(null);
                 break;
             case R.id.btn_splash:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 mSharedSettingsUtil.cleanSharedPreference();
                 onActivityCreated(null);
                 break;
             case R.id.btn_abont:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_main,
@@ -202,7 +202,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                         .commit();
                 break;
             case R.id.btn_suggent:
-                CustomApplication.playSound(R.raw.button_0);
+                ThisApplication.playSound(R.raw.button_0);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_main,

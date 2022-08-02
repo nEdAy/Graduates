@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.StorylineActivity;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
@@ -463,7 +463,7 @@ public class HouseFragment extends BaseFragment implements View.OnClickListener 
     }
 
     private void onBuyOrSell(Integer house, Integer money, Integer income, Integer value, Integer monthly) {
-        CustomApplication.playSound(R.raw.money);
+        ThisApplication.playSound(R.raw.money);
         Integer mMoney = mSharedScoreUtil.getMoney();
         if (my_house.equals(house)) {
             mSharedScoreUtil.setHouse(0);

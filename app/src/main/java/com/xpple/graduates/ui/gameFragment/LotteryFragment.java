@@ -15,8 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 import com.xpple.graduates.view.FlakeView;
@@ -67,19 +67,19 @@ public class LotteryFragment extends BaseFragment {
             mSharedScoreUtil.setLottery(true);
             mSharedScoreUtil.setMoney(-100);
             if (n.equals(1)) {
-                CustomApplication.playSound(R.raw.lottery);
+                ThisApplication.playSound(R.raw.lottery);
                 showPopWindows(btn_lottery, "一等奖", "5000000");
 
             } else if (n.equals(11) || n.equals(12)) {
-                CustomApplication.playSound(R.raw.lottery);
+                ThisApplication.playSound(R.raw.lottery);
                 showPopWindows(btn_lottery, "二等奖", "500000");
 
             } else if (11 >= n && n <= 20) {
-                CustomApplication.playSound(R.raw.lottery);
+                ThisApplication.playSound(R.raw.lottery);
                 showPopWindows(btn_lottery, "三等奖", "50000");
 
             } else {
-                CustomApplication.playSound(R.raw.money);
+                ThisApplication.playSound(R.raw.money);
                 showToast("您本月没有中奖，欢迎下月再来~", false);
                 getActivity().getSupportFragmentManager().popBackStack();
             }

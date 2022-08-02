@@ -12,8 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.MainActivity;
 import com.xpple.graduates.util.SpSettingsUtil;
 import com.xpple.graduates.view.BaseFragment;
@@ -102,7 +102,7 @@ public class StartFragmentA extends BaseFragment {
     }
 
     private void nextStart() {
-        CustomApplication.playSound(R.raw.button_0);
+        ThisApplication.playSound(R.raw.button_0);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_game,

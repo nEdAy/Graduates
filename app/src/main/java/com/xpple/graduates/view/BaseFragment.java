@@ -19,8 +19,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.CommonUtil;
 
 /**
@@ -32,7 +32,7 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     private final static int TOAST_LAYOUT_ID_SUCCSESS = R.layout.toast_success;
     private final static int TOAST_ID_TEXTVIEW_SUCCSESS = R.id.toast_message;
     private final static int TOAST_ID_TEXTVIEW_FAIL = R.id.toast_fail_message;
-    protected CustomApplication mApplication;
+    protected ThisApplication mApplication;
     private Toast mToast;
 
     public BaseFragment() {
@@ -44,7 +44,7 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        mApplication = CustomApplication.getInstance();
+        mApplication = ThisApplication.getInstance();
     }
 
     @Override

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.view.BaseFragment;
 import com.xpple.graduates.view.NiftyDialogBuilder;
 
@@ -49,7 +49,7 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
     }
 
     private void nextStart() {
-        CustomApplication.playSound(R.raw.button_0);
+        ThisApplication.playSound(R.raw.button_0);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_game,

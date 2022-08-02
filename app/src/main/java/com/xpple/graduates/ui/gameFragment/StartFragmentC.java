@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
@@ -183,7 +183,7 @@ public class StartFragmentC extends BaseFragment {
     }
 
     private void startGame() {
-        CustomApplication.playSound(R.raw.button_0);
+        ThisApplication.playSound(R.raw.button_0);
         mSharedScoreUtil.setScore(true);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()

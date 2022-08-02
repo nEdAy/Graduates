@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
@@ -162,7 +162,7 @@ public class PositionFragment extends BaseFragment implements View.OnClickListen
     private void setValue(Integer value, Integer mMoneyValue, Integer mAbilityValue, Integer mExperienceValue,
                           Integer mHappyValue, Integer mCommunicationValue, Integer mPosition, Integer mIncome) {
         if (mSharedScoreUtil.getAbility() > value && mSharedScoreUtil.getExperience() > value) {
-            CustomApplication.playSound(R.raw.appreciation);
+            ThisApplication.playSound(R.raw.appreciation);
             mSharedScoreUtil.setMoney(mMoneyValue);
             mSharedScoreUtil.setAbility(mAbilityValue);
             mSharedScoreUtil.setExperience(mExperienceValue);

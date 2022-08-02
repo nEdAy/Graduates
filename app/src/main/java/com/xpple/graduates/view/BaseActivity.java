@@ -2,10 +2,11 @@ package com.xpple.graduates.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 import android.util.DisplayMetrics;
 
-import com.xpple.graduates.CustomApplication;
+import androidx.fragment.app.FragmentActivity;
+
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.CommonUtil;
 
 
@@ -16,13 +17,13 @@ import com.xpple.graduates.util.CommonUtil;
  */
 public class BaseActivity extends FragmentActivity {
 
-    protected CustomApplication mApplication;
+    protected ThisApplication mApplication;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mApplication = CustomApplication.getInstance();
+        mApplication = ThisApplication.getInstance();
         DisplayMetrics metric = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metric);
     }

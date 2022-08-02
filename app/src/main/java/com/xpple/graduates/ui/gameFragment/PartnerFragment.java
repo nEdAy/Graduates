@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 
@@ -144,7 +144,7 @@ public class PartnerFragment extends BaseFragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         mSharedScoreUtil.setMoney(-1000);
-        CustomApplication.playSound(R.raw.money);
+        ThisApplication.playSound(R.raw.money);
         mSharedScoreUtil.setPartner(true);
         switch (v.getId()) {
             case R.id.iv_partner:

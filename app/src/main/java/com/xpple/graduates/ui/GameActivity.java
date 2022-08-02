@@ -2,10 +2,11 @@ package com.xpple.graduates.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.gameFragment.GameFragment;
 import com.xpple.graduates.ui.gameFragment.StartFragmentA;
 import com.xpple.graduates.util.SpScoreUtil;
@@ -40,21 +41,21 @@ public class GameActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        CustomApplication.destroyMusic();
-        CustomApplication.startMusic(1);
+        ThisApplication.destroyMusic();
+        ThisApplication.startMusic(1);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        CustomApplication.resumeMusic(1);
+        ThisApplication.resumeMusic(1);
     }
 
 
     @Override
     protected void onPause() {
         super.onPause();
-        CustomApplication.pauseMusic();
+        ThisApplication.pauseMusic();
     }
 
     @Override

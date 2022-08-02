@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.util.SpScoreUtil;
 import com.xpple.graduates.view.BaseFragment;
 import com.xpple.graduates.view.NiftyDialogBuilder;
@@ -157,7 +157,7 @@ public class CarFragment extends BaseFragment implements View.OnClickListener {
     }
 
     private void onBuyOrSell(Integer car, Integer money, Integer income, Integer value, Integer monthly) {
-        CustomApplication.playSound(R.raw.money);
+        ThisApplication.playSound(R.raw.money);
         Integer mMoney = mSharedScoreUtil.getMoney();
         if (my_car.equals(car)) {
             mSharedScoreUtil.setCar(0);

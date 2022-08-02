@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentTransaction;
 
-import com.xpple.graduates.CustomApplication;
 import com.xpple.graduates.R;
+import com.xpple.graduates.ThisApplication;
 import com.xpple.graduates.ui.storyFragment.ShiniangFragment;
 import com.xpple.graduates.ui.storyFragment.XiaoyingFragment;
 import com.xpple.graduates.ui.storyFragment.ZhaojunFragment;
@@ -45,15 +45,15 @@ public class StorylineActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        CustomApplication.destroyMusic();
-        CustomApplication.startMusic(2);
+        ThisApplication.destroyMusic();
+        ThisApplication.startMusic(2);
 //        CustomApplication.startMusic(mPartnerStory + 2);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        CustomApplication.resumeMusic(2);
+        ThisApplication.resumeMusic(2);
 //        CustomApplication.resumeMusic(mPartnerStory + 2);
     }
 
@@ -61,7 +61,7 @@ public class StorylineActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        CustomApplication.pauseMusic();
+        ThisApplication.pauseMusic();
     }
 
     @Override
