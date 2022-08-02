@@ -88,16 +88,13 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         super.onResume();
         getView().setFocusableInTouchMode(true);
         getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    // 当back按下
-                    showExitDialog();
-                    return true;
-                }
-                return false;
+        getView().setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                // 当back按下
+                showExitDialog();
+                return true;
             }
+            return false;
         });
     }
 
@@ -164,18 +161,10 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         dialogBuilder.withTitle(R.string.exit_or_un)
                 .withMessage(R.string.exit_or_un_0).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.getDismiss();
-                    }
-                }).setButtonOk(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBuilder.closeDialog(dialogBuilder);
-                getActivity().finish();
-            }
-        }).show();
+                .setButtonCancleClick(v -> dialogBuilder.getDismiss()).setButtonOk(v -> {
+                    dialogBuilder.closeDialog(dialogBuilder);
+                    getActivity().finish();
+                }).show();
     }
 
     private void showReStartDialog() {
@@ -184,20 +173,12 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         dialogBuilder.withTitle(R.string.restart_or_un)
                 .withMessage(R.string.restart_or_un_0).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.getDismiss();
-                    }
-                }).setButtonOk(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBuilder.closeDialog(dialogBuilder);
-                mSharedScoreUtil.cleanSharedPreference();
-                mSharedSaveUtil.cleanSharedPreference();
-                startAnimActivity(GameActivity.class);
-                getActivity().finish();
-            }
-        }).show();
+                .setButtonCancleClick(v -> dialogBuilder.getDismiss()).setButtonOk(v -> {
+                    dialogBuilder.closeDialog(dialogBuilder);
+                    mSharedScoreUtil.cleanSharedPreference();
+                    mSharedSaveUtil.cleanSharedPreference();
+                    startAnimActivity(GameActivity.class);
+                    getActivity().finish();
+                }).show();
     }
 }

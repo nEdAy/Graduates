@@ -389,23 +389,16 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
             set.setStartDelay(i * 100);// 每个的子view的延迟时间
 
             final int pos = i;
-            childAt.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    if (menuItemClickListener != null)
-                        menuItemClickListener.onItem(v, pos);
-                    // 子view点击之后的效果
-                    childAnimator(pos);
-                }
+            childAt.setOnClickListener(v -> {
+                if (menuItemClickListener != null)
+                    menuItemClickListener.onItem(v, pos);
+                // 子view点击之后的效果
+                childAnimator(pos);
             });
-            childAt.setOnLongClickListener(new OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    if (menuItemLongClickListener != null)
-                        menuItemLongClickListener.onItem(v, pos);
-                    return false;
-                }
+            childAt.setOnLongClickListener(v -> {
+                if (menuItemLongClickListener != null)
+                    menuItemLongClickListener.onItem(v, pos);
+                return false;
             });
             // 执行动画
             set.start();

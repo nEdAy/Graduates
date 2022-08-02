@@ -174,13 +174,7 @@ public class GameFragment extends BaseFragment implements
         // 通过ImageView对象拿到背景显示的AnimationDrawable
         ImageView centerMenu = parentView.findViewById(R.id.centerMenu);
         mAnimation = (AnimationDrawable) centerMenu.getBackground();
-        centerMenu.post(new Runnable() {
-            @Override
-            public void run() {
-                mAnimation.start();
-
-            }
-        });
+        centerMenu.post(() -> mAnimation.start());
     }
 
     private void setListener() {
@@ -274,664 +268,514 @@ public class GameFragment extends BaseFragment implements
     }
 
     private void setSsItemChoose() {
-        solarSystem.setOnMenuItemClickListener(new SolarSystem.onMenuItemClickListener() {
-            @Override
-            public void onItem(View view, int position) {
-                String tag = (String) view.getTag();
-                switch (tag) {
-                    // 阅读专业书籍：能力+6，经验+7，快乐-2，金钱-200，时间-30
-                    case "yd":
-                        if (checkValue(30, 200)) {
-                            CustomApplication.playSound(R.raw.read);
-                            showImageViewDialog(R.string.plan, R.string.plan_0, R.mipmap.rd);
-                            setValue(0, -200, 6, 7, -2, 0, 0, -30);
-                            mSharedScoreUtil.setYd(1);
-                            if (mSharedScoreUtil.getYd().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_0,
-                                        R.string.opportunity_0_a,
-                                        R.string.opportunity_0_b,
-                                        R.string.opportunity_0_c,
-                                        R.string.opportunity_0_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+        solarSystem.setOnMenuItemClickListener((view, position) -> {
+            String tag = (String) view.getTag();
+            switch (tag) {
+                // 阅读专业书籍：能力+6，经验+7，快乐-2，金钱-200，时间-30
+                case "yd":
+                    if (checkValue(30, 200)) {
+                        CustomApplication.playSound(R.raw.read);
+                        showImageViewDialog(R.string.plan, R.string.plan_0, R.mipmap.rd);
+                        setValue(0, -200, 6, 7, -2, 0, 0, -30);
+                        mSharedScoreUtil.setYd(1);
+                        if (mSharedScoreUtil.getYd().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_0,
+                                    R.string.opportunity_0_a,
+                                    R.string.opportunity_0_b,
+                                    R.string.opportunity_0_c,
+                                    R.string.opportunity_0_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 博览其他书籍：能力+4，经验+5，快乐+2，金钱-100，时间-30
-                    case "bl":
-                        if (checkValue(30, 100)) {
-                            CustomApplication.playSound(R.raw.read);
-                            showImageViewDialog(R.string.plan, R.string.plan_1, R.mipmap.bl);
-                            setValue(0, -100, 4, 5, 2, 0, 0, -30);
-                            mSharedScoreUtil.setBl(1);
-                            if (mSharedScoreUtil.getBl().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_1,
-                                        R.string.opportunity_1_a,
-                                        R.string.opportunity_1_b,
-                                        R.string.opportunity_1_c,
-                                        R.string.opportunity_1_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 博览其他书籍：能力+4，经验+5，快乐+2，金钱-100，时间-30
+                case "bl":
+                    if (checkValue(30, 100)) {
+                        CustomApplication.playSound(R.raw.read);
+                        showImageViewDialog(R.string.plan, R.string.plan_1, R.mipmap.bl);
+                        setValue(0, -100, 4, 5, 2, 0, 0, -30);
+                        mSharedScoreUtil.setBl(1);
+                        if (mSharedScoreUtil.getBl().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_1,
+                                    R.string.opportunity_1_a,
+                                    R.string.opportunity_1_b,
+                                    R.string.opportunity_1_c,
+                                    R.string.opportunity_1_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 同事疯狂派对：快乐+5，交际+6，经验+4，道德-2，健康-2，金钱-1000，时间-30
-                    case "ts":
-                        if (checkValue(30, 1000)) {
-                            CustomApplication.playSound(R.raw.bar);
-                            showImageViewDialog(R.string.plan, R.string.plan_2, R.mipmap.ts);
-                            setValue(-2, -1000, 0, 4, 5, -2, 6, -30);
-                            mSharedScoreUtil.setTs(1);
-                            if (mSharedScoreUtil.getTs().equals(20)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_2,
-                                        R.string.opportunity_2_b,
-                                        R.string.opportunity_2_c,
-                                        R.string.opportunity_2_a,
-                                        R.string.opportunity_2_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
+                    }
+                    break;
+                // 同事疯狂派对：快乐+5，交际+6，经验+4，道德-2，健康-2，金钱-1000，时间-30
+                case "ts":
+                    if (checkValue(30, 1000)) {
+                        CustomApplication.playSound(R.raw.bar);
+                        showImageViewDialog(R.string.plan, R.string.plan_2, R.mipmap.ts);
+                        setValue(-2, -1000, 0, 4, 5, -2, 6, -30);
+                        mSharedScoreUtil.setTs(1);
+                        if (mSharedScoreUtil.getTs().equals(20)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_2,
+                                    R.string.opportunity_2_b,
+                                    R.string.opportunity_2_c,
+                                    R.string.opportunity_2_a,
+                                    R.string.opportunity_2_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
 
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 同学朋友聚会：快乐+3，交际+4 经验+2，金钱-600，时间-30
-                    case "tx":
-                        if (checkValue(30, 600)) {
-                            CustomApplication.playSound(R.raw.classmate);
-                            showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx);
-                            setValue(0, -600, 0, 2, 3, 0, 4, -30);
-                            mSharedScoreUtil.setPy(1);
-                            if (mSharedScoreUtil.getPy().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_3,
-                                        R.string.opportunity_3_a,
-                                        R.string.opportunity_3_d,
-                                        R.string.opportunity_3_c,
-                                        R.string.opportunity_3_b,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 同学朋友聚会：快乐+3，交际+4 经验+2，金钱-600，时间-30
+                case "tx":
+                    if (checkValue(30, 600)) {
+                        CustomApplication.playSound(R.raw.classmate);
+                        showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx);
+                        setValue(0, -600, 0, 2, 3, 0, 4, -30);
+                        mSharedScoreUtil.setPy(1);
+                        if (mSharedScoreUtil.getPy().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_3,
+                                    R.string.opportunity_3_a,
+                                    R.string.opportunity_3_d,
+                                    R.string.opportunity_3_c,
+                                    R.string.opportunity_3_b,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 逛街购物吃饭：快乐+7，经验+2，金钱-1000，时间-30
-                    case "gj":
-                        if (checkValue(30, 1000)) {
-                            CustomApplication.playSound(R.raw.shopping);
-                            showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj);
-                            setValue(0, -1000, 0, 2, 7, 0, 0, -30);
-                            // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
-                            if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(1)) {
-                                mSharedScoreUtil.setPartnerStory(2);
-                                startAnimActivity(StorylineActivity.class);
-                                getActivity().finish();
-                            }
-                            mSharedScoreUtil.setGj(1);
-                            if (mSharedScoreUtil.getGj().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_4,
-                                        R.string.opportunity_4_c,
-                                        R.string.opportunity_4_a,
-                                        R.string.opportunity_4_d,
-                                        R.string.opportunity_4_b,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 逛街购物吃饭：快乐+7，经验+2，金钱-1000，时间-30
+                case "gj":
+                    if (checkValue(30, 1000)) {
+                        CustomApplication.playSound(R.raw.shopping);
+                        showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj);
+                        setValue(0, -1000, 0, 2, 7, 0, 0, -30);
+                        // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
+                        if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(1)) {
+                            mSharedScoreUtil.setPartnerStory(2);
+                            startAnimActivity(StorylineActivity.class);
+                            getActivity().finish();
                         }
-                        break;
-                    // 出门旅游度假：健康+4，能力+4，经验+4，快乐+10，交际+2，金钱-3000，时间-60
-                    case "cm":
-                        if (checkValue(60, 3000)) {
-                            CustomApplication.playSound(R.raw.tour);
-                            showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm);
-                            setValue(4, -3000, 4, 4, 10, 0, 2, -60);
-                            // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
-                            if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(2)) {
-                                mSharedScoreUtil.setPartnerStory(2);
-                                startAnimActivity(StorylineActivity.class);
-                                getActivity().finish();
-                            }
-                            mSharedScoreUtil.setCm(1);
-                            if (mSharedScoreUtil.getCm().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_5,
-                                        R.string.opportunity_5_d,
-                                        R.string.opportunity_5_a,
-                                        R.string.opportunity_5_b,
-                                        R.string.opportunity_5_c,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        });
-                            }
+                        mSharedScoreUtil.setGj(1);
+                        if (mSharedScoreUtil.getGj().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_4,
+                                    R.string.opportunity_4_c,
+                                    R.string.opportunity_4_a,
+                                    R.string.opportunity_4_d,
+                                    R.string.opportunity_4_b,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 参加学习培训：能力+20，经验+20，快乐-4，健康-2，金钱-2000，时间-60
-                    case "cj":
-                        if (checkValue(60, 2000)) {
-                            CustomApplication.playSound(R.raw.train);
-                            showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj);
-                            setValue(-2, -2000, 20, 20, -4, 0, 0, -60);
-                            ////说明：首先满足条件——女友是昭君，
-                            // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
-                            if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(0)) {
-                                mSharedScoreUtil.setPartnerStory(1);
-                                startAnimActivity(StorylineActivity.class);
-                                getActivity().finish();
-                            }
-                            mSharedScoreUtil.setCj(1);
-                            if (mSharedScoreUtil.getCj().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_6,
-                                        R.string.opportunity_6_c,
-                                        R.string.opportunity_6_b,
-                                        R.string.opportunity_6_a,
-                                        R.string.opportunity_6_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 出门旅游度假：健康+4，能力+4，经验+4，快乐+10，交际+2，金钱-3000，时间-60
+                case "cm":
+                    if (checkValue(60, 3000)) {
+                        CustomApplication.playSound(R.raw.tour);
+                        showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm);
+                        setValue(4, -3000, 4, 4, 10, 0, 2, -60);
+                        // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
+                        if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(2)) {
+                            mSharedScoreUtil.setPartnerStory(2);
+                            startAnimActivity(StorylineActivity.class);
+                            getActivity().finish();
                         }
-                        break;
-                    // 在家睡觉休息：健康+2，快乐+2，时间-20
-                    case "zj":
-                        if (checkValue(20, -5000000)) {
-                            CustomApplication.playSound(R.raw.sleep);
-                            showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj);
-                            setValue(2, 0, 0, 0, 2, 0, 0, -20);
-                            mSharedScoreUtil.setZj(1);
-                            if (mSharedScoreUtil.getZj().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_7,
-                                        R.string.opportunity_7_a,
-                                        R.string.opportunity_7_c,
-                                        R.string.opportunity_7_b,
-                                        R.string.opportunity_7_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                        mSharedScoreUtil.setCm(1);
+                        if (mSharedScoreUtil.getCm().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_5,
+                                    R.string.opportunity_5_d,
+                                    R.string.opportunity_5_a,
+                                    R.string.opportunity_5_b,
+                                    R.string.opportunity_5_c,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    });
                         }
-                        break;
-                    // 加班或做兼职：能力+10，经验+10，快乐-8，健康-5，金钱+1500，时间-60
-                    case "jb":
-                        if (checkValue(60, -5000000)) {
-                            CustomApplication.playSound(R.raw.hammer);
-                            showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb);
-                            setValue(-5, 1500, 10, 10, -8, 0, 0, -60);
-                            mSharedScoreUtil.setJb(1);
-                            if (mSharedScoreUtil.getJb().equals(20)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_8,
-                                        R.string.opportunity_8_d,
-                                        R.string.opportunity_8_b,
-                                        R.string.opportunity_8_c,
-                                        R.string.opportunity_8_a,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 参加学习培训：能力+20，经验+20，快乐-4，健康-2，金钱-2000，时间-60
+                case "cj":
+                    if (checkValue(60, 2000)) {
+                        CustomApplication.playSound(R.raw.train);
+                        showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj);
+                        setValue(-2, -2000, 20, 20, -4, 0, 0, -60);
+                        ////说明：首先满足条件——女友是昭君，
+                        // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
+                        if (mPartnerValue.equals(3) && mSharedScoreUtil.getPartnerZj().equals(0)) {
+                            mSharedScoreUtil.setPartnerStory(1);
+                            startAnimActivity(StorylineActivity.class);
+                            getActivity().finish();
                         }
-                        break;
-                    // 上网休闲娱乐：快乐+8，经验+2，交际-1，健康-2，金钱-100，时间-60
-                    case "sw":
-                        if (checkValue(60, -100)) {
-                            CustomApplication.playSound(R.raw.internet);
-                            showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw);
-                            setValue(-2, -100, 0, 2, 8, 0, -1, -60);
-                            mSharedScoreUtil.setSw(1);
-                            if (mSharedScoreUtil.getSw().equals(20)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_9,
-                                        R.string.opportunity_9_b,
-                                        R.string.opportunity_9_a,
-                                        R.string.opportunity_9_d,
-                                        R.string.opportunity_9_c,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        });
-                            }
+                        mSharedScoreUtil.setCj(1);
+                        if (mSharedScoreUtil.getCj().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_6,
+                                    R.string.opportunity_6_c,
+                                    R.string.opportunity_6_b,
+                                    R.string.opportunity_6_a,
+                                    R.string.opportunity_6_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 体育健身运动：能力+3，健康+5，快乐+2，金钱-100，时间-30
-                    case "ty":
-                        if (checkValue(30, -100)) {
-                            CustomApplication.playSound(R.raw.exercise);
-                            showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty);
-                            setValue(5, -100, 3, 0, 2, 0, 0, -30);
-                            mSharedScoreUtil.setTy(1);
-                            if (mSharedScoreUtil.getTy().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_10,
-                                        R.string.opportunity_10_d,
-                                        R.string.opportunity_10_c,
-                                        R.string.opportunity_10_a,
-                                        R.string.opportunity_10_b,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 在家睡觉休息：健康+2，快乐+2，时间-20
+                case "zj":
+                    if (checkValue(20, -5000000)) {
+                        CustomApplication.playSound(R.raw.sleep);
+                        showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj);
+                        setValue(2, 0, 0, 0, 2, 0, 0, -20);
+                        mSharedScoreUtil.setZj(1);
+                        if (mSharedScoreUtil.getZj().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_7,
+                                    R.string.opportunity_7_a,
+                                    R.string.opportunity_7_c,
+                                    R.string.opportunity_7_b,
+                                    R.string.opportunity_7_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                    // 回家看望父母：快乐+2，道德+2，健康+1，金钱-300，时间-30
-                    case "hj":
-                        if (checkValue(30, -300)) {
-                            CustomApplication.playSound(R.raw.parents);
-                            showImageViewDialog(R.string.plan, R.string.plan_11, R.mipmap.hj);
-                            setValue(1, -300, 0, 0, 2, 2, 0, -30);
-                            mSharedScoreUtil.setHj(1);
-                            if (mSharedScoreUtil.getHj().equals(30)) {
-                                showRgChooseViewDialog(R.string.opportunity,
-                                        R.string.opportunity_11,
-                                        R.string.opportunity_11_a,
-                                        R.string.opportunity_11_b,
-                                        R.string.opportunity_11_c,
-                                        R.string.opportunity_11_d,
-                                        new Rb_a_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.both_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_b_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.love_add, true);
-                                                mSharedScoreUtil.setLove(1);
-                                                onActivityCreated(null);
-                                            }
-                                        }, new Rb_c_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.no_add, true);
-                                            }
-                                        }, new Rb_d_onClickListener() {
-                                            @Override
-                                            public void onClick() {
-                                                // TODO Auto-generated method stub
-                                                showToast(R.string.career_add, true);
-                                                mSharedScoreUtil.setCareer(1);
-                                                onActivityCreated(null);
-                                            }
-                                        });
-                            }
+                    }
+                    break;
+                // 加班或做兼职：能力+10，经验+10，快乐-8，健康-5，金钱+1500，时间-60
+                case "jb":
+                    if (checkValue(60, -5000000)) {
+                        CustomApplication.playSound(R.raw.hammer);
+                        showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb);
+                        setValue(-5, 1500, 10, 10, -8, 0, 0, -60);
+                        mSharedScoreUtil.setJb(1);
+                        if (mSharedScoreUtil.getJb().equals(20)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_8,
+                                    R.string.opportunity_8_d,
+                                    R.string.opportunity_8_b,
+                                    R.string.opportunity_8_c,
+                                    R.string.opportunity_8_a,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
                         }
-                        break;
-                }
+                    }
+                    break;
+                // 上网休闲娱乐：快乐+8，经验+2，交际-1，健康-2，金钱-100，时间-60
+                case "sw":
+                    if (checkValue(60, -100)) {
+                        CustomApplication.playSound(R.raw.internet);
+                        showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw);
+                        setValue(-2, -100, 0, 2, 8, 0, -1, -60);
+                        mSharedScoreUtil.setSw(1);
+                        if (mSharedScoreUtil.getSw().equals(20)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_9,
+                                    R.string.opportunity_9_b,
+                                    R.string.opportunity_9_a,
+                                    R.string.opportunity_9_d,
+                                    R.string.opportunity_9_c,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    });
+                        }
+                    }
+                    break;
+                // 体育健身运动：能力+3，健康+5，快乐+2，金钱-100，时间-30
+                case "ty":
+                    if (checkValue(30, -100)) {
+                        CustomApplication.playSound(R.raw.exercise);
+                        showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty);
+                        setValue(5, -100, 3, 0, 2, 0, 0, -30);
+                        mSharedScoreUtil.setTy(1);
+                        if (mSharedScoreUtil.getTy().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_10,
+                                    R.string.opportunity_10_d,
+                                    R.string.opportunity_10_c,
+                                    R.string.opportunity_10_a,
+                                    R.string.opportunity_10_b,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    });
+                        }
+                    }
+                    break;
+                // 回家看望父母：快乐+2，道德+2，健康+1，金钱-300，时间-30
+                case "hj":
+                    if (checkValue(30, -300)) {
+                        CustomApplication.playSound(R.raw.parents);
+                        showImageViewDialog(R.string.plan, R.string.plan_11, R.mipmap.hj);
+                        setValue(1, -300, 0, 0, 2, 2, 0, -30);
+                        mSharedScoreUtil.setHj(1);
+                        if (mSharedScoreUtil.getHj().equals(30)) {
+                            showRgChooseViewDialog(R.string.opportunity,
+                                    R.string.opportunity_11,
+                                    R.string.opportunity_11_a,
+                                    R.string.opportunity_11_b,
+                                    R.string.opportunity_11_c,
+                                    R.string.opportunity_11_d,
+                                    () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.both_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.love_add, true);
+                                        mSharedScoreUtil.setLove(1);
+                                        onActivityCreated(null);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.no_add, true);
+                                    }, () -> {
+                                        // TODO Auto-generated method stub
+                                        showToast(R.string.career_add, true);
+                                        mSharedScoreUtil.setCareer(1);
+                                        onActivityCreated(null);
+                                    });
+                        }
+                    }
+                    break;
             }
         });
-        solarSystem.setOnMenuItemLongClickListener(new SolarSystem.onMenuItemLongClickListener() {
-            @Override
-            public void onItem(View view, int position) {
-                String tag = (String) view.getTag();
-                switch (tag) {
-                    case "yd":
-                        showToast(R.string.plan_time_0, true);
-                        break;
-                    case "bl":
-                        showToast(R.string.plan_time_1, true);
-                        break;
-                    case "ts":
-                        showToast(R.string.plan_time_2, true);
-                        break;
-                    case "tx":
-                        showToast(R.string.plan_time_3, true);
-                        break;
-                    case "gj":
-                        showToast(R.string.plan_time_4, true);
-                        break;
-                    case "cm":
-                        showToast(R.string.plan_time_5, true);
-                        break;
-                    case "cj":
-                        showToast(R.string.plan_time_6, true);
-                        break;
-                    case "zj":
-                        showToast(R.string.plan_time_7, true);
-                        break;
-                    case "jb":
-                        showToast(R.string.plan_time_8, true);
-                        break;
-                    case "sw":
-                        showToast(R.string.plan_time_9, true);
-                        break;
-                    case "ty":
-                        showToast(R.string.plan_time_10, true);
-                        break;
-                    case "hj":
-                        showToast(R.string.plan_time_11, true);
-                        break;
-                }
+        solarSystem.setOnMenuItemLongClickListener((view, position) -> {
+            String tag = (String) view.getTag();
+            switch (tag) {
+                case "yd":
+                    showToast(R.string.plan_time_0, true);
+                    break;
+                case "bl":
+                    showToast(R.string.plan_time_1, true);
+                    break;
+                case "ts":
+                    showToast(R.string.plan_time_2, true);
+                    break;
+                case "tx":
+                    showToast(R.string.plan_time_3, true);
+                    break;
+                case "gj":
+                    showToast(R.string.plan_time_4, true);
+                    break;
+                case "cm":
+                    showToast(R.string.plan_time_5, true);
+                    break;
+                case "cj":
+                    showToast(R.string.plan_time_6, true);
+                    break;
+                case "zj":
+                    showToast(R.string.plan_time_7, true);
+                    break;
+                case "jb":
+                    showToast(R.string.plan_time_8, true);
+                    break;
+                case "sw":
+                    showToast(R.string.plan_time_9, true);
+                    break;
+                case "ty":
+                    showToast(R.string.plan_time_10, true);
+                    break;
+                case "hj":
+                    showToast(R.string.plan_time_11, true);
+                    break;
             }
         });
     }
@@ -954,16 +798,13 @@ public class GameFragment extends BaseFragment implements
         super.onResume();
         getView().setFocusableInTouchMode(true);
         getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    // 屏蔽back
-                    showReturnDialog();
-                    return true;
-                }
-                return false;
+        getView().setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                // 屏蔽back
+                showReturnDialog();
+                return true;
             }
+            return false;
         });
     }
 
@@ -1123,1103 +964,947 @@ public class GameFragment extends BaseFragment implements
         final Integer t = random_t.nextInt(2); //0~1
         switch (s) {
             case 0:
-                showImageChooseViewDialog(R.string.event_0, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_0_a);
-                            showToast("快乐-3，道德-10", false);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setMorality(-10);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_0_b);
-                            showToast("快乐-5，道德-15", false);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setMorality(-15);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_0, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_0_a);
+                        showToast("快乐-3，道德-10", false);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setMorality(-10);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_0_b);
+                        showToast("快乐-5，道德-15", false);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setMorality(-15);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_0_c);
-                            showToast("金钱-800，快乐+5，道德+10", true);
-                            mSharedScoreUtil.setMoney(-800);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setMorality(+10);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_0_d);
-                            showToast("金钱-500，快乐+3，道德+5", true);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setMorality(+5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_0_c);
+                        showToast("金钱-800，快乐+5，道德+10", true);
+                        mSharedScoreUtil.setMoney(-800);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setMorality(+10);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_0_d);
+                        showToast("金钱-500，快乐+3，道德+5", true);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setMorality(+5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 1:
-                showImageChooseViewDialog(R.string.event_1, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_1_a);
-                            showToast("金钱+1000 快乐+3 交际+3", true);
-                            mSharedScoreUtil.setMoney(+1000);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setCommunication(+3);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_1_b);
-                            showToast("金钱-2000 快乐-3", false);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setMoney(-2000);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_1, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_1_a);
+                        showToast("金钱+1000 快乐+3 交际+3", true);
+                        mSharedScoreUtil.setMoney(+1000);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setCommunication(+3);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_1_b);
+                        showToast("金钱-2000 快乐-3", false);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setMoney(-2000);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_1_c);
-                            showToast("金钱-3000,快乐-5", false);
-                            mSharedScoreUtil.setMoney(-3000);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_1_d);
-                            showToast("金钱+5000 快乐+5 经验+10", true);
-                            mSharedScoreUtil.setMoney(+5000);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setExperience(+10);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_1_c);
+                        showToast("金钱-3000,快乐-5", false);
+                        mSharedScoreUtil.setMoney(-3000);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_1_d);
+                        showToast("金钱+5000 快乐+5 经验+10", true);
+                        mSharedScoreUtil.setMoney(+5000);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setExperience(+10);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 2:
-                showImageChooseViewDialog(R.string.event_2, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_2_a);
-                            showToast("金钱-2000 快乐-5 健康-10", false);
-                            mSharedScoreUtil.setMoney(-2000);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setHealthy(-10);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_2_b);
-                            showToast("快乐+3，经验+5，能力+5，道德+10，交际+5", true);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setAbility(+5);
-                            mSharedScoreUtil.setMorality(+10);
-                            mSharedScoreUtil.setCommunication(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_2, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_2_a);
+                        showToast("金钱-2000 快乐-5 健康-10", false);
+                        mSharedScoreUtil.setMoney(-2000);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setHealthy(-10);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_2_b);
+                        showToast("快乐+3，经验+5，能力+5，道德+10，交际+5", true);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setAbility(+5);
+                        mSharedScoreUtil.setMorality(+10);
+                        mSharedScoreUtil.setCommunication(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_2_c);
-                            showToast("金钱+100000，经验+10，能力+10，快乐-5，道德-20", false);
-                            mSharedScoreUtil.setMoney(+10000);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(+10);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setMorality(-20);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_2_d);
-                            showToast("金钱-30000，经验+10，能力-10，健康-10，快乐-10，道德-20", false);
-                            mSharedScoreUtil.setMoney(-30000);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(-10);
-                            mSharedScoreUtil.setHealthy(-10);
-                            mSharedScoreUtil.setHappy(-10);
-                            mSharedScoreUtil.setMorality(-20);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_2_c);
+                        showToast("金钱+100000，经验+10，能力+10，快乐-5，道德-20", false);
+                        mSharedScoreUtil.setMoney(+10000);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(+10);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setMorality(-20);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_2_d);
+                        showToast("金钱-30000，经验+10，能力-10，健康-10，快乐-10，道德-20", false);
+                        mSharedScoreUtil.setMoney(-30000);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(-10);
+                        mSharedScoreUtil.setHealthy(-10);
+                        mSharedScoreUtil.setHappy(-10);
+                        mSharedScoreUtil.setMorality(-20);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 3:
-                showImageChooseViewDialog(R.string.event_3, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_3_a);
-                            showToast("快乐-3 经验+5", false);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_3_b);
-                            showToast("金钱-30%，快乐-10，经验+10，能力+10", false);
-                            mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.3));
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setHappy(-10);
-                            mSharedScoreUtil.setAbility(+10);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_3, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_3_a);
+                        showToast("快乐-3 经验+5", false);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_3_b);
+                        showToast("金钱-30%，快乐-10，经验+10，能力+10", false);
+                        mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.3));
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setHappy(-10);
+                        mSharedScoreUtil.setAbility(+10);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_3_c);
-                            showToast("经验+8", true);
-                            mSharedScoreUtil.setExperience(+8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_3_d);
-                            showToast("金钱+30%，快乐+10，经验+10，能力+10", true);
-                            mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.3));
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(+10);
-                            mSharedScoreUtil.setHappy(+10);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_3_c);
+                        showToast("经验+8", true);
+                        mSharedScoreUtil.setExperience(+8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_3_d);
+                        showToast("金钱+30%，快乐+10，经验+10，能力+10", true);
+                        mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.3));
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(+10);
+                        mSharedScoreUtil.setHappy(+10);
+                        onActivityCreated(null);
                     }
                 });
 
                 break;
             case 4:
-                showImageChooseViewDialog(R.string.event_4, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_4_a);
-                            showToast("快乐+8", true);
-                            mSharedScoreUtil.setHappy(+8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_4_b);
-                            showToast("快乐+5", true);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_4, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_4_a);
+                        showToast("快乐+8", true);
+                        mSharedScoreUtil.setHappy(+8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_4_b);
+                        showToast("快乐+5", true);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_4_c);
-                            showToast("金钱-3000 快乐-2", false);
-                            mSharedScoreUtil.setMoney(-3000);
-                            mSharedScoreUtil.setHappy(-2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_4_d);
-                            showToast("金钱-1000，快乐-3", false);
-                            mSharedScoreUtil.setMoney(-1000);
-                            mSharedScoreUtil.setHappy(-3);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_4_c);
+                        showToast("金钱-3000 快乐-2", false);
+                        mSharedScoreUtil.setMoney(-3000);
+                        mSharedScoreUtil.setHappy(-2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_4_d);
+                        showToast("金钱-1000，快乐-3", false);
+                        mSharedScoreUtil.setMoney(-1000);
+                        mSharedScoreUtil.setHappy(-3);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 5:
-                showImageChooseViewDialog(R.string.event_5, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_5_a);
-                            showToast("金钱-500，快乐-3，经验+5", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_5_b);
-                            showToast("金钱-500，快乐+3，交际+5，经验+10", true);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setCommunication(+5);
-                            mSharedScoreUtil.setExperience(+10);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_5, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_5_a);
+                        showToast("金钱-500，快乐-3，经验+5", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_5_b);
+                        showToast("金钱-500，快乐+3，交际+5，经验+10", true);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setCommunication(+5);
+                        mSharedScoreUtil.setExperience(+10);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_5_c);
-                            showToast("金钱-500，快乐-5，健康-5，交际+2，经验+5", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setHealthy(-5);
-                            mSharedScoreUtil.setCommunication(+2);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_5_d);
-                            showToast("金钱-300，快乐-5，健康-5", false);
-                            mSharedScoreUtil.setMoney(-300);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setHealthy(-5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_5_c);
+                        showToast("金钱-500，快乐-5，健康-5，交际+2，经验+5", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setHealthy(-5);
+                        mSharedScoreUtil.setCommunication(+2);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_5_d);
+                        showToast("金钱-300，快乐-5，健康-5", false);
+                        mSharedScoreUtil.setMoney(-300);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setHealthy(-5);
+                        onActivityCreated(null);
                     }
                 });
 
                 break;
             case 6:
-                showImageChooseViewDialog(R.string.event_6, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_6_a);
-                            showToast("能力+3，经验+3，交际-3，快乐-5", false);
-                            mSharedScoreUtil.setAbility(+3);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setCommunication(-3);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_6_b);
+                showImageChooseViewDialog(R.string.event_6, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_6_a);
+                        showToast("能力+3，经验+3，交际-3，快乐-5", false);
+                        mSharedScoreUtil.setAbility(+3);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setCommunication(-3);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_6_b);
 
-                            showToast("能力+8，经验+8，交际+5，快乐+3", true);
-                            mSharedScoreUtil.setAbility(+8);
-                            mSharedScoreUtil.setExperience(+8);
-                            mSharedScoreUtil.setCommunication(+5);
-                            mSharedScoreUtil.setHappy(+3);
-                            onActivityCreated(null);
-                        }
+                        showToast("能力+8，经验+8，交际+5，快乐+3", true);
+                        mSharedScoreUtil.setAbility(+8);
+                        mSharedScoreUtil.setExperience(+8);
+                        mSharedScoreUtil.setCommunication(+5);
+                        mSharedScoreUtil.setHappy(+3);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_6_c);
-                            showToast("能力+3，经验+3，交际-3，快乐-5", false);
-                            mSharedScoreUtil.setAbility(+3);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setCommunication(-3);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_6_d);
-                            showToast("能力+10，经验+10，交际+8，快乐+8", true);
-                            mSharedScoreUtil.setAbility(+10);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setCommunication(+8);
-                            mSharedScoreUtil.setHappy(+8);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_6_c);
+                        showToast("能力+3，经验+3，交际-3，快乐-5", false);
+                        mSharedScoreUtil.setAbility(+3);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setCommunication(-3);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_6_d);
+                        showToast("能力+10，经验+10，交际+8，快乐+8", true);
+                        mSharedScoreUtil.setAbility(+10);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setCommunication(+8);
+                        mSharedScoreUtil.setHappy(+8);
+                        onActivityCreated(null);
                     }
                 });
 
                 break;
             case 7:
-                showImageChooseViewDialog(R.string.event_7, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_7_a);
-                            showToast("快乐+3 健康+2 经验+5", true);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setHealthy(+2);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_7_b);
+                showImageChooseViewDialog(R.string.event_7, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_7_a);
+                        showToast("快乐+3 健康+2 经验+5", true);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setHealthy(+2);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_7_b);
 
-                            showToast("快乐-10 健康-10", false);
-                            mSharedScoreUtil.setHappy(-10);
-                            mSharedScoreUtil.setHealthy(-10);
-                            onActivityCreated(null);
-                        }
+                        showToast("快乐-10 健康-10", false);
+                        mSharedScoreUtil.setHappy(-10);
+                        mSharedScoreUtil.setHealthy(-10);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_7_c);
-                            showToast("金钱-500 快乐+5 健康+5", false);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHealthy(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_7_d);
-                            showToast("金钱-500 快乐-5 健康-5", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setHealthy(-5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_7_c);
+                        showToast("金钱-500 快乐+5 健康+5", false);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHealthy(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_7_d);
+                        showToast("金钱-500 快乐-5 健康-5", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setHealthy(-5);
+                        onActivityCreated(null);
                     }
                 });
 
                 break;
             case 8:
-                showImageChooseViewDialog(R.string.event_8, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_8_a);
-                            showToast("快乐+5，经验+5", true);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_8_b);
+                showImageChooseViewDialog(R.string.event_8, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_8_a);
+                        showToast("快乐+5，经验+5", true);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_8_b);
 
-                            showToast("经验+3 快乐-5", false);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        }
+                        showToast("经验+3 快乐-5", false);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_8_c);
-                            showToast("金钱-40%，快乐-20，经验+5，能力+5", false);
-                            mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.4));
-                            mSharedScoreUtil.setHappy(-20);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setAbility(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_8_d);
-                            showToast("金钱+30%，快乐+20 经验+10 能力+10", true);
-                            mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.3));
-                            mSharedScoreUtil.setHappy(+20);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(+10);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_8_c);
+                        showToast("金钱-40%，快乐-20，经验+5，能力+5", false);
+                        mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.4));
+                        mSharedScoreUtil.setHappy(-20);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setAbility(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_8_d);
+                        showToast("金钱+30%，快乐+20 经验+10 能力+10", true);
+                        mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.3));
+                        mSharedScoreUtil.setHappy(+20);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(+10);
+                        onActivityCreated(null);
                     }
                 });
 
                 break;
             case 9:
-                showImageChooseViewDialog(R.string.event_9, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_9_a);
-                            showToast("快乐+5，交际+5，道德+8", true);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setCommunication(+5);
-                            mSharedScoreUtil.setMorality(+8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_9_b);
-                            showToast("经验+5，快乐+1，道德+5", true);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setHappy(+1);
-                            mSharedScoreUtil.setMorality(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_9, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_9_a);
+                        showToast("快乐+5，交际+5，道德+8", true);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setCommunication(+5);
+                        mSharedScoreUtil.setMorality(+8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_9_b);
+                        showToast("经验+5，快乐+1，道德+5", true);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setHappy(+1);
+                        mSharedScoreUtil.setMorality(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_9_c);
-                            showToast("金钱+12500，快乐+8，道德-10", true);
-                            mSharedScoreUtil.setMoney(+12500);
-                            mSharedScoreUtil.setHappy(+8);
-                            mSharedScoreUtil.setMorality(-10);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_9_d);
-                            showToast("金钱-500，快乐-5，道德-7", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setMorality(-7);
-                            onActivityCreated(null);
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_9_c);
+                        showToast("金钱+12500，快乐+8，道德-10", true);
+                        mSharedScoreUtil.setMoney(+12500);
+                        mSharedScoreUtil.setHappy(+8);
+                        mSharedScoreUtil.setMorality(-10);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_9_d);
+                        showToast("金钱-500，快乐-5，道德-7", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setMorality(-7);
+                        onActivityCreated(null);
 
-                        }
                     }
                 });
                 break;
             case 10:
-                showImageChooseViewDialog(R.string.event_10, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_10_a);
-                            showToast("快乐+5，经验+5", true);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_10_b);
+                showImageChooseViewDialog(R.string.event_10, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_10_a);
+                        showToast("快乐+5，经验+5", true);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_10_b);
 
-                            showToast("快乐+3 经验+3", true);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setExperience(+3);
-                            onActivityCreated(null);
-                        }
+                        showToast("快乐+3 经验+3", true);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setExperience(+3);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_10_c);
-                            showToast("金钱-10000，快乐-8，经验+5", false);
-                            mSharedScoreUtil.setMoney(-10000);
-                            mSharedScoreUtil.setHappy(-8);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_10_d);
-                            showToast("金钱-12000，快乐-10，经验+5", false);
-                            mSharedScoreUtil.setMoney(-12000);
-                            mSharedScoreUtil.setHappy(+10);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_10_c);
+                        showToast("金钱-10000，快乐-8，经验+5", false);
+                        mSharedScoreUtil.setMoney(-10000);
+                        mSharedScoreUtil.setHappy(-8);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_10_d);
+                        showToast("金钱-12000，快乐-10，经验+5", false);
+                        mSharedScoreUtil.setMoney(-12000);
+                        mSharedScoreUtil.setHappy(+10);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 11:
-                showImageChooseViewDialog(R.string.event_11, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_11_a);
-                            showToast("金钱-1000 健康-10 快乐-10 道德-5", false);
-                            mSharedScoreUtil.setMoney(-1000);
-                            mSharedScoreUtil.setHappy(+10);
-                            mSharedScoreUtil.setHealthy(-10);
-                            mSharedScoreUtil.setMorality(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_11_b);
-                            showToast("道德-10，快乐-10", false);
-                            mSharedScoreUtil.setHappy(-10);
-                            mSharedScoreUtil.setMorality(-10);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_11, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_11_a);
+                        showToast("金钱-1000 健康-10 快乐-10 道德-5", false);
+                        mSharedScoreUtil.setMoney(-1000);
+                        mSharedScoreUtil.setHappy(+10);
+                        mSharedScoreUtil.setHealthy(-10);
+                        mSharedScoreUtil.setMorality(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_11_b);
+                        showToast("道德-10，快乐-10", false);
+                        mSharedScoreUtil.setHappy(-10);
+                        mSharedScoreUtil.setMorality(-10);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_11_c);
-                            showToast("道德+10，金钱-5000", true);
-                            mSharedScoreUtil.setMoney(-5000);
-                            mSharedScoreUtil.setMorality(+10);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_11_d);
-                            showToast("道德+15，金钱-13200", true);
-                            mSharedScoreUtil.setMoney(+13200);
-                            mSharedScoreUtil.setMorality(+15);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_11_c);
+                        showToast("道德+10，金钱-5000", true);
+                        mSharedScoreUtil.setMoney(-5000);
+                        mSharedScoreUtil.setMorality(+10);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_11_d);
+                        showToast("道德+15，金钱-13200", true);
+                        mSharedScoreUtil.setMoney(+13200);
+                        mSharedScoreUtil.setMorality(+15);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 12:
-                showImageChooseViewDialog(R.string.event_12, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_12_a);
-                            showToast("快乐-3，道德-5", false);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setMorality(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_12_b);
-                            showToast("快乐-5，道德-3", false);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setMorality(-3);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_12, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_12_a);
+                        showToast("快乐-3，道德-5", false);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setMorality(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_12_b);
+                        showToast("快乐-5，道德-3", false);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setMorality(-3);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_12_c);
-                            showToast("金钱-800，快乐+2，道德+5", true);
-                            mSharedScoreUtil.setMoney(-800);
-                            mSharedScoreUtil.setHappy(+2);
-                            mSharedScoreUtil.setMorality(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_12_d);
-                            showToast("金钱-500，快乐+3，道德+3", true);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setMorality(+3);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_12_c);
+                        showToast("金钱-800，快乐+2，道德+5", true);
+                        mSharedScoreUtil.setMoney(-800);
+                        mSharedScoreUtil.setHappy(+2);
+                        mSharedScoreUtil.setMorality(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_12_d);
+                        showToast("金钱-500，快乐+3，道德+3", true);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setMorality(+3);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 13:
-                showImageChooseViewDialog(R.string.event_13, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_13_a);
-                            showToast("道德-8", false);
-                            mSharedScoreUtil.setMorality(-8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_13_b);
+                showImageChooseViewDialog(R.string.event_13, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_13_a);
+                        showToast("道德-8", false);
+                        mSharedScoreUtil.setMorality(-8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_13_b);
 
-                            showToast("道德-5", false);
-                            mSharedScoreUtil.setMorality(-5);
-                            onActivityCreated(null);
-                        }
+                        showToast("道德-5", false);
+                        mSharedScoreUtil.setMorality(-5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_13_c);
-                            showToast("金钱-800，经验+3，道德+8", true);
-                            mSharedScoreUtil.setMoney(-800);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setMorality(+8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_13_d);
-                            showToast("金钱-1000，经验+5，道德+10", true);
-                            mSharedScoreUtil.setMoney(-1000);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setMorality(+10);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_13_c);
+                        showToast("金钱-800，经验+3，道德+8", true);
+                        mSharedScoreUtil.setMoney(-800);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setMorality(+8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_13_d);
+                        showToast("金钱-1000，经验+5，道德+10", true);
+                        mSharedScoreUtil.setMoney(-1000);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setMorality(+10);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 14:
-                showImageChooseViewDialog(R.string.event_14, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_14_a);
-                            showToast("金钱-500，快乐-3", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setHappy(-3);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_14_b);
-                            showToast("快乐-5", false);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_14, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_14_a);
+                        showToast("金钱-500，快乐-3", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setHappy(-3);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_14_b);
+                        showToast("快乐-5", false);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_14_c);
-                            showToast("健康-3，快乐-2，经验+5", false);
-                            mSharedScoreUtil.setHealthy(-3);
-                            mSharedScoreUtil.setHappy(-2);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_14_d);
-                            showToast("金钱-300，快乐+3，经验+3", true);
-                            mSharedScoreUtil.setMoney(-300);
-                            mSharedScoreUtil.setHappy(+3);
-                            mSharedScoreUtil.setExperience(+3);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_14_c);
+                        showToast("健康-3，快乐-2，经验+5", false);
+                        mSharedScoreUtil.setHealthy(-3);
+                        mSharedScoreUtil.setHappy(-2);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_14_d);
+                        showToast("金钱-300，快乐+3，经验+3", true);
+                        mSharedScoreUtil.setMoney(-300);
+                        mSharedScoreUtil.setHappy(+3);
+                        mSharedScoreUtil.setExperience(+3);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 15:
-                showImageChooseViewDialog(R.string.event_15, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_15_a);
-                            showToast("经验+2", true);
-                            mSharedScoreUtil.setExperience(+2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_15_b);
-                            showToast("经验+1", true);
-                            mSharedScoreUtil.setExperience(+1);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_15, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_15_a);
+                        showToast("经验+2", true);
+                        mSharedScoreUtil.setExperience(+2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_15_b);
+                        showToast("经验+1", true);
+                        mSharedScoreUtil.setExperience(+1);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_15_c);
-                            showToast("金钱+50000，经验+10，能力+10，健康-5，快乐+5", true);
-                            mSharedScoreUtil.setHealthy(-5);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(+10);
-                            mSharedScoreUtil.setMoney(+50000);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_15_d);
-                            showToast("金钱-10000，经验+5，快乐-5", false);
-                            mSharedScoreUtil.setMoney(-10000);
-                            mSharedScoreUtil.setHappy(-5);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_15_c);
+                        showToast("金钱+50000，经验+10，能力+10，健康-5，快乐+5", true);
+                        mSharedScoreUtil.setHealthy(-5);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(+10);
+                        mSharedScoreUtil.setMoney(+50000);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_15_d);
+                        showToast("金钱-10000，经验+5，快乐-5", false);
+                        mSharedScoreUtil.setMoney(-10000);
+                        mSharedScoreUtil.setHappy(-5);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 16:
-                showImageChooseViewDialog(R.string.event_16, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_16_a);
-                            showToast("经验+3 道德-3", false);
-                            mSharedScoreUtil.setMorality(-3);
-                            mSharedScoreUtil.setExperience(+3);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_16_b);
-                            showToast("经验+1，道德-3", false);
-                            mSharedScoreUtil.setExperience(+1);
-                            mSharedScoreUtil.setMorality(-3);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_16, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_16_a);
+                        showToast("经验+3 道德-3", false);
+                        mSharedScoreUtil.setMorality(-3);
+                        mSharedScoreUtil.setExperience(+3);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_16_b);
+                        showToast("经验+1，道德-3", false);
+                        mSharedScoreUtil.setExperience(+1);
+                        mSharedScoreUtil.setMorality(-3);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_16_c);
-                            showToast("金钱-50，经验+2，道德+2", true);
-                            mSharedScoreUtil.setMoney(-50);
-                            mSharedScoreUtil.setExperience(+2);
-                            mSharedScoreUtil.setMorality(+2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_16_d);
-                            showToast("金钱-100，经验+3，道德+3", true);
-                            mSharedScoreUtil.setMoney(-100);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setMorality(+3);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_16_c);
+                        showToast("金钱-50，经验+2，道德+2", true);
+                        mSharedScoreUtil.setMoney(-50);
+                        mSharedScoreUtil.setExperience(+2);
+                        mSharedScoreUtil.setMorality(+2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_16_d);
+                        showToast("金钱-100，经验+3，道德+3", true);
+                        mSharedScoreUtil.setMoney(-100);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setMorality(+3);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 17:
-                showImageChooseViewDialog(R.string.event_17, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_17_a);
-                            showToast("金钱-500，经验+5，快乐-5", false);
-                            mSharedScoreUtil.setMoney(-500);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_17_b);
-                            showToast("金钱+500，快乐+5", true);
-                            mSharedScoreUtil.setMoney(+500);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_17, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_17_a);
+                        showToast("金钱-500，经验+5，快乐-5", false);
+                        mSharedScoreUtil.setMoney(-500);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_17_b);
+                        showToast("金钱+500，快乐+5", true);
+                        mSharedScoreUtil.setMoney(+500);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_17_c);
-                            showToast("金钱-20，快乐+1", true);
-                            mSharedScoreUtil.setMoney(-20);
-                            mSharedScoreUtil.setHappy(+1);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_17_d);
-                            showToast("金钱-200，快乐-2", false);
-                            mSharedScoreUtil.setMoney(-200);
-                            mSharedScoreUtil.setHappy(-2);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_17_c);
+                        showToast("金钱-20，快乐+1", true);
+                        mSharedScoreUtil.setMoney(-20);
+                        mSharedScoreUtil.setHappy(+1);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_17_d);
+                        showToast("金钱-200，快乐-2", false);
+                        mSharedScoreUtil.setMoney(-200);
+                        mSharedScoreUtil.setHappy(-2);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 18:
-                showImageChooseViewDialog(R.string.event_18, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_18_a);
-                            showToast("交际-2", false);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_18_b);
-                            showToast("交际-3，快乐-3", false);
-                            mSharedScoreUtil.setCommunication(-3);
-                            mSharedScoreUtil.setHappy(-3);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_18, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_18_a);
+                        showToast("交际-2", false);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_18_b);
+                        showToast("交际-3，快乐-3", false);
+                        mSharedScoreUtil.setCommunication(-3);
+                        mSharedScoreUtil.setHappy(-3);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_18_c);
-                            showToast("金钱-800，经验+3，交际+5，快乐+5", true);
-                            mSharedScoreUtil.setMoney(-800);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setCommunication(+5);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_18_d);
-                            showToast("金钱-200，快乐-2", false);
-                            mSharedScoreUtil.setMoney(-200);
-                            mSharedScoreUtil.setHappy(-2);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_18_c);
+                        showToast("金钱-800，经验+3，交际+5，快乐+5", true);
+                        mSharedScoreUtil.setMoney(-800);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setCommunication(+5);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_18_d);
+                        showToast("金钱-200，快乐-2", false);
+                        mSharedScoreUtil.setMoney(-200);
+                        mSharedScoreUtil.setHappy(-2);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 19:
-                showImageChooseViewDialog(R.string.event_19, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_19_a);
-                            showToast("经验+2", true);
-                            mSharedScoreUtil.setExperience(+2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_19_b);
-                            showToast("经验+1", true);
-                            mSharedScoreUtil.setExperience(+1);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_19, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_19_a);
+                        showToast("经验+2", true);
+                        mSharedScoreUtil.setExperience(+2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_19_b);
+                        showToast("经验+1", true);
+                        mSharedScoreUtil.setExperience(+1);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_19_c);
-                            showToast("金钱-30000，经验+5，能力+5，快乐-3", false);
-                            mSharedScoreUtil.setMoney(-30000);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setAbility(+5);
-                            mSharedScoreUtil.setHappy(-3);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_19_d);
-                            showToast("金钱+400000，经验+10，能力+10，快乐+5", true);
-                            mSharedScoreUtil.setMoney(+400000);
-                            mSharedScoreUtil.setExperience(+10);
-                            mSharedScoreUtil.setAbility(+10);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_19_c);
+                        showToast("金钱-30000，经验+5，能力+5，快乐-3", false);
+                        mSharedScoreUtil.setMoney(-30000);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setAbility(+5);
+                        mSharedScoreUtil.setHappy(-3);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_19_d);
+                        showToast("金钱+400000，经验+10，能力+10，快乐+5", true);
+                        mSharedScoreUtil.setMoney(+400000);
+                        mSharedScoreUtil.setExperience(+10);
+                        mSharedScoreUtil.setAbility(+10);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 20:
-                showImageChooseViewDialog(R.string.event_20, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_20_a);
-                            showToast("道德+2 快乐+2", true);
-                            mSharedScoreUtil.setHappy(+2);
-                            mSharedScoreUtil.setMorality(+2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_20_b);
-                            showToast("道德+2", true);
-                            mSharedScoreUtil.setMorality(+2);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_20, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_20_a);
+                        showToast("道德+2 快乐+2", true);
+                        mSharedScoreUtil.setHappy(+2);
+                        mSharedScoreUtil.setMorality(+2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_20_b);
+                        showToast("道德+2", true);
+                        mSharedScoreUtil.setMorality(+2);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_20_c);
-                            showToast("金钱+100，快乐+4，道德-5", false);
-                            mSharedScoreUtil.setMoney(+100);
-                            mSharedScoreUtil.setHappy(+4);
-                            mSharedScoreUtil.setMorality(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_20_d);
-                            showToast("金钱-500 快乐-3 道德-3", false);
-                            mSharedScoreUtil.setMorality(-3);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setMoney(-500);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_20_c);
+                        showToast("金钱+100，快乐+4，道德-5", false);
+                        mSharedScoreUtil.setMoney(+100);
+                        mSharedScoreUtil.setHappy(+4);
+                        mSharedScoreUtil.setMorality(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_20_d);
+                        showToast("金钱-500 快乐-3 道德-3", false);
+                        mSharedScoreUtil.setMorality(-3);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setMoney(-500);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 21:
-                showImageChooseViewDialog(R.string.event_21, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_21_a);
-                            showToast("经验+4，能力+4，快乐-2，交际+4", false);
-                            mSharedScoreUtil.setAbility(+4);
-                            mSharedScoreUtil.setExperience(+4);
-                            mSharedScoreUtil.setHappy(-2);
-                            mSharedScoreUtil.setCommunication(+4);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_21_b);
-                            showToast("快乐-4 健康-2 经验+2", false);
-                            mSharedScoreUtil.setHappy(-4);
-                            mSharedScoreUtil.setExperience(+2);
-                            mSharedScoreUtil.setHealthy(-2);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_21, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_21_a);
+                        showToast("经验+4，能力+4，快乐-2，交际+4", false);
+                        mSharedScoreUtil.setAbility(+4);
+                        mSharedScoreUtil.setExperience(+4);
+                        mSharedScoreUtil.setHappy(-2);
+                        mSharedScoreUtil.setCommunication(+4);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_21_b);
+                        showToast("快乐-4 健康-2 经验+2", false);
+                        mSharedScoreUtil.setHappy(-4);
+                        mSharedScoreUtil.setExperience(+2);
+                        mSharedScoreUtil.setHealthy(-2);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_21_c);
-                            showToast("经验+8，能力+8，快乐+5，交际+5", true);
-                            mSharedScoreUtil.setAbility(+8);
-                            mSharedScoreUtil.setExperience(+8);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setCommunication(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_21_d);
-                            showToast("经验+3，能力+3，快乐-3，交际-5", false);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setAbility(+3);
-                            mSharedScoreUtil.setHappy(-3);
-                            mSharedScoreUtil.setCommunication(-5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_21_c);
+                        showToast("经验+8，能力+8，快乐+5，交际+5", true);
+                        mSharedScoreUtil.setAbility(+8);
+                        mSharedScoreUtil.setExperience(+8);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setCommunication(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_21_d);
+                        showToast("经验+3，能力+3，快乐-3，交际-5", false);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setAbility(+3);
+                        mSharedScoreUtil.setHappy(-3);
+                        mSharedScoreUtil.setCommunication(-5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 22:
-                showImageChooseViewDialog(R.string.event_22, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_22_a);
-                            showToast("快乐-5", false);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_22_b);
-                            showToast("快乐+5", true);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_22, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_22_a);
+                        showToast("快乐-5", false);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_22_b);
+                        showToast("快乐+5", true);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_22_c);
-                            showToast("金钱-5000 快乐+5", true);
-                            mSharedScoreUtil.setMoney(-5000);
-                            mSharedScoreUtil.setHappy(+5);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_22_d);
-                            showToast("金钱-4000 快乐-5 经验+3", false);
-                            mSharedScoreUtil.setMoney(-4000);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setHappy(-5);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_22_c);
+                        showToast("金钱-5000 快乐+5", true);
+                        mSharedScoreUtil.setMoney(-5000);
+                        mSharedScoreUtil.setHappy(+5);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_22_d);
+                        showToast("金钱-4000 快乐-5 经验+3", false);
+                        mSharedScoreUtil.setMoney(-4000);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setHappy(-5);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 23:
-                showImageChooseViewDialog(R.string.event_23, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_23_a);
-                            showToast("能力-4，快乐-4", false);
-                            mSharedScoreUtil.setAbility(-4);
-                            mSharedScoreUtil.setHappy(-4);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_23_b);
-                            showToast("快乐+5 经验+5", false);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setExperience(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_23, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_23_a);
+                        showToast("能力-4，快乐-4", false);
+                        mSharedScoreUtil.setAbility(-4);
+                        mSharedScoreUtil.setHappy(-4);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_23_b);
+                        showToast("快乐+5 经验+5", false);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setExperience(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_23_c);
-                            showToast("金钱+3000 能力+15 经验+15", true);
-                            mSharedScoreUtil.setMoney(+3000);
-                            mSharedScoreUtil.setExperience(+15);
-                            mSharedScoreUtil.setAbility(+15);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_23_d);
-                            showToast("经验+8，能力+8", true);
-                            mSharedScoreUtil.setExperience(+8);
-                            mSharedScoreUtil.setAbility(+8);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_23_c);
+                        showToast("金钱+3000 能力+15 经验+15", true);
+                        mSharedScoreUtil.setMoney(+3000);
+                        mSharedScoreUtil.setExperience(+15);
+                        mSharedScoreUtil.setAbility(+15);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_23_d);
+                        showToast("经验+8，能力+8", true);
+                        mSharedScoreUtil.setExperience(+8);
+                        mSharedScoreUtil.setAbility(+8);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 24:
-                showImageChooseViewDialog(R.string.event_16, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_24_a);
-                            showToast("快乐+3，道德+8，经验+3", true);
-                            mSharedScoreUtil.setMorality(+8);
-                            mSharedScoreUtil.setExperience(+3);
-                            mSharedScoreUtil.setHappy(+3);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_24_b);
-                            showToast("快乐+5，交际+5，道德+8，经验+5", true);
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setMorality(-8);
-                            mSharedScoreUtil.setHappy(+5);
-                            mSharedScoreUtil.setCommunication(+5);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_16, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_24_a);
+                        showToast("快乐+3，道德+8，经验+3", true);
+                        mSharedScoreUtil.setMorality(+8);
+                        mSharedScoreUtil.setExperience(+3);
+                        mSharedScoreUtil.setHappy(+3);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_24_b);
+                        showToast("快乐+5，交际+5，道德+8，经验+5", true);
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setMorality(-8);
+                        mSharedScoreUtil.setHappy(+5);
+                        mSharedScoreUtil.setCommunication(+5);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_24_c);
-                            showToast("金钱-3000，经验+8，交际-8，快乐-8，道德-20", false);
-                            mSharedScoreUtil.setMoney(-3000);
-                            mSharedScoreUtil.setExperience(+8);
-                            mSharedScoreUtil.setMorality(-20);
-                            mSharedScoreUtil.setCommunication(-8);
-                            mSharedScoreUtil.setHappy(-8);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_24_d);
-                            showToast("金钱+30000，经验+8，快乐+8，道德-20", true);
-                            mSharedScoreUtil.setMoney(+30000);
-                            mSharedScoreUtil.setExperience(+8);
-                            mSharedScoreUtil.setHappy(+8);
-                            mSharedScoreUtil.setMorality(-20);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_24_c);
+                        showToast("金钱-3000，经验+8，交际-8，快乐-8，道德-20", false);
+                        mSharedScoreUtil.setMoney(-3000);
+                        mSharedScoreUtil.setExperience(+8);
+                        mSharedScoreUtil.setMorality(-20);
+                        mSharedScoreUtil.setCommunication(-8);
+                        mSharedScoreUtil.setHappy(-8);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_24_d);
+                        showToast("金钱+30000，经验+8，快乐+8，道德-20", true);
+                        mSharedScoreUtil.setMoney(+30000);
+                        mSharedScoreUtil.setExperience(+8);
+                        mSharedScoreUtil.setHappy(+8);
+                        mSharedScoreUtil.setMorality(-20);
+                        onActivityCreated(null);
                     }
                 });
                 break;
             case 25:
-                showImageChooseViewDialog(R.string.event_25, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_25_a);
-                            showToast("道德+2", true);
-                            mSharedScoreUtil.setMorality(+2);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_25_b);
-                            showToast("经验+2", true);
-                            mSharedScoreUtil.setExperience(+2);
-                            onActivityCreated(null);
-                        }
+                showImageChooseViewDialog(R.string.event_25, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_25_a);
+                        showToast("道德+2", true);
+                        mSharedScoreUtil.setMorality(+2);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_25_b);
+                        showToast("经验+2", true);
+                        mSharedScoreUtil.setExperience(+2);
+                        onActivityCreated(null);
                     }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        if (t.equals(0)) {
-                            showViewDialog(R.string.event_25_c);
-                            showToast("金钱+20%，快乐+20，经验+5，能力+5，道德-1", true);
-                            mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.2));
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setMorality(-1);
-                            mSharedScoreUtil.setAbility(+5);
-                            mSharedScoreUtil.setHappy(+20);
-                            onActivityCreated(null);
-                        } else {
-                            showViewDialog(R.string.event_25_d);
-                            showToast("金钱-30%，快乐-20，经验+5，能力+5，道德-1", false);
-                            mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.3));
-                            mSharedScoreUtil.setExperience(+5);
-                            mSharedScoreUtil.setMorality(-1);
-                            mSharedScoreUtil.setAbility(+5);
-                            mSharedScoreUtil.setHappy(-20);
-                            onActivityCreated(null);
-                        }
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    if (t.equals(0)) {
+                        showViewDialog(R.string.event_25_c);
+                        showToast("金钱+20%，快乐+20，经验+5，能力+5，道德-1", true);
+                        mSharedScoreUtil.setMoney(+(int) (mSharedScoreUtil.getMoney() * 0.2));
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setMorality(-1);
+                        mSharedScoreUtil.setAbility(+5);
+                        mSharedScoreUtil.setHappy(+20);
+                        onActivityCreated(null);
+                    } else {
+                        showViewDialog(R.string.event_25_d);
+                        showToast("金钱-30%，快乐-20，经验+5，能力+5，道德-1", false);
+                        mSharedScoreUtil.setMoney(-(int) (mSharedScoreUtil.getMoney() * 0.3));
+                        mSharedScoreUtil.setExperience(+5);
+                        mSharedScoreUtil.setMorality(-1);
+                        mSharedScoreUtil.setAbility(+5);
+                        mSharedScoreUtil.setHappy(-20);
+                        onActivityCreated(null);
                     }
                 });
                 break;
@@ -2286,18 +1971,10 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.load_or_un)
                 .withMessage("您的数据将恢复到上次保存的值（可读档次数共9次，当前还剩" + mLoadValue + "次，请慎重使用）。").isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.getDismiss();
-                    }
-                }).setButtonOk(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBuilder.dismiss();
-                goLoad();
-            }
-        }).show();
+                .setButtonCancleClick(v -> dialogBuilder.getDismiss()).setButtonOk(v -> {
+                    dialogBuilder.dismiss();
+                    goLoad();
+                }).show();
     }
 
     private void goSave() {
@@ -2438,12 +2115,7 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.event)
                 .withMessage(message).isCancelable(true)
                 .withDuration(500).withButtonOk()
-                .setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
-                }).show();
+                .setButtonOk(v -> dialogBuilder.closeDialog(dialogBuilder)).show();
     }
 
     private void showImageViewDialog(int title, int message, int iv) {
@@ -2452,12 +2124,7 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(title)
                 .withMessage(message).withImageView(iv).isCancelable(true)
                 .withDuration(500).withButtonOk()
-                .setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
-                }).show();
+                .setButtonOk(v -> dialogBuilder.closeDialog(dialogBuilder)).show();
     }
 
     private void showImageChooseViewDialog(int id,
@@ -2467,19 +2134,13 @@ public class GameFragment extends BaseFragment implements
         dialogBuilder.withTitle(R.string.event)
                 .withMessage(id).isCancelable(false)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Button1onClickListener.onClick();
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
+                .setButtonCancleClick(v -> {
+                    Button1onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
                 })
-                .setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Button2onClickListener.onClick();
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
+                .setButtonOk(v -> {
+                    Button2onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
                 }).show();
 
     }
@@ -2493,31 +2154,19 @@ public class GameFragment extends BaseFragment implements
                                         final Rb_d_onClickListener Rb_d_onClickListener) {
         final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder
                 .getInstance(getActivity());
-        dialogBuilder.withTitle(title).withRg(a, b, c, d).setRb_a(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Rb_a_onClickListener.onClick();
-                dialogBuilder.closeDialog(dialogBuilder);
-            }
-        }).setRb_b(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Rb_b_onClickListener.onClick();
-                dialogBuilder.closeDialog(dialogBuilder);
-            }
-        }).setRb_c(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Rb_c_onClickListener.onClick();
-                dialogBuilder.closeDialog(dialogBuilder);
-            }
-        }).setRb_d(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Rb_d_onClickListener.onClick();
-                dialogBuilder.closeDialog(dialogBuilder);
-            }
-        })
+        dialogBuilder.withTitle(title).withRg(a, b, c, d).setRb_a(v -> {
+                    Rb_a_onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
+                }).setRb_b(v -> {
+                    Rb_b_onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
+                }).setRb_c(v -> {
+                    Rb_c_onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
+                }).setRb_d(v -> {
+                    Rb_d_onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
+                })
                 .withMessage(message).isCancelable(false)
                 .withDuration(500).show();
 

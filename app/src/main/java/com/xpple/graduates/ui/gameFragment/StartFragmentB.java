@@ -70,19 +70,13 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
         dialogBuilder.withTitle(title)
                 .withMessage(message).withImageView(iv).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Button1onClickListener.onClick();
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
+                .setButtonCancleClick(v -> {
+                    Button1onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
                 })
-                .setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Button2onClickListener.onClick();
-                        dialogBuilder.closeDialog(dialogBuilder);
-                    }
+                .setButtonOk(v -> {
+                    Button2onClickListener.onClick();
+                    dialogBuilder.closeDialog(dialogBuilder);
                 }).show();
     }
 
@@ -92,12 +86,9 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
         dialogBuilder.withTitle(title)
                 .withMessage(message).isCancelable(false)
                 .withDuration(500).withButtonOk()
-                .setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.closeDialog(dialogBuilder);
-                        Button2onClickListener.onClick();
-                    }
+                .setButtonOk(v -> {
+                    dialogBuilder.closeDialog(dialogBuilder);
+                    Button2onClickListener.onClick();
                 }).show();
     }
 
@@ -108,99 +99,54 @@ public class StartFragmentB extends BaseFragment implements View.OnClickListener
                 nextStart();
                 break;
             case R.id.rb_start_0:
-                showImageChooseViewDialog(R.string.start_b_0, R.string.start_b_0_0, R.mipmap.zgz, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
+                showImageChooseViewDialog(R.string.start_b_0, R.string.start_b_0_0, R.mipmap.zgz, () -> {
+                    // TODO Auto-generated method stub
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    showTextViewDialog(R.string.start_b_0, R.string.start_b_0_1, () -> {
                         // TODO Auto-generated method stub
-                    }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        showTextViewDialog(R.string.start_b_0, R.string.start_b_0_1, new Button2onClickListener() {
-                            @Override
-                            public void onClick() {
-                                // TODO Auto-generated method stub
-                                nextStart();
-                            }
-                        });
-                    }
+                        nextStart();
+                    });
                 });
                 break;
             case R.id.rb_start_1:
-                showImageChooseViewDialog(R.string.start_b_1, R.string.start_b_1_0, R.mipmap.zjcy, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
+                showImageChooseViewDialog(R.string.start_b_1, R.string.start_b_1_0, R.mipmap.zjcy, () -> {
+                    // TODO Auto-generated method stub
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    showTextViewDialog(R.string.start_b_1, R.string.start_b_1_1, () -> {
                         // TODO Auto-generated method stub
-                    }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        showTextViewDialog(R.string.start_b_1, R.string.start_b_1_1, new Button2onClickListener() {
-                            @Override
-                            public void onClick() {
-                                // TODO Auto-generated method stub
-                            }
-                        });
-                    }
+                    });
                 });
                 break;
             case R.id.rb_start_2:
-                showImageChooseViewDialog(R.string.start_b_2, R.string.start_b_2_0, R.mipmap.ky, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
+                showImageChooseViewDialog(R.string.start_b_2, R.string.start_b_2_0, R.mipmap.ky, () -> {
+                    // TODO Auto-generated method stub
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    showTextViewDialog(R.string.start_b_2, R.string.start_b_2_1, () -> {
                         // TODO Auto-generated method stub
-                    }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        showTextViewDialog(R.string.start_b_2, R.string.start_b_2_1, new Button2onClickListener() {
-                            @Override
-                            public void onClick() {
-                                // TODO Auto-generated method stub
-                            }
-                        });
-                    }
+                    });
                 });
                 break;
             case R.id.rb_start_3:
-                showImageChooseViewDialog(R.string.start_b_3, R.string.start_b_3_0, R.mipmap.gwy, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
+                showImageChooseViewDialog(R.string.start_b_3, R.string.start_b_3_0, R.mipmap.gwy, () -> {
+                    // TODO Auto-generated method stub
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    showTextViewDialog(R.string.start_b_3, R.string.start_b_3_1, () -> {
                         // TODO Auto-generated method stub
-                    }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        showTextViewDialog(R.string.start_b_3, R.string.start_b_3_1, new Button2onClickListener() {
-                            @Override
-                            public void onClick() {
-                                // TODO Auto-generated method stub
-                            }
-                        });
-                    }
+                    });
                 });
                 break;
             case R.id.rb_start_4:
-                showImageChooseViewDialog(R.string.start_b_4, R.string.start_b_4_0, R.mipmap.cg, new Button1onClickListener() {
-                    @Override
-                    public void onClick() {
+                showImageChooseViewDialog(R.string.start_b_4, R.string.start_b_4_0, R.mipmap.cg, () -> {
+                    // TODO Auto-generated method stub
+                }, () -> {
+                    // TODO Auto-generated method stub
+                    showTextViewDialog(R.string.start_b_4, R.string.start_b_4_1, () -> {
                         // TODO Auto-generated method stub
-                    }
-                }, new Button2onClickListener() {
-                    @Override
-                    public void onClick() {
-                        // TODO Auto-generated method stub
-                        showTextViewDialog(R.string.start_b_4, R.string.start_b_4_1, new Button2onClickListener() {
-                            @Override
-                            public void onClick() {
-                                // TODO Auto-generated method stub
-                            }
-                        });
-                    }
+                    });
                 });
                 break;
             default:

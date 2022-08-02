@@ -37,12 +37,7 @@ public class PositionFragment extends BaseFragment implements View.OnClickListen
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         btn_position_0 = parentView.findViewById(R.id.btn_position_0);
         btn_position_1 = parentView.findViewById(R.id.btn_position_1);
         btn_position_2 = parentView.findViewById(R.id.btn_position_2);

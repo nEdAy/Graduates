@@ -65,12 +65,7 @@ public class SuggestFragment extends BaseFragment implements
     private void setUpViews() {
         BP.init(getContext(), Config.BMOB_KEY);
         ImageView iv_back = parentView.findViewById(R.id.btn_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         price = parentView.findViewById(R.id.price);
         go = parentView.findViewById(R.id.go);
         type = parentView.findViewById(R.id.type);

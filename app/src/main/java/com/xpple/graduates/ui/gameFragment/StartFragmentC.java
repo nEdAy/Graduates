@@ -39,163 +39,145 @@ public class StartFragmentC extends BaseFragment {
 
     private void setUpViews() {
         ImageView btn_go_game = parentView.findViewById(R.id.btn_go_game);
-        btn_go_game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playHeartbeatAnimation(v);
-                setSharedUtil();
-                startGame();
-            }
+        btn_go_game.setOnClickListener(v -> {
+            playHeartbeatAnimation(v);
+            setSharedUtil();
+            startGame();
         });
 
         tv_jtbg = parentView.findViewById(R.id.tv_jtbg);
         RadioGroup rg_jtbg = parentView.findViewById(R.id.rg_jtbg);
-        rg_jtbg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_jtbg_0:
-                        jtbg = 0;
-                        tv_jtbg.setText(R.string.jtbg_0);
-                        break;
-                    case R.id.rb_jtbg_1:
-                        jtbg = 1;
-                        tv_jtbg.setText(R.string.jtbg_1);
-                        break;
-                    case R.id.rb_jtbg_2:
-                        jtbg = 2;
-                        tv_jtbg.setText(R.string.jtbg_2);
-                        break;
-                    case R.id.rb_jtbg_3:
-                        jtbg = 3;
-                        tv_jtbg.setText(R.string.jtbg_3);
-                        break;
-                    default:
-                        break;
-                }
+        rg_jtbg.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_jtbg_0:
+                    jtbg = 0;
+                    tv_jtbg.setText(R.string.jtbg_0);
+                    break;
+                case R.id.rb_jtbg_1:
+                    jtbg = 1;
+                    tv_jtbg.setText(R.string.jtbg_1);
+                    break;
+                case R.id.rb_jtbg_2:
+                    jtbg = 2;
+                    tv_jtbg.setText(R.string.jtbg_2);
+                    break;
+                case R.id.rb_jtbg_3:
+                    jtbg = 3;
+                    tv_jtbg.setText(R.string.jtbg_3);
+                    break;
+                default:
+                    break;
             }
         });
         tv_xgqx = parentView.findViewById(R.id.tv_xgqx);
         RadioGroup rg_xgqx = parentView.findViewById(R.id.rg_xgqx);
-        rg_xgqx.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_xgqx_0:
-                        xgqx = 0;
-                        tv_xgqx.setText(R.string.xgqx_0);
-                        break;
-                    case R.id.rb_xgqx_1:
-                        xgqx = 1;
-                        tv_xgqx.setText(R.string.xgqx_1);
-                        break;
-                    case R.id.rb_xgqx_2:
-                        xgqx = 2;
-                        tv_xgqx.setText(R.string.xgqx_2);
-                        break;
-                    case R.id.rb_xgqx_3:
-                        xgqx = 3;
-                        tv_xgqx.setText(R.string.xgqx_3);
-                        break;
-                    default:
-                        break;
-                }
+        rg_xgqx.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_xgqx_0:
+                    xgqx = 0;
+                    tv_xgqx.setText(R.string.xgqx_0);
+                    break;
+                case R.id.rb_xgqx_1:
+                    xgqx = 1;
+                    tv_xgqx.setText(R.string.xgqx_1);
+                    break;
+                case R.id.rb_xgqx_2:
+                    xgqx = 2;
+                    tv_xgqx.setText(R.string.xgqx_2);
+                    break;
+                case R.id.rb_xgqx_3:
+                    xgqx = 3;
+                    tv_xgqx.setText(R.string.xgqx_3);
+                    break;
+                default:
+                    break;
             }
         });
         tv_dxzy = parentView.findViewById(R.id.tv_dxzy);
         RadioGroup rg_dxzy = parentView.findViewById(R.id.rg_dxzy);
-        rg_dxzy.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_dxzy_0:
-                        dxzy = 0;
-                        tv_dxzy.setText(R.string.dxzy_0);
-                        break;
-                    case R.id.rb_dxzy_1:
-                        dxzy = 1;
-                        tv_dxzy.setText(R.string.dxzy_1);
-                        break;
-                    case R.id.rb_dxzy_2:
-                        dxzy = 2;
-                        tv_dxzy.setText(R.string.dxzy_2);
-                        break;
-                    case R.id.rb_dxzy_3:
-                        dxzy = 3;
-                        tv_dxzy.setText(R.string.dxzy_3);
-                        break;
-                    default:
-                        break;
-                }
+        rg_dxzy.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_dxzy_0:
+                    dxzy = 0;
+                    tv_dxzy.setText(R.string.dxzy_0);
+                    break;
+                case R.id.rb_dxzy_1:
+                    dxzy = 1;
+                    tv_dxzy.setText(R.string.dxzy_1);
+                    break;
+                case R.id.rb_dxzy_2:
+                    dxzy = 2;
+                    tv_dxzy.setText(R.string.dxzy_2);
+                    break;
+                case R.id.rb_dxzy_3:
+                    dxzy = 3;
+                    tv_dxzy.setText(R.string.dxzy_3);
+                    break;
+                default:
+                    break;
             }
         });
         tv_gzfx = parentView.findViewById(R.id.tv_gzfx);
         RadioGroup rg_gzfx = parentView.findViewById(R.id.rg_gzfx);
-        rg_gzfx.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_gzfx_0:
-                        gzfx = 0;
-                        tv_gzfx.setText(R.string.gzfx_0);
-                        break;
-                    case R.id.rb_gzfx_1:
-                        gzfx = 1;
-                        tv_gzfx.setText(R.string.gzfx_1);
-                        break;
-                    case R.id.rb_gzfx_2:
-                        gzfx = 2;
-                        tv_gzfx.setText(R.string.gzfx_2);
-                        break;
-                    case R.id.rb_gzfx_3:
-                        gzfx = 3;
-                        tv_gzfx.setText(R.string.gzfx_3);
-                        break;
-                    default:
-                        break;
-                }
+        rg_gzfx.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_gzfx_0:
+                    gzfx = 0;
+                    tv_gzfx.setText(R.string.gzfx_0);
+                    break;
+                case R.id.rb_gzfx_1:
+                    gzfx = 1;
+                    tv_gzfx.setText(R.string.gzfx_1);
+                    break;
+                case R.id.rb_gzfx_2:
+                    gzfx = 2;
+                    tv_gzfx.setText(R.string.gzfx_2);
+                    break;
+                case R.id.rb_gzfx_3:
+                    gzfx = 3;
+                    tv_gzfx.setText(R.string.gzfx_3);
+                    break;
+                default:
+                    break;
             }
         });
         tv_yxnd = parentView.findViewById(R.id.tv_yxnd);
         RadioGroup rg_yxnd = parentView.findViewById(R.id.rg_yxnd);
-        rg_yxnd.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_yxnd_0:
-                        yxnd = 0;
-                        tv_yxnd.setText(R.string.yxnd_0);
-                        break;
-                    case R.id.rb_yxnd_1:
-                        yxnd = 1;
-                        tv_yxnd.setText(R.string.yxnd_1);
-                        break;
-                    case R.id.rb_yxnd_2:
-                        yxnd = 2;
-                        tv_yxnd.setText(R.string.yxnd_2);
-                        break;
-                    case R.id.rb_yxnd_3:
-                        yxnd = 3;
-                        tv_yxnd.setText(R.string.yxnd_3);
-                        break;
-                    default:
-                        break;
-                }
+        rg_yxnd.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_yxnd_0:
+                    yxnd = 0;
+                    tv_yxnd.setText(R.string.yxnd_0);
+                    break;
+                case R.id.rb_yxnd_1:
+                    yxnd = 1;
+                    tv_yxnd.setText(R.string.yxnd_1);
+                    break;
+                case R.id.rb_yxnd_2:
+                    yxnd = 2;
+                    tv_yxnd.setText(R.string.yxnd_2);
+                    break;
+                case R.id.rb_yxnd_3:
+                    yxnd = 3;
+                    tv_yxnd.setText(R.string.yxnd_3);
+                    break;
+                default:
+                    break;
             }
         });
     }

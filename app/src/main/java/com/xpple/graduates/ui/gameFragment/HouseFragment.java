@@ -81,12 +81,7 @@ public class HouseFragment extends BaseFragment implements View.OnClickListener 
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         text_house = parentView.findViewById(R.id.text_house);
         iv_house = parentView.findViewById(R.id.iv_house);
         tv_house = parentView.findViewById(R.id.tv_index);

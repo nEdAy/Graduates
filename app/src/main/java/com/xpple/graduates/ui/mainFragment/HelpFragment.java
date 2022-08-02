@@ -42,12 +42,7 @@ public class HelpFragment extends BaseFragment {
     private void setUpViews() {
         mListView = parentView.findViewById(R.id.listView);
         ImageView iv_back = parentView.findViewById(R.id.btn_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         initView();
     }
 

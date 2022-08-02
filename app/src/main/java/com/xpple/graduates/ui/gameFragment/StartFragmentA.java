@@ -45,42 +45,33 @@ public class StartFragmentA extends BaseFragment {
 
     private void setUpViews() {
         ImageView btn_next_start = parentView.findViewById(R.id.btn_next_start);
-        btn_next_start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playHeartbeatAnimation(v);
-                nextStart();
-            }
+        btn_next_start.setOnClickListener(v -> {
+            playHeartbeatAnimation(v);
+            nextStart();
         });
         tv_nick = parentView.findViewById(R.id.tv_nick);
-        tv_nick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playHeartbeatAnimation(v);
-                upNick();
-            }
+        tv_nick.setOnClickListener(v -> {
+            playHeartbeatAnimation(v);
+            upNick();
         });
         rb_sex_0 = parentView.findViewById(R.id.rb_sex_0);
         rb_sex_1 = parentView.findViewById(R.id.rb_sex_1);
         RadioGroup rg_sex = parentView.findViewById(R.id.rg_sex);
-        rg_sex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup arg0, int arg1) {
-                // TODO Auto-generated method stub
-                //获取变更后的选中项的ID
-                int rBId = arg0.getCheckedRadioButtonId();
-                switch (rBId) {
-                    case R.id.rb_sex_0:
-                        mSex = false;
-                        mSharedSettingsUtil.setUserSexEnable(false);
-                        break;
-                    case R.id.rb_sex_1:
-                        mSex = true;
-                        mSharedSettingsUtil.setUserSexEnable(true);
-                        break;
-                    default:
-                        break;
-                }
+        rg_sex.setOnCheckedChangeListener((arg0, arg1) -> {
+            // TODO Auto-generated method stub
+            //获取变更后的选中项的ID
+            int rBId = arg0.getCheckedRadioButtonId();
+            switch (rBId) {
+                case R.id.rb_sex_0:
+                    mSex = false;
+                    mSharedSettingsUtil.setUserSexEnable(false);
+                    break;
+                case R.id.rb_sex_1:
+                    mSex = true;
+                    mSharedSettingsUtil.setUserSexEnable(true);
+                    break;
+                default:
+                    break;
             }
         });
     }
@@ -91,31 +82,23 @@ public class StartFragmentA extends BaseFragment {
         dialogBuilder.withTitle("设置昵称")
                 .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
                 .withDuration(500).withButtonCancle().withButtonOk()
-                .setButtonCancleClick(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogBuilder.getDismiss();
-                    }
-                }).setButtonOk(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nickname = NiftyDialogBuilder.et_player.getText().toString();
-                mSharedSettingsUtil.setUserNick(nickname);
-//                KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
-//                    @Override
-//                    public void onSetNicknameResult(boolean isSuccess, String nickname,
-//                                                    KTUser user, KTError error) {
-//                        if (isSuccess) {
-//                            showToast("网络帐号昵称同步成功", true);
-//                        } else {
-//                            showToast("网络帐号昵称同步失败", false);
-//                        }
-//                    }
-//                });
-                dialogBuilder.dismiss();
-                onActivityCreated(null);
-            }
-        }).show();
+                .setButtonCancleClick(v -> dialogBuilder.getDismiss()).setButtonOk(v -> {
+                    String nickname = NiftyDialogBuilder.et_player.getText().toString();
+                    mSharedSettingsUtil.setUserNick(nickname);
+                    //                KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
+                    //                    @Override
+                    //                    public void onSetNicknameResult(boolean isSuccess, String nickname,
+                    //                                                    KTUser user, KTError error) {
+                    //                        if (isSuccess) {
+                    //                            showToast("网络帐号昵称同步成功", true);
+                    //                        } else {
+                    //                            showToast("网络帐号昵称同步失败", false);
+                    //                        }
+                    //                    }
+                    //                });
+                    dialogBuilder.dismiss();
+                    onActivityCreated(null);
+                }).show();
     }
 
     private void nextStart() {
@@ -143,16 +126,13 @@ public class StartFragmentA extends BaseFragment {
         super.onResume();
         getView().setFocusableInTouchMode(true);
         getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    startAnimActivity(MainActivity.class);
-                    getActivity().finish();
-                    return true;
-                }
-                return false;
+        getView().setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                startAnimActivity(MainActivity.class);
+                getActivity().finish();
+                return true;
             }
+            return false;
         });
     }
 }

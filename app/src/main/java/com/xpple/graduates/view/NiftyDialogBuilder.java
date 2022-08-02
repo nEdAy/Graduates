@@ -70,12 +70,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         View mDialogView = View.inflate(context, R.layout.dialog_layout, null);
         mLinearLayoutView = mDialogView
                 .findViewById(R.id.parentPanel);// null
-        mLinearLayoutView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                keepDialog(NiftyDialogBuilder.this);
-            }
-        });
+        mLinearLayoutView.setOnClickListener(arg0 -> keepDialog(NiftyDialogBuilder.this));
         mRelativeLayoutView = mDialogView
                 .findViewById(R.id.main);// null
         mLinearLayoutTopView = mDialogView
@@ -95,20 +90,14 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         rb_d = mDialogView.findViewById(R.id.rb_d);
         setContentView(mDialogView);
 
-        this.setOnShowListener(new OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
-                mLinearLayoutView.setVisibility(View.VISIBLE);
-                start(Effectstype.Shake);// 启动动画
+        this.setOnShowListener(dialogInterface -> {
+            mLinearLayoutView.setVisibility(View.VISIBLE);
+            start(Effectstype.Shake);// 启动动画
 
-            }
         });
-        mRelativeLayoutView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isCancelable) {
-                    getDismiss();
-                }
+        mRelativeLayoutView.setOnClickListener(view -> {
+            if (isCancelable) {
+                getDismiss();
             }
         });
     }
@@ -264,14 +253,10 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
             animator.setDuration(Math.abs(mDuration));
         }
         animator.start(mRelativeLayoutView);
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                dismiss();
-                closeDialog(NiftyDialogBuilder.this);
-            }
+        new Handler().postDelayed(() -> {
+            // TODO Auto-generated method stub
+            dismiss();
+            closeDialog(NiftyDialogBuilder.this);
         }, 500);
     }
 

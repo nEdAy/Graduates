@@ -45,12 +45,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.btn_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         rl_switch_music = parentView.findViewById(R.id.rl_switch_music);
         rl_switch_sound = parentView.findViewById(R.id.rl_switch_sound);
         rl_text_phone = parentView.findViewById(R.id.rl_text_phone);
@@ -149,55 +144,39 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                 dialogBuilder.withTitle("设置手机号")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_PHONE).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
-                        .setButtonCancleClick(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialogBuilder.getDismiss();
+                        .setButtonCancleClick(v14 -> dialogBuilder.getDismiss()).setButtonOk(v13 -> {
+                            String phone = NiftyDialogBuilder.et_player.getText().toString();
+                            if (StringUtils.isPhoneNumberValid(phone)) {
+                                mSharedSettingsUtil.setUserPhone(phone);
+                                dialogBuilder.dismiss();
+                                onActivityCreated(null);
+                            } else {
+                                showToast("手机号不合法，请确认后重新输入！", false);
                             }
-                        }).setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String phone = NiftyDialogBuilder.et_player.getText().toString();
-                        if (StringUtils.isPhoneNumberValid(phone)) {
-                            mSharedSettingsUtil.setUserPhone(phone);
-                            dialogBuilder.dismiss();
-                            onActivityCreated(null);
-                        } else {
-                            showToast("手机号不合法，请确认后重新输入！", false);
-                        }
-                    }
-                }).show();
+                        }).show();
                 break;
             case R.id.rl_text_nick:
                 CustomApplication.playSound(R.raw.button_0);
                 dialogBuilder.withTitle("设置昵称")
                         .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
                         .withDuration(500).withButtonCancle().withButtonOk()
-                        .setButtonCancleClick(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialogBuilder.getDismiss();
-                            }
-                        }).setButtonOk(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String nickname = NiftyDialogBuilder.et_player.getText().toString();
-                        mSharedSettingsUtil.setUserNick(nickname);
-//                        KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
-//                            @Override
-//                            public void onSetNicknameResult(boolean isSuccess, String nickname,
-//                                                            KTUser user, KTError error) {
-//                                if (isSuccess) {
-//                                    showToast("网络帐号昵称同步成功", true);
-//                                } else {
-//                                    showToast("网络帐号昵称同步失败", false);
-//                                }
-//                            }
-//                        });
-                        dialogBuilder.dismiss();
-                        onActivityCreated(null);
-                    }
-                }).show();
+                        .setButtonCancleClick(v12 -> dialogBuilder.getDismiss()).setButtonOk(v1 -> {
+                            String nickname = NiftyDialogBuilder.et_player.getText().toString();
+                            mSharedSettingsUtil.setUserNick(nickname);
+                            //                        KTAccountManager.setNickname(nickname, new KTAccountManager.OnSetNicknameListener() {
+                            //                            @Override
+                            //                            public void onSetNicknameResult(boolean isSuccess, String nickname,
+                            //                                                            KTUser user, KTError error) {
+                            //                                if (isSuccess) {
+                            //                                    showToast("网络帐号昵称同步成功", true);
+                            //                                } else {
+                            //                                    showToast("网络帐号昵称同步失败", false);
+                            //                                }
+                            //                            }
+                            //                        });
+                            dialogBuilder.dismiss();
+                            onActivityCreated(null);
+                        }).show();
                 break;
             case R.id.rl_text_sex:
                 if (tv_sex.getText().equals("男")) {

@@ -50,12 +50,7 @@ public class PartnerFragment extends BaseFragment implements View.OnClickListene
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         sv_partner = parentView.findViewById(R.id.sv_partner);
         ll_partner_0 = parentView.findViewById(R.id.ll_partner_0);
         ll_partner_1 = parentView.findViewById(R.id.ll_partner_1);

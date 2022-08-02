@@ -43,12 +43,7 @@ public class StockFragment extends BaseFragment implements View.OnClickListener 
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         tv_index = parentView.findViewById(R.id.tv_index);
         tv_money = parentView.findViewById(R.id.tv_money);
         tv_value = parentView.findViewById(R.id.tv_value);
@@ -98,7 +93,7 @@ public class StockFragment extends BaseFragment implements View.OnClickListener 
             case R.id.btn_buy:
                 int mBuy = 0;
                 if (!TextUtils.isEmpty(et_buy.getText())) {
-                    mBuy = Integer.valueOf(et_buy.getText().toString());
+                    mBuy = Integer.parseInt(et_buy.getText().toString());
                 }
                 if (mBuy > mMoney) {
                     showToast(R.string.stock_no_money, false);
@@ -113,7 +108,7 @@ public class StockFragment extends BaseFragment implements View.OnClickListener 
             case R.id.btn_sell:
                 int mSell = 0;
                 if (!TextUtils.isEmpty(et_sell.getText())) {
-                    mSell = Integer.valueOf(et_sell.getText().toString());
+                    mSell = Integer.parseInt(et_sell.getText().toString());
                 }
                 if (mSell > mStock) {
                     showToast(R.string.stock_no_stock, false);

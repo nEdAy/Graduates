@@ -52,12 +52,7 @@ public class LotteryFragment extends BaseFragment {
 
     private void setUpViews() {
         ImageView iv_back = parentView.findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
+        iv_back.setOnClickListener(v -> getActivity().getSupportFragmentManager().popBackStack());
         btn_lottery = parentView.findViewById(R.id.btn_lottery);
     }
 
@@ -68,28 +63,25 @@ public class LotteryFragment extends BaseFragment {
         mSharedScoreUtil = mApplication.getSpScoreUtil();
         Random random = new Random();
         n = random.nextInt(1000) + 1;
-        btn_lottery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSharedScoreUtil.setLottery(true);
-                mSharedScoreUtil.setMoney(-100);
-                if (n.equals(1)) {
-                    CustomApplication.playSound(R.raw.lottery);
-                    showPopWindows(btn_lottery, "一等奖", "5000000");
+        btn_lottery.setOnClickListener(v -> {
+            mSharedScoreUtil.setLottery(true);
+            mSharedScoreUtil.setMoney(-100);
+            if (n.equals(1)) {
+                CustomApplication.playSound(R.raw.lottery);
+                showPopWindows(btn_lottery, "一等奖", "5000000");
 
-                } else if (n.equals(11) || n.equals(12)) {
-                    CustomApplication.playSound(R.raw.lottery);
-                    showPopWindows(btn_lottery, "二等奖", "500000");
+            } else if (n.equals(11) || n.equals(12)) {
+                CustomApplication.playSound(R.raw.lottery);
+                showPopWindows(btn_lottery, "二等奖", "500000");
 
-                } else if (11 >= n && n <= 20) {
-                    CustomApplication.playSound(R.raw.lottery);
-                    showPopWindows(btn_lottery, "三等奖", "50000");
+            } else if (11 >= n && n <= 20) {
+                CustomApplication.playSound(R.raw.lottery);
+                showPopWindows(btn_lottery, "三等奖", "50000");
 
-                } else {
-                    CustomApplication.playSound(R.raw.money);
-                    showToast("您本月没有中奖，欢迎下月再来~", false);
-                    getActivity().getSupportFragmentManager().popBackStack();
-                }
+            } else {
+                CustomApplication.playSound(R.raw.money);
+                showToast("您本月没有中奖，欢迎下月再来~", false);
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }
@@ -116,12 +108,9 @@ public class LotteryFragment extends BaseFragment {
          * @see View.LAYER_TYPE_NONE
          */
         flakeView.setLayerType(View.LAYER_TYPE_NONE, null);
-        view.findViewById(R.id.btn_ikow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                container.removeAllViews();
-                pop.dismiss();
-            }
+        view.findViewById(R.id.btn_ikow).setOnClickListener(v1 -> {
+            container.removeAllViews();
+            pop.dismiss();
         });
         pop = new PopupWindow(view, FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         ColorDrawable dw = new ColorDrawable(getResources().getColor(R.color.color_half_transparent));

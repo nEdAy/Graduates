@@ -40,13 +40,7 @@ public class CustomProgressDialog extends ProgressDialog {
         // 通过ImageView对象拿到背景显示的AnimationDrawable
         mAnimation = (AnimationDrawable) mImageView.getBackground();
         // 为了防止在onCreate方法中只显示第一帧的解决方案之一
-        mImageView.post(new Runnable() {
-            @Override
-            public void run() {
-                mAnimation.start();
-
-            }
-        });
+        mImageView.post(() -> mAnimation.start());
         mLoadingTv.setText(mLoadingTip);
     }
 

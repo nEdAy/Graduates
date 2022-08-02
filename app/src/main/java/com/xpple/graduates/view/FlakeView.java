@@ -60,24 +60,21 @@ public class FlakeView extends View {
         // This listener is where the action is for the flak animations. Every frame of the
         // animation, we calculate the elapsed time and update every flake's position and rotation
         // according to its speed.
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator arg0) {
-                long nowTime = System.currentTimeMillis();
-                float secs = (float) (nowTime - prevTime) / 100f;
-                prevTime = nowTime;
-                for (int i = 0; i < numFlakes; ++i) {
-                    Flake flake = flakes.get(i);
-                    flake.y += (flake.speed * secs);
-                    if (flake.y > getHeight()) {
-                        // If a flake falls off the bottom, send it back to the top
-                        flake.y = 0 - flake.height;
-                    }
-                    flake.rotation = flake.rotation + (flake.rotationSpeed * secs);
+        animator.addUpdateListener(arg0 -> {
+            long nowTime = System.currentTimeMillis();
+            float secs = (float) (nowTime - prevTime) / 100f;
+            prevTime = nowTime;
+            for (int i = 0; i < numFlakes; ++i) {
+                Flake flake = flakes.get(i);
+                flake.y += (flake.speed * secs);
+                if (flake.y > getHeight()) {
+                    // If a flake falls off the bottom, send it back to the top
+                    flake.y = 0 - flake.height;
                 }
-                // Force a redraw to see the flakes in their new positions and orientations
-                invalidate();
+                flake.rotation = flake.rotation + (flake.rotationSpeed * secs);
             }
+            // Force a redraw to see the flakes in their new positions and orientations
+            invalidate();
         });
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setDuration(3000);
