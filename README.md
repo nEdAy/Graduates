@@ -179,8 +179,28 @@
     Bmob Android支付 SDK  个人开发者继承支付宝和微信收费组件
 
 ### 六、致谢
+
     首先，我们要特别感谢大赛组委会为我们提供一个这么难得的展示自己和锻炼自己的机会。
     其次，我们要感谢天津理工大学的大力支持和帮助，以及学校、学院领导对于我们比赛进程的关心。
     再次，我们要感谢指导老师靳学陶对于我们的教导和无私的帮助，靳学陶严谨求实的工作态度，敏锐的洞察力，强烈的探索精神，诲人不倦的教育风范以及平易近人的工作风格，给我留下了深刻的印象。在对我们的项目指导过程中，专业课老师提出许多富有启发性和建设性的意见，使我能够在学习和研究中不断取得进步和提高，谢谢老师。
     此外，我还要感谢我的同学、朋友以及家人，在整个研发过程中，他们在生活上给了我无微不至的关怀和照顾，与他们的多次交流和合作使我受益匪浅。
     最后，我们要感谢团队里的每一个人，团结合作和迎难直上是我们一路走来的最大收获，希望我们梦想成真！
+
+## MIT License
+
+Copyright (c) 2022 苏晟
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
