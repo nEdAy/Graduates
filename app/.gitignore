@@ -1,3 +1,5 @@
 /build
 /release
 /keystore/release-signing.properties
+
+**/Secret.kt

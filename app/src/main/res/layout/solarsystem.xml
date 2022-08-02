@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.xpple.graduates.view.SolarSystem xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.neday.graduates.view.SolarSystem xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/solar"
     android:layout_width="wrap_content"
@@ -105,4 +105,4 @@
             android:background="@drawable/frame"
             android:contentDescription="@string/ImageViewDescription" />
     </RelativeLayout>
-</com.xpple.graduates.view.SolarSystem>
+</cn.neday.graduates.view.SolarSystem>

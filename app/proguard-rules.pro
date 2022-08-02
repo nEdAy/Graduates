@@ -21,14 +21,11 @@
 
 -keepattributes Signature
 
--dontwarn net.slidingmenu.tools.**
--keep class net.slidingmenu.tools.** {
-    *;
-}
-
-#以下这一句为消除v4包被混淆
+# 以下这一句为消除v4包被混淆
 -keep class android.support.v4.** { *; }
 
--keepclasseswithmembers class c.b.** { *; }
--keep interface c.b.PListener{ *; }
--keep interface c.b.QListener{ *; }
+# TapTap
+-keep class com.tds.** { *;}
+-keep class com.taptap.** { *;}
+-keep class com.tapsdk.** { *;}
+-keep class tds.androidx.** { *;}

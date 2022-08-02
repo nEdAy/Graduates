@@ -10,11 +10,11 @@ Properties releaseSigning = new Properties()
 releaseSigning.load(new FileInputStream(file(project.property("release-signing.properties"))))
 
 android {
-    compileSdk 33
+    compileSdk 32
     defaultConfig {
-        applicationId "com.xpple.graduates"
+        applicationId "cn.neday.graduates"
         minSdk 21
-        targetSdk 33
+        targetSdk 32
         versionCode 180
         versionName "1.8.0"
         resConfigs "zh"
@@ -39,6 +39,7 @@ android {
     }
     buildTypes {
         debug {
+            applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
         }
         release {
@@ -51,14 +52,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -74,4 +74,8 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.31.0'
     // Android Debug Database
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    implementation 'cn.leancloud:realtime-android:8.2.10'
+    implementation 'cn.leancloud:storage-android:8.2.10'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }
