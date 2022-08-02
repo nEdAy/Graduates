@@ -161,7 +161,7 @@ public class CarFragment extends BaseFragment implements View.OnClickListener {
         Integer mMoney = mSharedScoreUtil.getMoney();
         if (my_car.equals(car)) {
             mSharedScoreUtil.setCar(0);
-            mSharedScoreUtil.setMoney(+money / 2);
+            mSharedScoreUtil.setMoney(money / 2);
             mSharedScoreUtil.setIncome(income);
             mSharedScoreUtil.setCommunicationMonthly(-monthly);
         } else {

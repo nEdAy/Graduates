@@ -210,7 +210,7 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
                         .commit();
                 break;
             case R.id.btn_update:
-                /***** 检查更新 *****/
+                // 检查更新
                 // Beta.checkUpgrade();
                 break;
             default:

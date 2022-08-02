@@ -213,7 +213,7 @@ public class GameFragment extends BaseFragment implements
         mTimeValue = mSharedScoreUtil.getTime();
         mCommunicationMonthlyValue = mSharedScoreUtil.getCommunicationMonthly();
         mHappyMonthlyValue = mSharedScoreUtil.getHappyMonthly();
-        Integer mAgeValue = 22 + (96 - mMonthValue) / 12;
+        int mAgeValue = 22 + (96 - mMonthValue) / 12;
         mCarValue = mSharedScoreUtil.getCar();
         mPartnerValue = mSharedScoreUtil.getPartner();
         mPositionValue = mSharedScoreUtil.getPosition();
@@ -242,27 +242,27 @@ public class GameFragment extends BaseFragment implements
     }
 
     private void setClickAble() {
-        Boolean isCar = mSharedScoreUtil.isCar();
+        boolean isCar = mSharedScoreUtil.isCar();
         car.setClickable(!isCar);
         car.setImageResource(isCar ? R.mipmap.qiche_1 : R.mipmap.qiche_0);
 
-        Boolean isHouse = mSharedScoreUtil.isHouse();
+        boolean isHouse = mSharedScoreUtil.isHouse();
         house.setClickable(!isHouse);
         house.setImageResource(isHouse ? R.mipmap.fangchan_1 : R.mipmap.fangchan_0);
 
-        Boolean isPartner = mSharedScoreUtil.isPartner();
+        boolean isPartner = mSharedScoreUtil.isPartner();
         partner.setClickable(!isPartner);
         partner.setImageResource(isPartner ? R.mipmap.hongniang_1 : R.mipmap.hongniang_0);
 
-        Boolean isPosition = mSharedScoreUtil.isPosition();
+        boolean isPosition = mSharedScoreUtil.isPosition();
         position.setClickable(!isPosition);
         position.setImageResource(isPosition ? R.mipmap.rencai_1 : R.mipmap.rencai_0);
 
-        Boolean isLottery = mSharedScoreUtil.isLottery();
+        boolean isLottery = mSharedScoreUtil.isLottery();
         lottery.setClickable(!isLottery);
         lottery.setImageResource(isLottery ? R.mipmap.caipiao_1 : R.mipmap.caipiao_0);
 
-        Boolean isStock = mSharedScoreUtil.isStock();
+        boolean isStock = mSharedScoreUtil.isStock();
         stock.setClickable(!isStock);
         stock.setImageResource(isStock ? R.mipmap.gupiao_1 : R.mipmap.gupiao_0);
     }
@@ -959,7 +959,7 @@ public class GameFragment extends BaseFragment implements
     private void setRandomEvent() {
         //随机事件指数
         Random random_s = new Random();
-        final Integer s = random_s.nextInt(26); //0~25
+        final int s = random_s.nextInt(26); //0~25
         Random random_t = new Random();
         final Integer t = random_t.nextInt(2); //0~1
         switch (s) {
@@ -1940,7 +1940,7 @@ public class GameFragment extends BaseFragment implements
         Integer x = random_x.nextInt(21); //0~20,0~9 (┬＿┬)↘ 跌，10平，1~20 (￣︶￣)↗ 涨
         if (x < 20) {
             Random random_y = new Random();
-            Integer y = random_y.nextInt(5);
+            int y = random_y.nextInt(5);
             if (y < 3) {
                 x = x + 1;
             }
@@ -1955,7 +1955,7 @@ public class GameFragment extends BaseFragment implements
         Integer m = random_m.nextInt(21); //0~30,0~9 (┬＿┬)↘ 跌，10平，11~20 (￣︶￣)↗ 涨
         if (m < 20) {
             Random random_n = new Random();
-            Integer n = random_n.nextInt(5);
+            int n = random_n.nextInt(5);
             if (n < 3) {
                 m = m + 1;
             }

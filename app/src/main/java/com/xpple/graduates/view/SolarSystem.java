@@ -386,7 +386,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
             set.setInterpolator(new BounceInterpolator());
             set.playTogether(animator01, animator02, rotation);
             set.setDuration(Duration);
-            set.setStartDelay(i * 100);// 每个的子view的延迟时间
+            set.setStartDelay(i * 100L);// 每个的子view的延迟时间
 
             final int pos = i;
             childAt.setOnClickListener(v -> {
@@ -425,7 +425,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
 
             AnimatorSet set = new AnimatorSet();
             set.playTogether(alpha, scaleX);
-            set.setDuration(300 * i);
+            set.setDuration(300L * i);
             set.start();
         }
     }

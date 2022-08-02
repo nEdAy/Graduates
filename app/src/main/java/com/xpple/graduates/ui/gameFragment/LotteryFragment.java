@@ -95,18 +95,13 @@ public class LotteryFragment extends BaseFragment {
         tvTips.setText("恭喜您中得" + lotteryStr + ",奖金" + moneyStr + ",请领取！");
         money.setText(moneyStr);
         final LinearLayout container = view.findViewById(R.id.container);
-        //将flakeView 添加到布局中
+        // 将flakeView 添加到布局中
         container.addView(flakeView);
-        //设置背景
+        // 设置背景
         getActivity().getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLACK));
-        //设置同时出现在屏幕上的金币数量  建议64以内 过多会引起卡顿
+        // 设置同时出现在屏幕上的金币数量  建议64以内 过多会引起卡顿
         flakeView.addFlakes(8);
-        /**
-         * 绘制的类型
-         * @see View.LAYER_TYPE_HARDWARE
-         * @see View.LAYER_TYPE_SOFTWARE
-         * @see View.LAYER_TYPE_NONE
-         */
+        // 绘制的类型
         flakeView.setLayerType(View.LAYER_TYPE_NONE, null);
         view.findViewById(R.id.btn_ikow).setOnClickListener(v1 -> {
             container.removeAllViews();
