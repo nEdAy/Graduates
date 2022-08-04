@@ -34,7 +34,6 @@ import com.nineoldandroids.view.ViewHelper;
  * Acknowledgements daimajia https://github.com/daimajia
  */
 public abstract class BaseEffects {
-
     private static final int DURATION = 700;
 
     long mDuration = DURATION;
@@ -65,5 +64,4 @@ public abstract class BaseEffects {
     public void setDuration(long duration) {
         this.mDuration = duration;
     }
-
 }

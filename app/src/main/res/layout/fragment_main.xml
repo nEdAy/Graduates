@@ -69,13 +69,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_start"
-        android:layout_toLeftOf="@+id/btn_ktplay"
-        android:layout_toStartOf="@+id/btn_ktplay"
+        android:layout_toStartOf="@+id/btn_tap"
+        android:layout_toLeftOf="@+id/btn_tap"
         android:padding="5dp"
         android:src="@mipmap/btn_replay" />
 
     <ImageView
-        android:id="@+id/btn_ktplay"
+        android:id="@+id/btn_tap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_share"

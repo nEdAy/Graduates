@@ -19,7 +19,6 @@ import cn.neday.graduates.R;
  * all of the logic for adding, subtracting, and rendering Droidflakes.
  */
 public class FlakeView extends View {
-
     // Animator used to drive all separate flake animations. Rather than have potentially
     // hundreds of separate animators, we just use one and then update all flakes for each
     // frame of that single animation.

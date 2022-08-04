@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 
 import cn.neday.graduates.R;
+import cn.neday.graduates.view.SolarSystem.Position;
 
 public class SolarSystem extends ViewGroup implements OnClickListener {
-
     // 九个位置定义
     private static final int LEFT_TOP = 0;
     private static final int LEFT_BOTTOM = 1;
@@ -30,11 +30,11 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     private AnimationDrawable mAnimation;
     private Position position = Position.CENTER;// 默认位置
     private int radius;
-    private Status mStatus = Status.CLOSE;// 默认状态
+    public void position = Position
     private View centerMenu;// 默认选择最后一个控件为menu
     private onMenuItemClickListener menuItemClickListener;
     private onMenuItemLongClickListener menuItemLongClickListener;
-    private MenuStatus MenuStatus;
+    private Status status = Status.CLOSE;// 默认状态
     private boolean rotaFlag = true;// 中心按钮是否旋转
 
     public SolarSystem(Context context) {
@@ -93,12 +93,15 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
         style.recycle();// 释放
     }
 
-    public void setPosition(Position position) {
+    private MenuStatus menuStatus;
+    position)
+
+    {
         this.position = position;
     }
 
-    public void setmStatus(Status mStatus) {
-        this.mStatus = mStatus;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public void setRotaMenu(boolean flag) {
@@ -120,7 +123,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     }
 
     public void setOnMenuStatus(MenuStatus MenuStatus) {
-        this.MenuStatus = MenuStatus;
+        this.menuStatus = MenuStatus;
     }
 
     @Override
@@ -272,7 +275,9 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     private void setMenuListener(int childCount) {
         if (centerMenu == null) {
             centerMenu = getChildAt(childCount - 1);
-            centerMenu.setOnClickListener(this);
+            centerMenu.doOnClick {
+            }
+            ;
         }
     }
 
@@ -284,10 +289,10 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     @Override
     public void onClick(View v) {
         // 菜单状态切换
-        if (MenuStatus != null && mStatus == Status.CLOSE)
-            MenuStatus.closeMenu();
-        else if (MenuStatus != null && mStatus == Status.OPEN)
-            MenuStatus.openMenu();
+        if (menuStatus != null && status == Status.CLOSE)
+            menuStatus.closeMenu();
+        else if (menuStatus != null && status == Status.OPEN)
+            menuStatus.openMenu();
         // 是否旋转
         if (rotaFlag)
             rotationMenu(v, 0f, 720f, 1000);
@@ -368,7 +373,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
                     break;
             }
             // 根据菜单的状态判断是弹出还是收回
-            if (mStatus == Status.CLOSE) {
+            if (status == Status.CLOSE) {
                 animator01 = ObjectAnimator.ofFloat(childAt, "translationX",
                         0F, ix);
                 animator02 = ObjectAnimator.ofFloat(childAt, "translationY",
@@ -434,7 +439,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
      * 切换菜单状态
      */
     private void changeStatus() {
-        mStatus = (mStatus == Status.OPEN ? Status.CLOSE : Status.OPEN);
+        status = (status == Status.OPEN ? Status.CLOSE : Status.OPEN);
     }
 
     /**
@@ -453,7 +458,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
      * 判断是打开还是关闭状态
      */
     public boolean isOpen() {
-        return mStatus == Status.OPEN;
+        return status == Status.OPEN;
     }
 
     // 定义位置的枚举类型

@@ -5,7 +5,6 @@ import android.view.View;
 import com.nineoldandroids.animation.ObjectAnimator;
 
 public class DialogCancel extends BaseEffects {
-
     @Override
     protected void setupAnimation(View view) {
         getAnimatorSet().playTogether(

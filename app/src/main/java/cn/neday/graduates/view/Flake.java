@@ -73,7 +73,7 @@ class Flake {
         flake.bitmap = bitmapMap.get(flake.width);
         if (flake.bitmap == null) {
             flake.bitmap = Bitmap.createScaledBitmap(originalBitmap,
-                    flake.width, flake.height, true);
+                    flake.width, flake.height);
             bitmapMap.put(flake.width, flake.bitmap);
         }
         return flake;

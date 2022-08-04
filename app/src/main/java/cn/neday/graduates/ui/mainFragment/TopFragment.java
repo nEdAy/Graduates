@@ -82,12 +82,12 @@
 //            showLeaderboardInfo(leaderboard);
 //            int size = items.size();
 //            if (size == 0) {
-//                showToast("排行榜暂无数据", true);
+//                toast("排行榜暂无数据);
 //            } else {
 //                adapter.addAll(items);
 //            }
 //        } else {
-//            showToast("获取" + leaderboardId + "排行榜数据失败" + error, false);
+//            toast("获取" + leaderboardId + "排行榜数据失败" + error);
 //        }
 //        items.clear();
 //    }

@@ -17,7 +17,7 @@ android {
         targetSdk 32
         versionCode 180
         versionName "1.8.0"
-        resConfigs "zh"
+        resConfigs 'zh'
         ndk {
             // 设置支持的SO库架构
             abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
@@ -55,23 +55,31 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.databinding:viewbinding:7.2.1'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.nineoldandroids:library:2.4.0'
+
+    implementation 'com.github.DylanCaiCoding.Longan:longan:1.1.1'
+
+    implementation 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
 
     // Calligraphy3
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'
 
     // Key-Value Storage
-    implementation 'com.tencent:mmkv:1.2.13'
-    // Utils
-    implementation 'com.blankj:utilcodex:1.31.0'
+    implementation 'com.github.DylanCaiCoding:MMKV-KTX:1.2.13'
+
     // Android Debug Database
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 

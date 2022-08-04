@@ -24,7 +24,6 @@ import cn.neday.graduates.R;
 import cn.neday.graduates.view.effects.BaseEffects;
 
 public class NiftyDialogBuilder extends Dialog implements DialogInterface {
-
     @SuppressLint("StaticFieldLeak")
     public static EditText et_player;
     private static int mOrientation = 1;
@@ -92,7 +91,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
         this.setOnShowListener(dialogInterface -> {
             mLinearLayoutView.setVisibility(View.VISIBLE);
-            start(Effectstype.Shake);// 启动动画
+            start(EffectsType.Shake);// 启动动画
 
         });
         mRelativeLayoutView.setOnClickListener(view -> {
@@ -230,7 +229,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         super.show();
     }
 
-    private void start(Effectstype type) {
+    private void start(EffectsType type) {
         BaseEffects animator = type.getAnimator();
         if (mDuration != -1) {
             animator.setDuration(Math.abs(mDuration));
@@ -248,13 +247,13 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
 
     public void getDismiss() {
-        BaseEffects animator = Effectstype.DialogCancel.getAnimator();
+        BaseEffects animator = EffectsType.DialogCancel.getAnimator();
         if (mDuration != -1) {
             animator.setDuration(Math.abs(mDuration));
         }
         animator.start(mRelativeLayoutView);
         new Handler().postDelayed(() -> {
-            // TODO Auto-generated method stub
+
             dismiss();
             closeDialog(NiftyDialogBuilder.this);
         }, 500);
@@ -262,8 +261,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
     private void keepDialog(DialogInterface mDialog) {
         try {
-            Field field = mDialog.getClass().getSuperclass()
-                    .getDeclaredField("mShowing");
+            Field field = mDialog.getClass().getSuperclass().getDeclaredField("mShowing");
             field.setAccessible(true);
             field.set(mDialog, false);
         } catch (Exception e) {
@@ -274,10 +272,9 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
     public void closeDialog(DialogInterface mDialog) {
         try {
-            Field field = mDialog.getClass().getSuperclass()
-                    .getDeclaredField("mShowing");
+            Field field = mDialog.getClass().getSuperclass().getDeclaredField("mShowing");
             field.setAccessible(true);
-            field.set(mDialog, true);
+            field.set(mDialog, false);
             mDialog.dismiss();
         } catch (Exception e) {
             // TODO Auto-generated catch block

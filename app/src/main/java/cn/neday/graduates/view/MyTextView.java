@@ -7,12 +7,11 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
 
-public class MyTextView extends TextView {
-
+public class MyTextView extends AppCompatTextView {
     private LinearGradient mLinearGradient;
     private Matrix mGradientMatrix;
     private int mViewWidth = 0;
@@ -46,7 +45,6 @@ public class MyTextView extends TextView {
             if (mTranslate > 2 * mViewWidth) {
                 mTranslate = -mViewWidth;
             }
-
             mGradientMatrix.setTranslate(mTranslate, 0);
             mLinearGradient.setLocalMatrix(mGradientMatrix);
             postInvalidateDelayed(50);
