@@ -6,9 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.PopupWindow
@@ -30,21 +28,9 @@ class LotteryFragment : BaseBindingFragment<FragmentLotteryBinding>() {
     // 金币掉落动画的主体动画
     private var flakeView: FlakeView? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         flakeView = FlakeView(activity)
         val random = Random()
         val n = random.nextInt(1000) + 1
@@ -66,6 +52,10 @@ class LotteryFragment : BaseBindingFragment<FragmentLotteryBinding>() {
                 activity?.supportFragmentManager?.popBackStack()
             }
         }
+    }
+
+    private fun setUpViews() {
+        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
     }
 
     private fun showPopWindows(v: View?, lotteryStr: String, money: Int): PopupWindow {

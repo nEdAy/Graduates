@@ -4,7 +4,7 @@ import android.os.Bundle
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.ActivityGameBinding
-import cn.neday.graduates.repository.Score
+import cn.neday.graduates.repository.Settings
 import cn.neday.graduates.ui.gameFragment.GameFragment
 import cn.neday.graduates.ui.gameFragment.StartFragmentA
 
@@ -16,7 +16,7 @@ class GameActivity : BaseBindingActivity<ActivityGameBinding>() {
 
     private fun setUpFragment() {
         val transaction = supportFragmentManager.beginTransaction()
-        if (Score.isScore) {
+        if (Settings.isPlaying) {
             val fragment = GameFragment()
             transaction.replace(R.id.fragment_game, fragment)
         } else {

@@ -17,7 +17,7 @@ package cn.neday.graduates.view;
 
 import android.graphics.Bitmap;
 
-import com.blankj.utilcode.util.ScreenUtils;
+import com.dylanc.longan.ScreenKt;
 
 import java.util.HashMap;
 
@@ -46,7 +46,7 @@ class Flake {
     static Flake createFlake(float xRange, Bitmap originalBitmap) {
         Flake flake = new Flake();
         // Size each flake with a width between 5 and 55 and a proportional height
-        if (ScreenUtils.getScreenWidth() >= 1080) {
+        if (ScreenKt.getScreenWidth() >= 1080) {
             flake.width = (int) (5 + (float) Math.random() * 80);
             float hwRatio = originalBitmap.getHeight() / originalBitmap.getWidth();
             flake.height = (int) (flake.width * hwRatio + 60);
@@ -73,7 +73,7 @@ class Flake {
         flake.bitmap = bitmapMap.get(flake.width);
         if (flake.bitmap == null) {
             flake.bitmap = Bitmap.createScaledBitmap(originalBitmap,
-                    flake.width, flake.height);
+                    flake.width, flake.height, true);
             bitmapMap.put(flake.width, flake.bitmap);
         }
         return flake;

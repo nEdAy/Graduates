@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.mainFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentSettingsBinding
 import cn.neday.graduates.doOnClickWithSound
@@ -12,13 +10,9 @@ import cn.neday.graduates.repository.Settings
 import com.dylanc.longan.doOnClick
 
 class SettingsFragment : BaseBindingFragment<FragmentSettingsBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun setUpViews() {
@@ -132,11 +126,4 @@ class SettingsFragment : BaseBindingFragment<FragmentSettingsBinding>() {
 //            
 //        }
 //    }
-
-    companion object {
-        private val instance = SettingsFragment()
-        fun newInstance(): SettingsFragment {
-            return instance
-        }
-    }
 }

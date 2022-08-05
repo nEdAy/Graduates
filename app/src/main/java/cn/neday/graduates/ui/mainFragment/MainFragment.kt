@@ -136,7 +136,7 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
             .setButtonOk {
                 dialogBuilder.closeDialog(dialogBuilder)
                 //Score?.cleanSharedPreference()
-                // mSharedSaveUtil?.cleanSharedPreference()
+                // Score?.cleanSharedPreference()
                 startActivity<GameActivity>()
                 activity?.finish()
             }.show()

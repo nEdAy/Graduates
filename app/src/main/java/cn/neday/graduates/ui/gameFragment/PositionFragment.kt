@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.gameFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentPositionBinding
@@ -14,13 +12,24 @@ import com.dylanc.longan.toast
 
 class PositionFragment : BaseBindingFragment<FragmentPositionBinding>() {
     private var lastPositionIncome: Int = 0
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        when (Score.position) {
+            0 -> lastPositionIncome = 2200
+            1 -> lastPositionIncome = 3300
+            2 -> lastPositionIncome = 4400
+            3 -> lastPositionIncome = 4400
+            4 -> lastPositionIncome = 6600
+            5 -> lastPositionIncome = 8800
+            6 -> lastPositionIncome = 8800
+            7 -> lastPositionIncome = 13200
+            8 -> lastPositionIncome = 17600
+            9 -> lastPositionIncome = 17600
+            10 -> lastPositionIncome = 26400
+            11 -> lastPositionIncome = 35200
+        }
     }
 
     private fun setUpViews() {
@@ -41,24 +50,6 @@ class PositionFragment : BaseBindingFragment<FragmentPositionBinding>() {
         binding.btnPosition9.doOnClick { setValue(4000, -5000, 7, 7, 7, 7, 9, 17600) }
         binding.btnPosition10.doOnClick { setValue(4500, -5500, 8, 8, 8, 8, 10, 26400) }
         binding.btnPosition11.doOnClick { setValue(5000, -6000, 9, 9, 9, 9, 11, 35200) }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        when (Score.position) {
-            0 -> lastPositionIncome = 2200
-            1 -> lastPositionIncome = 3300
-            2 -> lastPositionIncome = 4400
-            3 -> lastPositionIncome = 4400
-            4 -> lastPositionIncome = 6600
-            5 -> lastPositionIncome = 8800
-            6 -> lastPositionIncome = 8800
-            7 -> lastPositionIncome = 13200
-            8 -> lastPositionIncome = 17600
-            9 -> lastPositionIncome = 17600
-            10 -> lastPositionIncome = 26400
-            11 -> lastPositionIncome = 35200
-        }
     }
 
     private fun setValue(

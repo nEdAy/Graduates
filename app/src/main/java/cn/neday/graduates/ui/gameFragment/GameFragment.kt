@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.KeyEvent
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import cn.neday.graduates.MusicConductor.playSound
 import cn.neday.graduates.R
@@ -17,6 +15,7 @@ import cn.neday.graduates.activity.StorylineActivity
 import cn.neday.graduates.databinding.FragmentGameBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.repository.Score
+import cn.neday.graduates.repository.Settings
 import cn.neday.graduates.view.NiftyDialogBuilder
 import cn.neday.graduates.view.SolarSystem.MenuStatus
 import com.dylanc.longan.doOnClick
@@ -53,13 +52,12 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         false
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        setMValue()
+        setClickAble()
+        setSsItemChoose()
     }
 
     private fun setUpViews() {
@@ -103,94 +101,165 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
 
         // 通过ImageView对象拿到背景显示的AnimationDrawable
         val centerMenu = binding.ss.centerMenu
-        mAnimation = centerMenu.background
+        mAnimation = centerMenu.background as AnimationDrawable?
         centerMenu.post { mAnimation?.start() }
     }
 
     private fun setListener() {
-        binding.stock.doOnClick { }
-        binding.position.doOnClick { }
-        binding.house.doOnClick { }
-        binding.car.doOnClick { }
-        binding.partner.doOnClick { }
-        binding.lottery.doOnClick { }
-        binding.btnBack.doOnClick { }
-        binding.btnSave.doOnClick { }
-        binding.btnLoad.doOnClick { }
-        binding.btnGoNextMonth.doOnClick { }
-    }
+        binding.stock.doOnClick {
+            Score.isStock = true
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    StockFragment()
+                )?.addToBackStack(null)?.commit()
+        }
+        binding.position.doOnClick {
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    PositionFragment()
+                )?.addToBackStack(null)?.commit()
+        }
+        binding.house.doOnClick {
+            Score.isHouse = true
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    HouseFragment()
+                )?.addToBackStack(null)?.commit()
+        }
+        binding.car.doOnClick {
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    CarFragment()
+                )?.addToBackStack(null)?.commit()
+        }
+        binding.partner.doOnClick {
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    PartnerFragment()
+                )?.addToBackStack(null)?.commit()
+        }
+        binding.lottery.doOnClick {
+            playSound(R.raw.button_0)
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    R.id.fragment_game,
+                    LotteryFragment()
+                )?.addToBackStack(null)?.commit()
+        }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setMValue()
-        setClickAble()
-        setSsItemChoose()
+        binding.btnExit.doOnClick { showReturnDialog() }
+        binding.btnSave.doOnClick { goSave() }
+        binding.btnLoad.doOnClick {
+            if (Settings.isSave) {
+                showLoadDialog()
+            } else {
+                toast(R.string.no_save)
+            }
+        }
+
+        binding.btnGoNextMonth.doOnClick {
+            playSound(R.raw.next_month)
+            if (mHappyValue < 0 || mMoralityValue < 0 || mHealthyValue < 0) {
+                playSound(R.raw.die)
+                toGameOver()
+            } else if (mMonthValue <= 0) {
+                toGameOver()
+            } else {
+                if (mPartnerValue == 7 && mMonthValue <= 24) {
+                    beginStroySn()
+                }
+                setMonthValue()
+                val randomE = Random()
+                val e = randomE.nextInt(2) //0~1
+                if (e == 0) {
+                    setRandomEvent()
+                }
+                onActivityCreated(null)
+            }
+        }
     }
 
     private fun setMValue() {
-        mLoadValue = Score.getLoad()
-        mHealthyValue = Score.getHealthy()
-        mMoneyValue = Score.getMoney()
-        mAbilityValue = Score.getAbility()
-        mExperienceValue = Score.getExperience()
-        mHappyValue = Score.getHappy()
-        mMoralityValue = Score.getMorality()
-        mCommunicationValue = Score.getCommunication()
-        mMonthValue = Score.getMonth()
-        mTimeValue = Score.getTime()
-        mCommunicationMonthlyValue = Score.getCommunicationMonthly()
-        mHappyMonthlyValue = Score.getHappyMonthly()
+        mLoadValue = Settings.load
+
+        mHealthyValue = Score.healthy
+        mMoneyValue = Score.money
+        mAbilityValue = Score.ability
+        mExperienceValue = Score.experience
+        mHappyValue = Score.happy
+        mMoralityValue = Score.morality
+        mCommunicationValue = Score.communication
+        mMonthValue = Score.month
+        mTimeValue = Score.time
+        mCommunicationMonthlyValue = Score.communicationMonthly
+        mHappyMonthlyValue = Score.happyMonthly
         val mAgeValue = 22 + (96 - mMonthValue) / 12
-        mCarValue = Score.getCar()
-        mPartnerValue = Score.getPartner()
-        mPositionValue = Score.getPosition()
-        mHouseValue = Score.getHouse()
-        mIncomeValue = Score.getIncome()
-        mStockValue = Score.getStock()
-        mIndexStockValue = Score.getIndexStock()
-        mIndexHouseValue = Score.getIndexHouse()
-        binding.tvHealthy.text = "" + mHealthyValue
-        binding.tvMoney.text = "" + mMoneyValue
-        binding.mAbilityValueView?.text = "" + mAbilityValue
-        binding.mExperienceValueView?.text = "" + mExperienceValue
-        binding.mHappyValueView?.text = "" + mHappyValue
-        binding.mMoralityValueView?.text = "" + mMoralityValue
-        binding.mCommunicationValueView?.text = "" + mCommunicationValue
-        binding.mMonthValueView?.text = "" + mMonthValue
-        binding.mTimeValueView?.text = "" + mTimeValue
-        binding.mAgeValueView?.text = "" + mAgeValue
-        binding.mPositionView?.text = mPositionString[mPositionValue]
-        binding.mCarView?.text = mCarString[mCarValue]
-        binding.mHouseView?.text = mHouseString[mHouseValue]
-        binding.mPartnerView?.text = mPartnerString[mPartnerValue]
+        mCarValue = Score.car
+        mPartnerValue = Score.partner
+        mPositionValue = Score.position
+        mHouseValue = Score.house
+        mIncomeValue = Score.income
+        mStockValue = Score.stock
+        mIndexStockValue = Score.indexStock
+        mIndexHouseValue = Score.indexHouse
+        binding.tvHealthy.text = mHealthyValue.toString()
+        binding.tvMoney.text = mMoneyValue.toString()
+        binding.tvAbility.text = mAbilityValue.toString()
+        binding.tvExperience.text = mExperienceValue.toString()
+        binding.tvHappy.text = mHappyValue.toString()
+        binding.tvMorality.text = mMoralityValue.toString()
+        binding.tvCommunication.text = mCommunicationValue.toString()
+        binding.tvMonth.text = mMonthValue.toString()
+        binding.tvTime.text = mTimeValue.toString()
+        binding.tvAge.text = mAgeValue.toString()
+        binding.tvPosition.text = mPositionString[mPositionValue]
+        binding.tvCar.text = mCarString[mCarValue]
+        binding.tvHouse.text = mHouseString[mHouseValue]
+        binding.tvPartner.text = mPartnerString[mPartnerValue]
         if (mMonthValue <= 0) {
             toGameOver()
         }
     }
 
     private fun setClickAble() {
-        val isCar: Boolean = Score.isCar()
-        car?.isClickable = !isCar
-        car?.setImageResource(if (isCar) R.mipmap.qiche_1 else R.mipmap.qiche_0)
-        val isHouse: Boolean = Score.isHouse()
-        house?.isClickable = !isHouse
-        house?.setImageResource(if (isHouse) R.mipmap.fangchan_1 else R.mipmap.fangchan_0)
-        val isPartner: Boolean = Score.isPartner()
-        partner?.isClickable = !isPartner
-        partner?.setImageResource(if (isPartner) R.mipmap.hongniang_1 else R.mipmap.hongniang_0)
-        val isPosition: Boolean = Score.isPosition()
-        position?.isClickable = !isPosition
-        position?.setImageResource(if (isPosition) R.mipmap.rencai_1 else R.mipmap.rencai_0)
-        val isLottery: Boolean = Score.isLottery()
-        lottery?.isClickable = !isLottery
-        lottery?.setImageResource(if (isLottery) R.mipmap.caipiao_1 else R.mipmap.caipiao_0)
-        val isStock: Boolean = Score.isStock()
-        stock?.isClickable = !isStock
-        stock?.setImageResource(if (isStock) R.mipmap.gupiao_1 else R.mipmap.gupiao_0)
+        val isCar: Boolean = Score.isCar
+        binding.car.isClickable = !isCar
+        binding.car.setImageResource(if (isCar) R.mipmap.qiche_1 else R.mipmap.qiche_0)
+        val isHouse: Boolean = Score.isHouse
+        binding.house.isClickable = !isHouse
+        binding.house.setImageResource(if (isHouse) R.mipmap.fangchan_1 else R.mipmap.fangchan_0)
+        val isPartner: Boolean = Score.isPartner
+        binding.partner.isClickable = !isPartner
+        binding.partner.setImageResource(if (isPartner) R.mipmap.hongniang_1 else R.mipmap.hongniang_0)
+        val isPosition: Boolean = Score.isPosition
+        binding.position.isClickable = !isPosition
+        binding.position.setImageResource(if (isPosition) R.mipmap.rencai_1 else R.mipmap.rencai_0)
+        val isLottery: Boolean = Score.isLottery
+        binding.lottery.isClickable = !isLottery
+        binding.lottery.setImageResource(if (isLottery) R.mipmap.caipiao_1 else R.mipmap.caipiao_0)
+        val isStock: Boolean = Score.isStock
+        binding.stock.isClickable = !isStock
+        binding.stock.setImageResource(if (isStock) R.mipmap.gupiao_1 else R.mipmap.gupiao_0)
     }
 
     private fun setSsItemChoose() {
-        binding.ss.solarSystem.setOnMenuItemClickListener { view: View, _: Int ->
+        binding.ss.solar.setOnMenuItemClickListener { view: View, _: Int ->
             when (view.tag as String) {
                 "yd" -> if (checkValue(30, 200)) {
                     playSound(R.raw.read)
@@ -198,7 +267,8 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     setValue(0, -200, 6, 7, -2, 0, 0, -30)
                     Score.yd = Score.yd.plus(1)
                     if (Score.yd == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
+                        showRgChooseViewDialog(
+                            R.string.opportunity,
                             R.string.opportunity_0,
                             R.string.opportunity_0_a,
                             R.string.opportunity_0_b,
@@ -207,15 +277,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbAonClickListener {
                                 override fun onClick() {
                                     toast(R.string.both_add)
-                                    Score.setLove(1)
-                                    Score.setCareer(1)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
                             object : RbBonClickListener {
                                 override fun onClick() {
                                     toast(R.string.love_add)
-                                    Score.setLove(1)
+                                    Score.love = Score.love.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
@@ -227,7 +297,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbDonClickListener {
                                 override fun onClick() {
                                     toast(R.string.career_add)
-                                    Score.setCareer(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             })
@@ -237,9 +307,10 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     playSound(R.raw.read)
                     showImageViewDialog(R.string.plan, R.string.plan_1, R.mipmap.bl)
                     setValue(0, -100, 4, 5, 2, 0, 0, -30)
-                    Score.setBl(1)
-                    if (Score.getBl() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
+                    Score.bl = Score.bl.plus(1)
+                    if (Score.bl == 30) {
+                        showRgChooseViewDialog(
+                            R.string.opportunity,
                             R.string.opportunity_1,
                             R.string.opportunity_1_a,
                             R.string.opportunity_1_b,
@@ -248,15 +319,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbAonClickListener {
                                 override fun onClick() {
                                     toast(R.string.both_add)
-                                    Score.setLove(1)
-                                    Score.setCareer(1)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
                             object : RbBonClickListener {
                                 override fun onClick() {
                                     toast(R.string.love_add)
-                                    Score.setLove(1)
+                                    Score.love = Score.love.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
@@ -268,7 +339,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbDonClickListener {
                                 override fun onClick() {
                                     toast(R.string.career_add)
-                                    Score.setCareer(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             })
@@ -278,8 +349,8 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     playSound(R.raw.bar)
                     showImageViewDialog(R.string.plan, R.string.plan_2, R.mipmap.ts)
                     setValue(-2, -1000, 0, 4, 5, -2, 6, -30)
-                    Score.setTs(1)
-                    if (Score.getTs() == 20) {
+                    Score.ts = Score.ts.plus(1)
+                    if (Score.ts == 20) {
                         showRgChooseViewDialog(R.string.opportunity,
                             R.string.opportunity_2,
                             R.string.opportunity_2_b,
@@ -289,274 +360,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbAonClickListener {
                                 override fun onClick() {
                                     toast(R.string.love_add)
-                                    Score.setLove(1)
-                                    onActivityCreated(null)
-                                }
-                            },
-                            object : RbBonClickListener {
-                                override fun onClick() {
-                                    toast(R.string.no_add)
-                                }
-                            },
-                            RbConClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbDonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "tx" -> if (checkValue(30, 600)) {
-                    playSound(R.raw.classmate)
-                    showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx)
-                    setValue(0, -600, 0, 2, 3, 0, 4, -30)
-                    Score.setPy(1)
-                    if (Score.getPy() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_3,
-                            R.string.opportunity_3_a,
-                            R.string.opportunity_3_d,
-                            R.string.opportunity_3_c,
-                            R.string.opportunity_3_b,
-                            RbAonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbBonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbConClickListener { toast(R.string.no_add) },
-                            RbDonClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "gj" -> if (checkValue(30, 1000)) {
-                    playSound(R.raw.shopping)
-                    showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj)
-                    setValue(0, -1000, 0, 2, 7, 0, 0, -30)
-                    // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
-                    if (mPartnerValue == 3 && Score.getPartnerZj() == 1) {
-                        Score.setPartnerStory(2)
-                        startActivity<StorylineActivity>()
-                        activity?.finish()
-                    }
-                    Score.setGj(1)
-                    if (Score.getGj() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_4,
-                            R.string.opportunity_4_c,
-                            R.string.opportunity_4_a,
-                            R.string.opportunity_4_d,
-                            R.string.opportunity_4_b,
-                            RbAonClickListener { toast(R.string.no_add) },
-                            RbBonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbConClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbDonClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "cm" -> if (checkValue(60, 3000)) {
-                    playSound(R.raw.tour)
-                    showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm)
-                    setValue(4, -3000, 4, 4, 10, 0, 2, -60)
-                    // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
-                    if (mPartnerValue == 3 && Score.getPartnerZj() == 2) {
-                        Score.setPartnerStory(2)
-                        startActivity<StorylineActivity>()
-                        activity?.finish()
-                    }
-                    Score.setCm(1)
-                    if (Score.getCm() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_5,
-                            R.string.opportunity_5_d,
-                            R.string.opportunity_5_a,
-                            R.string.opportunity_5_b,
-                            R.string.opportunity_5_c,
-                            RbAonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            }, RbBonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            }, RbConClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            }, RbDonClickListener { toast(R.string.no_add) })
-                    }
-                }
-                "cj" -> if (checkValue(60, 2000)) {
-                    playSound(R.raw.train)
-                    showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj)
-                    setValue(-2, -2000, 20, 20, -4, 0, 0, -60)
-                    ////说明：首先满足条件——女友是昭君，
-                    // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
-                    if (mPartnerValue == 3 && Score.getPartnerZj() == 0) {
-                        Score.setPartnerStory(1)
-                        startActivity<StorylineActivity>()
-                        activity?.finish()
-                    }
-                    Score.setCj(1)
-                    if (Score.getCj() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_6,
-                            R.string.opportunity_6_c,
-                            R.string.opportunity_6_b,
-                            R.string.opportunity_6_a,
-                            R.string.opportunity_6_d,
-                            RbAonClickListener { toast(R.string.no_add) },
-                            RbBonClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            },
-                            RbConClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbDonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "zj" -> if (checkValue(20, -5000000)) {
-                    playSound(R.raw.sleep)
-                    showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj)
-                    setValue(2, 0, 0, 0, 2, 0, 0, -20)
-                    Score.setZj(1)
-                    if (Score.getZj() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_7,
-                            R.string.opportunity_7_a,
-                            R.string.opportunity_7_c,
-                            R.string.opportunity_7_b,
-                            R.string.opportunity_7_d,
-                            RbAonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbBonClickListener { toast(R.string.no_add) },
-                            RbConClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            },
-                            RbDonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "jb" -> if (checkValue(60, -5000000)) {
-                    playSound(R.raw.hammer)
-                    showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb)
-                    setValue(-5, 1500, 10, 10, -8, 0, 0, -60)
-                    Score.setJb(1)
-                    if (Score.getJb() == 20) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_8,
-                            R.string.opportunity_8_d,
-                            R.string.opportunity_8_b,
-                            R.string.opportunity_8_c,
-                            R.string.opportunity_8_a,
-                            RbAonClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            },
-                            RbBonClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            },
-                            RbConClickListener { toast(R.string.no_add) },
-                            RbDonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            })
-                    }
-                }
-                "sw" -> if (checkValue(60, -100)) {
-                    playSound(R.raw.internet)
-                    showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw)
-                    setValue(-2, -100, 0, 2, 8, 0, -1, -60)
-                    Score.setSw(1)
-                    if (Score.getSw() == 20) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_9,
-                            R.string.opportunity_9_b,
-                            R.string.opportunity_9_a,
-                            R.string.opportunity_9_d,
-                            R.string.opportunity_9_c,
-                            RbAonClickListener {
-                                toast(R.string.love_add)
-                                Score.setLove(1)
-                                onActivityCreated(null)
-                            }, RbBonClickListener {
-                                toast(R.string.both_add)
-                                Score.setLove(1)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            }, RbConClickListener {
-                                toast(R.string.career_add)
-                                Score.setCareer(1)
-                                onActivityCreated(null)
-                            }, RbDonClickListener { toast(R.string.no_add) })
-                    }
-                }
-                "ty" -> if (checkValue(30, -100)) {
-                    playSound(R.raw.exercise)
-                    showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty)
-                    setValue(5, -100, 3, 0, 2, 0, 0, -30)
-                    Score.setTy(1)
-                    if (Score.getTy() == 30) {
-                        showRgChooseViewDialog(R.string.opportunity,
-                            R.string.opportunity_10,
-                            R.string.opportunity_10_d,
-                            R.string.opportunity_10_c,
-                            R.string.opportunity_10_a,
-                            R.string.opportunity_10_b,
-                            object : RbAonClickListener {
-                                override fun onClick() {
-                                    toast(R.string.career_add)
-                                    Score.setCareer(1)
+                                    Score.love = Score.love.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
@@ -568,15 +372,357 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbConClickListener {
                                 override fun onClick() {
                                     toast(R.string.both_add)
-                                    Score.setLove(1)
-                                    Score.setCareer(1)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "tx" -> if (checkValue(30, 600)) {
+                    playSound(R.raw.classmate)
+                    showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx)
+                    setValue(0, -600, 0, 2, 3, 0, 4, -30)
+                    Score.py = Score.py.plus(1)
+                    if (Score.py == 30) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_3,
+                            R.string.opportunity_3_a,
+                            R.string.opportunity_3_d,
+                            R.string.opportunity_3_c,
+                            R.string.opportunity_3_b,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "gj" -> if (checkValue(30, 1000)) {
+                    playSound(R.raw.shopping)
+                    showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj)
+                    setValue(0, -1000, 0, 2, 7, 0, 0, -30)
+                    // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
+                    if (mPartnerValue == 3 && Score.partnerZj == 1) {
+                        Score.partnerStory = 2
+                        startActivity<StorylineActivity>()
+                        activity?.finish()
+                    }
+                    Score.gj = Score.gj.plus(1)
+                    if (Score.gj == 30) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_4,
+                            R.string.opportunity_4_c,
+                            R.string.opportunity_4_a,
+                            R.string.opportunity_4_d,
+                            R.string.opportunity_4_b,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
                             object : RbDonClickListener {
                                 override fun onClick() {
                                     toast(R.string.love_add)
-                                    Score.setLove(1)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "cm" -> if (checkValue(60, 3000)) {
+                    playSound(R.raw.tour)
+                    showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm)
+                    setValue(4, -3000, 4, 4, 10, 0, 2, -60)
+                    // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
+                    if (mPartnerValue == 3 && Score.partnerZj == 2) {
+                        Score.partnerStory = 2
+                        startActivity<StorylineActivity>()
+                        activity?.finish()
+                    }
+                    Score.cm = Score.cm.plus(1)
+                    if (Score.cm == 30) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_5,
+                            R.string.opportunity_5_d,
+                            R.string.opportunity_5_a,
+                            R.string.opportunity_5_b,
+                            R.string.opportunity_5_c,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            })
+                    }
+                }
+                "cj" -> if (checkValue(60, 2000)) {
+                    playSound(R.raw.train)
+                    showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj)
+                    setValue(-2, -2000, 20, 20, -4, 0, 0, -60)
+                    ////说明：首先满足条件——女友是昭君，
+                    // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
+                    if (mPartnerValue == 3 && Score.partnerZj == 0) {
+                        Score.partnerStory = (1)
+                        startActivity<StorylineActivity>()
+                        activity?.finish()
+                    }
+                    Score.cj = Score.cj.plus(1)
+                    if (Score.cj == 30) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_6,
+                            R.string.opportunity_6_c,
+                            R.string.opportunity_6_b,
+                            R.string.opportunity_6_a,
+                            R.string.opportunity_6_d,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "zj" -> if (checkValue(20, -5000000)) {
+                    playSound(R.raw.sleep)
+                    showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj)
+                    setValue(2, 0, 0, 0, 2, 0, 0, -20)
+                    Score.zj = Score.zj.plus(1)
+                    if (Score.zj == 30) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_7,
+                            R.string.opportunity_7_a,
+                            R.string.opportunity_7_c,
+                            R.string.opportunity_7_b,
+                            R.string.opportunity_7_d,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "jb" -> if (checkValue(60, -5000000)) {
+                    playSound(R.raw.hammer)
+                    showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb)
+                    setValue(-5, 1500, 10, 10, -8, 0, 0, -60)
+                    Score.jb = Score.jb.plus(1)
+                    if (Score.jb == 20) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_8,
+                            R.string.opportunity_8_d,
+                            R.string.opportunity_8_b,
+                            R.string.opportunity_8_c,
+                            R.string.opportunity_8_a,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            })
+                    }
+                }
+                "sw" -> if (checkValue(60, -100)) {
+                    playSound(R.raw.internet)
+                    showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw)
+                    setValue(-2, -100, 0, 2, 8, 0, -1, -60)
+                    Score.sw = Score.sw.plus(1)
+                    if (Score.sw == 20) {
+                        showRgChooseViewDialog(R.string.opportunity,
+                            R.string.opportunity_9,
+                            R.string.opportunity_9_b,
+                            R.string.opportunity_9_a,
+                            R.string.opportunity_9_d,
+                            R.string.opportunity_9_c,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            }, object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            })
+                    }
+                }
+                "ty" -> if (checkValue(30, -100)) {
+                    playSound(R.raw.exercise)
+                    showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty)
+                    setValue(5, -100, 3, 0, 2, 0, 0, -30)
+                    Score.ty = Score.ty.plus(1)
+                    if (Score.ty == 30) {
+                        showRgChooseViewDialog(
+                            R.string.opportunity,
+                            R.string.opportunity_10,
+                            R.string.opportunity_10_d,
+                            R.string.opportunity_10_c,
+                            R.string.opportunity_10_a,
+                            R.string.opportunity_10_b,
+                            object : RbAonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.career_add)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbBonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.no_add)
+                                }
+                            },
+                            object : RbConClickListener {
+                                override fun onClick() {
+                                    toast(R.string.both_add)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
+                                    onActivityCreated(null)
+                                }
+                            },
+                            object : RbDonClickListener {
+                                override fun onClick() {
+                                    toast(R.string.love_add)
+                                    Score.love = Score.love.plus(1)
                                     onActivityCreated(null)
                                 }
                             })
@@ -586,8 +732,8 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     playSound(R.raw.parents)
                     showImageViewDialog(R.string.plan, R.string.plan_11, R.mipmap.hj)
                     setValue(1, -300, 0, 0, 2, 2, 0, -30)
-                    Score.setHj(1)
-                    if (Score.getHj() == 30) {
+                    Score.hj = Score.hj.plus(1)
+                    if (Score.hj == 30) {
                         showRgChooseViewDialog(R.string.opportunity,
                             R.string.opportunity_11,
                             R.string.opportunity_11_a,
@@ -597,15 +743,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbAonClickListener {
                                 override fun onClick() {
                                     toast(R.string.both_add)
-                                    Score.setLove(1)
-                                    Score.setCareer(1)
+                                    Score.love = Score.love.plus(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
                             object : RbBonClickListener {
                                 override fun onClick() {
                                     toast(R.string.love_add)
-                                    Score.setLove(1)
+                                    Score.love = Score.love.plus(1)
                                     onActivityCreated(null)
                                 }
                             },
@@ -617,7 +763,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                             object : RbDonClickListener {
                                 override fun onClick() {
                                     toast(R.string.career_add)
-                                    Score.setCareer(1)
+                                    Score.career = Score.career.plus(1)
                                     onActivityCreated(null)
                                 }
                             })
@@ -625,7 +771,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
             }
         }
-        binding.ss.solarSystem?.setOnMenuItemLongClickListener { view: View, position: Int ->
+        binding.ss.solar.setOnMenuItemLongClickListener { view: View, _: Int ->
             when (view.tag as String) {
                 "yd" -> toast(R.string.plan_time_0)
                 "bl" -> toast(R.string.plan_time_1)
@@ -648,14 +794,14 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         mHealthyValue: Int, mMoneyValue: Int, mAbilityValue: Int, mExperienceValue: Int,
         mHappyValue: Int, mMoralityValue: Int, mCommunicationValue: Int, mTimeValue: Int
     ) {
-        Score.setHealthy(mHealthyValue)
+        Score.healthy = Score.healthy.plus(mHealthyValue)
         Score.money = Score.money.plus(mMoneyValue)
         Score.ability = Score.ability.plus(mAbilityValue)
         Score.experience = Score.experience.plus(mExperienceValue)
         Score.happy = Score.happy.plus(mHappyValue)
-        Score.setMorality(mMoralityValue)
+        Score.morality = Score.morality.plus(mMoralityValue)
         Score.communication = Score.communication.plus(mCommunicationValue)
-        Score.setTime(mTimeValue)
+        Score.time = Score.time.plus(mTimeValue)
         onActivityCreated(null)
     }
 
@@ -663,7 +809,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         super.onResume()
         view?.isFocusableInTouchMode = true
         view?.requestFocus()
-        view?.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent ->
+        view?.setOnKeyListener { _: View?, keyCode: Int, event: KeyEvent ->
             if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                 // 屏蔽back
                 showReturnDialog()
@@ -685,140 +831,50 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         }
     }
 
-    override fun onClick(view: View) {
-        playHeartbeatAnimation(view)
-        when (view.id) {
-            R.id.stock -> {
-                Score.setStock(true)
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        StockFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.position -> {
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        PositionFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.house -> {
-                Score.setHouse(true)
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        HouseFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.car -> {
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        CarFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.partner -> {
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        PartnerFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.lottery -> {
-                playSound(R.raw.button_0)
-                activity?.supportFragmentManager
-                    .beginTransaction()
-                    .replace(
-                        R.id.fragment_game,
-                        LotteryFragment()
-                    ).addToBackStack(null).commit()
-            }
-            R.id.btn_exit -> showReturnDialog()
-            R.id.btn_save -> goSave()
-            R.id.btn_load -> if (mSharedSaveUtil.isSave()) {
-                showLoadDialog()
-            } else {
-                toast(R.string.no_save)
-            }
-            R.id.btn_go_next_month -> {
-                playSound(R.raw.next_month)
-                if (mHappyValue < 0 || mMoralityValue < 0 || mHealthyValue < 0) {
-                    playSound(R.raw.die)
-                    toGameOver()
-                } else if (mMonthValue? <= 0) {
-                    toGameOver()
-                } else {
-                    if (mPartnerValue == 7 && mMonthValue? <= 24) {
-                    beginStroySn()
-                }
-                    setMonthValue()
-                    val random_e = Random()
-                    val e = random_e.nextInt(2) //0~1
-                    if (e == 0) {
-                        setRandomEvent()
-                    }
-                    onActivityCreated(null)
-                }
-            }
-
-        }
-    }
-
     private fun beginStroySn() {
-        val PartnerSn: Int = Score.getPartnerSn()
-        val PartnerSnTime: Int = Score.getPartnerSnTime()
+        val partnerSn: Int = Score.partnerSn
+        val partnerSnTime: Int = Score.partnerSnTime
         //如果你的女友是十娘在你28岁时开始会有剧情，注意如果剩余时间不够24个月将无法触发十娘的所有剧情。
-        if (PartnerSn == 0) {
-            Score.setPartnerStory(4)
+        if (partnerSn == 0) {
+            Score.partnerStory = (4)
             startActivity<StorylineActivity>()
             activity?.finish()
         } else {
-            Score.setPartnerSnTime(+1)
+            Score.partnerSnTime = Score.partnerSnTime.plus(1)
         }
         //第二幕在四个月后
-        if (PartnerSn == 1 && PartnerSnTime == 4) {
-            Score.setPartnerStory(5)
+        if (partnerSn == 1 && partnerSnTime == 4) {
+            Score.partnerStory = (5)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
         //第三幕在四个月后
-        if (PartnerSn == 2 && PartnerSnTime == 4) {
-            Score.setPartnerStory(6)
+        if (partnerSn == 2 && partnerSnTime == 4) {
+            Score.partnerStory = (6)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
         //第四幕在四个月后
-        if (PartnerSn == 3 && PartnerSnTime == 4) {
-            Score.setPartnerStory(7)
+        if (partnerSn == 3 && partnerSnTime == 4) {
+            Score.partnerStory = (7)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
         //第五幕在四个月后
-        if (PartnerSn == 4 && PartnerSnTime == 4) {
-            Score.setPartnerStory(8)
+        if (partnerSn == 4 && partnerSnTime == 4) {
+            Score.partnerStory = (8)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
         //第六幕A在六个月后
-        if (PartnerSn == 5 && PartnerSnTime == 6) {
-            Score.setPartnerStory(9)
+        if (partnerSn == 5 && partnerSnTime == 6) {
+            Score.partnerStory = (9)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
         //第六幕B在六个月后
-        if (PartnerSn == 6 && PartnerSnTime == 6) {
-            Score.setPartnerStory(10)
+        if (partnerSn == 6 && partnerSnTime == 6) {
+            Score.partnerStory = (10)
             startActivity<StorylineActivity>()
             activity?.finish()
         }
@@ -826,24 +882,26 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
 
     private fun setRandomEvent() {
         //随机事件指数
-        val random_s = Random()
-        val s = random_s.nextInt(26) //0~25
-        val random_t = Random()
-        val t = random_t.nextInt(2) //0~1
+        val randomS = Random()
+        val s = randomS.nextInt(26) //0~25
+        val randomT = Random()
+        val t = randomT.nextInt(2) //0~1
         when (s) {
-            0 -> showImageChooseViewDialog(R.string.event_0, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_0_a)
-                    toast("快乐-3，道德-10")
-                    Score.happy = Score.happy.plus(-3)
-                    Score.setMorality(-10)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_0_b)
-                    toast("快乐-5，道德-15")
-                    Score.happy = Score.happy.plus(-5)
-                    Score.setMorality(-15)
-                    onActivityCreated(null)
+            0 -> showImageChooseViewDialog(R.string.event_0, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_0_a)
+                        toast("快乐-3，道德-10")
+                        Score.happy = Score.happy.plus(-3)
+                        Score.morality = Score.morality.plus(-10)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_0_b)
+                        toast("快乐-5，道德-15")
+                        Score.happy = Score.happy.plus(-5)
+                        Score.morality = Score.morality.plus(-15)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
@@ -854,36 +912,36 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         )
                         Score.money = Score.money.plus(-800)
                         Score.happy = Score.happy.plus(+5)
-                        Score.setMorality(+10)
+                        Score.morality = Score.morality.plus(+10)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_0_d)
-                        toast(
-                            "金钱-500，快乐+3，道德+5"
-                        )
+                        toast("金钱-500，快乐+3，道德+5")
                         Score.money = Score.money.plus(-500)
                         Score.happy = Score.happy.plus(+3)
-                        Score.setMorality(+5)
+                        Score.morality = Score.morality.plus(+5)
                         onActivityCreated(null)
                     }
                 }
             })
-            1 -> showImageChooseViewDialog(R.string.event_1, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_1_a)
-                    toast(
-                        "金钱+1000 快乐+3 交际+3"
-                    )
-                    Score.money = Score.money.plus(+1000)
-                    Score.happy = Score.happy.plus(+3)
-                    Score.communication = Score.communication.plus(+3)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_1_b)
-                    toast("金钱-2000 快乐-3")
-                    Score.happy = Score.happy.plus(-3)
-                    Score.money = Score.money.plus(-2000)
-                    onActivityCreated(null)
+            1 -> showImageChooseViewDialog(R.string.event_1, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_1_a)
+                        toast(
+                            "金钱+1000 快乐+3 交际+3"
+                        )
+                        Score.money = Score.money.plus(+1000)
+                        Score.happy = Score.happy.plus(+3)
+                        Score.communication = Score.communication.plus(+3)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_1_b)
+                        toast("金钱-2000 快乐-3")
+                        Score.happy = Score.happy.plus(-3)
+                        Score.money = Score.money.plus(-2000)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
@@ -895,9 +953,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_1_d)
-                        toast(
-                            "金钱+5000 快乐+5 经验+10"
-                        )
+                        toast("金钱+5000 快乐+5 经验+10")
                         Score.money = Score.money.plus(+5000)
                         Score.happy = Score.happy.plus(+5)
                         Score.experience = Score.experience.plus(+10)
@@ -912,17 +968,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         toast("金钱-2000 快乐-5 健康-10")
                         Score.money = Score.money.plus(-2000)
                         Score.happy = Score.happy.plus(-5)
-                        Score.setHealthy(-10)
+                        Score.healthy = Score.healthy.plus(-10)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_2_b)
-                        toast(
-                            "快乐+3，经验+5，能力+5，道德+10，交际+5"
-                        )
+                        toast("快乐+3，经验+5，能力+5，道德+10，交际+5")
                         Score.happy = Score.happy.plus(+3)
                         Score.experience = Score.experience.plus(+5)
                         Score.ability = Score.ability.plus(+5)
-                        Score.setMorality(+10)
+                        Score.morality = Score.morality.plus(+10)
                         Score.communication = Score.communication.plus(+5)
                         onActivityCreated(null)
                     }
@@ -936,7 +990,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         Score.experience = Score.experience.plus(+10)
                         Score.ability = Score.ability.plus(+10)
                         Score.happy = Score.happy.plus(-5)
-                        Score.setMorality(-20)
+                        Score.morality = Score.morality.plus(-20)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_2_d)
@@ -944,9 +998,9 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         Score.money = Score.money.plus(-30000)
                         Score.experience = Score.experience.plus(+10)
                         Score.ability = Score.ability.plus(-10)
-                        Score.setHealthy(-10)
+                        Score.healthy = Score.healthy.plus(-10)
                         Score.happy = Score.happy.plus(-10)
-                        Score.setMorality(-20)
+                        Score.morality = Score.morality.plus(-20)
                         onActivityCreated(null)
                     }
                 }
@@ -962,7 +1016,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     } else {
                         showViewDialog(R.string.event_3_b)
                         toast("金钱-30%，快乐-10，经验+10，能力+10")
-                        Score.money = Score.money.plus(-(Score.getMoney() * 0.3) as Int)
+                        Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
                         Score.experience = Score.experience.plus(+10)
                         Score.happy = Score.happy.plus(-10)
                         Score.ability = Score.ability.plus(+10)
@@ -973,17 +1027,13 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_3_c)
-                        toast(
-                            "经验+8"
-                        )
+                        toast("经验+8")
                         Score.experience = Score.experience.plus(+8)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_3_d)
-                        toast(
-                            "金钱+30%，快乐+10，经验+10，能力+10"
-                        )
-                        Score.money = Score.money.plus(+(Score.getMoney() * 0.3) as Int)
+                        toast("金钱+30%，快乐+10，经验+10，能力+10")
+                        Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
                         Score.experience = Score.experience.plus(+10)
                         Score.ability = Score.ability.plus(+10)
                         Score.happy = Score.happy.plus(+10)
@@ -991,21 +1041,19 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     }
                 }
             })
-            4 -> showImageChooseViewDialog(R.string.event_4, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_4_a)
-                    toast(
-                        "快乐+8"
-                    )
-                    Score.happy = Score.happy.plus(+8)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_4_b)
-                    toast(
-                        "快乐+5"
-                    )
-                    Score.happy = Score.happy.plus(+5)
-                    onActivityCreated(null)
+            4 -> showImageChooseViewDialog(R.string.event_4, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_4_a)
+                        toast("快乐+8")
+                        Score.happy = Score.happy.plus(+8)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_4_b)
+                        toast("快乐+5")
+                        Score.happy = Score.happy.plus(+5)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
@@ -1024,24 +1072,24 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     }
                 }
             })
-            5 -> showImageChooseViewDialog(R.string.event_5, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_5_a)
-                    toast("金钱-500，快乐-3，经验+5")
-                    Score.money = Score.money.plus(-500)
-                    Score.happy = Score.happy.plus(-3)
-                    Score.experience = Score.experience.plus(+5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_5_b)
-                    toast(
-                        "金钱-500，快乐+3，交际+5，经验+10"
-                    )
-                    Score.money = Score.money.plus(-500)
-                    Score.happy = Score.happy.plus(+3)
-                    Score.communication = Score.communication.plus(+5)
-                    Score.experience = Score.experience.plus(+10)
-                    onActivityCreated(null)
+            5 -> showImageChooseViewDialog(R.string.event_5, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_5_a)
+                        toast("金钱-500，快乐-3，经验+5")
+                        Score.money = Score.money.plus(-500)
+                        Score.happy = Score.happy.plus(-3)
+                        Score.experience = Score.experience.plus(+5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_5_b)
+                        toast("金钱-500，快乐+3，交际+5，经验+10")
+                        Score.money = Score.money.plus(-500)
+                        Score.happy = Score.happy.plus(+3)
+                        Score.communication = Score.communication.plus(+5)
+                        Score.experience = Score.experience.plus(+10)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
@@ -1050,7 +1098,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         toast("金钱-500，快乐-5，健康-5，交际+2，经验+5")
                         Score.money = Score.money.plus(-500)
                         Score.happy = Score.happy.plus(-5)
-                        Score.setHealthy(-5)
+                        Score.healthy = Score.healthy.plus(-5)
                         Score.communication = Score.communication.plus(+2)
                         Score.experience = Score.experience.plus(+5)
                         onActivityCreated(null)
@@ -1059,7 +1107,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         toast("金钱-300，快乐-5，健康-5")
                         Score.money = Score.money.plus(-300)
                         Score.happy = Score.happy.plus(-5)
-                        Score.setHealthy(-5)
+                        Score.healthy = Score.healthy.plus(-5)
                         onActivityCreated(null)
                     }
                 }
@@ -1076,9 +1124,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_6_b)
-                        toast(
-                            "能力+8，经验+8，交际+5，快乐+3"
-                        )
+                        toast("能力+8，经验+8，交际+5，快乐+3")
                         Score.ability = Score.ability.plus(+8)
                         Score.experience = Score.experience.plus(+8)
                         Score.communication = Score.communication.plus(+5)
@@ -1086,154 +1132,150 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     }
                 }
-            }, Button2onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_6_c)
-                    toast("能力+3，经验+3，交际-3，快乐-5")
-                    Score.ability = Score.ability.plus(+3)
-                    Score.experience = Score.experience.plus(+3)
-                    Score.communication = Score.communication.plus(-3)
-                    Score.happy = Score.happy.plus(-5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_6_d)
-                    toast(
-                        "能力+10，经验+10，交际+8，快乐+8"
-                    )
-                    Score.ability = Score.ability.plus(+10)
-                    Score.experience = Score.experience.plus(+10)
-                    Score.communication = Score.communication.plus(+8)
-                    Score.happy = Score.happy.plus(+8)
-                    onActivityCreated(null)
+            }, object : Button2onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_6_c)
+                        toast("能力+3，经验+3，交际-3，快乐-5")
+                        Score.ability = Score.ability.plus(+3)
+                        Score.experience = Score.experience.plus(+3)
+                        Score.communication = Score.communication.plus(-3)
+                        Score.happy = Score.happy.plus(-5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_6_d)
+                        toast("能力+10，经验+10，交际+8，快乐+8")
+                        Score.ability = Score.ability.plus(+10)
+                        Score.experience = Score.experience.plus(+10)
+                        Score.communication = Score.communication.plus(+8)
+                        Score.happy = Score.happy.plus(+8)
+                        onActivityCreated(null)
+                    }
                 }
             })
             7 -> showImageChooseViewDialog(R.string.event_7, object : Button1onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_7_a)
-                        toast(
-                            "快乐+3 健康+2 经验+5"
-                        )
+                        toast("快乐+3 健康+2 经验+5")
                         Score.happy = Score.happy.plus(+3)
-                        Score.setHealthy(+2)
+                        Score.healthy = Score.healthy.plus(+2)
                         Score.experience = Score.experience.plus(+5)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_7_b)
                         toast("快乐-10 健康-10")
                         Score.happy = Score.happy.plus(-10)
-                        Score.setHealthy(-10)
+                        Score.healthy = Score.healthy.plus(-10)
                         onActivityCreated(null)
                     }
                 }
-            }, Button2onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_7_c)
-                    toast("金钱-500 快乐+5 健康+5")
-                    Score.happy = Score.happy.plus(+5)
-                    Score.money = Score.money.plus(-500)
-                    Score.setHealthy(+5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_7_d)
-                    toast("金钱-500 快乐-5 健康-5")
-                    Score.money = Score.money.plus(-500)
-                    Score.happy = Score.happy.plus(-5)
-                    Score.setHealthy(-5)
-                    onActivityCreated(null)
+            }, object : Button2onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_7_c)
+                        toast("金钱-500 快乐+5 健康+5")
+                        Score.happy = Score.happy.plus(+5)
+                        Score.money = Score.money.plus(-500)
+                        Score.healthy = Score.healthy.plus(+5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_7_d)
+                        toast("金钱-500 快乐-5 健康-5")
+                        Score.money = Score.money.plus(-500)
+                        Score.happy = Score.happy.plus(-5)
+                        Score.healthy = Score.healthy.plus(-5)
+                        onActivityCreated(null)
+                    }
                 }
             })
-            8 -> showImageChooseViewDialog(R.string.event_8, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_8_a)
-                    toast(
-                        "快乐+5，经验+5"
-                    )
-                    Score.happy = Score.happy.plus(+5)
-                    Score.experience = Score.experience.plus(+5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_8_b)
-                    toast("经验+3 快乐-5")
-                    Score.experience = Score.experience.plus(+3)
-                    Score.happy = Score.happy.plus(-5)
-                    onActivityCreated(null)
+            8 -> showImageChooseViewDialog(R.string.event_8, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_8_a)
+                        toast("快乐+5，经验+5")
+                        Score.happy = Score.happy.plus(+5)
+                        Score.experience = Score.experience.plus(+5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_8_b)
+                        toast("经验+3 快乐-5")
+                        Score.experience = Score.experience.plus(+3)
+                        Score.happy = Score.happy.plus(-5)
+                        onActivityCreated(null)
+                    }
                 }
-            }, Button2onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_8_c)
-                    toast("金钱-40%，快乐-20，经验+5，能力+5")
-                    Score.money = Score.money.plus(-(Score.getMoney() * 0.4) as Int)
-                    Score.happy = Score.happy.plus(-20)
-                    Score.experience = Score.experience.plus(+5)
-                    Score.ability = Score.ability.plus(+5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_8_d)
-                    toast(
-                        "金钱+30%，快乐+20 经验+10 能力+10"
-                    )
-                    Score.money = Score.money.plus(+(Score.getMoney() * 0.3) as Int)
-                    Score.happy = Score.happy.plus(+20)
-                    Score.experience = Score.experience.plus(+10)
-                    Score.ability = Score.ability.plus(+10)
-                    onActivityCreated(null)
+            }, object : Button2onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_8_c)
+                        toast("金钱-40%，快乐-20，经验+5，能力+5")
+                        Score.money = Score.money.plus((-(Score.money * 0.4)).toInt())
+                        Score.happy = Score.happy.plus(-20)
+                        Score.experience = Score.experience.plus(+5)
+                        Score.ability = Score.ability.plus(+5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_8_d)
+                        toast("金钱+30%，快乐+20 经验+10 能力+10")
+                        Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
+                        Score.happy = Score.happy.plus(+20)
+                        Score.experience = Score.experience.plus(+10)
+                        Score.ability = Score.ability.plus(+10)
+                        onActivityCreated(null)
+                    }
                 }
             })
-            9 -> showImageChooseViewDialog(R.string.event_9, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_9_a)
-                    toast(
-                        "快乐+5，交际+5，道德+8"
-                    )
-                    Score.happy = Score.happy.plus(+5)
-                    Score.communication = Score.communication.plus(+5)
-                    Score.setMorality(+8)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_9_b)
-                    toast(
-                        "经验+5，快乐+1，道德+5"
-                    )
-                    Score.experience = Score.experience.plus(+5)
-                    Score.happy = Score.happy.plus(+1)
-                    Score.setMorality(+5)
-                    onActivityCreated(null)
+            9 -> showImageChooseViewDialog(R.string.event_9, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_9_a)
+                        toast(
+                            "快乐+5，交际+5，道德+8"
+                        )
+                        Score.happy = Score.happy.plus(+5)
+                        Score.communication = Score.communication.plus(+5)
+                        Score.morality = Score.morality.plus(+8)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_9_b)
+                        toast("经验+5，快乐+1，道德+5")
+                        Score.experience = Score.experience.plus(+5)
+                        Score.happy = Score.happy.plus(+1)
+                        Score.morality = Score.morality.plus(+5)
+                        onActivityCreated(null)
+                    }
                 }
-            }, Button2onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_9_c)
-                    toast(
-                        "金钱+12500，快乐+8，道德-10"
-                    )
-                    Score.money = Score.money.plus(+12500)
-                    Score.happy = Score.happy.plus(+8)
-                    Score.setMorality(-10)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_9_d)
-                    toast("金钱-500，快乐-5，道德-7")
-                    Score.money = Score.money.plus(-500)
-                    Score.happy = Score.happy.plus(-5)
-                    Score.setMorality(-7)
-                    onActivityCreated(null)
+            }, object : Button2onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_9_c)
+                        toast("金钱+12500，快乐+8，道德-10")
+                        Score.money = Score.money.plus(+12500)
+                        Score.happy = Score.happy.plus(+8)
+                        Score.morality = Score.morality.plus(-10)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_9_d)
+                        toast("金钱-500，快乐-5，道德-7")
+                        Score.money = Score.money.plus(-500)
+                        Score.happy = Score.happy.plus(-5)
+                        Score.morality = Score.morality.plus(-7)
+                        onActivityCreated(null)
+                    }
                 }
             })
             10 -> showImageChooseViewDialog(R.string.event_10, object : Button1onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_10_a)
-                        toast(
-                            "快乐+5，经验+5"
-                        )
+                        toast("快乐+5，经验+5")
                         Score.happy = Score.happy.plus(+5)
                         Score.experience = Score.experience.plus(+5)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_10_b)
-                        toast(
-                            "快乐+3 经验+3"
-                        )
+                        toast("快乐+3 经验+3")
                         Score.happy = Score.happy.plus(+3)
                         Score.experience = Score.experience.plus(+3)
                         onActivityCreated(null)
@@ -1258,142 +1300,136 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     }
                 }
             })
-            11 -> showImageChooseViewDialog(R.string.event_11, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_11_a)
-                    toast("金钱-1000 健康-10 快乐-10 道德-5")
-                    Score.money = Score.money.plus(-1000)
-                    Score.happy = Score.happy.plus(+10)
-                    Score.setHealthy(-10)
-                    Score.setMorality(-5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_11_b)
-                    toast("道德-10，快乐-10")
-                    Score.happy = Score.happy.plus(-10)
-                    Score.setMorality(-10)
-                    onActivityCreated(null)
+            11 -> showImageChooseViewDialog(R.string.event_11, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_11_a)
+                        toast("金钱-1000 健康-10 快乐-10 道德-5")
+                        Score.money = Score.money.plus(-1000)
+                        Score.happy = Score.happy.plus(+10)
+                        Score.healthy = Score.healthy.plus(-10)
+                        Score.morality = Score.morality.plus(-5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_11_b)
+                        toast("道德-10，快乐-10")
+                        Score.happy = Score.happy.plus(-10)
+                        Score.morality = Score.morality.plus(-10)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_11_c)
-                        toast(
-                            "道德+10，金钱-5000"
-                        )
+                        toast("道德+10，金钱-5000")
                         Score.money = Score.money.plus(-5000)
-                        Score.setMorality(+10)
+                        Score.morality = Score.morality.plus(+10)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_11_d)
-                        toast(
-                            "道德+15，金钱-13200"
-                        )
+                        toast("道德+15，金钱-13200")
                         Score.money = Score.money.plus(+13200)
-                        Score.setMorality(+15)
+                        Score.morality = Score.morality.plus(+15)
                         onActivityCreated(null)
                     }
                 }
             })
-            12 -> showImageChooseViewDialog(R.string.event_12, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_12_a)
-                    toast("快乐-3，道德-5")
-                    Score.happy = Score.happy.plus(-3)
-                    Score.setMorality(-5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_12_b)
-                    toast("快乐-5，道德-3")
-                    Score.happy = Score.happy.plus(-5)
-                    Score.setMorality(-3)
-                    onActivityCreated(null)
+            12 -> showImageChooseViewDialog(R.string.event_12, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_12_a)
+                        toast("快乐-3，道德-5")
+                        Score.happy = Score.happy.plus(-3)
+                        Score.morality = Score.morality.plus(-5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_12_b)
+                        toast("快乐-5，道德-3")
+                        Score.happy = Score.happy.plus(-5)
+                        Score.morality = Score.morality.plus(-3)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_12_c)
-                        toast(
-                            "金钱-800，快乐+2，道德+5"
-                        )
+                        toast("金钱-800，快乐+2，道德+5")
                         Score.money = Score.money.plus(-800)
                         Score.happy = Score.happy.plus(+2)
-                        Score.setMorality(+5)
+                        Score.morality = Score.morality.plus(+5)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_12_d)
-                        toast(
-                            "金钱-500，快乐+3，道德+3"
-                        )
+                        toast("金钱-500，快乐+3，道德+3")
                         Score.money = Score.money.plus(-500)
                         Score.happy = Score.happy.plus(+3)
-                        Score.setMorality(+3)
+                        Score.morality = Score.morality.plus(+3)
                         onActivityCreated(null)
                     }
                 }
             })
-            13 -> showImageChooseViewDialog(R.string.event_13, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_13_a)
-                    toast("道德-8")
-                    Score.setMorality(-8)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_13_b)
-                    toast("道德-5")
-                    Score.setMorality(-5)
-                    onActivityCreated(null)
+            13 -> showImageChooseViewDialog(R.string.event_13, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_13_a)
+                        toast("道德-8")
+                        Score.morality = Score.morality.plus(-8)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_13_b)
+                        toast("道德-5")
+                        Score.morality = Score.morality.plus(-5)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_13_c)
-                        toast(
-                            "金钱-800，经验+3，道德+8"
-                        )
+                        toast("金钱-800，经验+3，道德+8")
                         Score.money = Score.money.plus(-800)
                         Score.experience = Score.experience.plus(+3)
-                        Score.setMorality(+8)
+                        Score.morality = Score.morality.plus(+8)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_13_d)
-                        toast(
-                            "金钱-1000，经验+5，道德+10"
-                        )
+                        toast("金钱-1000，经验+5，道德+10")
                         Score.money = Score.money.plus(-1000)
                         Score.experience = Score.experience.plus(+5)
-                        Score.setMorality(+10)
+                        Score.morality = Score.morality.plus(+10)
                         onActivityCreated(null)
                     }
                 }
             })
-            14 -> showImageChooseViewDialog(R.string.event_14, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_14_a)
-                    toast("金钱-500，快乐-3")
-                    Score.money = Score.money.plus(-500)
-                    Score.happy = Score.happy.plus(-3)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_14_b)
-                    toast("快乐-5")
-                    Score.happy = Score.happy.plus(-5)
-                    onActivityCreated(null)
+            14 -> showImageChooseViewDialog(R.string.event_14, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_14_a)
+                        toast("金钱-500，快乐-3")
+                        Score.money = Score.money.plus(-500)
+                        Score.happy = Score.happy.plus(-3)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_14_b)
+                        toast("快乐-5")
+                        Score.happy = Score.happy.plus(-5)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_14_c)
                         toast("健康-3，快乐-2，经验+5")
-                        Score.setHealthy(-3)
+                        Score.healthy = Score.healthy.plus(-3)
                         Score.happy = Score.happy.plus(-2)
                         Score.experience = Score.experience.plus(+5)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_14_d)
-                        toast(
-                            "金钱-300，快乐+3，经验+3"
-                        )
+                        toast("金钱-300，快乐+3，经验+3")
                         Score.money = Score.money.plus(-300)
                         Score.happy = Score.happy.plus(+3)
                         Score.experience = Score.experience.plus(+3)
@@ -1401,30 +1437,26 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     }
                 }
             })
-            15 -> showImageChooseViewDialog(R.string.event_15, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_15_a)
-                    toast(
-                        "经验+2"
-                    )
-                    Score.experience = Score.experience.plus(+2)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_15_b)
-                    toast(
-                        "经验+1"
-                    )
-                    Score.experience = Score.experience.plus(+1)
-                    onActivityCreated(null)
+            15 -> showImageChooseViewDialog(R.string.event_15, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_15_a)
+                        toast("经验+2")
+                        Score.experience = Score.experience.plus(+2)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_15_b)
+                        toast("经验+1")
+                        Score.experience = Score.experience.plus(+1)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_15_c)
-                        toast(
-                            "金钱+50000，经验+10，能力+10，健康-5，快乐+5"
-                        )
-                        Score.setHealthy(-5)
+                        toast("金钱+50000，经验+10，能力+10，健康-5，快乐+5")
+                        Score.healthy = Score.healthy.plus(-5)
                         Score.happy = Score.happy.plus(+5)
                         Score.experience = Score.experience.plus(+10)
                         Score.ability = Score.ability.plus(+10)
@@ -1445,14 +1477,14 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     if (t == 0) {
                         showViewDialog(R.string.event_16_a)
                         toast("经验+3 道德-3")
-                        Score.setMorality(-3)
+                        Score.morality = Score.morality.plus(-3)
                         Score.experience = Score.experience.plus(+3)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_16_b)
                         toast("经验+1，道德-3")
                         Score.experience = Score.experience.plus(+1)
-                        Score.setMorality(-3)
+                        Score.morality = Score.morality.plus(-3)
                         onActivityCreated(null)
                     }
                 }
@@ -1460,20 +1492,18 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_16_c)
-                        toast(
-                            "金钱-50，经验+2，道德+2)
-                                    Score . money = Score . money . plus (-50)
-                                    Score . experience = Score . experience . plus (+2)
-                                    Score . setMorality (+2)
-                                    onActivityCreated (null)
+                        toast("金钱-50，经验+2，道德+2")
+                        Score.money = Score.money.plus(-50)
+                        Score.experience = Score.experience.plus(+2)
+                        Score.morality = Score.morality.plus(2)
+                        onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_16_d)
-                        toast(
-                            "金钱-100，经验+3，道德+3)
-                                    Score . money = Score . money . plus (-100)
-                                    Score . experience = Score . experience . plus (+3)
-                                    Score . setMorality (+3)
-                                    onActivityCreated (null)
+                        toast("金钱-100，经验+3，道德+3")
+                        Score.money = Score.money.plus(-100)
+                        Score.experience = Score.experience.plus(+3)
+                        Score.morality = Score.morality.plus(3)
+                        onActivityCreated(null)
                     }
                 }
             })
@@ -1488,20 +1518,17 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_17_b)
-                        toast(
-                            "金钱+500，快乐+5)
-                                    Score . money = Score . money . plus (+500)
-                                    Score . happy = Score . happy . plus (+5)
-                                    onActivityCreated (null)
+                        toast("金钱+500，快乐+5")
+                        Score.money = Score.money.plus(+500)
+                        Score.happy = Score.happy.plus(+5)
+                        onActivityCreated(null)
                     }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_17_c)
-                        toast(
-                            "金钱-20，快乐+1"
-                        )
+                        toast("金钱-20，快乐+1")
                         Score.money = Score.money.plus(-20)
                         Score.happy = Score.happy.plus(+1)
                         onActivityCreated(null)
@@ -1514,25 +1541,25 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     }
                 }
             })
-            18 -> showImageChooseViewDialog(R.string.event_18, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_18_a)
-                    toast("交际-2")
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_18_b)
-                    toast("交际-3，快乐-3")
-                    Score.communication = Score.communication.plus(-3)
-                    Score.happy = Score.happy.plus(-3)
-                    onActivityCreated(null)
+            18 -> showImageChooseViewDialog(R.string.event_18, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_18_a)
+                        toast("交际-2")
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_18_b)
+                        toast("交际-3，快乐-3")
+                        Score.communication = Score.communication.plus(-3)
+                        Score.happy = Score.happy.plus(-3)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_18_c)
-                        toast(
-                            "金钱-800，经验+3，交际+5，快乐+5"
-                        )
+                        toast("金钱-800，经验+3，交际+5，快乐+5")
                         Score.money = Score.money.plus(-800)
                         Score.experience = Score.experience.plus(+3)
                         Score.communication = Score.communication.plus(+5)
@@ -1551,16 +1578,12 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_19_a)
-                        toast(
-                            "经验+2"
-                        )
+                        toast("经验+2")
                         Score.experience = Score.experience.plus(+2)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_19_b)
-                        toast(
-                            "经验+1"
-                        )
+                        toast("经验+1")
                         Score.experience = Score.experience.plus(+1)
                         onActivityCreated(null)
                     }
@@ -1577,13 +1600,12 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_19_d)
-                        toast(
-                            "金钱+400000，经验+10，能力+10，快乐+5)
-                                    Score . money = Score . money . plus (+400000)
-                                    Score . experience = Score . experience . plus (+10)
-                                    Score . ability = Score . ability . plus (+10)
-                                    Score . happy = Score . happy . plus (+5)
-                                    onActivityCreated (null)
+                        toast("金钱+400000，经验+10，能力+10，快乐+5")
+                        Score.money = Score.money.plus(+400000)
+                        Score.experience = Score.experience.plus(+10)
+                        Score.ability = Score.ability.plus(+10)
+                        Score.happy = Score.happy.plus(+5)
+                        onActivityCreated(null)
                     }
                 }
             })
@@ -1591,62 +1613,60 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_20_a)
-                        toast(
-                            "道德+2 快乐+2"
-                        )
+                        toast("道德+2 快乐+2")
                         Score.happy = Score.happy.plus(+2)
-                        Score.setMorality(+2)
+                        Score.morality = Score.morality.plus(+2)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_20_b)
-                        toast(
-                            "道德+2"
-                        )
-                        Score.setMorality(+2)
+                        toast("道德+2")
+                        Score.morality = Score.morality.plus(+2)
                         onActivityCreated(null)
                     }
                 }
-            }, Button2onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_20_c)
-                    toast("金钱+100，快乐+4，道德-5")
-                    Score.money = Score.money.plus(+100)
-                    Score.happy = Score.happy.plus(+4)
-                    Score.setMorality(-5)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_20_d)
-                    toast("金钱-500 快乐-3 道德-3")
-                    Score.setMorality(-3)
-                    Score.happy = Score.happy.plus(-3)
-                    Score.money = Score.money.plus(-500)
-                    onActivityCreated(null)
+            }, object : Button2onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_20_c)
+                        toast("金钱+100，快乐+4，道德-5")
+                        Score.money = Score.money.plus(+100)
+                        Score.happy = Score.happy.plus(+4)
+                        Score.morality = Score.morality.plus(-5)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_20_d)
+                        toast("金钱-500 快乐-3 道德-3")
+                        Score.morality = Score.morality.plus(-3)
+                        Score.happy = Score.happy.plus(-3)
+                        Score.money = Score.money.plus(-500)
+                        onActivityCreated(null)
+                    }
                 }
             })
-            21 -> showImageChooseViewDialog(R.string.event_21, Button1onClickListener {
-                if (t == 0) {
-                    showViewDialog(R.string.event_21_a)
-                    toast("经验+4，能力+4，快乐-2，交际+4")
-                    Score.ability = Score.ability.plus(+4)
-                    Score.experience = Score.experience.plus(+4)
-                    Score.happy = Score.happy.plus(-2)
-                    Score.communication = Score.communication.plus(+4)
-                    onActivityCreated(null)
-                } else {
-                    showViewDialog(R.string.event_21_b)
-                    toast("快乐-4 健康-2 经验+2")
-                    Score.happy = Score.happy.plus(-4)
-                    Score.experience = Score.experience.plus(+2)
-                    Score.setHealthy(-2)
-                    onActivityCreated(null)
+            21 -> showImageChooseViewDialog(R.string.event_21, object : Button1onClickListener {
+                override fun onClick() {
+                    if (t == 0) {
+                        showViewDialog(R.string.event_21_a)
+                        toast("经验+4，能力+4，快乐-2，交际+4")
+                        Score.ability = Score.ability.plus(+4)
+                        Score.experience = Score.experience.plus(+4)
+                        Score.happy = Score.happy.plus(-2)
+                        Score.communication = Score.communication.plus(+4)
+                        onActivityCreated(null)
+                    } else {
+                        showViewDialog(R.string.event_21_b)
+                        toast("快乐-4 健康-2 经验+2")
+                        Score.happy = Score.happy.plus(-4)
+                        Score.experience = Score.experience.plus(+2)
+                        Score.healthy = Score.healthy.plus(-2)
+                        onActivityCreated(null)
+                    }
                 }
             }, object : Button2onClickListener {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_21_c)
-                        toast(
-                            "经验+8，能力+8，快乐+5，交际+5"
-                        )
+                        toast("经验+8，能力+8，快乐+5，交际+5")
                         Score.ability = Score.ability.plus(+8)
                         Score.experience = Score.experience.plus(+8)
                         Score.happy = Score.happy.plus(+5)
@@ -1672,9 +1692,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_22_b)
-                        toast(
-                            "快乐+5"
-                        )
+                        toast("快乐+5")
                         Score.happy = Score.happy.plus(+5)
                         onActivityCreated(null)
                     }
@@ -1683,9 +1701,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_22_c)
-                        toast(
-                            "金钱-5000 快乐+5"
-                        )
+                        toast("金钱-5000 快乐+5")
                         Score.money = Score.money.plus(-5000)
                         Score.happy = Score.happy.plus(+5)
                         onActivityCreated(null)
@@ -1719,18 +1735,14 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_23_c)
-                        toast(
-                            "金钱+3000 能力+15 经验+15"
-                        )
+                        toast("金钱+3000 能力+15 经验+15")
                         Score.money = Score.money.plus(+3000)
                         Score.experience = Score.experience.plus(+15)
                         Score.ability = Score.ability.plus(+15)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_23_d)
-                        toast(
-                            "经验+8，能力+8"
-                        )
+                        toast("经验+8，能力+8")
                         Score.experience = Score.experience.plus(+8)
                         Score.ability = Score.ability.plus(+8)
                         onActivityCreated(null)
@@ -1741,20 +1753,16 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_24_a)
-                        toast(
-                            "快乐+3，道德+8，经验+3"
-                        )
-                        Score.setMorality(+8)
+                        toast("快乐+3，道德+8，经验+3")
+                        Score.morality = Score.morality.plus(+8)
                         Score.experience = Score.experience.plus(+3)
                         Score.happy = Score.happy.plus(+3)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_24_b)
-                        toast(
-                            "快乐+5，交际+5，道德+8，经验+5"
-                        )
+                        toast("快乐+5，交际+5，道德+8，经验+5")
                         Score.experience = Score.experience.plus(+5)
-                        Score.setMorality(-8)
+                        Score.morality = Score.morality.plus(-8)
                         Score.happy = Score.happy.plus(+5)
                         Score.communication = Score.communication.plus(+5)
                         onActivityCreated(null)
@@ -1767,19 +1775,17 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                         toast("金钱-3000，经验+8，交际-8，快乐-8，道德-20")
                         Score.money = Score.money.plus(-3000)
                         Score.experience = Score.experience.plus(+8)
-                        Score.setMorality(-20)
+                        Score.morality = Score.morality.plus(-20)
                         Score.communication = Score.communication.plus(-8)
                         Score.happy = Score.happy.plus(-8)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_24_d)
-                        toast(
-                            "金钱+30000，经验+8，快乐+8，道德-20"
-                        )
+                        toast("金钱+30000，经验+8，快乐+8，道德-20")
                         Score.money = Score.money.plus(+30000)
                         Score.experience = Score.experience.plus(+8)
                         Score.happy = Score.happy.plus(+8)
-                        Score.setMorality(-20)
+                        Score.morality = Score.morality.plus(-20)
                         onActivityCreated(null)
                     }
                 }
@@ -1788,16 +1794,12 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 override fun onClick() {
                     if (t == 0) {
                         showViewDialog(R.string.event_25_a)
-                        toast(
-                            "道德+2"
-                        )
-                        Score.setMorality(+2)
+                        toast("道德+2")
+                        Score.morality = Score.morality.plus(+2)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_25_b)
-                        toast(
-                            "经验+2"
-                        )
+                        toast("经验+2")
                         Score.experience = Score.experience.plus(+2)
                         onActivityCreated(null)
                     }
@@ -1807,18 +1809,18 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     if (t == 0) {
                         showViewDialog(R.string.event_25_c)
                         toast("金钱+20%，快乐+20，经验+5，能力+5，道德-1")
-                        Score.money = Score.money.plus(+(Score.getMoney() * 0.2) as Int)
+                        Score.money = Score.money.plus((+(Score.money * 0.2)).toInt())
                         Score.experience = Score.experience.plus(+5)
-                        Score.setMorality(-1)
+                        Score.morality = Score.morality.plus(-1)
                         Score.ability = Score.ability.plus(+5)
                         Score.happy = Score.happy.plus(+20)
                         onActivityCreated(null)
                     } else {
                         showViewDialog(R.string.event_25_d)
                         toast("金钱-30%，快乐-20，经验+5，能力+5，道德-1")
-                        Score.money = Score.money.plus(-(Score.getMoney() * 0.3) as Int)
+                        Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
                         Score.experience = Score.experience.plus(+5)
-                        Score.setMorality(-1)
+                        Score.morality = Score.morality.plus(-1)
                         Score.ability = Score.ability.plus(+5)
                         Score.happy = Score.happy.plus(-20)
                         onActivityCreated(null)
@@ -1835,34 +1837,34 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun setMonthValue() {
-        Score.setStock(false)
-        Score.position = false)
-        Score.setHouse(false)
-        Score.setCar(false)
-        Score.partner = false)
-        Score.setLottery(false)
-        Score.setMonth(-1)
-        Score.setTime(0)
+        Score.isStock = false
+        Score.isPosition = false
+        Score.isHouse = false
+        Score.isCar = false
+        Score.isPartner = false
+        Score.isLottery = false
+        Score.month = Score.month.minus(1)
+        Score.time = 230
         Score.money = Score.money.plus(mIncomeValue)
-        Score.setHealthy(-2)
+        Score.healthy = Score.healthy.minus(2)
         Score.ability = Score.ability.plus(11)
         Score.experience = Score.experience.plus(11)
         Score.happy = Score.happy.plus(mHappyMonthlyValue)
         Score.communication = Score.communication.plus(mCommunicationMonthlyValue)
         //随机股票指数
-        val random_x = Random()
-        var x = random_x.nextInt(21) //0~20,0~9 (┬＿┬)↘ 跌，10平，1~20 (￣︶￣)↗ 涨
+        val randomX = Random()
+        var x = randomX.nextInt(21) //0~20,0~9 (┬＿┬)↘ 跌，10平，1~20 (￣︶￣)↗ 涨
         if (x < 20) {
-            val random_y = Random()
-            val y = random_y.nextInt(5)
+            val randomY = Random()
+            val y = randomY.nextInt(5)
             if (y < 3) {
-                x = x + 1
+                x += 1
             }
         }
-        x = x + 90
-        Score.setRandomStock(x)
-        Score.setIndexStock(mIndexStockValue? * x / 100)
-        Score.setStock(mStockValue? * (x - 100) / 100)
+        x += 90
+        Score.randomStock = x
+        Score.indexStock = mIndexStockValue * x / 100
+        Score.stock = mStockValue * (x - 100) / 100
 
         //随机房价指数
         val randomM = Random()
@@ -1879,8 +1881,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun showLoadDialog() {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(R.string.load_or_un)
             .withMessage("您的数据将恢复到上次保存的值（可读档次数共9次，当前还剩" + mLoadValue + "次，请慎重使用）。")
             .isCancelable(true)
@@ -1894,56 +1895,8 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
 
     private fun goSave() {
         playSound(R.raw.appreciation)
-        mSharedSaveUtil.setSave(true)
-        mSharedSaveUtil.setHealthy(mHealthyValue)
-        mSharedSaveUtil.money = Score.money.plus(mMoneyValue)
-        mSharedSaveUtil.ability = Score.ability.plus(mAbilityValue)
-        mSharedSaveUtil.experience = Score.experience.plus(mExperienceValue)
-        mSharedSaveUtil.happy = Score.happy.plus(mHappyValue)
-        mSharedSaveUtil.setMorality(mMoralityValue)
-        mSharedSaveUtil.communication = Score.communication.plus(mCommunicationValue)
-        mSharedSaveUtil.setMonth(mMonthValue)
-        mSharedSaveUtil.setTime(mTimeValue)
-        mSharedSaveUtil.setStock(mStockValue)
-        mSharedSaveUtil.position = mPositionValue)
-        mSharedSaveUtil.setHouse(mHouseValue)
-        mSharedSaveUtil.setCar(mCarValue)
-        mSharedSaveUtil.setPartner(mPartnerValue)
-        mSharedSaveUtil.setCareer(Score.getCareer())
-        mSharedSaveUtil.setLove(Score.getLove())
-        mSharedSaveUtil.setRandomStock(Score.getRandomStock())
-        mSharedSaveUtil.setIndexStock(mIndexStockValue)
-        mSharedSaveUtil.setIndexHouse(mIndexHouseValue)
-        mSharedSaveUtil.setPurity(Score.getPurity())
-        mSharedSaveUtil.setIncome(mIncomeValue)
-        mSharedSaveUtil.setHappyMonthly(mHappyMonthlyValue)
-        mSharedSaveUtil.setCommunicationMonthly(mCommunicationMonthlyValue)
-        mSharedSaveUtil.setStock(Score.isStock())
-        mSharedSaveUtil.position = Score.isPosition())
-        mSharedSaveUtil.setHouse(Score.isHouse())
-        mSharedSaveUtil.setCar(Score.isCar())
-        mSharedSaveUtil.setPartner(Score.isPartner())
-        mSharedSaveUtil.setLottery(Score.isLottery())
-        mSharedSaveUtil.setYd(Score.getYd())
-        mSharedSaveUtil.setBl(Score.getBl())
-        mSharedSaveUtil.setTs(Score.getTs())
-        mSharedSaveUtil.setPy(Score.getPy())
-        mSharedSaveUtil.setGj(Score.getGj())
-        mSharedSaveUtil.setCm(Score.getCm())
-        mSharedSaveUtil.setCj(Score.getCj())
-        mSharedSaveUtil.setZj(Score.getZj())
-        mSharedSaveUtil.setJb(Score.getJb())
-        mSharedSaveUtil.setSw(Score.getSw())
-        mSharedSaveUtil.setTy(Score.getTy())
-        mSharedSaveUtil.setHj(Score.getHj())
-        mSharedSaveUtil.setPartnerStory(Score.getPartnerStory())
-        mSharedSaveUtil.setPartnerXy(Score.getPartnerXy())
-        //        mSharedSaveUtil.setPartnerSs(Score.getPartnerSs());
-//        mSharedSaveUtil.setPartnerAc(Score.getPartnerAc());
-        mSharedSaveUtil.setPartnerZj(Score.getPartnerZj())
-        mSharedSaveUtil.setPartnerSn(Score.getPartnerSn())
-        mSharedSaveUtil.setPartnerSnTime(Score.getPartnerSnTime())
-        //        mSharedSaveUtil.setPartnerFy(Score.getPartnerFy());
+        Settings.isSave = true
+        Score.manualSave()
         onActivityCreated(null)
         toast(R.string.save_success)
     }
@@ -1953,67 +1906,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
             toast(R.string.load_times_run_out)
         } else {
             playSound(R.raw.appreciation)
-            val load: Int = Score.getLoad()
-            Score.cleanSharedPreference()
-            Score.setScore(true)
-            Score.setLoad(load - 1)
-            Score.setHealthy(mSharedSaveUtil.getHealthy() - 200)
-            Score.money = Score.money.plus(mSharedSaveUtil.getMoney() - 2000)
-            Score.ability = Score.ability.plus(mSharedSaveUtil.getAbility() - 100)
-            Score.experience = Score.experience.plus(mSharedSaveUtil.getExperience() - 100)
-            Score.happy = Score.happy.plus(mSharedSaveUtil.getHappy() - 200)
-            Score.setMorality(mSharedSaveUtil.getMorality() - 200)
-            Score.communication = Score.communication.plus(mSharedSaveUtil.getCommunication() - 100)
-            Score.setMonth(mSharedSaveUtil.getMonth() - 96)
-            Score.setTime(mSharedSaveUtil.getTime() - 230)
-            Score.setStock(mSharedSaveUtil.getStock())
-            Score.position = mSharedSaveUtil.getPosition())
-            Score.setHouse(mSharedSaveUtil.getHouse())
-            Score.setCar(mSharedSaveUtil.getCar())
-            Score.partner = mSharedSaveUtil.getPartner())
-            Score.setCareer(mSharedSaveUtil.getCareer())
-            Score.setLove(mSharedSaveUtil.getLove())
-            Score.setRandomStock(mSharedSaveUtil.getRandomStock() - 100)
-            Score.setIndexStock(mSharedSaveUtil.getIndexStock() - 1700)
-            Score.setIndexHouse(mSharedSaveUtil.getIndexHouse() - 100)
-            Score.setPurity(mSharedSaveUtil.getPurity() - 100)
-            Score.setIncome(mSharedSaveUtil.getIncome() - 2200)
-            Score.setCommunicationMonthly(mSharedSaveUtil.getCommunicationMonthly())
-            Score.setHappyMonthly(mSharedSaveUtil.getHappyMonthly() - 2)
-            Score.setStock(mSharedSaveUtil.isStock())
-            Score.position = mSharedSaveUtil.isPosition())
-            Score.setHouse(mSharedSaveUtil.isHouse())
-            Score.setCar(mSharedSaveUtil.isCar())
-            Score.partner = mSharedSaveUtil.isPartner())
-            Score.setLottery(mSharedSaveUtil.isLottery())
-            Score.setYd(mSharedSaveUtil.getYd())
-            Score.setBl(mSharedSaveUtil.getBl())
-            Score.setTs(mSharedSaveUtil.getTs())
-            Score.setPy(mSharedSaveUtil.getPy())
-            Score.setGj(mSharedSaveUtil.getGj())
-            Score.setCm(mSharedSaveUtil.getCm())
-            Score.setCj(mSharedSaveUtil.getCj())
-            Score.setZj(mSharedSaveUtil.getZj())
-            Score.setJb(mSharedSaveUtil.getJb())
-            Score.setSw(mSharedSaveUtil.getSw())
-            Score.setTy(mSharedSaveUtil.getTy())
-            Score.setHj(mSharedSaveUtil.getHj())
-            Score.setPartnerStory(mSharedSaveUtil.getPartnerStory())
-            Score.setPartnerXy(mSharedSaveUtil.getPartnerXy())
-            //            Score.setPartnerSs(mSharedSaveUtil.getPartnerSs());
-//            Score.setPartnerAc(mSharedSaveUtil.getPartnerAc());
-            Score.setPartnerZj(mSharedSaveUtil.getPartnerZj())
-            Score.setPartnerSn(mSharedSaveUtil.getPartnerSn())
-            Score.setPartnerSnTime(mSharedSaveUtil.getPartnerSnTime())
-            //            Score.setPartnerFy(mSharedSaveUtil.getPartnerFy());
+            Score.manualLoad()
+            Settings.load = Settings.load.minus(1)
             onActivityCreated(null)
             toast(R.string.load_success)
         }
     }
 
     private fun showReturnDialog() {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(R.string.return_main_or_un)
             .withMessage(R.string.return_main_or_un_0).isCancelable(true)
             .withDuration(500).withButtonCancle().withButtonOk()
@@ -2026,8 +1927,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun showViewDialog(message: Int) {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(R.string.event)
             .withMessage(message).isCancelable(true)
             .withDuration(500).withButtonOk()
@@ -2035,8 +1935,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun showImageViewDialog(title: Int, message: Int, iv: Int) {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(title)
             .withMessage(message).withImageView(iv).isCancelable(true)
             .withDuration(500).withButtonOk()
@@ -2048,16 +1947,15 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         Button1onClickListener: Button1onClickListener,
         Button2onClickListener: Button2onClickListener
     ) {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(R.string.event)
             .withMessage(id).isCancelable(false)
             .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { v: View? ->
+            .setButtonCancleClick {
                 Button1onClickListener.onClick()
                 dialogBuilder.closeDialog(dialogBuilder)
             }
-            .setButtonOk { v: View? ->
+            .setButtonOk {
                 Button2onClickListener.onClick()
                 dialogBuilder.closeDialog(dialogBuilder)
             }.show()
@@ -2066,24 +1964,23 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     private fun showRgChooseViewDialog(
         title: Int, message: Int,
         a: Int, b: Int, c: Int, d: Int,
-        RbAonClickListener: RbAonClickListener,
-        RbBonClickListener: RbBonClickListener,
-        RbConClickListener: RbConClickListener,
-        RbDonClickListener: RbDonClickListener
+        rbAonClickListener: RbAonClickListener,
+        rbBonClickListener: RbBonClickListener,
+        rbConClickListener: RbConClickListener,
+        rbDonClickListener: RbDonClickListener
     ) {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
-        dialogBuilder.withTitle(title).withRg(a, b, c, d).setRb_a { v: View? ->
-            RbAonClickListener.onClick()
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
+        dialogBuilder.withTitle(title).withRg(a, b, c, d).setRb_a {
+            rbAonClickListener.onClick()
             dialogBuilder.closeDialog(dialogBuilder)
         }.setRb_b {
-            RbBonClickListener.onClick()
+            rbBonClickListener.onClick()
             dialogBuilder.closeDialog(dialogBuilder)
         }.setRb_c {
-            RbConClickListener.onClick()
+            rbConClickListener.onClick()
             dialogBuilder.closeDialog(dialogBuilder)
         }.setRb_d {
-            RbDonClickListener.onClick()
+            rbDonClickListener.onClick()
             dialogBuilder.closeDialog(dialogBuilder)
         }
             .withMessage(message).isCancelable(false)

@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.gameFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentPartnerBinding
@@ -13,13 +11,59 @@ import com.dylanc.longan.doOnClick
 import com.dylanc.longan.toast
 
 class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        if (Score.partnerZj == 3) { //分手
+            binding.ivPartner2.isClickable = false
+            binding.ivPartner2.setImageResource(R.mipmap.partners_2)
+        }
+        if (Score.partnerSn == 7) { //分手
+            binding.ivPartner6.isClickable = false
+            binding.ivPartner6.setImageResource(R.mipmap.partners_6)
+        }
+        when (Score.partner) {
+            1 -> {
+                binding.ivPartner0.isClickable = false
+                binding.ivPartner0.setImageResource(R.mipmap.partners_0)
+            }
+            2 -> {
+                binding.ivPartner1.isClickable = false
+                binding.ivPartner1.setImageResource(R.mipmap.partners_1)
+            }
+            3 -> {
+                binding.ivPartner2.isClickable = false
+                binding.ivPartner2.setImageResource(R.mipmap.partners_2)
+            }
+            4 -> {
+                binding.ivPartner3.isClickable = false
+                binding.ivPartner3.setImageResource(R.mipmap.partners_3)
+            }
+            5 -> {
+                binding.ivPartner4.isClickable = false
+                binding.ivPartner4.setImageResource(R.mipmap.partners_4)
+            }
+            6 -> {
+                binding.ivPartner5.isClickable = false
+                binding.ivPartner5.setImageResource(R.mipmap.partners_5)
+            }
+            7 -> {
+                binding.ivPartner6.isClickable = false
+                binding.ivPartner6.setImageResource(R.mipmap.partners_6)
+            }
+            8 -> {
+                binding.ivPartner7.isClickable = false
+                binding.ivPartner7.setImageResource(R.mipmap.partners_7)
+            }
+            9 -> {
+                binding.ivPartner8.isClickable = false
+                binding.ivPartner8.setImageResource(R.mipmap.partners_8)
+            }
+            10 -> {
+                binding.ivPartner9.isClickable = false
+                binding.ivPartner9.setImageResource(R.mipmap.partners_9)
+            }
+        }
     }
 
     private fun setUpViews() {
@@ -115,64 +159,11 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (Score.partnerZj == 3) { //分手
-            binding.ivPartner2.isClickable = false
-            binding.ivPartner2.setImageResource(R.mipmap.partners_2)
-        }
-        if (Score.partnerSn == 7) { //分手
-            binding.ivPartner6.isClickable = false
-            binding.ivPartner6.setImageResource(R.mipmap.partners_6)
-        }
-        when (Score.partner) {
-            1 -> {
-                binding.ivPartner0.isClickable = false
-                binding.ivPartner0.setImageResource(R.mipmap.partners_0)
-            }
-            2 -> {
-                binding.ivPartner1.isClickable = false
-                binding.ivPartner1.setImageResource(R.mipmap.partners_1)
-            }
-            3 -> {
-                binding.ivPartner2.isClickable = false
-                binding.ivPartner2.setImageResource(R.mipmap.partners_2)
-            }
-            4 -> {
-                binding.ivPartner3.isClickable = false
-                binding.ivPartner3.setImageResource(R.mipmap.partners_3)
-            }
-            5 -> {
-                binding.ivPartner4.isClickable = false
-                binding.ivPartner4.setImageResource(R.mipmap.partners_4)
-            }
-            6 -> {
-                binding.ivPartner5.isClickable = false
-                binding.ivPartner5.setImageResource(R.mipmap.partners_5)
-            }
-            7 -> {
-                binding.ivPartner6.isClickable = false
-                binding.ivPartner6.setImageResource(R.mipmap.partners_6)
-            }
-            8 -> {
-                binding.ivPartner7.isClickable = false
-                binding.ivPartner7.setImageResource(R.mipmap.partners_7)
-            }
-            9 -> {
-                binding.ivPartner8.isClickable = false
-                binding.ivPartner8.setImageResource(R.mipmap.partners_8)
-            }
-            10 -> {
-                binding.ivPartner9.isClickable = false
-                binding.ivPartner9.setImageResource(R.mipmap.partners_9)
-            }
-        }
-    }
-}
 
-inline fun View.doOnClickWithSoundAndLoseMoney1000(crossinline block: () -> Unit) =
-    setOnClickListener {
-        Score.money = Score.money - 1000
-        MusicConductor.playSound(R.raw.money)
-        block()
-    }
+    private inline fun View.doOnClickWithSoundAndLoseMoney1000(crossinline block: () -> Unit) =
+        setOnClickListener {
+            Score.money = Score.money - 1000
+            MusicConductor.playSound(R.raw.money)
+            block()
+        }
+}

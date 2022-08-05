@@ -15,15 +15,15 @@ inline fun View.doOnClickWithSound(crossinline block: () -> Unit) =
     }
 
 object MusicConductor {
+    private var mediaPlayer: MediaPlayer? = null
     private val musicId = intArrayOf(R.raw.bg_start, R.raw.bg_end, R.raw.bg_game)
-    private lateinit var mediaPlayer: MediaPlayer
     private lateinit var soundMap: MutableMap<Int, Int>
     private lateinit var soundPool: SoundPool
 
     // 音乐播放位置
     private var position = 0
 
-    fun init() {
+    init {
         initSound(application)
     }
 
@@ -57,8 +57,10 @@ object MusicConductor {
     fun startMusic(id: Int) {
         if (isAllowMusic) {
             initMusic(id)
-            if (!mediaPlayer.isPlaying) {
-                mediaPlayer.start()
+            mediaPlayer?.let {
+                if (!it.isPlaying) {
+                    mediaPlayer?.start()
+                }
             }
         }
     }
@@ -67,9 +69,11 @@ object MusicConductor {
      * 暂停音乐
      */
     fun pauseMusic() {
-        if (mediaPlayer.isPlaying) {
-            position = mediaPlayer.currentPosition
-            mediaPlayer.stop()
+        mediaPlayer?.let {
+            if (it.isPlaying) {
+                position = it.currentPosition
+                it.stop()
+            }
         }
     }
 
@@ -78,10 +82,10 @@ object MusicConductor {
      */
     fun resumeMusic(id: Int) {
         if (position > 0) {
-            mediaPlayer.reset()
+            mediaPlayer?.reset()
             initMusic(id)
-            mediaPlayer.start()
-            mediaPlayer.seekTo(position)
+            mediaPlayer?.start()
+            mediaPlayer?.seekTo(position)
             position = 0
         }
     }
@@ -90,8 +94,8 @@ object MusicConductor {
      * 销毁音乐
      */
     fun destroyMusic() {
-        mediaPlayer.stop()
-        mediaPlayer.release()
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
     }
 
     /**
@@ -101,7 +105,7 @@ object MusicConductor {
         // 创建MediaPlayer对象
         mediaPlayer = MediaPlayer.create(application, musicId[id])
         // 设置为循环播放
-        mediaPlayer.isLooping = true
+        mediaPlayer?.isLooping = true
     }
 
     /**

@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.gameFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentCarBinding
@@ -14,13 +12,10 @@ import com.dylanc.longan.doOnClick
 import com.dylanc.longan.toast
 
 class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        onViewShow()
     }
 
     private fun setUpViews() {
@@ -41,10 +36,6 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
         binding.ivCar4.doOnClick { showBigImageViewDialog(R.mipmap.qc0) }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onViewShow()
-    }
 
     private fun onViewShow() {
         binding.btnCar0.visibility = View.INVISIBLE

@@ -26,7 +26,7 @@ class SuggestFragment : BaseBindingFragment<FragmentSuggestBinding>() {
 //            if (suggest_money > 0) {
             if (binding.ivOpenSuggest.visibility == View.VISIBLE) {
                 binding.ivOpenSuggest.visibility = View.INVISIBLE
-                binding.ivCloseSuggest?.visibility = View.VISIBLE
+                binding.ivCloseSuggest.visibility = View.VISIBLE
                 isSponsoredUser = false
             } else {
                 binding.ivOpenSuggest.visibility = View.VISIBLE

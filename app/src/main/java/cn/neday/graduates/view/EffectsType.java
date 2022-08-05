@@ -15,7 +15,7 @@ public enum EffectsType {
     public BaseEffects getAnimator() {
         BaseEffects bEffects;
         try {
-            bEffects = effectsClazz();
+            bEffects = effectsClazz.newInstance();
         } catch (ClassCastException | InstantiationException | IllegalAccessException e) {
             throw new Error("Can not init animatorClazz instance");
         }

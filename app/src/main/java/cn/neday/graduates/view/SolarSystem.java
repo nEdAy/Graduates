@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 
 import cn.neday.graduates.R;
-import cn.neday.graduates.view.SolarSystem.Position;
 
 public class SolarSystem extends ViewGroup implements OnClickListener {
     // 九个位置定义
@@ -30,7 +29,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     private AnimationDrawable mAnimation;
     private Position position = Position.CENTER;// 默认位置
     private int radius;
-    public void position = Position
+    private MenuStatus menuStatus;
     private View centerMenu;// 默认选择最后一个控件为menu
     private onMenuItemClickListener menuItemClickListener;
     private onMenuItemLongClickListener menuItemLongClickListener;
@@ -91,13 +90,6 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100,
                         getResources().getDisplayMetrics()));
         style.recycle();// 释放
-    }
-
-    private MenuStatus menuStatus;
-    position)
-
-    {
-        this.position = position;
     }
 
     public void setStatus(Status status) {
@@ -275,9 +267,7 @@ public class SolarSystem extends ViewGroup implements OnClickListener {
     private void setMenuListener(int childCount) {
         if (centerMenu == null) {
             centerMenu = getChildAt(childCount - 1);
-            centerMenu.doOnClick {
-            }
-            ;
+            centerMenu.setOnClickListener(this);
         }
     }
 

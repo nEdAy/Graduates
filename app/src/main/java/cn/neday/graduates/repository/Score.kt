@@ -36,11 +36,6 @@ object Score : MMKVOwner {
 
     var month by mmkvInt(96) // 剩余月
     var time by mmkvInt(230) // 剩余时间
-//    if (time == 0) {
-//        SpScoreUtil.editor.putInt(SpScoreUtil.SCORE_TIME, 230)
-//    } else {
-//        SpScoreUtil.editor.putInt(SpScoreUtil.SCORE_TIME, time + time)
-//    }
 
     var isPosition by mmkvBool() // 职位 0/1
     var position by mmkvInt(0) // 职位

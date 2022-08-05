@@ -34,7 +34,6 @@ import io.github.inflationx.viewpump.ViewPump
 class ThisApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        MusicConductor.init();
         initTextType()
     }
 

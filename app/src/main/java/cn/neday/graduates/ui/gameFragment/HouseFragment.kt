@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.gameFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.activity.StorylineActivity
@@ -63,13 +61,13 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
         R.string.text_house_99
     )
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
+        myHouse = Score.house
+        indexHouse = Score.indexHouse
+        partnerXy = Score.partner
+        onViewShow(myHouse)
     }
 
     private fun setUpViews() {
@@ -87,14 +85,6 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
         binding.btnHouse5.doOnClick { onBuyOrSell(6, money5, 500, 8, 2) }
         binding.btnHouse6.doOnClick { onBuyOrSell(7, money6, 2000, 10, 3) }
         binding.btnHouse7.doOnClick { onBuyOrSell(8, money7, 4000, 15, 3) }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        myHouse = Score.house
-        indexHouse = Score.indexHouse
-        partnerXy = Score.partner
-        onViewShow(myHouse)
     }
 
     private fun onViewShow(my_house: Int?) {

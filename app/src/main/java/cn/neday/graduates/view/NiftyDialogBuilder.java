@@ -61,19 +61,15 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.height = ViewGroup.LayoutParams.MATCH_PARENT;
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        getWindow().setAttributes(
-                params);
+        getWindow().setAttributes(params);
     }
 
     private void init(Context context) {
         View mDialogView = View.inflate(context, R.layout.dialog_layout, null);
-        mLinearLayoutView = mDialogView
-                .findViewById(R.id.parentPanel);// null
+        mLinearLayoutView = mDialogView.findViewById(R.id.parentPanel);// null
         mLinearLayoutView.setOnClickListener(arg0 -> keepDialog(NiftyDialogBuilder.this));
-        mRelativeLayoutView = mDialogView
-                .findViewById(R.id.main);// null
-        mLinearLayoutTopView = mDialogView
-                .findViewById(R.id.topPanel);// null
+        mRelativeLayoutView = mDialogView.findViewById(R.id.main);// null
+        mLinearLayoutTopView = mDialogView.findViewById(R.id.topPanel);// null
 
         mTitle = mDialogView.findViewById(R.id.alertTitle);// null
         mMessage = mDialogView.findViewById(R.id.message);// null
@@ -91,8 +87,7 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
 
         this.setOnShowListener(dialogInterface -> {
             mLinearLayoutView.setVisibility(View.VISIBLE);
-            start(EffectsType.Shake);// 启动动画
-
+            start();// 启动动画
         });
         mRelativeLayoutView.setOnClickListener(view -> {
             if (isCancelable) {
@@ -229,8 +224,8 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         super.show();
     }
 
-    private void start(EffectsType type) {
-        BaseEffects animator = type.getAnimator();
+    private void start() {
+        BaseEffects animator = EffectsType.Shake.getAnimator();
         if (mDuration != -1) {
             animator.setDuration(Math.abs(mDuration));
         }
@@ -253,7 +248,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
         }
         animator.start(mRelativeLayoutView);
         new Handler().postDelayed(() -> {
-
             dismiss();
             closeDialog(NiftyDialogBuilder.this);
         }, 500);
@@ -265,7 +259,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
             field.setAccessible(true);
             field.set(mDialog, false);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -277,7 +270,6 @@ public class NiftyDialogBuilder extends Dialog implements DialogInterface {
             field.set(mDialog, false);
             mDialog.dismiss();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

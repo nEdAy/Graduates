@@ -2,9 +2,7 @@ package cn.neday.graduates.ui.gameFragment
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentStockBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
@@ -13,17 +11,9 @@ import com.dylanc.longan.doOnClick
 import com.dylanc.longan.toast
 
 class StockFragment : BaseBindingFragment<FragmentStockBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpViews()
         binding.tvMoney.text = Score.money.toString()
         binding.tvValue.text = Score.stock.toString()
     }

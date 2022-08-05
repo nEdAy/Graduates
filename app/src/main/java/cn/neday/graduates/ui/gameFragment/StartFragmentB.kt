@@ -2,9 +2,7 @@ package cn.neday.graduates.ui.gameFragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.MusicConductor.playSound
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentStartBBinding
@@ -13,13 +11,9 @@ import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.doOnClick
 
 class StartFragmentB : BaseBindingFragment<FragmentStartBBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun setUpViews() {
@@ -178,8 +172,7 @@ class StartFragmentB : BaseBindingFragment<FragmentStartBBinding>() {
         message: Int,
         Button2onClickListener: Button2onClickListener
     ) {
-        val dialogBuilder = NiftyDialogBuilder
-            .getInstance(activity)
+        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
         dialogBuilder.withTitle(title)
             .withMessage(message).isCancelable(false)
             .withDuration(500).withButtonOk()
