@@ -525,7 +525,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                     ////说明：首先满足条件——女友是昭君，
                     // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
                     if (mPartnerValue == 3 && Score.partnerZj == 0) {
-                        Score.partnerStory = (1)
+                        Score.partnerStory = 1
                         startActivity<StorylineActivity>()
                         activity?.finish()
                     }
