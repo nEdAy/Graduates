@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.commit
 import cn.neday.graduates.R
 import cn.neday.graduates.activity.GameActivity
 import cn.neday.graduates.databinding.FragmentMainBinding
@@ -15,6 +16,7 @@ import cn.neday.graduates.repository.Settings
 import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.startActivity
 import com.dylanc.longan.toast
+import com.tapsdk.antiaddictionui.AntiAddictionUIKit
 import com.tapsdk.bootstrap.Callback
 import com.tapsdk.bootstrap.account.TDSUser
 import com.tapsdk.bootstrap.exceptions.TapError
@@ -39,18 +41,16 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
         binding.btnStart.doOnClickWithSound { startActivity<GameActivity>() }
         binding.btnReplay.doOnClickWithSound { showReStartDialog() }
         binding.btnOptions.doOnClickWithSound {
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.fragment_main, SettingsFragment())
-                ?.addToBackStack(null)
-                ?.commit()
+            activity?.supportFragmentManager?.commit {
+                replace(R.id.fragment_main, SettingsFragment())
+                addToBackStack(null)
+            }
         }
         binding.btnHelp.doOnClickWithSound {
-            activity?.supportFragmentManager
-                ?.beginTransaction()
-                ?.replace(R.id.fragment_main, HelpFragment())
-                ?.addToBackStack(null)
-                ?.commit()
+            activity?.supportFragmentManager?.commit {
+                replace(R.id.fragment_main, HelpFragment())
+                addToBackStack(null)
+            }
         }
         binding.btnTap.doOnClickWithSound { onTapTap() }
     }
@@ -104,6 +104,11 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
                     val userName = resultUser.username
                     val avatar = resultUser["avatar"] as String // 头像
                     val nickName = resultUser["nickname"] as String // 昵称
+
+                    AntiAddictionUIKit.startup(activity, true, userId)
+
+                    // 玩家在游戏内退出账号时调用，重置防沉迷状态。
+                    // AntiAddictionUIKit.logout();
                 }
 
                 override fun onFail(error: TapError) {

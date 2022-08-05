@@ -20,7 +20,7 @@ abstract class BaseBindingFragment<VB : ViewBinding> : Fragment(),
     }
 
     protected fun popBackStack() {
-        popBackStack()
+        activity?.supportFragmentManager?.popBackStack()
     }
 
     // 按钮模拟心脏跳动

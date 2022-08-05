@@ -30,6 +30,7 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
         )
     }
 
+
     override fun onResume() {
         super.onResume()
         Timer().schedule(1500) {

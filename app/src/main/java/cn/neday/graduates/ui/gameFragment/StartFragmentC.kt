@@ -3,6 +3,7 @@ package cn.neday.graduates.ui.gameFragment
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
+import androidx.fragment.app.commit
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentStartCBinding
@@ -134,12 +135,9 @@ class StartFragmentC : BaseBindingFragment<FragmentStartCBinding>() {
     private fun startGame() {
         MusicConductor.playSound(R.raw.button_0)
         Settings.isPlaying = true
-        activity?.supportFragmentManager
-            ?.beginTransaction()
-            ?.replace(
-                R.id.fragment_game,
-                GameFragment()
-            )?.commit()
+        activity?.supportFragmentManager?.commit {
+            replace(R.id.fragment_game, GameFragment())
+        }
     }
 
     private fun setSharedUtil() {
