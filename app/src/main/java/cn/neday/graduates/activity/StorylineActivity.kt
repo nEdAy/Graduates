@@ -9,9 +9,9 @@ import cn.neday.graduates.MusicConductor.startMusic
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.ActivityStorylineBinding
 import cn.neday.graduates.repository.Score
-import cn.neday.graduates.ui.storyFragment.ShiniangFragment
-import cn.neday.graduates.ui.storyFragment.XiaoyingFragment
-import cn.neday.graduates.ui.storyFragment.ZhaojunFragment
+import cn.neday.graduates.ui.storyline.ShiniangFragment
+import cn.neday.graduates.ui.storyline.XiaoyingFragment
+import cn.neday.graduates.ui.storyline.ZhaojunFragment
 
 class StorylineActivity : BaseBindingActivity<ActivityStorylineBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {

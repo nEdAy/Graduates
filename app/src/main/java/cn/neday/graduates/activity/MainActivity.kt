@@ -9,7 +9,7 @@ import cn.neday.graduates.MusicConductor.startMusic
 import cn.neday.graduates.R
 import cn.neday.graduates.TapTap_Client_ID
 import cn.neday.graduates.databinding.ActivityMainBinding
-import cn.neday.graduates.ui.mainFragment.MainFragment
+import cn.neday.graduates.ui.main.MainFragment
 import com.dylanc.longan.logDebug
 import com.dylanc.longan.toast
 import com.tapsdk.antiaddiction.config.AntiAddictionFunctionConfig

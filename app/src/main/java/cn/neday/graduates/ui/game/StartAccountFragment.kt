@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.gameFragment
+package cn.neday.graduates.ui.game
 
 import android.os.Bundle
 import android.text.InputType
@@ -8,12 +8,12 @@ import android.widget.RadioGroup
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.activity.MainActivity
-import cn.neday.graduates.databinding.FragmentStartABinding
+import cn.neday.graduates.databinding.FragmentStartAccountBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.startActivity
 
-class StartFragmentA : BaseBindingFragment<FragmentStartABinding>() {
+class StartAccountFragment : BaseBindingFragment<FragmentStartAccountBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
@@ -60,7 +60,7 @@ class StartFragmentA : BaseBindingFragment<FragmentStartABinding>() {
             ?.beginTransaction()
             ?.replace(
                 R.id.fragment_game,
-                StartFragmentB()
+                StartDestinationFragment()
             )?.addToBackStack(null)
             ?.commit()
     }

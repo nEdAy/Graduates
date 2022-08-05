@@ -1,16 +1,16 @@
-package cn.neday.graduates.ui.gameFragment
+package cn.neday.graduates.ui.game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import cn.neday.graduates.MusicConductor.playSound
 import cn.neday.graduates.R
-import cn.neday.graduates.databinding.FragmentStartBBinding
+import cn.neday.graduates.databinding.FragmentStartDestinationBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.doOnClick
 
-class StartFragmentB : BaseBindingFragment<FragmentStartBBinding>() {
+class StartDestinationFragment : BaseBindingFragment<FragmentStartDestinationBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
@@ -141,7 +141,7 @@ class StartFragmentB : BaseBindingFragment<FragmentStartBBinding>() {
             ?.beginTransaction()
             ?.replace(
                 R.id.fragment_game,
-                StartFragmentC()
+                StartInformationFragment()
             )?.addToBackStack(null)
             ?.commit()
     }
@@ -192,8 +192,8 @@ class StartFragmentB : BaseBindingFragment<FragmentStartBBinding>() {
 
     companion object {
         @SuppressLint("StaticFieldLeak")
-        private val instance = StartFragmentB()
-        fun newInstance(): StartFragmentB {
+        private val instance = StartDestinationFragment()
+        fun newInstance(): StartDestinationFragment {
             return instance
         }
     }

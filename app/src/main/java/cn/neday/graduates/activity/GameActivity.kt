@@ -6,8 +6,8 @@ import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.ActivityGameBinding
 import cn.neday.graduates.repository.Settings
-import cn.neday.graduates.ui.gameFragment.GameFragment
-import cn.neday.graduates.ui.gameFragment.StartFragmentA
+import cn.neday.graduates.ui.game.GameFragment
+import cn.neday.graduates.ui.game.StartAccountFragment
 
 class GameActivity : BaseBindingActivity<ActivityGameBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class GameActivity : BaseBindingActivity<ActivityGameBinding>() {
                 R.id.fragment_game, if (Settings.isPlaying) {
                     GameFragment()
                 } else {
-                    StartFragmentA()
+                    StartAccountFragment()
                 }
             )
         }

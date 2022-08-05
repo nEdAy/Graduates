@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.mainFragment
+package cn.neday.graduates.ui.main
 
 import android.os.Bundle
 import android.view.View

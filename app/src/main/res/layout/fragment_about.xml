@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.mainFragment.AboutFragment">
+    tools:context=".ui.main.AboutFragment">
 
     <TextView
         android:id="@+id/app_name"
