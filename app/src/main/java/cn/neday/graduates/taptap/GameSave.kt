@@ -23,7 +23,7 @@ import java.util.*
  * 存档封面	cover	可选	开发者提供的图片，目前 SDK 只允许上传 PNG / JPG 格式的图片。
  */
 object GameSave {
-    val mmapID = "score"
+    private const val mmapID = "score"
     fun save() {
         val snapshot = TapGameSave()
         snapshot.name = "internal name"

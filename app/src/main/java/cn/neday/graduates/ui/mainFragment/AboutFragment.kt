@@ -8,6 +8,6 @@ import cn.neday.graduates.fragment.BaseBindingFragment
 class AboutFragment : BaseBindingFragment<FragmentAboutBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ivBack.setOnClickListener { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.setOnClickListener { popBackStack() }
     }
 }

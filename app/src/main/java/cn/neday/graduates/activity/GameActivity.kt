@@ -1,6 +1,7 @@
 package cn.neday.graduates.activity
 
 import android.os.Bundle
+import androidx.fragment.app.commit
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.ActivityGameBinding
@@ -11,19 +12,19 @@ import cn.neday.graduates.ui.gameFragment.StartFragmentA
 class GameActivity : BaseBindingActivity<ActivityGameBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpFragment()
+        setFragment()
     }
 
-    private fun setUpFragment() {
-        val transaction = supportFragmentManager.beginTransaction()
-        if (Settings.isPlaying) {
-            val fragment = GameFragment()
-            transaction.replace(R.id.fragment_game, fragment)
-        } else {
-            val fragment = StartFragmentA()
-            transaction.replace(R.id.fragment_game, fragment)
+    private fun setFragment() {
+        supportFragmentManager.commit {
+            replace(
+                R.id.fragment_game, if (Settings.isPlaying) {
+                    GameFragment()
+                } else {
+                    StartFragmentA()
+                }
+            )
         }
-        transaction.commit()
     }
 
     override fun onStart() {

@@ -1,6 +1,7 @@
 package cn.neday.graduates.activity
 
 import android.os.Bundle
+import androidx.fragment.app.commit
 import cn.neday.graduates.MusicConductor.destroyMusic
 import cn.neday.graduates.MusicConductor.pauseMusic
 import cn.neday.graduates.MusicConductor.resumeMusic
@@ -12,15 +13,12 @@ import cn.neday.graduates.ui.mainFragment.MainFragment
 class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpFragment(savedInstanceState)
+        setFragment()
     }
 
-    private fun setUpFragment(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            val fragment = MainFragment()
-            transaction.replace(R.id.fragment_main, fragment)
-            transaction.commit()
+    private fun setFragment() {
+        supportFragmentManager.commit {
+            replace(R.id.fragment_main, MainFragment())
         }
     }
 

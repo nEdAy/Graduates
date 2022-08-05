@@ -1,9 +1,7 @@
 package cn.neday.graduates.ui.mainFragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentSuggestBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
@@ -11,17 +9,13 @@ import cn.neday.graduates.repository.Settings.isSponsoredUser
 import com.dylanc.longan.doOnClick
 
 class SuggestFragment : BaseBindingFragment<FragmentSuggestBinding>() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun setUpViews() {
-        binding.btnBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.btnBack.doOnClick { popBackStack() }
         binding.rlSwitchSuggest.doOnClick {
 //            if (suggest_money > 0) {
             if (binding.ivOpenSuggest.visibility == View.VISIBLE) {

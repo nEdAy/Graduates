@@ -33,7 +33,7 @@ class PositionFragment : BaseBindingFragment<FragmentPositionBinding>() {
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { popBackStack() }
         setListener()
     }
 
@@ -69,6 +69,6 @@ class PositionFragment : BaseBindingFragment<FragmentPositionBinding>() {
         } else {
             toast(R.string.position_no_ae)
         }
-        activity?.supportFragmentManager?.popBackStack()
+        popBackStack()
     }
 }

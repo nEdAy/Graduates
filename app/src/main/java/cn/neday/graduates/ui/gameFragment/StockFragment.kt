@@ -19,7 +19,7 @@ class StockFragment : BaseBindingFragment<FragmentStockBinding>() {
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { popBackStack() }
         binding.btnBuy.doOnClick { buy() }
         binding.btnSell.doOnClick { sell() }
         setRandom()

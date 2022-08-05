@@ -19,14 +19,15 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
     }
 
     private fun initTapTap() {
-        val tdsConfig = TapConfig.Builder()
-            .withAppContext(this) // Context 上下文
-            .withClientId(TapTap_Client_ID) // 必须，开发者中心对应 Client ID
-            .withClientToken(TapTap_Client_Token) // 必须，开发者中心对应 Client Token
-            .withServerUrl(TapTap_Server_Url) // 必须，开发者中心 > 你的游戏 > 游戏服务 > 基本信息 > 域名配置 > API
-            .withRegionType(TapRegionType.CN) // TapRegionType.CN：中国大陆，TapRegionType.IO：其他国家或地区
-            .build()
-        TapBootstrap.init(this, tdsConfig)
+        TapBootstrap.init(
+            this, TapConfig.Builder()
+                .withAppContext(this) // Context 上下文
+                .withClientId(TapTap_Client_ID) // 必须，开发者中心对应 Client ID
+                .withClientToken(TapTap_Client_Token) // 必须，开发者中心对应 Client Token
+                .withServerUrl(TapTap_Server_Url) // 必须，开发者中心 > 你的游戏 > 游戏服务 > 基本信息 > 域名配置 > API
+                .withRegionType(TapRegionType.CN) // TapRegionType.CN：中国大陆，TapRegionType.IO：其他国家或地区
+                .build()
+        )
     }
 
     override fun onResume() {

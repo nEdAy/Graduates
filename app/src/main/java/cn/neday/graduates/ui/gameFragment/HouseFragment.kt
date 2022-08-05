@@ -71,7 +71,7 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { popBackStack() }
         setListener()
     }
 
@@ -258,7 +258,7 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
             Score.money = Score.money.plus(money)
             Score.income = Score.income.plus(income)
             Score.happyMonthly = Score.happyMonthly.minus(monthly)
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         } else {
             if (mMoney < money) {
                 toast(R.string.house_no_money)
@@ -270,7 +270,7 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
                 Score.experience = Score.experience.plus(value)
                 Score.happy = Score.happy.plus(value)
                 Score.happyMonthly = Score.happyMonthly.plus(monthly)
-                activity?.supportFragmentManager?.popBackStack()
+                popBackStack()
             }
         }
     }

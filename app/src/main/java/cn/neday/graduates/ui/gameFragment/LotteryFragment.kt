@@ -49,18 +49,18 @@ class LotteryFragment : BaseBindingFragment<FragmentLotteryBinding>() {
             } else {
                 MusicConductor.playSound(R.raw.money)
                 toast("您本月没有中奖，欢迎下月再来~")
-                activity?.supportFragmentManager?.popBackStack()
+                popBackStack()
             }
         }
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { popBackStack() }
     }
 
     private fun showPopWindows(v: View?, lotteryStr: String, money: Int): PopupWindow {
         Score.money = Score.money.plus(money)
-        activity?.supportFragmentManager?.popBackStack()
+        popBackStack()
         val view = activity?.layoutInflater?.inflate(R.layout.view_login_reward, null)
         val tvTips = view?.findViewById<TextView>(R.id.tv_tip)
         val moneyView = view?.findViewById<TextView>(R.id.tv_money)

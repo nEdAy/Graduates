@@ -9,6 +9,7 @@ import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.repository.Score
 import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.doOnClick
+import com.dylanc.longan.pressBackToNotExitApp
 import com.dylanc.longan.toast
 
 class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
@@ -19,7 +20,7 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { pressBackToNotExitApp() }
         setListener()
     }
 
@@ -97,7 +98,7 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
                 Score.communicationMonthly = Score.communicationMonthly.plus(monthly)
                 Score.experience = Score.experience.plus(value)
                 Score.happy = Score.happy.plus(value)
-                activity?.supportFragmentManager?.popBackStack()
+                popBackStack()
             }
         }
         onActivityCreated(null)

@@ -1,6 +1,5 @@
 package cn.neday.graduates.activity
 
-import android.os.Bundle
 import cn.neday.graduates.MusicConductor.destroyMusic
 import cn.neday.graduates.MusicConductor.pauseMusic
 import cn.neday.graduates.MusicConductor.resumeMusic
@@ -8,10 +7,6 @@ import cn.neday.graduates.MusicConductor.startMusic
 import cn.neday.graduates.databinding.ActivityOverBinding
 
 class OverActivity : BaseBindingActivity<ActivityOverBinding>() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onStart() {
         super.onStart()
         destroyMusic()

@@ -1,6 +1,7 @@
 package cn.neday.graduates.activity
 
 import android.os.Bundle
+import androidx.fragment.app.commit
 import cn.neday.graduates.MusicConductor.destroyMusic
 import cn.neday.graduates.MusicConductor.pauseMusic
 import cn.neday.graduates.MusicConductor.resumeMusic
@@ -15,27 +16,20 @@ import cn.neday.graduates.ui.storyFragment.ZhaojunFragment
 class StorylineActivity : BaseBindingActivity<ActivityStorylineBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setUpFragment(savedInstanceState)
+        setUpFragment()
     }
 
-    private fun setUpFragment(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            when (Score.partnerStory) {
-                0 -> { //小樱
-                    val fragment = XiaoyingFragment()
-                    transaction.replace(R.id.fragment_story, fragment)
+    private fun setUpFragment() {
+        supportFragmentManager.commit {
+            replace(
+                //TODO enum
+                R.id.fragment_story, when (Score.partnerStory) {
+                    0 -> XiaoyingFragment()
+                    1, 2, 3 -> ZhaojunFragment()
+                    4, 5, 6, 7, 8, 9, 10 -> ShiniangFragment()
+                    else -> ShiniangFragment()
                 }
-                1, 2, 3 -> { //昭君
-                    val fragment = ZhaojunFragment()
-                    transaction.replace(R.id.fragment_story, fragment)
-                }
-                4, 5, 6, 7, 8, 9, 10 -> { //十娘
-                    val fragment = ShiniangFragment()
-                    transaction.replace(R.id.fragment_story, fragment)
-                }
-            }
-            transaction.commit()
+            )
         }
     }
 

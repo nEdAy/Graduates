@@ -16,7 +16,7 @@ class SettingsFragment : BaseBindingFragment<FragmentSettingsBinding>() {
     }
 
     private fun setUpViews() {
-        binding.btnBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.btnBack.doOnClick { popBackStack() }
         if (Settings.isAllowMusicEnable) {
             binding.ivOpenMusic.visibility = View.VISIBLE
             binding.ivCloseMusic.visibility = View.INVISIBLE

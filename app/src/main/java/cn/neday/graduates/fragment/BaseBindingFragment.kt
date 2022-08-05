@@ -11,11 +11,6 @@ import androidx.viewbinding.ViewBinding
 import com.dylanc.viewbinding.base.FragmentBinding
 import com.dylanc.viewbinding.base.FragmentBindingDelegate
 
-/**
- * Fragment基类
- *
- * @author nEdAy
- */
 abstract class BaseBindingFragment<VB : ViewBinding> : Fragment(),
     FragmentBinding<VB> by FragmentBindingDelegate() {
     override fun onCreateView(
@@ -24,9 +19,12 @@ abstract class BaseBindingFragment<VB : ViewBinding> : Fragment(),
         return createViewWithBinding(inflater, container)
     }
 
+    protected fun popBackStack() {
+        popBackStack()
+    }
 
     // 按钮模拟心脏跳动
-    protected open fun playHeartbeatAnimation(imageView: View) {
+    protected fun playHeartbeatAnimation(imageView: View) {
         val animationSet = AnimationSet(true)
         animationSet.addAnimation(
             ScaleAnimation(

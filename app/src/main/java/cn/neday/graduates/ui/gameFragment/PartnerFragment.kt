@@ -67,7 +67,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
     }
 
     private fun setUpViews() {
-        binding.ivBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.ivBack.doOnClick { popBackStack() }
         binding.ivPartner.doOnClickWithSoundAndLoseMoney1000 {
             binding.llPartner0.visibility = View.GONE
             binding.llPartner1.visibility = View.GONE
@@ -83,7 +83,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_0_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner1.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.money > 2000000) {
@@ -91,7 +91,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_1_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner2.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.position == 8 || Score.position == 11) {
@@ -99,7 +99,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_2_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner3.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.position == 10 || Score.position == 11) {
@@ -107,7 +107,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_3_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner4.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.communication > 750) {
@@ -115,7 +115,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_4_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner5.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.car == 3 || Score.car == 4) {
@@ -123,7 +123,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_5_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner6.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.morality > 750) {
@@ -131,7 +131,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_6_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner7.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.healthy > 750) {
@@ -141,13 +141,13 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             }
         }
         binding.ivPartner8.doOnClickWithSoundAndLoseMoney1000 {
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
             if (Score.happy > 750) {
                 Score.partner = 9
             } else {
                 toast(R.string.partner_8_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
         binding.ivPartner9.doOnClickWithSoundAndLoseMoney1000 {
             if (Score.time < 24) {
@@ -155,7 +155,7 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
             } else {
                 toast(R.string.partner_9_plus)
             }
-            activity?.supportFragmentManager?.popBackStack()
+            popBackStack()
         }
     }
 

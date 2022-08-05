@@ -14,7 +14,6 @@ import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.startActivity
 
 class StartFragmentA : BaseBindingFragment<FragmentStartABinding>() {
-    private var mSex: Boolean? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
@@ -33,10 +32,8 @@ class StartFragmentA : BaseBindingFragment<FragmentStartABinding>() {
         binding.rgSex.setOnCheckedChangeListener { arg0: RadioGroup, _: Int ->
             when (arg0.checkedRadioButtonId) {
                 R.id.rb_sex_0 -> {
-                    mSex = false
                 }
                 R.id.rb_sex_1 -> {
-                    mSex = true
                 }
 
             }

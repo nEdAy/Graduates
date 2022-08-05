@@ -14,7 +14,7 @@ class HelpFragment : BaseBindingFragment<FragmentHelpBinding>() {
     }
 
     private fun initView() {
-        binding.btnBack.doOnClick { activity?.supportFragmentManager?.popBackStack() }
+        binding.btnBack.doOnClick { popBackStack() }
         val arrayAdapter = activity?.let {
             ArrayAdapter(
                 it,
