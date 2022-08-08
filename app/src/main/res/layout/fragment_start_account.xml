@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.game.StartAccountFragment">
+    tools:context=".fragment.game.StartAccountFragment">
 
     <TextView
         android:id="@+id/tv_start_a"

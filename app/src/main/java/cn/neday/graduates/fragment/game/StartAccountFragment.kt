@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.game
+package cn.neday.graduates.fragment.game
 
 import android.os.Bundle
 import android.text.InputType

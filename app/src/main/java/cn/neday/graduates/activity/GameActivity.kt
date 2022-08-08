@@ -5,9 +5,9 @@ import androidx.fragment.app.commit
 import cn.neday.graduates.MusicConductor
 import cn.neday.graduates.R
 import cn.neday.graduates.databinding.ActivityGameBinding
+import cn.neday.graduates.fragment.game.GameFragment
+import cn.neday.graduates.fragment.game.StartAccountFragment
 import cn.neday.graduates.repository.Settings
-import cn.neday.graduates.ui.game.GameFragment
-import cn.neday.graduates.ui.game.StartAccountFragment
 
 class GameActivity : BaseBindingActivity<ActivityGameBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {

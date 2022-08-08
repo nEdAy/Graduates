@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui
+package cn.neday.graduates.fragment
 
 import android.app.Activity
 import android.graphics.Bitmap
@@ -6,7 +6,6 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import cn.neday.graduates.databinding.FragmentOverBinding
-import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.repository.Score
 import cn.neday.graduates.taptap.Leaderboard.update
 import com.dylanc.longan.doOnClick

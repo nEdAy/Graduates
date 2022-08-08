@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/bg_about"
     android:gravity="center"
-    tools:context=".ui.game.GameFragment">
+    tools:context=".fragment.game.GameFragment">
 
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.main
+package cn.neday.graduates.fragment.main
 
 import android.annotation.SuppressLint
 import android.content.Intent

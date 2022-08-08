@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.game
+package cn.neday.graduates.fragment.game
 
 import android.annotation.SuppressLint
 import android.graphics.Color

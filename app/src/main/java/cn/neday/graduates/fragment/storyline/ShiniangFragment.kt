@@ -1,4 +1,4 @@
-package cn.neday.graduates.ui.storyline
+package cn.neday.graduates.fragment.storyline
 
 import android.os.Bundle
 import android.view.View

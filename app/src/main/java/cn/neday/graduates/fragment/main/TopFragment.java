@@ -1,4 +1,4 @@
-//package com.xpple.graduates.ui.mainFragment;
+package cn.neday.graduates.fragment.main;//package com.xpple.graduates.ui.mainFragment;
 //
 //import android.annotation.SuppressLint;
 //import android.os.Bundle;
