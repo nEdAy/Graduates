@@ -74,6 +74,9 @@ dependencies {
 
     implementation 'com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:2.1.0'
 
+    implementation 'com.maxkeppeler.sheets:core:2.2.8'
+    implementation 'com.maxkeppeler.sheets:info:2.2.8'
+
     // Calligraphy3
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'

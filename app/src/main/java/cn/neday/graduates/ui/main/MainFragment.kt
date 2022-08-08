@@ -73,7 +73,7 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
         super.onResume()
         view?.isFocusableInTouchMode = true
         view?.requestFocus()
-        view?.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent ->
+        view?.setOnKeyListener { _: View?, keyCode: Int, event: KeyEvent ->
             if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                 // 当back按下
                 showExitDialog()
