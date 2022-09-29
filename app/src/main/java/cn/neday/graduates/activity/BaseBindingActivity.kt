@@ -16,7 +16,6 @@ abstract class BaseBindingActivity<VB : ViewBinding> : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentViewWithBinding()
         setFullScreen()
-
     }
 
     @Suppress("DEPRECATION")

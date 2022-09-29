@@ -14,8 +14,8 @@ object Info {
         @androidx.annotation.DrawableRes drawableRes: Int? = null,
         content: String? = null,
         cancelable: Boolean = true,
-        onPositiveBlock: (() -> Unit)? = null,
-        onNegativeBlock: (() -> Unit)? = null
+        onNegativeBlock: (() -> Unit)? = null,
+        onPositiveBlock: (() -> Unit)? = null
     ) {
         InfoSheet().show(topActivity) {
             style(SheetStyle.DIALOG)
@@ -29,11 +29,11 @@ object Info {
             positiveButtonStyle(ButtonStyle.NORMAL)
             displayNegativeButton(onNegativeBlock != null || onPositiveBlock != null)
             displayPositiveButton(onPositiveBlock != null)
-            onPositive {
-                onPositiveBlock?.invoke()
-            }
             onNegative {
                 onNegativeBlock?.invoke()
+            }
+            onPositive {
+                onPositiveBlock?.invoke()
             }
         }
     }
