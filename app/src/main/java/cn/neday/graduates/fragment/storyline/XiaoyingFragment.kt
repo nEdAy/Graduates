@@ -42,7 +42,7 @@ class XiaoyingFragment : BaseBindingFragment<FragmentStoryBinding>() {
         mStroy = 0
         mStroyMax = 100
         binding.tvTalk.setText(xy_talk_0[0])
-        binding.ivStory.setBackgroundResource(R.mipmap.xy00)
+        binding.ivStory.setBackgroundResource(R.drawable.xy00)
     }
 
     private fun onTalk() {
@@ -54,19 +54,19 @@ class XiaoyingFragment : BaseBindingFragment<FragmentStoryBinding>() {
             activity?.finish()
         }
         when (mStroy) {
-            15 -> binding.ivStory.setBackgroundResource(R.mipmap.xy01)
-            32 -> binding.ivStory.setBackgroundResource(R.mipmap.xy02)
-            55 -> binding.ivStory.setBackgroundResource(R.mipmap.xy03)
-            60 -> binding.ivStory.setBackgroundResource(R.mipmap.xy04)
+            15 -> binding.ivStory.setBackgroundResource(R.drawable.xy01)
+            32 -> binding.ivStory.setBackgroundResource(R.drawable.xy02)
+            55 -> binding.ivStory.setBackgroundResource(R.drawable.xy03)
+            60 -> binding.ivStory.setBackgroundResource(R.drawable.xy04)
             62 -> {
                 binding.tvTalk.isClickable = false
                 binding.rbYes.setText(xy_talk_0[63])
                 binding.rbNo.setText(xy_talk_0[64])
                 binding.rgStory.visibility = View.VISIBLE
             }
-            64 -> binding.ivStory.setBackgroundResource(R.mipmap.xy05)
-            65 -> binding.ivStory.setBackgroundResource(R.mipmap.xy06)
-            72 -> binding.ivStory.setBackgroundResource(R.mipmap.xy07)
+            64 -> binding.ivStory.setBackgroundResource(R.drawable.xy05)
+            65 -> binding.ivStory.setBackgroundResource(R.drawable.xy06)
+            72 -> binding.ivStory.setBackgroundResource(R.drawable.xy07)
         }
     }
 

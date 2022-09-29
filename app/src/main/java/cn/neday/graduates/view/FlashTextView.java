@@ -11,13 +11,13 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
-public class MyTextView extends AppCompatTextView {
+public class FlashTextView extends AppCompatTextView {
     private LinearGradient mLinearGradient;
     private Matrix mGradientMatrix;
     private int mViewWidth = 0;
     private int mTranslate = 0;
 
-    public MyTextView(Context context, AttributeSet attrs) {
+    public FlashTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

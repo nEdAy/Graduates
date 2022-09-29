@@ -31,11 +31,11 @@ class StockFragment : BaseBindingFragment<FragmentStockBinding>() {
         binding.tvIndex.text = indexStock.toString()
         binding.tvRate.text = (randomStock - 100).toString() + "%"
         if (randomStock < 100) {
-            binding.ivRate.setImageResource(R.mipmap.die)
+            binding.ivRate.setImageResource(R.drawable.die)
         } else if (randomStock > 100) {
-            binding.ivRate.setImageResource(R.mipmap.zhang)
+            binding.ivRate.setImageResource(R.drawable.zhang)
         } else {
-            binding.ivRate.setImageResource(R.mipmap.ping)
+            binding.ivRate.setImageResource(R.drawable.ping)
         }
     }
 

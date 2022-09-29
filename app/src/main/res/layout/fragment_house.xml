@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_house"
+    android:background="@drawable/bg_house"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -50,7 +50,7 @@
                     android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house7" />
+                    android:src="@drawable/house7" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                     android:id="@+id/btn_house_7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -93,7 +93,7 @@
                     android:id="@+id/imageView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house6" />
+                    android:src="@drawable/house6" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
                     android:id="@+id/btn_house_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
         </LinearLayout>
@@ -143,7 +143,7 @@
                     android:id="@+id/imageView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house5" />
+                    android:src="@drawable/house5" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                     android:id="@+id/btn_house_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -186,7 +186,7 @@
                     android:id="@+id/imageView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house4" />
+                    android:src="@drawable/house4" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                     android:id="@+id/btn_house_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
         </LinearLayout>
@@ -236,7 +236,7 @@
                     android:id="@+id/imageView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house3" />
+                    android:src="@drawable/house3" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -264,7 +264,7 @@
                     android:id="@+id/btn_house_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -279,7 +279,7 @@
                     android:id="@+id/imageView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house2" />
+                    android:src="@drawable/house2" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -307,7 +307,7 @@
                     android:id="@+id/btn_house_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
         </LinearLayout>
@@ -329,7 +329,7 @@
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house1" />
+                    android:src="@drawable/house1" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -357,7 +357,7 @@
                     android:id="@+id/btn_house_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -372,7 +372,7 @@
                     android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/house0" />
+                    android:src="@drawable/house0" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -400,7 +400,7 @@
                     android:id="@+id/btn_house_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_buy"
+                    android:src="@drawable/btn_buy"
                     android:visibility="invisible" />
             </LinearLayout>
         </LinearLayout>
@@ -421,14 +421,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:contentDescription="@string/ImageViewDescription"
-            android:src="@mipmap/house" />
+            android:src="@drawable/house" />
 
         <TextView
             android:id="@+id/text_house"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:text="@string/text_house_00"
             android:textColor="@color/base_color_text_white"
             android:textSize="16sp" />
@@ -440,6 +440,5 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout4"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:src="@mipmap/btn_back" />
+        android:src="@drawable/btn_back" />
 </RelativeLayout>

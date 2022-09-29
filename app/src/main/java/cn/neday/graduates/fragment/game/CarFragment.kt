@@ -7,7 +7,6 @@ import cn.neday.graduates.R
 import cn.neday.graduates.databinding.FragmentCarBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.repository.Score
-import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.doOnClick
 import com.dylanc.longan.pressBackToNotExitApp
 import com.dylanc.longan.toast
@@ -30,11 +29,11 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
         binding.btnCar2.doOnClick { onBuyOrSell(3, 350000, 1500, 20, 2) }
         binding.btnCar3.doOnClick { onBuyOrSell(4, 1600000, 3000, 30, 3) }
         binding.btnCar4.doOnClick { onBuyOrSell(5, 2500000, 4000, 40, 3) }
-        binding.ivCar0.doOnClick { showBigImageViewDialog(R.mipmap.qc4) }
-        binding.ivCar1.doOnClick { showBigImageViewDialog(R.mipmap.qc3) }
-        binding.ivCar2.doOnClick { showBigImageViewDialog(R.mipmap.qc2) }
-        binding.ivCar3.doOnClick { showBigImageViewDialog(R.mipmap.qc1) }
-        binding.ivCar4.doOnClick { showBigImageViewDialog(R.mipmap.qc0) }
+        binding.ivCar0.doOnClick { showBigImageViewDialog(R.drawable.qc4) }
+        binding.ivCar1.doOnClick { showBigImageViewDialog(R.drawable.qc3) }
+        binding.ivCar2.doOnClick { showBigImageViewDialog(R.drawable.qc2) }
+        binding.ivCar3.doOnClick { showBigImageViewDialog(R.drawable.qc1) }
+        binding.ivCar4.doOnClick { showBigImageViewDialog(R.drawable.qc0) }
     }
 
 
@@ -51,31 +50,31 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
                 binding.btnCar2.visibility = View.VISIBLE
                 binding.btnCar3.visibility = View.VISIBLE
                 binding.btnCar4.visibility = View.VISIBLE
-                binding.btnCar0.setImageResource(R.mipmap.btn_buy)
-                binding.btnCar1.setImageResource(R.mipmap.btn_buy)
-                binding.btnCar2.setImageResource(R.mipmap.btn_buy)
-                binding.btnCar3.setImageResource(R.mipmap.btn_buy)
-                binding.btnCar4.setImageResource(R.mipmap.btn_buy)
+                binding.btnCar0.setImageResource(R.drawable.btn_buy)
+                binding.btnCar1.setImageResource(R.drawable.btn_buy)
+                binding.btnCar2.setImageResource(R.drawable.btn_buy)
+                binding.btnCar3.setImageResource(R.drawable.btn_buy)
+                binding.btnCar4.setImageResource(R.drawable.btn_buy)
             }
             1 -> {
                 binding.btnCar0.visibility = View.VISIBLE
-                binding.btnCar0.setImageResource(R.mipmap.btn_sale)
+                binding.btnCar0.setImageResource(R.drawable.btn_sale)
             }
             2 -> {
                 binding.btnCar1.visibility = View.VISIBLE
-                binding.btnCar1.setImageResource(R.mipmap.btn_sale)
+                binding.btnCar1.setImageResource(R.drawable.btn_sale)
             }
             3 -> {
                 binding.btnCar2.visibility = View.VISIBLE
-                binding.btnCar2.setImageResource(R.mipmap.btn_sale)
+                binding.btnCar2.setImageResource(R.drawable.btn_sale)
             }
             4 -> {
                 binding.btnCar3.visibility = View.VISIBLE
-                binding.btnCar3.setImageResource(R.mipmap.btn_sale)
+                binding.btnCar3.setImageResource(R.drawable.btn_sale)
             }
             5 -> {
                 binding.btnCar4.visibility = View.VISIBLE
-                binding.btnCar4.setImageResource(R.mipmap.btn_sale)
+                binding.btnCar4.setImageResource(R.drawable.btn_sale)
             }
 
         }
@@ -105,11 +104,6 @@ class CarFragment : BaseBindingFragment<FragmentCarBinding>() {
     }
 
     private fun showBigImageViewDialog(id: Int) {
-        NiftyDialogBuilder
-            .getInstance(activity)
-            .isCancelable(true)
-            .withDuration(500)
-            .withBigImageView(id)
-            .show()
+        //todo:
     }
 }

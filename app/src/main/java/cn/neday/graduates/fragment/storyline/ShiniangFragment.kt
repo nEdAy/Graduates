@@ -47,43 +47,43 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                 //第一幕
                 mStroyMax = 20
                 binding.tvTalk.setText(sn_talk_0[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn00)
+                binding.ivStory.setBackgroundResource(R.drawable.sn00)
             }
             5 -> {
                 //第二幕
                 mStroyMax = 18
                 binding.tvTalk.setText(sn_talk_1[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn02)
+                binding.ivStory.setBackgroundResource(R.drawable.sn02)
             }
             6 -> {
                 //第三幕
                 mStroyMax = 28
                 binding.tvTalk.setText(sn_talk_2[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn04)
+                binding.ivStory.setBackgroundResource(R.drawable.sn04)
             }
             7 -> {
                 //第四幕
                 mStroyMax = 17
                 binding.tvTalk.setText(sn_talk_3[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn06)
+                binding.ivStory.setBackgroundResource(R.drawable.sn06)
             }
             8 -> {
                 //第五幕
                 mStroyMax = 14
                 binding.tvTalk.setText(sn_talk_4[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn09)
+                binding.ivStory.setBackgroundResource(R.drawable.sn09)
             }
             9 -> {
                 //第六幕--A
                 mStroyMax = 30
                 binding.tvTalk.setText(sn_talk_5_a[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn12)
+                binding.ivStory.setBackgroundResource(R.drawable.sn12)
             }
             10 -> {
                 //第六幕--B
                 mStroyMax = 48
                 binding.tvTalk.setText(sn_talk_5_b[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.sn14)
+                binding.ivStory.setBackgroundResource(R.drawable.sn14)
             }
 
         }
@@ -104,7 +104,7 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    6 -> binding.ivStory.setBackgroundResource(R.mipmap.sn01)
+                    6 -> binding.ivStory.setBackgroundResource(R.drawable.sn01)
 
                 }
             }
@@ -119,7 +119,7 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    5 -> binding.ivStory.setBackgroundResource(R.mipmap.sn03)
+                    5 -> binding.ivStory.setBackgroundResource(R.drawable.sn03)
 
                 }
             }
@@ -134,7 +134,7 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    4 -> binding.ivStory.setBackgroundResource(R.mipmap.sn05)
+                    4 -> binding.ivStory.setBackgroundResource(R.drawable.sn05)
 
                 }
             }
@@ -149,7 +149,7 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    4 -> binding.ivStory.setBackgroundResource(R.mipmap.sn07)
+                    4 -> binding.ivStory.setBackgroundResource(R.drawable.sn07)
 
                 }
             }
@@ -163,8 +163,8 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    4 -> binding.ivStory.setBackgroundResource(R.mipmap.sn10)
-                    7 -> binding.ivStory.setBackgroundResource(R.mipmap.sn11)
+                    4 -> binding.ivStory.setBackgroundResource(R.drawable.sn10)
+                    7 -> binding.ivStory.setBackgroundResource(R.drawable.sn11)
                     12 -> {
                         binding.tvTalk.isClickable = false
                         binding.rbYes.setText(sn_talk_4[13])
@@ -189,7 +189,7 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                         Score.happy = Score.happy.plus(100)
                         Score.money = Score.money.plus(100000)
                     }
-                    13 -> binding.ivStory.setBackgroundResource(R.mipmap.sn13)
+                    13 -> binding.ivStory.setBackgroundResource(R.drawable.sn13)
                     30 -> {
                         toast("你和女友十娘的感情加深了，爱情机遇指数+2")
                         Score.love = Score.love.plus(2)
@@ -206,12 +206,12 @@ class ShiniangFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    3 -> binding.ivStory.setBackgroundResource(R.mipmap.sn19)
-                    5 -> binding.ivStory.setBackgroundResource(R.mipmap.sn18)
-                    8 -> binding.ivStory.setBackgroundResource(R.mipmap.sn08)
-                    14 -> binding.ivStory.setBackgroundResource(R.mipmap.sn15)
-                    16 -> binding.ivStory.setBackgroundResource(R.mipmap.sn16)
-                    22 -> binding.ivStory.setBackgroundResource(R.mipmap.sn17)
+                    3 -> binding.ivStory.setBackgroundResource(R.drawable.sn19)
+                    5 -> binding.ivStory.setBackgroundResource(R.drawable.sn18)
+                    8 -> binding.ivStory.setBackgroundResource(R.drawable.sn08)
+                    14 -> binding.ivStory.setBackgroundResource(R.drawable.sn15)
+                    16 -> binding.ivStory.setBackgroundResource(R.drawable.sn16)
+                    22 -> binding.ivStory.setBackgroundResource(R.drawable.sn17)
                     74 -> {
                         toast("你和女友十娘分手了")
                         Score.partner = 0

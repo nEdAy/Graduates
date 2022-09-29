@@ -27,9 +27,9 @@
         android:layout_above="@+id/rl_bottom"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:layout_marginRight="25dp"
-        android:src="@mipmap/btn_start" />
+        android:src="@drawable/btn_start" />
 
 
     <LinearLayout
@@ -52,7 +52,7 @@
             android:id="@+id/iv_login_1"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher" />
 
@@ -60,7 +60,7 @@
             android:id="@+id/iv_login_2"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>

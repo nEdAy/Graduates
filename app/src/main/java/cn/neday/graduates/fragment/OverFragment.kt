@@ -1,8 +1,6 @@
 package cn.neday.graduates.fragment
 
-import android.app.Activity
 import android.graphics.Bitmap
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import cn.neday.graduates.databinding.FragmentOverBinding
@@ -141,30 +139,5 @@ class OverFragment : BaseBindingFragment<FragmentOverBinding>() {
             "你的女友是昭君", "你的女友是玉环", "你的女友是圆圆", "你的女友是香香",
             "你的女友是十娘", "你的女友是小小", "你的女友是飞燕", "你的女友是莺莺"
         )
-
-        // 获取指定Activity的截屏，保存到png文件
-        private fun takeScreenShot(activity: Activity): Bitmap {
-            // View是你需要截图的View
-            val view = activity.window.decorView
-            view.isDrawingCacheEnabled = true
-            view.buildDrawingCache()
-            val b1 = view.drawingCache
-
-            // 获取状态栏高度
-            val frame = Rect()
-            activity.window.decorView.getWindowVisibleDisplayFrame(frame)
-            val statusBarHeight = frame.top
-
-            // 获取屏幕长和高
-            val width = activity.windowManager.defaultDisplay.width
-            val height = activity.windowManager.defaultDisplay.height
-            // 去掉标题栏
-            val b = Bitmap.createBitmap(
-                b1, 0, statusBarHeight, width, height
-                        - statusBarHeight
-            )
-            view.destroyDrawingCache()
-            return b
-        }
     }
 }

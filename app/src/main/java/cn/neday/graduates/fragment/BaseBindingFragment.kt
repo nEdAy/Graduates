@@ -41,21 +41,21 @@ abstract class BaseBindingFragment<VB : ViewBinding> : Fragment(),
             override fun onAnimationStart(animation: Animation) {}
             override fun onAnimationRepeat(animation: Animation) {}
             override fun onAnimationEnd(animation: Animation) {
-                val animationSet = AnimationSet(true)
-                animationSet.addAnimation(
+                val animationEndSet = AnimationSet(true)
+                animationEndSet.addAnimation(
                     ScaleAnimation(
                         0.5f, 1.0f, 0.5f,
                         1.0f, Animation.RELATIVE_TO_SELF, 0.5f,
                         Animation.RELATIVE_TO_SELF, 0.5f
                     )
                 )
-                animationSet.addAnimation(AlphaAnimation(0.4f, 1.0f))
-                animationSet.duration = 600
-                animationSet.interpolator = DecelerateInterpolator()
-                animationSet.fillAfter = false
+                animationEndSet.addAnimation(AlphaAnimation(0.4f, 1.0f))
+                animationEndSet.duration = 600
+                animationEndSet.interpolator = DecelerateInterpolator()
+                animationEndSet.fillAfter = false
 
                 // 实现心跳的View
-                imageView.startAnimation(animationSet)
+                imageView.startAnimation(animationEndSet)
             }
         })
 

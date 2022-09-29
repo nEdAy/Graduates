@@ -1,7 +1,5 @@
 package cn.neday.graduates.fragment.main
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -12,8 +10,9 @@ import cn.neday.graduates.activity.GameActivity
 import cn.neday.graduates.databinding.FragmentMainBinding
 import cn.neday.graduates.doOnClickWithSound
 import cn.neday.graduates.fragment.BaseBindingFragment
+import cn.neday.graduates.repository.Score
 import cn.neday.graduates.repository.Settings
-import cn.neday.graduates.view.NiftyDialogBuilder
+import cn.neday.graduates.view.sheets.Info
 import com.dylanc.longan.startActivity
 import com.dylanc.longan.toast
 import com.tapsdk.antiaddictionui.AntiAddictionUIKit
@@ -24,19 +23,23 @@ import com.tapsdk.bootstrap.exceptions.TapError
 class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+        setOnClickListener()
+    }
+
+    private fun initView() {
         if (Settings.isPlaying) {
-            binding.btnStart.setImageResource(R.mipmap.btn_continue)
+            binding.btnStart.setImageResource(R.drawable.btn_continue)
             binding.btnReplay.visibility = View.VISIBLE
         } else {
-            binding.btnStart.setImageResource(R.mipmap.btn_start)
+            binding.btnStart.setImageResource(R.drawable.btn_start)
             binding.btnReplay.visibility = View.GONE
         }
-        setOnClickListener()
     }
 
     private fun setOnClickListener() {
         binding.btnExit.doOnClickWithSound { showExitDialog() }
-        binding.btnShare.doOnClickWithSound { shareGame() }
+        binding.btnBadge.doOnClickWithSound { showBadge() }
         binding.btnTop.doOnClickWithSound { showExitDialog() }
         binding.btnStart.doOnClickWithSound { startActivity<GameActivity>() }
         binding.btnReplay.doOnClickWithSound { showReStartDialog() }
@@ -46,27 +49,13 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
                 addToBackStack(null)
             }
         }
-        binding.btnHelp.doOnClickWithSound {
+        binding.btnHint.doOnClickWithSound {
             activity?.supportFragmentManager?.commit {
-                replace(R.id.fragment_main, HelpFragment())
+                replace(R.id.fragment_main, HintFragment())
                 addToBackStack(null)
             }
         }
-        binding.btnTap.doOnClickWithSound { onTapTap() }
-    }
-
-    private fun shareGame() {
-        toast("成就系统暂不开放,请分享支持")
-        val toShare = Intent(Intent.ACTION_SEND)
-        toShare.type = "text/plain"
-        toShare.putExtra(Intent.EXTRA_SUBJECT, "分享")
-        toShare.putExtra(
-            Intent.EXTRA_TEXT, """
-     毕业生之黄金岁月
-     测试版上线了，赶紧下载体验吧http://hxxxx.bmob.cn
-     """.trimIndent()
-        )
-        startActivity(Intent.createChooser(toShare, "分享到"))
+        binding.btnCommunity.doOnClickWithSound { onTapTapCommunity() }
     }
 
     override fun onResume() {
@@ -83,7 +72,26 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
         }
     }
 
-    private fun onTapTap() {
+    private fun showExitDialog() {
+        Info.showDialog(R.string.exit_or_un, R.string.exit_or_un_0) {
+            activity?.finish()
+        }
+    }
+
+    private fun showBadge() {
+        toast("成就系统暂不开放,请分享支持")
+    }
+
+    private fun showReStartDialog() {
+        Info.showDialog(R.string.restart_or_un, R.string.restart_or_un_0) {
+            Settings.isPlaying = false
+            Score.kv.clear()
+            startActivity<GameActivity>()
+            activity?.finish()
+        }
+    }
+
+    private fun onTapTapCommunity() {
         if (null == TDSUser.currentUser()) {
             // 未登录
             TDSUser.loginWithTapTap(activity, object : Callback<TDSUser> {
@@ -117,41 +125,6 @@ class MainFragment : BaseBindingFragment<FragmentMainBinding>() {
             }, "public_profile")
         } else {
             // 已登录，进入游戏
-        }
-    }
-
-    private fun showExitDialog() {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.exit_or_un)
-            .withMessage(R.string.exit_or_un_0).isCancelable(true)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { dialogBuilder.getDismiss() }
-            .setButtonOk {
-                dialogBuilder.closeDialog(dialogBuilder)
-                activity?.finish()
-            }.show()
-    }
-
-    private fun showReStartDialog() {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.restart_or_un)
-            .withMessage(R.string.restart_or_un_0).isCancelable(true)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { dialogBuilder.getDismiss() }
-            .setButtonOk {
-                dialogBuilder.closeDialog(dialogBuilder)
-                //Score?.cleanSharedPreference()
-                // Score?.cleanSharedPreference()
-                startActivity<GameActivity>()
-                activity?.finish()
-            }.show()
-    }
-
-    companion object {
-        @SuppressLint("StaticFieldLeak")
-        private val instance = MainFragment()
-        fun newInstance(): MainFragment {
-            return instance
         }
     }
 }

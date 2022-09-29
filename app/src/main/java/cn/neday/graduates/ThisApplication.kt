@@ -47,8 +47,7 @@ class ThisApplication : Application() {
                             .setFontAttrId(R.attr.fontPath)
                             .build()
                     )
-                )
-                .build()
+                ).build()
         )
     }
 }

@@ -16,52 +16,52 @@ class PartnerFragment : BaseBindingFragment<FragmentPartnerBinding>() {
         setUpViews()
         if (Score.partnerZj == 3) { //分手
             binding.ivPartner2.isClickable = false
-            binding.ivPartner2.setImageResource(R.mipmap.partners_2)
+            binding.ivPartner2.setImageResource(R.drawable.partners_2)
         }
         if (Score.partnerSn == 7) { //分手
             binding.ivPartner6.isClickable = false
-            binding.ivPartner6.setImageResource(R.mipmap.partners_6)
+            binding.ivPartner6.setImageResource(R.drawable.partners_6)
         }
         when (Score.partner) {
             1 -> {
                 binding.ivPartner0.isClickable = false
-                binding.ivPartner0.setImageResource(R.mipmap.partners_0)
+                binding.ivPartner0.setImageResource(R.drawable.partners_0)
             }
             2 -> {
                 binding.ivPartner1.isClickable = false
-                binding.ivPartner1.setImageResource(R.mipmap.partners_1)
+                binding.ivPartner1.setImageResource(R.drawable.partners_1)
             }
             3 -> {
                 binding.ivPartner2.isClickable = false
-                binding.ivPartner2.setImageResource(R.mipmap.partners_2)
+                binding.ivPartner2.setImageResource(R.drawable.partners_2)
             }
             4 -> {
                 binding.ivPartner3.isClickable = false
-                binding.ivPartner3.setImageResource(R.mipmap.partners_3)
+                binding.ivPartner3.setImageResource(R.drawable.partners_3)
             }
             5 -> {
                 binding.ivPartner4.isClickable = false
-                binding.ivPartner4.setImageResource(R.mipmap.partners_4)
+                binding.ivPartner4.setImageResource(R.drawable.partners_4)
             }
             6 -> {
                 binding.ivPartner5.isClickable = false
-                binding.ivPartner5.setImageResource(R.mipmap.partners_5)
+                binding.ivPartner5.setImageResource(R.drawable.partners_5)
             }
             7 -> {
                 binding.ivPartner6.isClickable = false
-                binding.ivPartner6.setImageResource(R.mipmap.partners_6)
+                binding.ivPartner6.setImageResource(R.drawable.partners_6)
             }
             8 -> {
                 binding.ivPartner7.isClickable = false
-                binding.ivPartner7.setImageResource(R.mipmap.partners_7)
+                binding.ivPartner7.setImageResource(R.drawable.partners_7)
             }
             9 -> {
                 binding.ivPartner8.isClickable = false
-                binding.ivPartner8.setImageResource(R.mipmap.partners_8)
+                binding.ivPartner8.setImageResource(R.drawable.partners_8)
             }
             10 -> {
                 binding.ivPartner9.isClickable = false
-                binding.ivPartner9.setImageResource(R.mipmap.partners_9)
+                binding.ivPartner9.setImageResource(R.drawable.partners_9)
             }
         }
     }

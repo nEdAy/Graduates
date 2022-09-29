@@ -1,7 +1,6 @@
 package cn.neday.graduates.fragment.game
 
 import android.os.Bundle
-import android.text.InputType
 import android.view.KeyEvent
 import android.view.View
 import android.widget.RadioGroup
@@ -10,7 +9,6 @@ import cn.neday.graduates.R
 import cn.neday.graduates.activity.MainActivity
 import cn.neday.graduates.databinding.FragmentStartAccountBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
-import cn.neday.graduates.view.NiftyDialogBuilder
 import com.dylanc.longan.startActivity
 
 class StartAccountFragment : BaseBindingFragment<FragmentStartAccountBinding>() {
@@ -41,17 +39,7 @@ class StartAccountFragment : BaseBindingFragment<FragmentStartAccountBinding>() 
     }
 
     private fun upNick() {
-        val dialogBuilder: NiftyDialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle("设置昵称")
-            .withMessage(null).withEditText(InputType.TYPE_CLASS_TEXT).isCancelable(true)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { dialogBuilder.getDismiss() }
-            .setButtonOk {
-                // val nickname: String = NiftyDialogBuilder.et_player.getText().toString()
-                // mSharedSettingsUtil.setUserNick(nickname)
-                dialogBuilder.dismiss()
-                onActivityCreated(null)
-            }.show()
+       //TODO:
     }
 
     private fun nextStart() {

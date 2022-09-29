@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
  * https://developer.taptap.com/docs/sdk/leaderboard/guide/
  */
 object Leaderboard {
-    val score = "score"
+    const val score = "score"
     fun update() {
         val statistic: MutableMap<String, Double> = HashMap()
         statistic["score"] = 20.0

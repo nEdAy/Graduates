@@ -35,7 +35,7 @@ public class FlakeView extends View {
      */
     public FlakeView(Context context) {
         super(context);
-        droid = BitmapFactory.decodeResource(getResources(), R.mipmap.gold);
+        droid = BitmapFactory.decodeResource(getResources(), R.drawable.gold);
         Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(Color.WHITE);
         textPaint.setTextSize(24);

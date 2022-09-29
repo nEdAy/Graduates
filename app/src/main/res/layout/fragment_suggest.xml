@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_start"
+    android:background="@drawable/bg_start"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -33,7 +33,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/btn_back" />
+            android:src="@drawable/btn_back" />
     </RelativeLayout>
 
 
@@ -79,7 +79,7 @@
             android:id="@+id/tv_suggest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:textColor="@color/base_color_text_black" />
@@ -106,10 +106,10 @@
             android:id="@+id/iv_open_suggest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:background="@mipmap/on"
+            android:background="@drawable/on"
             android:contentDescription="@string/ImageViewDescription"
             android:visibility="invisible" />
 
@@ -117,10 +117,10 @@
             android:id="@+id/iv_close_suggest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:background="@mipmap/off"
+            android:background="@drawable/off"
             android:contentDescription="@string/ImageViewDescription"
             android:visibility="visible" />
     </RelativeLayout>
@@ -171,7 +171,7 @@
             android:id="@+id/go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/btn_wxzz" />
+            android:src="@drawable/btn_wxzz" />
     </LinearLayout>
 
 </RelativeLayout>

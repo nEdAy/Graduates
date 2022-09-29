@@ -46,19 +46,19 @@ class ZhaojunFragment : BaseBindingFragment<FragmentStoryBinding>() {
                 //第一幕
                 mStroyMax = 16
                 binding.tvTalk.setText(zj_talk_0[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.zj00)
+                binding.ivStory.setBackgroundResource(R.drawable.zj00)
             }
             2 -> {
                 //第二幕
                 mStroyMax = 39
                 binding.tvTalk.setText(zj_talk_1[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.zj01)
+                binding.ivStory.setBackgroundResource(R.drawable.zj01)
             }
             3 -> {
                 //第三幕
                 mStroyMax = 74
                 binding.tvTalk.setText(zj_talk_2[0])
-                binding.ivStory.setBackgroundResource(R.mipmap.zj05)
+                binding.ivStory.setBackgroundResource(R.drawable.zj05)
             }
 
         }
@@ -87,9 +87,9 @@ class ZhaojunFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    21 -> binding.ivStory.setBackgroundResource(R.mipmap.zj02)
-                    29 -> binding.ivStory.setBackgroundResource(R.mipmap.zj03)
-                    36 -> binding.ivStory.setBackgroundResource(R.mipmap.zj04)
+                    21 -> binding.ivStory.setBackgroundResource(R.drawable.zj02)
+                    29 -> binding.ivStory.setBackgroundResource(R.drawable.zj03)
+                    36 -> binding.ivStory.setBackgroundResource(R.drawable.zj04)
                 }
             }
             3 -> {
@@ -101,23 +101,23 @@ class ZhaojunFragment : BaseBindingFragment<FragmentStoryBinding>() {
                     activity?.finish()
                 }
                 when (mStroy) {
-                    12 -> binding.ivStory.setBackgroundResource(R.mipmap.zj06)
-                    20 -> binding.ivStory.setBackgroundResource(R.mipmap.zj07)
+                    12 -> binding.ivStory.setBackgroundResource(R.drawable.zj06)
+                    20 -> binding.ivStory.setBackgroundResource(R.drawable.zj07)
                     34 -> {
                         binding.tvTalk.isClickable = false
                         binding.rbYes.setText(zj_talk_2[35])
                         binding.rbNo.setText(zj_talk_2[45])
                         binding.rgStory.visibility = View.VISIBLE
                     }
-                    36 -> binding.ivStory.setBackgroundResource(R.mipmap.zj12)
-                    40 -> binding.ivStory.setBackgroundResource(R.mipmap.zj13)
+                    36 -> binding.ivStory.setBackgroundResource(R.drawable.zj12)
+                    40 -> binding.ivStory.setBackgroundResource(R.drawable.zj13)
                     44 -> {
                         toast("你和女友昭君的感情加深了，爱情机遇指数+2")
                         Score.love = Score.love.plus(2)
                     }
-                    47 -> binding.ivStory.setBackgroundResource(R.mipmap.zj09)
-                    51 -> binding.ivStory.setBackgroundResource(R.mipmap.zj10)
-                    60 -> binding.ivStory.setBackgroundResource(R.mipmap.zj11)
+                    47 -> binding.ivStory.setBackgroundResource(R.drawable.zj09)
+                    51 -> binding.ivStory.setBackgroundResource(R.drawable.zj10)
+                    60 -> binding.ivStory.setBackgroundResource(R.drawable.zj11)
                     74 -> {
                         toast("你和女友昭君分手了")
                         Score.partner = 0

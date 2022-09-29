@@ -16,8 +16,8 @@ import cn.neday.graduates.databinding.FragmentGameBinding
 import cn.neday.graduates.fragment.BaseBindingFragment
 import cn.neday.graduates.repository.Score
 import cn.neday.graduates.repository.Settings
-import cn.neday.graduates.view.NiftyDialogBuilder
 import cn.neday.graduates.view.SolarSystem.MenuStatus
+import cn.neday.graduates.view.sheets.Info
 import com.dylanc.longan.doOnClick
 import com.dylanc.longan.startActivity
 import com.dylanc.longan.toast
@@ -182,7 +182,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 toGameOver()
             } else {
                 if (mPartnerValue == 7 && mMonthValue <= 24) {
-                    beginStroySn()
+                    beginStroylineSn()
                 }
                 setMonthValue()
                 val randomE = Random()
@@ -240,22 +240,22 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     private fun setClickAble() {
         val isCar: Boolean = Score.isCar
         binding.car.isClickable = !isCar
-        binding.car.setImageResource(if (isCar) R.mipmap.qiche_1 else R.mipmap.qiche_0)
+        binding.car.setImageResource(if (isCar) R.drawable.qiche_1 else R.drawable.qiche_0)
         val isHouse: Boolean = Score.isHouse
         binding.house.isClickable = !isHouse
-        binding.house.setImageResource(if (isHouse) R.mipmap.fangchan_1 else R.mipmap.fangchan_0)
+        binding.house.setImageResource(if (isHouse) R.drawable.fangchan_1 else R.drawable.fangchan_0)
         val isPartner: Boolean = Score.isPartner
         binding.partner.isClickable = !isPartner
-        binding.partner.setImageResource(if (isPartner) R.mipmap.hongniang_1 else R.mipmap.hongniang_0)
+        binding.partner.setImageResource(if (isPartner) R.drawable.hongniang_1 else R.drawable.hongniang_0)
         val isPosition: Boolean = Score.isPosition
         binding.position.isClickable = !isPosition
-        binding.position.setImageResource(if (isPosition) R.mipmap.rencai_1 else R.mipmap.rencai_0)
+        binding.position.setImageResource(if (isPosition) R.drawable.rencai_1 else R.drawable.rencai_0)
         val isLottery: Boolean = Score.isLottery
         binding.lottery.isClickable = !isLottery
-        binding.lottery.setImageResource(if (isLottery) R.mipmap.caipiao_1 else R.mipmap.caipiao_0)
+        binding.lottery.setImageResource(if (isLottery) R.drawable.caipiao_1 else R.drawable.caipiao_0)
         val isStock: Boolean = Score.isStock
         binding.stock.isClickable = !isStock
-        binding.stock.setImageResource(if (isStock) R.mipmap.gupiao_1 else R.mipmap.gupiao_0)
+        binding.stock.setImageResource(if (isStock) R.drawable.gupiao_1 else R.drawable.gupiao_0)
     }
 
     private fun setSsItemChoose() {
@@ -263,7 +263,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
             when (view.tag as String) {
                 "yd" -> if (checkValue(30, 200)) {
                     playSound(R.raw.read)
-                    showImageViewDialog(R.string.plan, R.string.plan_0, R.mipmap.rd)
+                    Info.showDialog(R.string.plan, R.string.plan_0, R.drawable.rd)
                     setValue(0, -200, 6, 7, -2, 0, 0, -30)
                     Score.yd = Score.yd.plus(1)
                     if (Score.yd == 30) {
@@ -305,7 +305,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "bl" -> if (checkValue(30, 100)) {
                     playSound(R.raw.read)
-                    showImageViewDialog(R.string.plan, R.string.plan_1, R.mipmap.bl)
+                    Info.showDialog(R.string.plan, R.string.plan_1, R.drawable.bl)
                     setValue(0, -100, 4, 5, 2, 0, 0, -30)
                     Score.bl = Score.bl.plus(1)
                     if (Score.bl == 30) {
@@ -347,7 +347,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "ts" -> if (checkValue(30, 1000)) {
                     playSound(R.raw.bar)
-                    showImageViewDialog(R.string.plan, R.string.plan_2, R.mipmap.ts)
+                    Info.showDialog(R.string.plan, R.string.plan_2, R.drawable.ts)
                     setValue(-2, -1000, 0, 4, 5, -2, 6, -30)
                     Score.ts = Score.ts.plus(1)
                     if (Score.ts == 20) {
@@ -388,7 +388,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "tx" -> if (checkValue(30, 600)) {
                     playSound(R.raw.classmate)
-                    showImageViewDialog(R.string.plan, R.string.plan_3, R.mipmap.tx)
+                    Info.showDialog(R.string.plan, R.string.plan_3, R.drawable.tx)
                     setValue(0, -600, 0, 2, 3, 0, 4, -30)
                     Score.py = Score.py.plus(1)
                     if (Score.py == 30) {
@@ -429,7 +429,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "gj" -> if (checkValue(30, 1000)) {
                     playSound(R.raw.shopping)
-                    showImageViewDialog(R.string.plan, R.string.plan_4, R.mipmap.gj)
+                    Info.showDialog(R.string.plan, R.string.plan_4, R.drawable.gj)
                     setValue(0, -1000, 0, 2, 7, 0, 0, -30)
                     // 接下来（当月即可）选择“逛街购物吃饭”，可触发“女友情节：昭君?第二幕”；
                     if (mPartnerValue == 3 && Score.partnerZj == 1) {
@@ -476,7 +476,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "cm" -> if (checkValue(60, 3000)) {
                     playSound(R.raw.tour)
-                    showImageViewDialog(R.string.plan, R.string.plan_5, R.mipmap.cm)
+                    Info.showDialog(R.string.plan, R.string.plan_5, R.drawable.cm)
                     setValue(4, -3000, 4, 4, 10, 0, 2, -60)
                     // 接下来（仍当月即可）选择“出门旅游度假”，可触发“女友情节：昭君?第三幕”。
                     if (mPartnerValue == 3 && Score.partnerZj == 2) {
@@ -520,7 +520,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "cj" -> if (checkValue(60, 2000)) {
                     playSound(R.raw.train)
-                    showImageViewDialog(R.string.plan, R.string.plan_6, R.mipmap.cj)
+                    Info.showDialog(R.string.plan, R.string.plan_6, R.drawable.cj)
                     setValue(-2, -2000, 20, 20, -4, 0, 0, -60)
                     ////说明：首先满足条件——女友是昭君，
                     // 然后在计划安排时选择“参加学习培训”，可触发“女友情节：昭君?第一幕”；
@@ -568,7 +568,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "zj" -> if (checkValue(20, -5000000)) {
                     playSound(R.raw.sleep)
-                    showImageViewDialog(R.string.plan, R.string.plan_7, R.mipmap.zj)
+                    Info.showDialog(R.string.plan, R.string.plan_7, R.drawable.zj)
                     setValue(2, 0, 0, 0, 2, 0, 0, -20)
                     Score.zj = Score.zj.plus(1)
                     if (Score.zj == 30) {
@@ -609,7 +609,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "jb" -> if (checkValue(60, -5000000)) {
                     playSound(R.raw.hammer)
-                    showImageViewDialog(R.string.plan, R.string.plan_8, R.mipmap.jb)
+                    Info.showDialog(R.string.plan, R.string.plan_8, R.drawable.jb)
                     setValue(-5, 1500, 10, 10, -8, 0, 0, -60)
                     Score.jb = Score.jb.plus(1)
                     if (Score.jb == 20) {
@@ -650,7 +650,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "sw" -> if (checkValue(60, -100)) {
                     playSound(R.raw.internet)
-                    showImageViewDialog(R.string.plan, R.string.plan_9, R.mipmap.sw)
+                    Info.showDialog(R.string.plan, R.string.plan_9, R.drawable.sw)
                     setValue(-2, -100, 0, 2, 8, 0, -1, -60)
                     Score.sw = Score.sw.plus(1)
                     if (Score.sw == 20) {
@@ -688,7 +688,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "ty" -> if (checkValue(30, -100)) {
                     playSound(R.raw.exercise)
-                    showImageViewDialog(R.string.plan, R.string.plan_10, R.mipmap.ty)
+                    Info.showDialog(R.string.plan, R.string.plan_10, R.drawable.ty)
                     setValue(5, -100, 3, 0, 2, 0, 0, -30)
                     Score.ty = Score.ty.plus(1)
                     if (Score.ty == 30) {
@@ -730,7 +730,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
                 }
                 "hj" -> if (checkValue(30, -300)) {
                     playSound(R.raw.parents)
-                    showImageViewDialog(R.string.plan, R.string.plan_11, R.mipmap.hj)
+                    Info.showDialog(R.string.plan, R.string.plan_11, R.drawable.hj)
                     setValue(1, -300, 0, 0, 2, 2, 0, -30)
                     Score.hj = Score.hj.plus(1)
                     if (Score.hj == 30) {
@@ -831,7 +831,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         }
     }
 
-    private fun beginStroySn() {
+    private fun beginStroylineSn() {
         val partnerSn: Int = Score.partnerSn
         val partnerSnTime: Int = Score.partnerSnTime
         //如果你的女友是十娘在你28岁时开始会有剧情，注意如果剩余时间不够24个月将无法触发十娘的所有剧情。
@@ -887,947 +887,842 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         val randomT = Random()
         val t = randomT.nextInt(2) //0~1
         when (s) {
-            0 -> showImageChooseViewDialog(R.string.event_0, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_0_a)
-                        toast("快乐-3，道德-10")
-                        Score.happy = Score.happy.plus(-3)
-                        Score.morality = Score.morality.plus(-10)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_0_b)
-                        toast("快乐-5，道德-15")
-                        Score.happy = Score.happy.plus(-5)
-                        Score.morality = Score.morality.plus(-15)
-                        onActivityCreated(null)
-                    }
+            0 -> Info.showDialog(R.string.event_0, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_0_a)
+                    toast("快乐-3，道德-10")
+                    Score.happy = Score.happy.plus(-3)
+                    Score.morality = Score.morality.plus(-10)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_0_b)
+                    toast("快乐-5，道德-15")
+                    Score.happy = Score.happy.plus(-5)
+                    Score.morality = Score.morality.plus(-15)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_0_c)
-                        toast(
-                            "金钱-800，快乐+5，道德+10"
-                        )
-                        Score.money = Score.money.plus(-800)
-                        Score.happy = Score.happy.plus(+5)
-                        Score.morality = Score.morality.plus(+10)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_0_d)
-                        toast("金钱-500，快乐+3，道德+5")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(+3)
-                        Score.morality = Score.morality.plus(+5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_0_c)
+                    toast(
+                        "金钱-800，快乐+5，道德+10"
+                    )
+                    Score.money = Score.money.plus(-800)
+                    Score.happy = Score.happy.plus(+5)
+                    Score.morality = Score.morality.plus(+10)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_0_d)
+                    toast("金钱-500，快乐+3，道德+5")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(+3)
+                    Score.morality = Score.morality.plus(+5)
+                    onActivityCreated(null)
                 }
             })
-            1 -> showImageChooseViewDialog(R.string.event_1, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_1_a)
-                        toast(
-                            "金钱+1000 快乐+3 交际+3"
-                        )
-                        Score.money = Score.money.plus(+1000)
-                        Score.happy = Score.happy.plus(+3)
-                        Score.communication = Score.communication.plus(+3)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_1_b)
-                        toast("金钱-2000 快乐-3")
-                        Score.happy = Score.happy.plus(-3)
-                        Score.money = Score.money.plus(-2000)
-                        onActivityCreated(null)
-                    }
+            1 -> Info.showDialog(R.string.event_1, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_1_a)
+                    toast(
+                        "金钱+1000 快乐+3 交际+3"
+                    )
+                    Score.money = Score.money.plus(+1000)
+                    Score.happy = Score.happy.plus(+3)
+                    Score.communication = Score.communication.plus(+3)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_1_b)
+                    toast("金钱-2000 快乐-3")
+                    Score.happy = Score.happy.plus(-3)
+                    Score.money = Score.money.plus(-2000)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_1_c)
-                        toast("金钱-3000,快乐-5")
-                        Score.money = Score.money.plus(-3000)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_1_d)
-                        toast("金钱+5000 快乐+5 经验+10")
-                        Score.money = Score.money.plus(+5000)
-                        Score.happy = Score.happy.plus(+5)
-                        Score.experience = Score.experience.plus(+10)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_1_c)
+                    toast("金钱-3000,快乐-5")
+                    Score.money = Score.money.plus(-3000)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_1_d)
+                    toast("金钱+5000 快乐+5 经验+10")
+                    Score.money = Score.money.plus(+5000)
+                    Score.happy = Score.happy.plus(+5)
+                    Score.experience = Score.experience.plus(+10)
+                    onActivityCreated(null)
                 }
             })
-            2 -> showImageChooseViewDialog(R.string.event_2, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_2_a)
-                        toast("金钱-2000 快乐-5 健康-10")
-                        Score.money = Score.money.plus(-2000)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.healthy = Score.healthy.plus(-10)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_2_b)
-                        toast("快乐+3，经验+5，能力+5，道德+10，交际+5")
-                        Score.happy = Score.happy.plus(+3)
-                        Score.experience = Score.experience.plus(+5)
-                        Score.ability = Score.ability.plus(+5)
-                        Score.morality = Score.morality.plus(+10)
-                        Score.communication = Score.communication.plus(+5)
-                        onActivityCreated(null)
-                    }
+            2 -> Info.showDialog(R.string.event_2, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_2_a)
+                    toast("金钱-2000 快乐-5 健康-10")
+                    Score.money = Score.money.plus(-2000)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.healthy = Score.healthy.plus(-10)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_2_b)
+                    toast("快乐+3，经验+5，能力+5，道德+10，交际+5")
+                    Score.happy = Score.happy.plus(+3)
+                    Score.experience = Score.experience.plus(+5)
+                    Score.ability = Score.ability.plus(+5)
+                    Score.morality = Score.morality.plus(+10)
+                    Score.communication = Score.communication.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_2_c)
-                        toast("金钱+100000，经验+10，能力+10，快乐-5，道德-20")
-                        Score.money = Score.money.plus(+10000)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(+10)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.morality = Score.morality.plus(-20)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_2_d)
-                        toast("金钱-30000，经验+10，能力-10，健康-10，快乐-10，道德-20")
-                        Score.money = Score.money.plus(-30000)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(-10)
-                        Score.healthy = Score.healthy.plus(-10)
-                        Score.happy = Score.happy.plus(-10)
-                        Score.morality = Score.morality.plus(-20)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_2_c)
+                    toast("金钱+100000，经验+10，能力+10，快乐-5，道德-20")
+                    Score.money = Score.money.plus(+10000)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(+10)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.morality = Score.morality.plus(-20)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_2_d)
+                    toast("金钱-30000，经验+10，能力-10，健康-10，快乐-10，道德-20")
+                    Score.money = Score.money.plus(-30000)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(-10)
+                    Score.healthy = Score.healthy.plus(-10)
+                    Score.happy = Score.happy.plus(-10)
+                    Score.morality = Score.morality.plus(-20)
+                    onActivityCreated(null)
                 }
             })
-            3 -> showImageChooseViewDialog(R.string.event_3, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_3_a)
-                        toast("快乐-3 经验+5")
-                        Score.happy = Score.happy.plus(-3)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_3_b)
-                        toast("金钱-30%，快乐-10，经验+10，能力+10")
-                        Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
-                        Score.experience = Score.experience.plus(+10)
-                        Score.happy = Score.happy.plus(-10)
-                        Score.ability = Score.ability.plus(+10)
-                        onActivityCreated(null)
-                    }
+            3 -> Info.showDialog(R.string.event_3, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_3_a)
+                    toast("快乐-3 经验+5")
+                    Score.happy = Score.happy.plus(-3)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_3_b)
+                    toast("金钱-30%，快乐-10，经验+10，能力+10")
+                    Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
+                    Score.experience = Score.experience.plus(+10)
+                    Score.happy = Score.happy.plus(-10)
+                    Score.ability = Score.ability.plus(+10)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_3_c)
-                        toast("经验+8")
-                        Score.experience = Score.experience.plus(+8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_3_d)
-                        toast("金钱+30%，快乐+10，经验+10，能力+10")
-                        Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(+10)
-                        Score.happy = Score.happy.plus(+10)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_3_c)
+                    toast("经验+8")
+                    Score.experience = Score.experience.plus(+8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_3_d)
+                    toast("金钱+30%，快乐+10，经验+10，能力+10")
+                    Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(+10)
+                    Score.happy = Score.happy.plus(+10)
+                    onActivityCreated(null)
                 }
             })
-            4 -> showImageChooseViewDialog(R.string.event_4, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_4_a)
-                        toast("快乐+8")
-                        Score.happy = Score.happy.plus(+8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_4_b)
-                        toast("快乐+5")
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    }
+            4 -> Info.showDialog(R.string.event_4, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_4_a)
+                    toast("快乐+8")
+                    Score.happy = Score.happy.plus(+8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_4_b)
+                    toast("快乐+5")
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_4_c)
-                        toast("金钱-3000 快乐-2")
-                        Score.money = Score.money.plus(-3000)
-                        Score.happy = Score.happy.plus(-2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_4_d)
-                        toast("金钱-1000，快乐-3")
-                        Score.money = Score.money.plus(-1000)
-                        Score.happy = Score.happy.plus(-3)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_4_c)
+                    toast("金钱-3000 快乐-2")
+                    Score.money = Score.money.plus(-3000)
+                    Score.happy = Score.happy.plus(-2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_4_d)
+                    toast("金钱-1000，快乐-3")
+                    Score.money = Score.money.plus(-1000)
+                    Score.happy = Score.happy.plus(-3)
+                    onActivityCreated(null)
                 }
             })
-            5 -> showImageChooseViewDialog(R.string.event_5, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_5_a)
-                        toast("金钱-500，快乐-3，经验+5")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(-3)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_5_b)
-                        toast("金钱-500，快乐+3，交际+5，经验+10")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(+3)
-                        Score.communication = Score.communication.plus(+5)
-                        Score.experience = Score.experience.plus(+10)
-                        onActivityCreated(null)
-                    }
+            5 -> Info.showDialog(R.string.event_5, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_5_a)
+                    toast("金钱-500，快乐-3，经验+5")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(-3)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_5_b)
+                    toast("金钱-500，快乐+3，交际+5，经验+10")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(+3)
+                    Score.communication = Score.communication.plus(+5)
+                    Score.experience = Score.experience.plus(+10)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_5_c)
-                        toast("金钱-500，快乐-5，健康-5，交际+2，经验+5")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.healthy = Score.healthy.plus(-5)
-                        Score.communication = Score.communication.plus(+2)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_5_d)
-                        toast("金钱-300，快乐-5，健康-5")
-                        Score.money = Score.money.plus(-300)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.healthy = Score.healthy.plus(-5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_5_c)
+                    toast("金钱-500，快乐-5，健康-5，交际+2，经验+5")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.healthy = Score.healthy.plus(-5)
+                    Score.communication = Score.communication.plus(+2)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_5_d)
+                    toast("金钱-300，快乐-5，健康-5")
+                    Score.money = Score.money.plus(-300)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.healthy = Score.healthy.plus(-5)
+                    onActivityCreated(null)
                 }
             })
-            6 -> showImageChooseViewDialog(R.string.event_6, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_6_a)
-                        toast("能力+3，经验+3，交际-3，快乐-5")
-                        Score.ability = Score.ability.plus(+3)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.communication = Score.communication.plus(-3)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_6_b)
-                        toast("能力+8，经验+8，交际+5，快乐+3")
-                        Score.ability = Score.ability.plus(+8)
-                        Score.experience = Score.experience.plus(+8)
-                        Score.communication = Score.communication.plus(+5)
-                        Score.happy = Score.happy.plus(+3)
-                        onActivityCreated(null)
-                    }
+            6 -> Info.showDialog(R.string.event_6, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_6_a)
+                    toast("能力+3，经验+3，交际-3，快乐-5")
+                    Score.ability = Score.ability.plus(+3)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.communication = Score.communication.plus(-3)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_6_b)
+                    toast("能力+8，经验+8，交际+5，快乐+3")
+                    Score.ability = Score.ability.plus(+8)
+                    Score.experience = Score.experience.plus(+8)
+                    Score.communication = Score.communication.plus(+5)
+                    Score.happy = Score.happy.plus(+3)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_6_c)
-                        toast("能力+3，经验+3，交际-3，快乐-5")
-                        Score.ability = Score.ability.plus(+3)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.communication = Score.communication.plus(-3)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_6_d)
-                        toast("能力+10，经验+10，交际+8，快乐+8")
-                        Score.ability = Score.ability.plus(+10)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.communication = Score.communication.plus(+8)
-                        Score.happy = Score.happy.plus(+8)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_6_c)
+                    toast("能力+3，经验+3，交际-3，快乐-5")
+                    Score.ability = Score.ability.plus(+3)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.communication = Score.communication.plus(-3)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_6_d)
+                    toast("能力+10，经验+10，交际+8，快乐+8")
+                    Score.ability = Score.ability.plus(+10)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.communication = Score.communication.plus(+8)
+                    Score.happy = Score.happy.plus(+8)
+                    onActivityCreated(null)
                 }
             })
-            7 -> showImageChooseViewDialog(R.string.event_7, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_7_a)
-                        toast("快乐+3 健康+2 经验+5")
-                        Score.happy = Score.happy.plus(+3)
-                        Score.healthy = Score.healthy.plus(+2)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_7_b)
-                        toast("快乐-10 健康-10")
-                        Score.happy = Score.happy.plus(-10)
-                        Score.healthy = Score.healthy.plus(-10)
-                        onActivityCreated(null)
-                    }
+            7 -> Info.showDialog(R.string.event_7, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_7_a)
+                    toast("快乐+3 健康+2 经验+5")
+                    Score.happy = Score.happy.plus(+3)
+                    Score.healthy = Score.healthy.plus(+2)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_7_b)
+                    toast("快乐-10 健康-10")
+                    Score.happy = Score.happy.plus(-10)
+                    Score.healthy = Score.healthy.plus(-10)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_7_c)
-                        toast("金钱-500 快乐+5 健康+5")
-                        Score.happy = Score.happy.plus(+5)
-                        Score.money = Score.money.plus(-500)
-                        Score.healthy = Score.healthy.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_7_d)
-                        toast("金钱-500 快乐-5 健康-5")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.healthy = Score.healthy.plus(-5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_7_c)
+                    toast("金钱-500 快乐+5 健康+5")
+                    Score.happy = Score.happy.plus(+5)
+                    Score.money = Score.money.plus(-500)
+                    Score.healthy = Score.healthy.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_7_d)
+                    toast("金钱-500 快乐-5 健康-5")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.healthy = Score.healthy.plus(-5)
+                    onActivityCreated(null)
                 }
             })
-            8 -> showImageChooseViewDialog(R.string.event_8, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_8_a)
-                        toast("快乐+5，经验+5")
-                        Score.happy = Score.happy.plus(+5)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_8_b)
-                        toast("经验+3 快乐-5")
-                        Score.experience = Score.experience.plus(+3)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    }
+            8 -> Info.showDialog(R.string.event_8, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_8_a)
+                    toast("快乐+5，经验+5")
+                    Score.happy = Score.happy.plus(+5)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_8_b)
+                    toast("经验+3 快乐-5")
+                    Score.experience = Score.experience.plus(+3)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_8_c)
-                        toast("金钱-40%，快乐-20，经验+5，能力+5")
-                        Score.money = Score.money.plus((-(Score.money * 0.4)).toInt())
-                        Score.happy = Score.happy.plus(-20)
-                        Score.experience = Score.experience.plus(+5)
-                        Score.ability = Score.ability.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_8_d)
-                        toast("金钱+30%，快乐+20 经验+10 能力+10")
-                        Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
-                        Score.happy = Score.happy.plus(+20)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(+10)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_8_c)
+                    toast("金钱-40%，快乐-20，经验+5，能力+5")
+                    Score.money = Score.money.plus((-(Score.money * 0.4)).toInt())
+                    Score.happy = Score.happy.plus(-20)
+                    Score.experience = Score.experience.plus(+5)
+                    Score.ability = Score.ability.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_8_d)
+                    toast("金钱+30%，快乐+20 经验+10 能力+10")
+                    Score.money = Score.money.plus((+(Score.money * 0.3)).toInt())
+                    Score.happy = Score.happy.plus(+20)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(+10)
+                    onActivityCreated(null)
                 }
             })
-            9 -> showImageChooseViewDialog(R.string.event_9, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_9_a)
-                        toast(
-                            "快乐+5，交际+5，道德+8"
-                        )
-                        Score.happy = Score.happy.plus(+5)
-                        Score.communication = Score.communication.plus(+5)
-                        Score.morality = Score.morality.plus(+8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_9_b)
-                        toast("经验+5，快乐+1，道德+5")
-                        Score.experience = Score.experience.plus(+5)
-                        Score.happy = Score.happy.plus(+1)
-                        Score.morality = Score.morality.plus(+5)
-                        onActivityCreated(null)
-                    }
+            9 -> Info.showDialog(R.string.event_9, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_9_a)
+                    toast(
+                        "快乐+5，交际+5，道德+8"
+                    )
+                    Score.happy = Score.happy.plus(+5)
+                    Score.communication = Score.communication.plus(+5)
+                    Score.morality = Score.morality.plus(+8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_9_b)
+                    toast("经验+5，快乐+1，道德+5")
+                    Score.experience = Score.experience.plus(+5)
+                    Score.happy = Score.happy.plus(+1)
+                    Score.morality = Score.morality.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_9_c)
-                        toast("金钱+12500，快乐+8，道德-10")
-                        Score.money = Score.money.plus(+12500)
-                        Score.happy = Score.happy.plus(+8)
-                        Score.morality = Score.morality.plus(-10)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_9_d)
-                        toast("金钱-500，快乐-5，道德-7")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.morality = Score.morality.plus(-7)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_9_c)
+                    toast("金钱+12500，快乐+8，道德-10")
+                    Score.money = Score.money.plus(+12500)
+                    Score.happy = Score.happy.plus(+8)
+                    Score.morality = Score.morality.plus(-10)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_9_d)
+                    toast("金钱-500，快乐-5，道德-7")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.morality = Score.morality.plus(-7)
+                    onActivityCreated(null)
                 }
             })
-            10 -> showImageChooseViewDialog(R.string.event_10, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_10_a)
-                        toast("快乐+5，经验+5")
-                        Score.happy = Score.happy.plus(+5)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_10_b)
-                        toast("快乐+3 经验+3")
-                        Score.happy = Score.happy.plus(+3)
-                        Score.experience = Score.experience.plus(+3)
-                        onActivityCreated(null)
-                    }
+            10 -> Info.showDialog(R.string.event_10, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_10_a)
+                    toast("快乐+5，经验+5")
+                    Score.happy = Score.happy.plus(+5)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_10_b)
+                    toast("快乐+3 经验+3")
+                    Score.happy = Score.happy.plus(+3)
+                    Score.experience = Score.experience.plus(+3)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_10_c)
-                        toast("金钱-10000，快乐-8，经验+5")
-                        Score.money = Score.money.plus(-10000)
-                        Score.happy = Score.happy.plus(-8)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_10_d)
-                        toast("金钱-12000，快乐-10，经验+5")
-                        Score.money = Score.money.plus(-12000)
-                        Score.happy = Score.happy.plus(+10)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_10_c)
+                    toast("金钱-10000，快乐-8，经验+5")
+                    Score.money = Score.money.plus(-10000)
+                    Score.happy = Score.happy.plus(-8)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_10_d)
+                    toast("金钱-12000，快乐-10，经验+5")
+                    Score.money = Score.money.plus(-12000)
+                    Score.happy = Score.happy.plus(+10)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
                 }
             })
-            11 -> showImageChooseViewDialog(R.string.event_11, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_11_a)
-                        toast("金钱-1000 健康-10 快乐-10 道德-5")
-                        Score.money = Score.money.plus(-1000)
-                        Score.happy = Score.happy.plus(+10)
-                        Score.healthy = Score.healthy.plus(-10)
-                        Score.morality = Score.morality.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_11_b)
-                        toast("道德-10，快乐-10")
-                        Score.happy = Score.happy.plus(-10)
-                        Score.morality = Score.morality.plus(-10)
-                        onActivityCreated(null)
-                    }
+            11 -> Info.showDialog(R.string.event_11, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_11_a)
+                    toast("金钱-1000 健康-10 快乐-10 道德-5")
+                    Score.money = Score.money.plus(-1000)
+                    Score.happy = Score.happy.plus(+10)
+                    Score.healthy = Score.healthy.plus(-10)
+                    Score.morality = Score.morality.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_11_b)
+                    toast("道德-10，快乐-10")
+                    Score.happy = Score.happy.plus(-10)
+                    Score.morality = Score.morality.plus(-10)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_11_c)
-                        toast("道德+10，金钱-5000")
-                        Score.money = Score.money.plus(-5000)
-                        Score.morality = Score.morality.plus(+10)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_11_d)
-                        toast("道德+15，金钱-13200")
-                        Score.money = Score.money.plus(+13200)
-                        Score.morality = Score.morality.plus(+15)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_11_c)
+                    toast("道德+10，金钱-5000")
+                    Score.money = Score.money.plus(-5000)
+                    Score.morality = Score.morality.plus(+10)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_11_d)
+                    toast("道德+15，金钱-13200")
+                    Score.money = Score.money.plus(+13200)
+                    Score.morality = Score.morality.plus(+15)
+                    onActivityCreated(null)
                 }
             })
-            12 -> showImageChooseViewDialog(R.string.event_12, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_12_a)
-                        toast("快乐-3，道德-5")
-                        Score.happy = Score.happy.plus(-3)
-                        Score.morality = Score.morality.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_12_b)
-                        toast("快乐-5，道德-3")
-                        Score.happy = Score.happy.plus(-5)
-                        Score.morality = Score.morality.plus(-3)
-                        onActivityCreated(null)
-                    }
+            12 -> Info.showDialog(R.string.event_12, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_12_a)
+                    toast("快乐-3，道德-5")
+                    Score.happy = Score.happy.plus(-3)
+                    Score.morality = Score.morality.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_12_b)
+                    toast("快乐-5，道德-3")
+                    Score.happy = Score.happy.plus(-5)
+                    Score.morality = Score.morality.plus(-3)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_12_c)
-                        toast("金钱-800，快乐+2，道德+5")
-                        Score.money = Score.money.plus(-800)
-                        Score.happy = Score.happy.plus(+2)
-                        Score.morality = Score.morality.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_12_d)
-                        toast("金钱-500，快乐+3，道德+3")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(+3)
-                        Score.morality = Score.morality.plus(+3)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_12_c)
+                    toast("金钱-800，快乐+2，道德+5")
+                    Score.money = Score.money.plus(-800)
+                    Score.happy = Score.happy.plus(+2)
+                    Score.morality = Score.morality.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_12_d)
+                    toast("金钱-500，快乐+3，道德+3")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(+3)
+                    Score.morality = Score.morality.plus(+3)
+                    onActivityCreated(null)
                 }
             })
-            13 -> showImageChooseViewDialog(R.string.event_13, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_13_a)
-                        toast("道德-8")
-                        Score.morality = Score.morality.plus(-8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_13_b)
-                        toast("道德-5")
-                        Score.morality = Score.morality.plus(-5)
-                        onActivityCreated(null)
-                    }
+            13 -> Info.showDialog(R.string.event_13, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_13_a)
+                    toast("道德-8")
+                    Score.morality = Score.morality.plus(-8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_13_b)
+                    toast("道德-5")
+                    Score.morality = Score.morality.plus(-5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_13_c)
-                        toast("金钱-800，经验+3，道德+8")
-                        Score.money = Score.money.plus(-800)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.morality = Score.morality.plus(+8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_13_d)
-                        toast("金钱-1000，经验+5，道德+10")
-                        Score.money = Score.money.plus(-1000)
-                        Score.experience = Score.experience.plus(+5)
-                        Score.morality = Score.morality.plus(+10)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_13_c)
+                    toast("金钱-800，经验+3，道德+8")
+                    Score.money = Score.money.plus(-800)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.morality = Score.morality.plus(+8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_13_d)
+                    toast("金钱-1000，经验+5，道德+10")
+                    Score.money = Score.money.plus(-1000)
+                    Score.experience = Score.experience.plus(+5)
+                    Score.morality = Score.morality.plus(+10)
+                    onActivityCreated(null)
                 }
             })
-            14 -> showImageChooseViewDialog(R.string.event_14, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_14_a)
-                        toast("金钱-500，快乐-3")
-                        Score.money = Score.money.plus(-500)
-                        Score.happy = Score.happy.plus(-3)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_14_b)
-                        toast("快乐-5")
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    }
+            14 -> Info.showDialog(R.string.event_14, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_14_a)
+                    toast("金钱-500，快乐-3")
+                    Score.money = Score.money.plus(-500)
+                    Score.happy = Score.happy.plus(-3)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_14_b)
+                    toast("快乐-5")
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_14_c)
-                        toast("健康-3，快乐-2，经验+5")
-                        Score.healthy = Score.healthy.plus(-3)
-                        Score.happy = Score.happy.plus(-2)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_14_d)
-                        toast("金钱-300，快乐+3，经验+3")
-                        Score.money = Score.money.plus(-300)
-                        Score.happy = Score.happy.plus(+3)
-                        Score.experience = Score.experience.plus(+3)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_14_c)
+                    toast("健康-3，快乐-2，经验+5")
+                    Score.healthy = Score.healthy.plus(-3)
+                    Score.happy = Score.happy.plus(-2)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_14_d)
+                    toast("金钱-300，快乐+3，经验+3")
+                    Score.money = Score.money.plus(-300)
+                    Score.happy = Score.happy.plus(+3)
+                    Score.experience = Score.experience.plus(+3)
+                    onActivityCreated(null)
                 }
             })
-            15 -> showImageChooseViewDialog(R.string.event_15, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_15_a)
-                        toast("经验+2")
-                        Score.experience = Score.experience.plus(+2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_15_b)
-                        toast("经验+1")
-                        Score.experience = Score.experience.plus(+1)
-                        onActivityCreated(null)
-                    }
+            15 -> Info.showDialog(R.string.event_15, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_15_a)
+                    toast("经验+2")
+                    Score.experience = Score.experience.plus(+2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_15_b)
+                    toast("经验+1")
+                    Score.experience = Score.experience.plus(+1)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_15_c)
-                        toast("金钱+50000，经验+10，能力+10，健康-5，快乐+5")
-                        Score.healthy = Score.healthy.plus(-5)
-                        Score.happy = Score.happy.plus(+5)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(+10)
-                        Score.money = Score.money.plus(+50000)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_15_d)
-                        toast("金钱-10000，经验+5，快乐-5")
-                        Score.money = Score.money.plus(-10000)
-                        Score.happy = Score.happy.plus(-5)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_15_c)
+                    toast("金钱+50000，经验+10，能力+10，健康-5，快乐+5")
+                    Score.healthy = Score.healthy.plus(-5)
+                    Score.happy = Score.happy.plus(+5)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(+10)
+                    Score.money = Score.money.plus(+50000)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_15_d)
+                    toast("金钱-10000，经验+5，快乐-5")
+                    Score.money = Score.money.plus(-10000)
+                    Score.happy = Score.happy.plus(-5)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
                 }
             })
-            16 -> showImageChooseViewDialog(R.string.event_16, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_16_a)
-                        toast("经验+3 道德-3")
-                        Score.morality = Score.morality.plus(-3)
-                        Score.experience = Score.experience.plus(+3)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_16_b)
-                        toast("经验+1，道德-3")
-                        Score.experience = Score.experience.plus(+1)
-                        Score.morality = Score.morality.plus(-3)
-                        onActivityCreated(null)
-                    }
+            16 -> Info.showDialog(R.string.event_16, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_16_a)
+                    toast("经验+3 道德-3")
+                    Score.morality = Score.morality.plus(-3)
+                    Score.experience = Score.experience.plus(+3)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_16_b)
+                    toast("经验+1，道德-3")
+                    Score.experience = Score.experience.plus(+1)
+                    Score.morality = Score.morality.plus(-3)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_16_c)
-                        toast("金钱-50，经验+2，道德+2")
-                        Score.money = Score.money.plus(-50)
-                        Score.experience = Score.experience.plus(+2)
-                        Score.morality = Score.morality.plus(2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_16_d)
-                        toast("金钱-100，经验+3，道德+3")
-                        Score.money = Score.money.plus(-100)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.morality = Score.morality.plus(3)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_16_c)
+                    toast("金钱-50，经验+2，道德+2")
+                    Score.money = Score.money.plus(-50)
+                    Score.experience = Score.experience.plus(+2)
+                    Score.morality = Score.morality.plus(2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_16_d)
+                    toast("金钱-100，经验+3，道德+3")
+                    Score.money = Score.money.plus(-100)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.morality = Score.morality.plus(3)
+                    onActivityCreated(null)
                 }
             })
-            17 -> showImageChooseViewDialog(R.string.event_17, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_17_a)
-                        toast("金钱-500，经验+5，快乐-5")
-                        Score.money = Score.money.plus(-500)
-                        Score.experience = Score.experience.plus(+5)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_17_b)
-                        toast("金钱+500，快乐+5")
-                        Score.money = Score.money.plus(+500)
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    }
+            17 -> Info.showDialog(R.string.event_17, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_17_a)
+                    toast("金钱-500，经验+5，快乐-5")
+                    Score.money = Score.money.plus(-500)
+                    Score.experience = Score.experience.plus(+5)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_17_b)
+                    toast("金钱+500，快乐+5")
+                    Score.money = Score.money.plus(+500)
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_17_c)
-                        toast("金钱-20，快乐+1")
-                        Score.money = Score.money.plus(-20)
-                        Score.happy = Score.happy.plus(+1)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_17_d)
-                        toast("金钱-200，快乐-2")
-                        Score.money = Score.money.plus(-200)
-                        Score.happy = Score.happy.plus(-2)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_17_c)
+                    toast("金钱-20，快乐+1")
+                    Score.money = Score.money.plus(-20)
+                    Score.happy = Score.happy.plus(+1)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_17_d)
+                    toast("金钱-200，快乐-2")
+                    Score.money = Score.money.plus(-200)
+                    Score.happy = Score.happy.plus(-2)
+                    onActivityCreated(null)
                 }
             })
-            18 -> showImageChooseViewDialog(R.string.event_18, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_18_a)
-                        toast("交际-2")
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_18_b)
-                        toast("交际-3，快乐-3")
-                        Score.communication = Score.communication.plus(-3)
-                        Score.happy = Score.happy.plus(-3)
-                        onActivityCreated(null)
-                    }
+            18 -> Info.showDialog(R.string.event_18, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_18_a)
+                    toast("交际-2")
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_18_b)
+                    toast("交际-3，快乐-3")
+                    Score.communication = Score.communication.plus(-3)
+                    Score.happy = Score.happy.plus(-3)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_18_c)
-                        toast("金钱-800，经验+3，交际+5，快乐+5")
-                        Score.money = Score.money.plus(-800)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.communication = Score.communication.plus(+5)
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_18_d)
-                        toast("金钱-200，快乐-2")
-                        Score.money = Score.money.plus(-200)
-                        Score.happy = Score.happy.plus(-2)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_18_c)
+                    toast("金钱-800，经验+3，交际+5，快乐+5")
+                    Score.money = Score.money.plus(-800)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.communication = Score.communication.plus(+5)
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_18_d)
+                    toast("金钱-200，快乐-2")
+                    Score.money = Score.money.plus(-200)
+                    Score.happy = Score.happy.plus(-2)
+                    onActivityCreated(null)
                 }
             })
-            19 -> showImageChooseViewDialog(R.string.event_19, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_19_a)
-                        toast("经验+2")
-                        Score.experience = Score.experience.plus(+2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_19_b)
-                        toast("经验+1")
-                        Score.experience = Score.experience.plus(+1)
-                        onActivityCreated(null)
-                    }
+            19 -> Info.showDialog(R.string.event_19, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_19_a)
+                    toast("经验+2")
+                    Score.experience = Score.experience.plus(+2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_19_b)
+                    toast("经验+1")
+                    Score.experience = Score.experience.plus(+1)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_19_c)
-                        toast("金钱-30000，经验+5，能力+5，快乐-3")
-                        Score.money = Score.money.plus(-30000)
-                        Score.experience = Score.experience.plus(+5)
-                        Score.ability = Score.ability.plus(+5)
-                        Score.happy = Score.happy.plus(-3)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_19_d)
-                        toast("金钱+400000，经验+10，能力+10，快乐+5")
-                        Score.money = Score.money.plus(+400000)
-                        Score.experience = Score.experience.plus(+10)
-                        Score.ability = Score.ability.plus(+10)
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_19_c)
+                    toast("金钱-30000，经验+5，能力+5，快乐-3")
+                    Score.money = Score.money.plus(-30000)
+                    Score.experience = Score.experience.plus(+5)
+                    Score.ability = Score.ability.plus(+5)
+                    Score.happy = Score.happy.plus(-3)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_19_d)
+                    toast("金钱+400000，经验+10，能力+10，快乐+5")
+                    Score.money = Score.money.plus(+400000)
+                    Score.experience = Score.experience.plus(+10)
+                    Score.ability = Score.ability.plus(+10)
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
                 }
             })
-            20 -> showImageChooseViewDialog(R.string.event_20, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_20_a)
-                        toast("道德+2 快乐+2")
-                        Score.happy = Score.happy.plus(+2)
-                        Score.morality = Score.morality.plus(+2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_20_b)
-                        toast("道德+2")
-                        Score.morality = Score.morality.plus(+2)
-                        onActivityCreated(null)
-                    }
+            20 -> Info.showDialog(R.string.event_20, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_20_a)
+                    toast("道德+2 快乐+2")
+                    Score.happy = Score.happy.plus(+2)
+                    Score.morality = Score.morality.plus(+2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_20_b)
+                    toast("道德+2")
+                    Score.morality = Score.morality.plus(+2)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_20_c)
-                        toast("金钱+100，快乐+4，道德-5")
-                        Score.money = Score.money.plus(+100)
-                        Score.happy = Score.happy.plus(+4)
-                        Score.morality = Score.morality.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_20_d)
-                        toast("金钱-500 快乐-3 道德-3")
-                        Score.morality = Score.morality.plus(-3)
-                        Score.happy = Score.happy.plus(-3)
-                        Score.money = Score.money.plus(-500)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_20_c)
+                    toast("金钱+100，快乐+4，道德-5")
+                    Score.money = Score.money.plus(+100)
+                    Score.happy = Score.happy.plus(+4)
+                    Score.morality = Score.morality.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_20_d)
+                    toast("金钱-500 快乐-3 道德-3")
+                    Score.morality = Score.morality.plus(-3)
+                    Score.happy = Score.happy.plus(-3)
+                    Score.money = Score.money.plus(-500)
+                    onActivityCreated(null)
                 }
             })
-            21 -> showImageChooseViewDialog(R.string.event_21, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_21_a)
-                        toast("经验+4，能力+4，快乐-2，交际+4")
-                        Score.ability = Score.ability.plus(+4)
-                        Score.experience = Score.experience.plus(+4)
-                        Score.happy = Score.happy.plus(-2)
-                        Score.communication = Score.communication.plus(+4)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_21_b)
-                        toast("快乐-4 健康-2 经验+2")
-                        Score.happy = Score.happy.plus(-4)
-                        Score.experience = Score.experience.plus(+2)
-                        Score.healthy = Score.healthy.plus(-2)
-                        onActivityCreated(null)
-                    }
+            21 -> Info.showDialog(R.string.event_21, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_21_a)
+                    toast("经验+4，能力+4，快乐-2，交际+4")
+                    Score.ability = Score.ability.plus(+4)
+                    Score.experience = Score.experience.plus(+4)
+                    Score.happy = Score.happy.plus(-2)
+                    Score.communication = Score.communication.plus(+4)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_21_b)
+                    toast("快乐-4 健康-2 经验+2")
+                    Score.happy = Score.happy.plus(-4)
+                    Score.experience = Score.experience.plus(+2)
+                    Score.healthy = Score.healthy.plus(-2)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_21_c)
-                        toast("经验+8，能力+8，快乐+5，交际+5")
-                        Score.ability = Score.ability.plus(+8)
-                        Score.experience = Score.experience.plus(+8)
-                        Score.happy = Score.happy.plus(+5)
-                        Score.communication = Score.communication.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_21_d)
-                        toast("经验+3，能力+3，快乐-3，交际-5")
-                        Score.experience = Score.experience.plus(+3)
-                        Score.ability = Score.ability.plus(+3)
-                        Score.happy = Score.happy.plus(-3)
-                        Score.communication = Score.communication.plus(-5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_21_c)
+                    toast("经验+8，能力+8，快乐+5，交际+5")
+                    Score.ability = Score.ability.plus(+8)
+                    Score.experience = Score.experience.plus(+8)
+                    Score.happy = Score.happy.plus(+5)
+                    Score.communication = Score.communication.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_21_d)
+                    toast("经验+3，能力+3，快乐-3，交际-5")
+                    Score.experience = Score.experience.plus(+3)
+                    Score.ability = Score.ability.plus(+3)
+                    Score.happy = Score.happy.plus(-3)
+                    Score.communication = Score.communication.plus(-5)
+                    onActivityCreated(null)
                 }
             })
-            22 -> showImageChooseViewDialog(R.string.event_22, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_22_a)
-                        toast("快乐-5")
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_22_b)
-                        toast("快乐+5")
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    }
+            22 -> Info.showDialog(R.string.event_22, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_22_a)
+                    toast("快乐-5")
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_22_b)
+                    toast("快乐+5")
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_22_c)
-                        toast("金钱-5000 快乐+5")
-                        Score.money = Score.money.plus(-5000)
-                        Score.happy = Score.happy.plus(+5)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_22_d)
-                        toast("金钱-4000 快乐-5 经验+3")
-                        Score.money = Score.money.plus(-4000)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.happy = Score.happy.plus(-5)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_22_c)
+                    toast("金钱-5000 快乐+5")
+                    Score.money = Score.money.plus(-5000)
+                    Score.happy = Score.happy.plus(+5)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_22_d)
+                    toast("金钱-4000 快乐-5 经验+3")
+                    Score.money = Score.money.plus(-4000)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.happy = Score.happy.plus(-5)
+                    onActivityCreated(null)
                 }
             })
-            23 -> showImageChooseViewDialog(R.string.event_23, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_23_a)
-                        toast("能力-4，快乐-4")
-                        Score.ability = Score.ability.plus(-4)
-                        Score.happy = Score.happy.plus(-4)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_23_b)
-                        toast("快乐+5 经验+5")
-                        Score.happy = Score.happy.plus(+5)
-                        Score.experience = Score.experience.plus(+5)
-                        onActivityCreated(null)
-                    }
+            23 -> Info.showDialog(R.string.event_23, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_23_a)
+                    toast("能力-4，快乐-4")
+                    Score.ability = Score.ability.plus(-4)
+                    Score.happy = Score.happy.plus(-4)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_23_b)
+                    toast("快乐+5 经验+5")
+                    Score.happy = Score.happy.plus(+5)
+                    Score.experience = Score.experience.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_23_c)
-                        toast("金钱+3000 能力+15 经验+15")
-                        Score.money = Score.money.plus(+3000)
-                        Score.experience = Score.experience.plus(+15)
-                        Score.ability = Score.ability.plus(+15)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_23_d)
-                        toast("经验+8，能力+8")
-                        Score.experience = Score.experience.plus(+8)
-                        Score.ability = Score.ability.plus(+8)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_23_c)
+                    toast("金钱+3000 能力+15 经验+15")
+                    Score.money = Score.money.plus(+3000)
+                    Score.experience = Score.experience.plus(+15)
+                    Score.ability = Score.ability.plus(+15)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_23_d)
+                    toast("经验+8，能力+8")
+                    Score.experience = Score.experience.plus(+8)
+                    Score.ability = Score.ability.plus(+8)
+                    onActivityCreated(null)
                 }
             })
-            24 -> showImageChooseViewDialog(R.string.event_16, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_24_a)
-                        toast("快乐+3，道德+8，经验+3")
-                        Score.morality = Score.morality.plus(+8)
-                        Score.experience = Score.experience.plus(+3)
-                        Score.happy = Score.happy.plus(+3)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_24_b)
-                        toast("快乐+5，交际+5，道德+8，经验+5")
-                        Score.experience = Score.experience.plus(+5)
-                        Score.morality = Score.morality.plus(-8)
-                        Score.happy = Score.happy.plus(+5)
-                        Score.communication = Score.communication.plus(+5)
-                        onActivityCreated(null)
-                    }
+            24 -> Info.showDialog(R.string.event_16, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_24_a)
+                    toast("快乐+3，道德+8，经验+3")
+                    Score.morality = Score.morality.plus(+8)
+                    Score.experience = Score.experience.plus(+3)
+                    Score.happy = Score.happy.plus(+3)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_24_b)
+                    toast("快乐+5，交际+5，道德+8，经验+5")
+                    Score.experience = Score.experience.plus(+5)
+                    Score.morality = Score.morality.plus(-8)
+                    Score.happy = Score.happy.plus(+5)
+                    Score.communication = Score.communication.plus(+5)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_24_c)
-                        toast("金钱-3000，经验+8，交际-8，快乐-8，道德-20")
-                        Score.money = Score.money.plus(-3000)
-                        Score.experience = Score.experience.plus(+8)
-                        Score.morality = Score.morality.plus(-20)
-                        Score.communication = Score.communication.plus(-8)
-                        Score.happy = Score.happy.plus(-8)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_24_d)
-                        toast("金钱+30000，经验+8，快乐+8，道德-20")
-                        Score.money = Score.money.plus(+30000)
-                        Score.experience = Score.experience.plus(+8)
-                        Score.happy = Score.happy.plus(+8)
-                        Score.morality = Score.morality.plus(-20)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_24_c)
+                    toast("金钱-3000，经验+8，交际-8，快乐-8，道德-20")
+                    Score.money = Score.money.plus(-3000)
+                    Score.experience = Score.experience.plus(+8)
+                    Score.morality = Score.morality.plus(-20)
+                    Score.communication = Score.communication.plus(-8)
+                    Score.happy = Score.happy.plus(-8)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_24_d)
+                    toast("金钱+30000，经验+8，快乐+8，道德-20")
+                    Score.money = Score.money.plus(+30000)
+                    Score.experience = Score.experience.plus(+8)
+                    Score.happy = Score.happy.plus(+8)
+                    Score.morality = Score.morality.plus(-20)
+                    onActivityCreated(null)
                 }
             })
-            25 -> showImageChooseViewDialog(R.string.event_25, object : Button1onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_25_a)
-                        toast("道德+2")
-                        Score.morality = Score.morality.plus(+2)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_25_b)
-                        toast("经验+2")
-                        Score.experience = Score.experience.plus(+2)
-                        onActivityCreated(null)
-                    }
+            25 -> Info.showDialog(R.string.event_25, onNegativeBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_25_a)
+                    toast("道德+2")
+                    Score.morality = Score.morality.plus(+2)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_25_b)
+                    toast("经验+2")
+                    Score.experience = Score.experience.plus(+2)
+                    onActivityCreated(null)
                 }
-            }, object : Button2onClickListener {
-                override fun onClick() {
-                    if (t == 0) {
-                        showViewDialog(R.string.event_25_c)
-                        toast("金钱+20%，快乐+20，经验+5，能力+5，道德-1")
-                        Score.money = Score.money.plus((+(Score.money * 0.2)).toInt())
-                        Score.experience = Score.experience.plus(+5)
-                        Score.morality = Score.morality.plus(-1)
-                        Score.ability = Score.ability.plus(+5)
-                        Score.happy = Score.happy.plus(+20)
-                        onActivityCreated(null)
-                    } else {
-                        showViewDialog(R.string.event_25_d)
-                        toast("金钱-30%，快乐-20，经验+5，能力+5，道德-1")
-                        Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
-                        Score.experience = Score.experience.plus(+5)
-                        Score.morality = Score.morality.plus(-1)
-                        Score.ability = Score.ability.plus(+5)
-                        Score.happy = Score.happy.plus(-20)
-                        onActivityCreated(null)
-                    }
+            }, onPositiveBlock = {
+                if (t == 0) {
+                    Info.showDialog(R.string.event_25_c)
+                    toast("金钱+20%，快乐+20，经验+5，能力+5，道德-1")
+                    Score.money = Score.money.plus((+(Score.money * 0.2)).toInt())
+                    Score.experience = Score.experience.plus(+5)
+                    Score.morality = Score.morality.plus(-1)
+                    Score.ability = Score.ability.plus(+5)
+                    Score.happy = Score.happy.plus(+20)
+                    onActivityCreated(null)
+                } else {
+                    Info.showDialog(R.string.event_25_d)
+                    toast("金钱-30%，快乐-20，经验+5，能力+5，道德-1")
+                    Score.money = Score.money.plus((-(Score.money * 0.3)).toInt())
+                    Score.experience = Score.experience.plus(+5)
+                    Score.morality = Score.morality.plus(-1)
+                    Score.ability = Score.ability.plus(+5)
+                    Score.happy = Score.happy.plus(-20)
+                    onActivityCreated(null)
                 }
             })
-
         }
     }
 
@@ -1881,16 +1776,12 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun showLoadDialog() {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.load_or_un)
-            .withMessage("您的数据将恢复到上次保存的值（可读档次数共9次，当前还剩" + mLoadValue + "次，请慎重使用）。")
-            .isCancelable(true)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { dialogBuilder.getDismiss() }
-            .setButtonOk {
-                dialogBuilder.dismiss()
-                goLoad()
-            }.show()
+        Info.showDialog(
+            R.string.load_or_un,
+            content = "您的数据将恢复到上次保存的值（可读档次数共9次，当前还剩" + mLoadValue + "次，请慎重使用）。"
+        ) {
+            goLoad()
+        }
     }
 
     private fun goSave() {
@@ -1914,51 +1805,10 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
     }
 
     private fun showReturnDialog() {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.return_main_or_un)
-            .withMessage(R.string.return_main_or_un_0).isCancelable(true)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick { dialogBuilder.getDismiss() }
-            .setButtonOk {
-                dialogBuilder.closeDialog(dialogBuilder)
-                startActivity<MainActivity>()
-                activity?.finish()
-            }.show()
-    }
-
-    private fun showViewDialog(message: Int) {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.event)
-            .withMessage(message).isCancelable(true)
-            .withDuration(500).withButtonOk()
-            .setButtonOk { dialogBuilder.closeDialog(dialogBuilder) }.show()
-    }
-
-    private fun showImageViewDialog(title: Int, message: Int, iv: Int) {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(title)
-            .withMessage(message).withImageView(iv).isCancelable(true)
-            .withDuration(500).withButtonOk()
-            .setButtonOk { dialogBuilder.closeDialog(dialogBuilder) }.show()
-    }
-
-    private fun showImageChooseViewDialog(
-        id: Int,
-        Button1onClickListener: Button1onClickListener,
-        Button2onClickListener: Button2onClickListener
-    ) {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(R.string.event)
-            .withMessage(id).isCancelable(false)
-            .withDuration(500).withButtonCancle().withButtonOk()
-            .setButtonCancleClick {
-                Button1onClickListener.onClick()
-                dialogBuilder.closeDialog(dialogBuilder)
-            }
-            .setButtonOk {
-                Button2onClickListener.onClick()
-                dialogBuilder.closeDialog(dialogBuilder)
-            }.show()
+        Info.showDialog(R.string.return_main_or_un, R.string.return_main_or_un_0) {
+            startActivity<MainActivity>()
+            activity?.finish()
+        }
     }
 
     private fun showRgChooseViewDialog(
@@ -1969,30 +1819,7 @@ class GameFragment : BaseBindingFragment<FragmentGameBinding>() {
         rbConClickListener: RbConClickListener,
         rbDonClickListener: RbDonClickListener
     ) {
-        val dialogBuilder = NiftyDialogBuilder.getInstance(activity)
-        dialogBuilder.withTitle(title).withRg(a, b, c, d).setRb_a {
-            rbAonClickListener.onClick()
-            dialogBuilder.closeDialog(dialogBuilder)
-        }.setRb_b {
-            rbBonClickListener.onClick()
-            dialogBuilder.closeDialog(dialogBuilder)
-        }.setRb_c {
-            rbConClickListener.onClick()
-            dialogBuilder.closeDialog(dialogBuilder)
-        }.setRb_d {
-            rbDonClickListener.onClick()
-            dialogBuilder.closeDialog(dialogBuilder)
-        }
-            .withMessage(message).isCancelable(false)
-            .withDuration(500).show()
-    }
-
-    private interface Button1onClickListener {
-        fun onClick()
-    }
-
-    private interface Button2onClickListener {
-        fun onClick()
+        //todo:
     }
 
     private interface RbAonClickListener {

@@ -89,7 +89,7 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
 
     private fun onViewShow(my_house: Int?) {
         if (partnerXy > 90) {
-            binding.ivHouse.setImageResource(R.mipmap.house_3)
+            binding.ivHouse.setImageResource(R.drawable.house_3)
             binding.textHouse.setText(houseText[98])
             if (partnerXy > 97) {
                 partnerXy = 98
@@ -110,35 +110,35 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
             }
             1 -> {
                 binding.btnHouse0.visibility = View.VISIBLE
-                binding.btnHouse0.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse0.setImageResource(R.drawable.btn_sale)
             }
             2 -> {
                 binding.btnHouse1.visibility = View.VISIBLE
-                binding.btnHouse1.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse1.setImageResource(R.drawable.btn_sale)
             }
             3 -> {
                 binding.btnHouse2.visibility = View.VISIBLE
-                binding.btnHouse2.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse2.setImageResource(R.drawable.btn_sale)
             }
             4 -> {
                 binding.btnHouse3.visibility = View.VISIBLE
-                binding.btnHouse3.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse3.setImageResource(R.drawable.btn_sale)
             }
             5 -> {
                 binding.btnHouse4.visibility = View.VISIBLE
-                binding.btnHouse4.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse4.setImageResource(R.drawable.btn_sale)
             }
             6 -> {
                 binding.btnHouse5.visibility = View.VISIBLE
-                binding.btnHouse5.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse5.setImageResource(R.drawable.btn_sale)
             }
             7 -> {
                 binding.btnHouse6.visibility = View.VISIBLE
-                binding.btnHouse6.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse6.setImageResource(R.drawable.btn_sale)
             }
             8 -> {
                 binding.btnHouse7.visibility = View.VISIBLE
-                binding.btnHouse7.setImageResource(R.mipmap.btn_sale)
+                binding.btnHouse7.setImageResource(R.drawable.btn_sale)
             }
 
         }
@@ -165,73 +165,73 @@ class HouseFragment : BaseBindingFragment<FragmentHouseBinding>() {
         partnerXy++
         binding.textHouse.setText(houseText[partnerXy])
         when (partnerXy) {
-            1 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            1 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             4 -> binding.ivHouse.isClickable = false
-            5 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            5 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             8 -> binding.ivHouse.isClickable = false
-            9 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            9 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             12 -> binding.ivHouse.isClickable = false
-            13 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            13 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             15 -> binding.ivHouse.isClickable = false
-            16 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            16 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             19 -> binding.ivHouse.isClickable = false
-            20 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            20 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             21 -> binding.ivHouse.isClickable = false
-            22 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            22 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             23 -> binding.ivHouse.isClickable = false
-            24 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            24 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             26 -> binding.ivHouse.isClickable = false
-            27 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            27 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             28 -> binding.ivHouse.isClickable = false
-            29 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            29 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             30 -> binding.ivHouse.isClickable = false
-            31 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            31 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             33 -> binding.ivHouse.isClickable = false
-            34 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            34 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             35 -> binding.ivHouse.isClickable = false
-            36 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            36 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             38 -> binding.ivHouse.isClickable = false
-            39 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            39 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             40 -> binding.ivHouse.isClickable = false
-            41 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            41 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             43 -> binding.ivHouse.isClickable = false
-            44 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            44 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             45 -> binding.ivHouse.isClickable = false
-            46 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            46 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             48 -> binding.ivHouse.isClickable = false
-            49 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            49 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             50 -> binding.ivHouse.isClickable = false
-            51 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            51 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             53 -> binding.ivHouse.isClickable = false
-            54 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            54 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             55 -> binding.ivHouse.isClickable = false
-            56 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            56 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             57 -> binding.ivHouse.isClickable = false
-            58 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            58 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             59 -> binding.ivHouse.isClickable = false
-            60 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            60 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             61 -> binding.ivHouse.isClickable = false
-            62 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            62 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             63 -> binding.ivHouse.isClickable = false
-            64 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            64 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             65 -> binding.ivHouse.isClickable = false
-            66 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            66 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             67 -> binding.ivHouse.isClickable = false
-            68 -> binding.ivHouse.setImageResource(R.mipmap.house_0)
+            68 -> binding.ivHouse.setImageResource(R.drawable.house_0)
             69 -> binding.ivHouse.isClickable = false
-            70 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            70 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             71 -> binding.ivHouse.isClickable = false
-            72 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            72 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             73 -> binding.ivHouse.isClickable = false
-            74 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            74 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             75 -> binding.ivHouse.isClickable = false
-            76 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            76 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             78 -> binding.ivHouse.isClickable = false
-            79 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            79 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             82 -> binding.ivHouse.isClickable = false
-            83 -> binding.ivHouse.setImageResource(R.mipmap.house_1)
+            83 -> binding.ivHouse.setImageResource(R.drawable.house_1)
             86 -> binding.ivHouse.isClickable = false
-            87 -> binding.ivHouse.setImageResource(R.mipmap.house_2)
+            87 -> binding.ivHouse.setImageResource(R.drawable.house_2)
             90 -> {
                 binding.ivHouse.isClickable = false
                 Score.partnerStory = 0

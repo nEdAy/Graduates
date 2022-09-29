@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_about"
+    android:background="@drawable/bg_about"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="15dp"
-        android:background="@mipmap/bg_position_0"
+        android:background="@drawable/bg_position_0"
         android:paddingBottom="50dp"
         android:paddingLeft="50dp"
         android:paddingRight="40dp"
@@ -62,7 +62,7 @@
                     android:id="@+id/btn_position_11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -100,7 +100,7 @@
                     android:id="@+id/btn_position_10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -138,7 +138,7 @@
                     android:id="@+id/btn_position_9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -178,7 +178,7 @@
                     android:id="@+id/btn_position_8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -218,7 +218,7 @@
                     android:id="@+id/btn_position_7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -258,7 +258,7 @@
                     android:id="@+id/btn_position_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -298,7 +298,7 @@
                     android:id="@+id/btn_position_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -338,7 +338,7 @@
                     android:id="@+id/btn_position_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -378,7 +378,7 @@
                     android:id="@+id/btn_position_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
 
             </LinearLayout>
 
@@ -419,7 +419,7 @@
                     android:id="@+id/btn_position_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -459,7 +459,7 @@
                     android:id="@+id/btn_position_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
             <LinearLayout
@@ -499,7 +499,7 @@
                     android:id="@+id/btn_position_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/btn_yingping" />
+                    android:src="@drawable/btn_yingping" />
             </LinearLayout>
 
         </LinearLayout>
@@ -511,5 +511,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/btn_back" />
+        android:src="@drawable/btn_back" />
 </RelativeLayout>

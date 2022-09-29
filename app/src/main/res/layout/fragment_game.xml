@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_about"
+    android:background="@drawable/bg_about"
     android:gravity="center"
     tools:context=".fragment.game.GameFragment">
 
@@ -11,7 +11,7 @@
         android:id="@+id/ll_value"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@mipmap/panel"
+        android:background="@drawable/panel"
         android:orientation="vertical">
 
         <LinearLayout
@@ -30,13 +30,13 @@
                 android:layout_height="40dp"
                 android:layout_gravity="left"
                 android:contentDescription="@string/ImageViewDescription"
-                android:src="@mipmap/btn_back" />
+                android:src="@drawable/btn_back" />
 
             <TextView
                 android:id="@+id/tv_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/money"
+                android:background="@drawable/money"
                 android:paddingLeft="40dp"
                 android:paddingTop="10dp"
                 android:text="@string/money"
@@ -46,7 +46,7 @@
                 android:id="@+id/tv_healthy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/healthy"
+                android:background="@drawable/healthy"
                 android:paddingLeft="50dp"
                 android:paddingTop="7dp"
                 android:text="@string/healthy"
@@ -56,14 +56,14 @@
                 android:id="@+id/btn_save"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/btn_cundang"
+                android:src="@drawable/btn_cundang"
                 android:text="存" />
 
             <ImageView
                 android:id="@+id/btn_load"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/btn_dudang"
+                android:src="@drawable/btn_dudang"
                 android:text="读" />
 
         </LinearLayout>
@@ -90,7 +90,7 @@
                     android:id="@+id/tv_ability"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/ability"
+                    android:background="@drawable/ability"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/ability"
@@ -100,7 +100,7 @@
                     android:id="@+id/tv_experience"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/experience"
+                    android:background="@drawable/experience"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/experience"
@@ -119,7 +119,7 @@
                     android:id="@+id/tv_communication"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/communication"
+                    android:background="@drawable/communication"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/communication"
@@ -129,7 +129,7 @@
                     android:id="@+id/tv_happy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/happy"
+                    android:background="@drawable/happy"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/happy"
@@ -147,7 +147,7 @@
                     android:id="@+id/tv_morality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/morality"
+                    android:background="@drawable/morality"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/morality"
@@ -157,7 +157,7 @@
                     android:id="@+id/tv_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/age"
+                    android:background="@drawable/age"
                     android:paddingLeft="50dp"
                     android:paddingTop="10dp"
                     android:text="@string/age"
@@ -329,7 +329,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/btn_nextmonth" />
+            android:src="@drawable/btn_nextmonth" />
 
     </LinearLayout>
 
@@ -352,7 +352,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/gupiao_1" />
+            android:src="@drawable/gupiao_1" />
 
 
         <ImageView
@@ -362,7 +362,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/rencai_1" />
+            android:src="@drawable/rencai_1" />
 
 
         <ImageView
@@ -372,7 +372,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/fangchan_1" />
+            android:src="@drawable/fangchan_1" />
 
 
         <ImageView
@@ -382,7 +382,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/qiche_1" />
+            android:src="@drawable/qiche_1" />
 
 
         <ImageView
@@ -392,7 +392,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/hongniang_1" />
+            android:src="@drawable/hongniang_1" />
 
         <ImageView
             android:id="@+id/lottery"
@@ -401,7 +401,7 @@
             android:layout_weight="1"
             android:contentDescription="@string/ImageViewDescription"
             android:padding="5dp"
-            android:src="@mipmap/caipiao_1" />
+            android:src="@drawable/caipiao_1" />
     </LinearLayout>
 
 </RelativeLayout>

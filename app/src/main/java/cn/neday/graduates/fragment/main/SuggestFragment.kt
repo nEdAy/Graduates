@@ -11,10 +11,10 @@ import com.dylanc.longan.doOnClick
 class SuggestFragment : BaseBindingFragment<FragmentSuggestBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpViews()
+        initView()
     }
 
-    private fun setUpViews() {
+    private fun initView() {
         binding.btnBack.doOnClick { popBackStack() }
         binding.rlSwitchSuggest.doOnClick {
 //            if (suggest_money > 0) {
@@ -34,9 +34,8 @@ class SuggestFragment : BaseBindingFragment<FragmentSuggestBinding>() {
         binding.go.doOnClick { }
         binding.type.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.alipay -> binding.go.setImageResource(R.mipmap.btn_zfbzz)
-                R.id.wxpay -> binding.go.setImageResource(R.mipmap.btn_wxzz)
-
+                R.id.alipay -> binding.go.setImageResource(R.drawable.btn_zfbzz)
+                R.id.wxpay -> binding.go.setImageResource(R.drawable.btn_wxzz)
             }
         }
     }

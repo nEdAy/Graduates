@@ -10,11 +10,11 @@ Properties releaseSigning = new Properties()
 releaseSigning.load(new FileInputStream(file(project.property("release-signing.properties"))))
 
 android {
-    compileSdk 32
+    compileSdk 33
     defaultConfig {
         applicationId "cn.neday.graduates"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 180
         versionName "1.8.0"
         resConfigs 'zh'
@@ -58,13 +58,14 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'cn.neday.graduates'
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'androidx.databinding:viewbinding:7.2.2'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.databinding:viewbinding:7.3.0'
     implementation 'androidx.fragment:fragment-ktx:1.5.1'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -76,6 +77,8 @@ dependencies {
 
     implementation 'com.maxkeppeler.sheets:core:2.2.8'
     implementation 'com.maxkeppeler.sheets:info:2.2.8'
+
+    implementation 'com.github.gabriel-TheCode:AestheticDialogs:1.3.6'
 
     // Calligraphy3
     implementation 'io.github.inflationx:calligraphy3:3.1.1'

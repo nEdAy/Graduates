@@ -5,7 +5,7 @@
     android:background="@color/base_color_text_black"
     android:orientation="vertical">
 
-    <cn.neday.graduates.view.MyTextView
+    <cn.neday.graduates.view.FlashTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
